@@ -11,14 +11,10 @@ import rectangleImage3 from "../../assets/images/Rectangle 40223.png"
 import underline from "../../assets/images/Underline 5.png"
 import arrow6 from "../../assets/images/Arrow 6.png"
 import { Link } from "react-router-dom"
-import { useEffect } from "react"
+import PriceCards from "../../components/price-cards/PriceCards"
 import Occasions from "../../components/occasions/Occasions"
 
 const Home = () => {
-
-  useEffect(() => {
-
-  },[])
 
   return (
     <div className="home-page">
@@ -235,127 +231,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="pricing parent-container-padding">
-        <div className="section-header">
-          <h1>Affordable Pricing</h1>
-          <p>Here is what they have to say.</p>
-          <div className="flex-center g-2">
-            <h5>Pay yearly</h5>
-            <span>+$80</span>
-            <button className="secondary-button">Pay monthly</button>
-          </div>
-        </div>
-        <div className="body flex-between g-3">
-          <div className="card">
-            <div className="card-header">
-              <p>Premium</p>
-              <div className="price flex-align-end">
-                <h1>$19</h1>
-                <p>user / month</p>
-              </div>
-              <p>Aenean at lectus posuere enim id nec. Molestie neque, sed fusce faucibus.</p>
-            </div>
-            <ul className="body">
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-close-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-close-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-            </ul>
-            <div className="card-footer">
-              <a href="" className="secondary-button">Secondary Action</a>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-header">
-              <div className="flex-between">
-              <p>Team</p>
-              <p>Most Popular</p>
-              </div>
-              <div className="price flex-align-end">
-                <h1>$39</h1>
-                <p>user / month</p>
-              </div>
-              <p>Aenean at lectus posuere enim id nec. Molestie neque, sed fusce faucibus.</p>
-            </div>
-            <ul className="body">
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-            </ul>
-            <div className="card-footer">
-              <a href="" className="primary-button">Secondary Action</a>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-header">
-              <p>Business</p>
-              <div className="price flex-align-end">
-                <h1>$19</h1>
-                <p>user / month</p>
-              </div>
-              <p>Aenean at lectus posuere enim id nec. Molestie neque, sed fusce faucibus.</p>
-            </div>
-            <ul className="body">
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill"></i>
-                <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
-              </li>
-            </ul>
-            <div className="card-footer">
-              <a href="" className="secondary-button">Secondary Action</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PriceCards />
 
     </div>
   )

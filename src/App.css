@@ -500,6 +500,13 @@ nav input{
   border-radius: 12px;
 }
 
+.most-popular{
+  background-color: var(--light-primary-color);
+  padding: 3px 10px;
+  border-radius: 50px;
+  color: var(--primary-color) !important;
+}
+
 .pricing .card .card-header{
   border-bottom: 1px solid var(--stroke-white);
   padding-bottom: 1.5rem;
@@ -646,4 +653,51 @@ nav input{
   color: var(--primary-color);
   margin: 0 8px;
   font-size: 20px;
+}
+
+.keyfeatures{
+  margin: 2rem 0;
+}
+
+.keyfeatures .header{
+  width: 45%;
+  margin-bottom: 4rem;
+}
+
+.keyfeatures p{
+  font-size: 15px;
+  margin-top: 10px;
+  color: var(--body-texts);
+}
+
+.keyfeatures .table-header, .keyfeatures .table-body{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.keyfeatures .table-header{
+  border-bottom: 1px solid var(--header-texts);
+  padding-bottom: 10px;
+}
+
+.keyfeatures .table-header h4{
+  font-weight: 500;
+}
+
+.keyfeatures .table-header h4:first-child{
+  color: var(--primary-color);
+}
+
+.keyfeatures .table-body ul li{
+  border-bottom: 1px solid var(--stroke-white);
+  padding: 25px 0;
+  font-size: 14px;
+}
+
+.keyfeatures .table-buttons{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+  margin: 1.5rem 0;
+  gap: 20px;
 }
