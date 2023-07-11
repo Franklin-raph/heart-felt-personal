@@ -694,6 +694,11 @@ nav input{
   font-size: 14px;
 }
 
+.keyfeatures .table-body ul li i{
+  font-size: 20px;
+  color: #22C55E;
+}
+
 .keyfeatures .table-buttons{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
