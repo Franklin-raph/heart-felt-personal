@@ -1,8 +1,10 @@
-import React from 'react'
+import Occasions from "../../components/occasions/Occasions"
 
 const Pricing = () => {
   return (
-    <div>Pricing</div>
+    <div>
+      <Occasions />
+    </div>
   )
 }
 

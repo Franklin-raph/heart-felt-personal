@@ -12,6 +12,7 @@ import underline from "../../assets/images/Underline 5.png"
 import arrow6 from "../../assets/images/Arrow 6.png"
 import { Link } from "react-router-dom"
 import { useEffect } from "react"
+import Occasions from "../../components/occasions/Occasions"
 
 const Home = () => {
 
@@ -21,25 +22,7 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      <div className='parent-container-padding flex-between occasion-tab'>
-        <button className="occasions flex-between g-1">
-          <p>Occasions</p>
-          <i class="ri-arrow-down-s-line"></i>
-        </button>
-        <ul className='flex-between g-3'>
-          <li>Birthday</li>
-          <li>Annivasary</li>
-          <li>Goodwill</li>
-          <li>Festival</li>
-          <li>Sympathy</li>
-          <li>Love</li>
-          <li>Relationship</li>
-        </ul>
-        <button className="occasions">
-          Try Demo
-        </button>
-      </div>
-
+      <Occasions />
       <div className="two-column flex-between parent-container-padding">
         <div style={{ position:"relative" }}>
           <img src={vectorImg} alt="" className="vectorImage"/>
@@ -215,7 +198,7 @@ const Home = () => {
               Peter Willams
             </h4>
           </div>
-          
+
         </div>
       </div>
 
@@ -300,9 +283,12 @@ const Home = () => {
           </div>
           <div className="card">
             <div className="card-header">
+              <div className="flex-between">
               <p>Team</p>
+              <p>Most Popular</p>
+              </div>
               <div className="price flex-align-end">
-                <h1>$19</h1>
+                <h1>$39</h1>
                 <p>user / month</p>
               </div>
               <p>Aenean at lectus posuere enim id nec. Molestie neque, sed fusce faucibus.</p>

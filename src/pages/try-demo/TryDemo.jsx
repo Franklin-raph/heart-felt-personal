@@ -1,8 +1,10 @@
-import React from 'react'
+import Occasions from "../../components/occasions/Occasions"
 
 const TryDemo = () => {
   return (
-    <div>TryDemo</div>
+    <div>
+      <Occasions />
+    </div>
   )
 }
 

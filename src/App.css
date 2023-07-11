@@ -474,7 +474,7 @@ nav input{
 
 .pricing .section-header{
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4.5rem;
 }
 
 .pricing .section-header p{
@@ -497,7 +497,7 @@ nav input{
 .pricing .card{
   border: 1px solid var(--stroke-white);
   padding: 2rem;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 
 .pricing .card .card-header{
@@ -560,4 +560,90 @@ nav input{
   padding: 12px 1.2rem;
   border-radius: 6px;
   font-size: 14px;
+}
+
+.pricing .card:nth-child(2){
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 0 40px var(--light-primary-color);
+}
+
+.customize{
+  border-radius: 10px;
+  background: #F2F9FD;
+  margin: 4.5rem;
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.customize p{
+  color: var(--body-texts);
+  margin: 1.5rem 1rem 2.5rem;
+}
+
+.customize a{
+  background-color: #57D4D4;;
+  color: var(--generic-white);
+  border-radius: 50px;
+  padding: 8px 16px;
+}
+
+.footer-links{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--stroke-white);
+  border-bottom: 1px solid var(--stroke-white);
+  margin-bottom: 2rem;
+  padding: 8rem 6rem 10rem;
+}
+
+.footer-links li{
+  padding: 10px 0;
+}
+
+.footer-links a{
+  color: var(--body-texts);
+  font-size: 14px;
+}
+
+.footer-links h4{
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form{
+  margin: 20px 0;
+}
+
+.socials a{
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+.form input{
+  outline: none;
+  border: 1px solid var(--stroke-white);
+  padding: 10px;
+}
+
+.form input[type="button"]{
+  background-color: var(--primary-color);
+  color: var(--generic-white);
+  border-left: 0;
+  cursor: pointer;
+}
+
+.form input[type="text"]{
+  width: 13rem;
+}
+
+.footer-text p, .footer-text a{
+  color: var(--body-texts);
+  font-size: 13px;
+}
+
+.footer-text h4{
+  color: var(--primary-color);
+  margin: 0 8px;
+  font-size: 20px;
 }
