@@ -16,29 +16,7 @@ import { useEffect } from "react"
 const Home = () => {
 
   useEffect(() => {
-    $('.owl-carousel').owlCarousel({
-      loop:true,
-      margin:50,
-      responsiveClass:true,
-      autoplay:true,
-      autoplayTimeout:5000,
-      nav:true,
-      navText : ['<i class="ri-arrow-left-s-line"></i>','<i class="ri-arrow-right-s-line"></i>'],
-      responsive:{
-          0:{
-              items:1,
-              nav:true,
-          },
-          600:{
-              items:2,
-              nav:true,
-          },
-          1000:{
-              items:3,
-              nav:true,
-          }
-      }
-    })
+
   },[])
 
   return (
@@ -180,7 +158,7 @@ const Home = () => {
           <h1>Why people are choosing Heartfelt</h1>
           <p>Here is what they have to say.</p>
         </div>
-        <div className="body flex-between g-4 owl-carousel">
+        <div className="body flex-between g-4">
           <div className="carousel-item">
             <ul className="ratings">
               <i class="ri-star-s-fill"></i>
@@ -237,25 +215,7 @@ const Home = () => {
               Peter Willams
             </h4>
           </div>
-
-          <div className="carousel-item">
-            <ul className="ratings">
-              <i class="ri-star-s-fill"></i>
-              <i class="ri-star-s-fill"></i>
-              <i class="ri-star-s-fill"></i>
-              <i class="ri-star-s-fill"></i>
-              <i class="ri-star-half-fill"></i>
-            </ul>
-            <h3>
-              Why people are choosing Heartfelt
-            </h3>
-            <p>
-              Here is what they have to I gifted the family package to my younger brother, and he could download all mobile applications at ease..
-            </p>
-            <h4>
-              Peter Willams
-            </h4>
-          </div>
+          
         </div>
       </div>
 
