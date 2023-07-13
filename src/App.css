@@ -140,7 +140,17 @@ p{
   gap: 60px;
 }
 
+.container-width{
+  width: 78%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 /* Utility Classes ends */
+
+.nav{
+  padding: 0 3rem;
+}
 
 nav img{
   width: 100px;
@@ -197,11 +207,11 @@ nav input{
 }
 
 .home-page .two-column{
-  margin-top: 2.5rem;
+  margin: 2.5rem 0 6rem;
 }
 
 .home-page .two-column div{
-  width: 45%;
+  width: 50%;
 }
 
 .home-page .two-column div h1{
@@ -221,8 +231,8 @@ nav input{
   left: 12%;
 }
 
-.company-logo-section, .add-gift-cards{
-  margin: 4.5rem 0;
+.company-logo-section{
+  margin: 6rem 0 6rem;
 }
 
 .company-logos{
@@ -246,7 +256,7 @@ nav input{
 }
 
 .ready-to-use-section{
-  margin: 6rem 0;
+  margin: 10rem 0;
 }
 
 .ready-to-use-section .two-column div h1, .spread-love-section .two-column div h1{
@@ -263,7 +273,11 @@ nav input{
 }
 
 .spread-love-section{
-  margin: 2rem 0 4.5rem;
+  margin: 4.5rem 0 4.5rem;
+}
+
+.get-started-steps-section{
+  margin-top: 10rem;
 }
 
 .get-started-steps-section .header{
@@ -305,6 +319,15 @@ nav input{
 
 .get-started-steps-section .body p, .testimonials p{
   color: var(--body-texts);
+  font-size: 15px;
+}
+
+.add-gift-cards{
+  margin: 6rem 0 0rem;
+}
+
+.add-gift-cards .two-column{
+  margin: 1.5rem 0 2rem;
 }
 
 .add-gift-cards ul img{
@@ -387,7 +410,7 @@ nav input{
 .how-we-help{
   background-color: var(--primary-color);
   margin: 6rem 0;
-  padding: 3rem 3rem 8rem;
+  padding: 3rem 12rem 8rem;
 }
 
 .how-we-help .body div{
@@ -705,4 +728,221 @@ nav input{
   text-align: center;
   margin: 1.5rem 0;
   gap: 20px;
+}
+
+.bringing-physical .header{
+  width: 50%;
+  margin: 4rem auto 3rem;
+  text-align: center;
+}
+
+.bringing-physical .header h1{
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.bringing-physical .header p{
+  color: var(--body-texts);
+  font-size: 1.1rem;
+}
+
+.bringing-physical .body{
+  background-color: #F3F4F4;
+  padding:6rem 4rem 10rem;
+  justify-content: space-between !important;
+  position: relative;
+  border-radius: 6px;
+}
+
+.bringing-physical .body .about-upper-text{
+  width: 40%;
+}
+
+.bringing-physical .body .about-upper-text p{
+  color: var(--body-texts);
+  font-size: 15px;
+}
+
+.bringing-physical .body .about-upper-text p:nth-child(2){
+ margin: 20px 0;
+}
+
+.bringing-physical .body .about-upper-text .second-header{
+  margin: 40px 0 0;
+}
+
+.bringing-physical .body .image-div{
+  width: 45%;
+}
+
+.bringing-physical .body .rectangleImage3{
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+#about .bringing-physical .body .rectangleImage2{
+  width: 25%;
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  left: 49%;
+}
+
+.discover-more-gifts{
+  margin-bottom: 5rem;
+}
+
+.discover-more-gifts h1{
+  width: 40%;
+  margin: 6rem auto .5rem;
+  text-align: center;
+}
+
+.discover-more-gifts .body .card{
+  border: 1px solid var(--stroke-white);
+  margin: 3rem;
+  width: 35%;
+}
+
+.discover-more-gifts .body .card img{
+  width: 100%;
+}
+
+.discover-more-gifts .body .card div{
+  padding: 2.8rem 2rem;
+}
+
+.discover-more-gifts .body .card div p{
+  margin: 1rem 0;
+  color: var(--body-texts);
+  font-size: 15px;
+}
+
+.discover-more-gifts .body .card div a{
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.fastest-way div{
+  width: 45%;
+}
+
+.fastest-way p{
+  color: var(--body-texts);
+  margin: 1.5rem 0;
+}
+
+.fastest-way img{
+  width: 45%;
+}
+
+#about .get-started-steps-section{
+  background-color: var(--generic-white);
+  margin-top: 5rem;
+}
+
+#about .get-started-steps-section .body{
+  margin-top: 6rem;
+}
+
+@media screen and (max-width:1200px) {
+  .parent-container-padding{
+    padding: 2rem;
+  }
+
+  .container-width{
+    width: 90%;
+  }
+
+  .home-page .two-column{
+    margin: 2.5rem 0 3rem;
+  }
+
+  .company-logo-section{
+    margin: 6rem 0 6rem 4rem;
+  }
+
+  .ready-to-use-section .two-column div h1, .spread-love-section .two-column div h1, .home-page .two-column div h1{
+    font-size: 2rem;
+  }
+
+  .spread-love-section .two-column div{
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width:992px) {
+  .nav{
+    padding: 0;
+  }
+
+  .occasion-tab{
+    display: none;
+  }
+
+  .home-page .two-column, .spread-love-section{
+    flex-direction: column !important;
+  }
+
+  .home-page .two-column div{
+    width: 70%;
+    margin: 2rem 0 4rem;
+  }
+
+  .home-page .two-column div h1{
+    font-size: 2.8rem;
+  }
+  
+  .home-page .two-column div p{
+    margin: 1.2rem 0;
+  }
+
+  .home-page .two-column div img{
+    width: 100%;
+  }
+
+  .vectorImage{
+    display: none;
+  }
+
+  .company-logo-section{
+    flex-direction: column;
+    width: 80%;
+    margin: 5rem auto 0;
+  }
+
+  .company-logos{
+    margin-left: 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    border-radius: 10px;
+  }
+
+  .company-logo-section div:nth-of-type(1){
+    margin-bottom: 2.5rem;
+  }
+
+  .company-logo-section h1{
+    margin-bottom: 4px;
+  }
+
+  .ready-to-use-section{
+    margin: 5rem 0;
+  }
+
+  .get-started-steps-section .header{
+    width: 70%;
+  }
+
+  .add-gift-cards ul img{
+    width: auto !important;
+  }
+
+  .how-we-help .body div{
+    justify-content: center;
+    gap: 5rem;
+  }
 }

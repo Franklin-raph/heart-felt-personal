@@ -2,7 +2,7 @@ import React from 'react'
 
 const Occasions = () => {
   return (
-    <div>
+    <div style={{ padding:"0 3rem" }}>
         <div className='parent-container-padding flex-between occasion-tab'>
             <button className="occasions flex-between g-1">
                 <p>Occasions</p>

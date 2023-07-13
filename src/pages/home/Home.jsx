@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <div className="home-page">
       <Occasions />
-      <div className="two-column flex-between parent-container-padding">
+      <div className="two-column flex-between container-width">
         <div style={{ position:"relative" }}>
           <img src={vectorImg} alt="" className="vectorImage"/>
           <h1>
@@ -48,7 +48,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="ready-to-use-section parent-container-padding">
+      <div className="ready-to-use-section container-width">
         <div className="two-column flex-between">
           <div>
             <h1>
@@ -63,7 +63,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="spread-love-section parent-container-padding">
+      <div className="spread-love-section container-width">
         <div className="two-column flex-between" style={{ flexDirection:"row-reverse" }}>
           <div>
             <h1>
@@ -105,7 +105,7 @@ const Home = () => {
       </div>
 
       <div className="add-gift-cards parent-container-padding">
-        <div className="two-column flex-between">
+        <div className="flex-between two-column">
           <div>
             <h1>
               Add gift cards to your greeting cards
