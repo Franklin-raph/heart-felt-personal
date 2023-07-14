@@ -943,6 +943,33 @@ nav input{
 
   .how-we-help .body div{
     justify-content: center;
-    gap: 5rem;
+    gap: 8rem;
   }
+
+  .how-we-help .rectangleImage1, .how-we-help .rectangleImage2{
+    width: 30%;
+  }
+
+  .how-we-help .body div .top-body img{
+    top: 16%;
+    left: 38%;
+    width: 40%;
+  }
+
+  .how-we-help .rectangleImage3{
+    width: 60%;
+  }
+
+  .how-we-help .arrow6{
+    right: -10%;
+  }
+
+  .footer-links{
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 5rem;
+  }
+}
+
+@media screen and (max-width:768px) {
+  
 }
