@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <div className="home-page">
       <Occasions />
-      <div className="two-column flex-between container-width">
+      <div className="two-column flex-between container-width" style={{ textAlign:"start" }}>
         <div style={{ position:"relative" }}>
           <img src={vectorImg} alt="" className="vectorImage"/>
           <h1>

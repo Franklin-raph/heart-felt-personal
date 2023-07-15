@@ -90,8 +90,10 @@ const Footer = () => {
 
       <div className="footer-text parent-container-padding flex-between">
         <div className="flex-center">
-          <img src={giftImage} alt="" />
-          <h4>GiftCard</h4>
+          <div className="flex-center">
+            <img src={giftImage} alt="" />
+            <h4>GiftCard</h4>
+          </div>
           <p>&copy; 1995-2023 Giftcard inc. All Rights Reserved</p>
         </div>
         <div className="flex-center g-4">

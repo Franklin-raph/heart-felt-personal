@@ -848,6 +848,10 @@ nav input{
   margin-top: 6rem;
 }
 
+.mobile-search, .toggler{
+  display: none;
+}
+
 @media screen and (max-width:1200px) {
   .parent-container-padding{
     padding: 2rem;
@@ -968,8 +972,236 @@ nav input{
     grid-template-columns: repeat(3, 1fr);
     row-gap: 5rem;
   }
+
+  .desktop-search{
+    display: none;
+  }
+
+  .mobile-nav{
+    width: 100%;
+  }
+
+  nav{
+    padding: 2rem 5rem;
+  }
+
+  nav ul{
+    position: fixed;
+    flex-direction: column;
+    box-shadow: 0 0 30px #33333340;
+    width: 60%;
+    margin: 0 auto;
+    background-color: var(--generic-white);
+    top: -100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 4rem 2rem;
+    gap: 35px;
+    transition: .7s;
+  }
+
+  nav ul li a{
+    font-size: 18px;
+  }
+
+  .toggler i{
+    font-size: 22px;
+  }
+
+  .toggler{
+    display: block;
+  }
+
+  .ri-close-fill{
+    display: none;
+  }
+
+  .mobile-search{
+    display: grid;
+    gap: 25px;
+  }
 }
 
 @media screen and (max-width:768px) {
+
+  .home-page .two-column, .add-gift-cards ul{
+    text-align: center;
+  }
+
+  .home-page .two-column div{
+    width: 82%;
+  }
+
+  .home-page .two-column div h1{
+    font-size: 2rem;
+  }
+
+  .get-started-steps-section .header{
+    margin: 1rem auto 3rem;
+    text-align: center;
+  }
+
+  .get-started-steps-section .header h1{
+    font-size: 1.5rem;
+  }
+
+  .get-started-steps-section .body{
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+    align-content: center;
+  }
+
+  .home-page .two-column div p{
+    font-size: 1rem !important;
+  }
   
+  .add-gift-cards ul{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .add-gift-cards ul li{
+    margin: .8rem 0;
+  }
+
+  .how-we-help .body div{
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .how-we-help .header h1{
+    margin-bottom: 3rem;
+  }
+
+  .how-we-help .rectangleImage2{
+    top: 7%;
+    left: 55%;
+  }
+
+  .how-we-help .body div .top-body img{
+    top: 20%;
+    left: 3%;
+    width: 28%;
+  }
+
+  .how-we-help .body div .top-body{
+    width: 70%;
+  }
+
+  .how-we-help .body div .top-body div p{
+    margin: 0;
+  }
+
+  .how-we-help .body .bottom-body div{
+    width: 70%;
+  }
+
+  .how-we-help .arrow6{
+    right: 28%;
+  }
+
+  .how-we-help .rectangleImage3{
+    margin-top: -50px;
+    margin-bottom: 4rem;
+  }
+
+  .pricing .body{
+    flex-direction: column;
+  }
+
+  .pricing .card{
+    width: 60%;
+  }
+
+  .footer-links{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-links .form{
+    justify-content: flex-start;
+  }
+
+
+
+.testimonials .body{
+  flex-direction: column;
+}
+
+
+
+}
+
+@media screen and (max-width:576px) {
+
+  .two-column img{
+    width: 100%;
+  }
+
+  .how-we-help .body .rectangleImage1{
+    position: relative;
+    /* left: 0; */
+    right: 15%;
+  }
+
+  .how-we-help .rectangleImage1{
+    width: 60%;
+  }
+
+  .how-we-help .rectangleImage2{
+    width: 50%;
+    left: 45%;
+  }
+
+    .footer-text{
+      align-items: flex-start;
+    padding: 1rem 2rem 4rem;
+  }
+
+  .footer-text, .footer-text div:nth-of-type(1){
+    flex-direction: column;
+  }
+
+  .footer-text div:nth-of-type(1) div{
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .footer-text div:nth-of-type(1){
+    align-items: flex-start;
+  }
+
+  .footer-text p{
+    margin: 2rem 0;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .pricing .card, .get-started-steps-section .header, .how-we-help .body div .top-body, nav ul{
+    width: 90%;
+  }
+
+  .how-we-help .body .bottom-body, .how-we-help .rectangleImage3{
+    width: 100%;
+  }
+
+  .how-we-help .arrow6{
+    right: 12%;
+  }
+
+  .add-gift-cards{
+    margin: 0;
+  }
+
+  .home-page .two-column div h1, .testimonials .header h1{
+    font-size: 1.5rem;
+  }
+
+  .card, .customize{
+    width: 90%;
+    margin: 4.5rem auto;
+  }
 }
