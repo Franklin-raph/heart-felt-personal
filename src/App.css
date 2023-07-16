@@ -1246,6 +1246,17 @@ nav input{
     margin: 2rem 0;
   }
 
+  .footer-links{
+    padding-bottom: 15rem;
+    position: relative;
+  }
+
+  .footer-links div:nth-of-type(5){
+    position: absolute;
+    bottom: 50px;
+    left: 7%;
+}
+
   .how-we-help .body h2{
     font-size: 3rem;
   }
@@ -1261,7 +1272,7 @@ nav input{
 
 @media screen and (max-width:480px) {
   .pricing .card, .get-started-steps-section .header, .how-we-help .body div .top-body, nav ul{
-    width: 90%;
+    width: 96%;
   }
 
   .how-we-help .body .bottom-body, .how-we-help .rectangleImage3{
