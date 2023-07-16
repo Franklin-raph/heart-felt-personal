@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/navbar/Navbar'
+import Footer from './components/footer/Footer'
 import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Pricing from './pages/pricing/Pricing'
-import Footer from './components/footer/Footer'
 import TryDemo from './pages/try-demo/TryDemo'
 import PrivacyPolicy from './pages/privacy-policy/PricacyPolicy'
 import TermsOfUse from './pages/terms-of-use/TermsOfUse'
 import CookiePolicy from './pages/cookie-policy/CookiePolicy'
-import FAQ from './pages/faq/FAQ'
 import ContactUs from './pages/contact-us/ContactUs'
+import FAQ from './pages/faq/FAQ'
 import './App.css'
 
 function App() {

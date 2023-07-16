@@ -13,6 +13,11 @@
   font-family: 'Sora', sans-serif;
 }
 
+html, body{
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 :root{
   --primary-color: #299E9E;
   --header-texts: #061818;
@@ -1303,4 +1308,19 @@ nav input{
     margin-bottom: 10rem;
     width: 220%;
   }
+}
+
+.back-to-top{
+  position: fixed;
+  bottom: 4%;
+  right: 2%;
+  background-color: var(--primary-color);
+  color: var(--generic-white);
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.back-to-top i{
+  font-size: 1.5rem;
 }

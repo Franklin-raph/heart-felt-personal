@@ -1,8 +1,9 @@
 import giftImage from "../../assets/images/fi-sr-gift.png"
+import BackToTop from '../../components/back-to-top/BackToTop'
 
 const Footer = () => {
   return (
-    <div>
+    <div style={{ position:"relative" }}>
         <div className="customize parent-container-padding">
         <h1>Customise Gift Card for free</h1>
         <p>Express your love, so easy! </p>
@@ -102,6 +103,7 @@ const Footer = () => {
           <a href="#">Support</a>
         </div>
       </div>
+      <BackToTop />
     </div>
   )
 }
