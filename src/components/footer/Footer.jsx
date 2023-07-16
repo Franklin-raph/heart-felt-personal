@@ -51,10 +51,10 @@ const Footer = () => {
               <a href="#">Get Help</a>
             </li>
             <li>
-              <a href="#">FAQ</a>
+              <a href="/faq">FAQ</a>
             </li>
             <li>
-              <a href="#">Contact Us</a>
+              <a href="/contact-us">Contact Us</a>
             </li>
           </ul>
         </div>
@@ -62,13 +62,13 @@ const Footer = () => {
           <h4>Transparency</h4>
           <ul>
             <li>
-              <a href="#">Terms & Conditions</a>
+              <a href="terms-of-use">Terms & Conditions</a>
             </li>
             <li>
-              <a href="#">Privacy Policy</a>
+              <a href="/privacy-policy">Privacy Policy</a>
             </li>
             <li>
-              <a href="#">Cookies</a>
+              <a href="/cookie-policy">Cookies</a>
             </li>
           </ul>
         </div>

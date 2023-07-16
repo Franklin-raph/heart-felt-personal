@@ -9,6 +9,12 @@ const Navbar = () => {
         const navClose = document.querySelector(".ri-close-fill")
         const nav = document.querySelector("nav ul")
 
+        function closeNav(){
+            nav.style.top = "-100%"
+            navOpen.style.display = "block"
+            navClose.style.display = "none"
+        }
+
         navOpen.addEventListener("click", ()=>{
             nav.style.top = "12%"
             navOpen.style.display = "none"
@@ -16,9 +22,13 @@ const Navbar = () => {
         })
 
         navClose.addEventListener("click", ()=>{
-            nav.style.top = "-100%"
-            navOpen.style.display = "block"
-            navClose.style.display = "none"
+            closeNav()
+        })
+
+        document.querySelectorAll("nav ul a").forEach(navlink => {
+            navlink.addEventListener("click", () => {
+                closeNav()
+            })
         })
     },[])
 

@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Occasions = () => {
+  const navigate = useNavigate()
   return (
     <div style={{ padding:"0 3rem" }}>
         <div className='parent-container-padding flex-between occasion-tab'>
@@ -17,7 +19,7 @@ const Occasions = () => {
                 <li>Love</li>
                 <li>Relationship</li>
             </ul>
-            <button className="occasions">
+            <button className="occasions" onClick={() => navigate("/try-demo")}>
             Try Demo
             </button>
         </div>
