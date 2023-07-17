@@ -12,6 +12,7 @@ import CookiePolicy from './pages/cookie-policy/CookiePolicy'
 import ContactUs from './pages/contact-us/ContactUs'
 import FAQ from './pages/faq/FAQ'
 import SignIn from './pages/authentication/sign-in/SignIn'
+import SignUp from './pages/authentication/sign-up/SignUp'
 import ForgotPassword from './pages/authentication/forgot-password/ForgotPassword'
 import PasswordReset from './pages/authentication/password-reset/PasswordReset'
 import './App.css'
@@ -32,6 +33,9 @@ function App() {
         <Route path='/faq' element={<FAQ />} />
         <Route path='/contact-us' element={<ContactUs />} />
         <Route path='/sign-in' element={<SignIn />} />
+        <Route path='/sign-up' element={<SignUp />} />
+        <Route path='/forgotPassword' element={<ForgotPassword />} />
+        <Route path='/password-reset' element={<PasswordReset />} />
       </Routes>
       <Footer />
     </BrowserRouter>
