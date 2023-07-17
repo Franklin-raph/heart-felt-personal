@@ -11,6 +11,7 @@ import TermsOfUse from './pages/terms-of-use/TermsOfUse'
 import CookiePolicy from './pages/cookie-policy/CookiePolicy'
 import ContactUs from './pages/contact-us/ContactUs'
 import FAQ from './pages/faq/FAQ'
+import SignIn from './pages/authentication/sign-in/SignIn'
 import './App.css'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path='/cookie-policy' element={<CookiePolicy />} />
         <Route path='/faq' element={<FAQ />} />
         <Route path='/contact-us' element={<ContactUs />} />
+        <Route path='/sign-in' element={<SignIn />} />
       </Routes>
       <Footer />
     </BrowserRouter>

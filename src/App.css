@@ -858,6 +858,71 @@ nav input{
   display: none;
 }
 
+.sign-in-form{
+  flex-direction: column;
+  box-shadow: 0 0 20px #d5d5d57b;
+  width: 35%;
+  margin:8rem auto;
+  padding: 2.5rem 0;
+  border-radius: 10px;
+}
+
+.sign-in-form label{
+  display: block;
+}
+
+.sign-in-form .header{
+  text-align: center;
+}
+
+.sign-in-form .inputs div{
+  margin: 1.5rem 0;
+  /* width: 100%; */
+}
+
+.sign-in-form .inputs{
+  width: 80%;
+}
+
+.sign-in-form .inputs div input{
+  outline: none;
+  width: 100%;
+  border: 1px solid var(--stroke-white);
+  padding: 9px;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.submit-btn{
+  /* all: unset; */
+  width: 80%;
+  padding: 9px;
+  border: none;
+  border-radius: 6px;
+  margin: 0 auto 1rem;
+}
+
+.continue-with-google{
+  gap: 10px;
+  margin: 1.8rem 0 .8rem;
+  color: var(--body-texts);
+  border: 1px solid var(--stroke-white);
+  width: 80%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.center-line div{
+  /* padding: 1px; */
+  width: 80%;
+  height: 5px;
+  background-color:red;
+  color: red;
+}
+
+/* ================ MEDIA QUERY ==================== */
+
 @media screen and (max-width:1200px) {
   .parent-container-padding{
     padding: 2rem;

@@ -58,7 +58,7 @@ const Navbar = () => {
                             <i class="ri-search-line"></i>
                             <input type="text" placeholder='Search'/>
                         </div>
-                        <button className='secondary-button'>Sign in</button>
+                        <Link to="/sign-in" className='secondary-button'>Sign in</Link>
                         <button className='primary-button'>Send a card</button>
                     </div>
                 </ul>
@@ -68,7 +68,9 @@ const Navbar = () => {
                     <i class="ri-search-line"></i>
                     <input type="text" placeholder='Search'/>
                 </div>
-                <button className='secondary-button'>Sign in</button>
+                <button className='secondary-button'>
+                    <Link to="/sign-in" >Sign in</Link>
+                </button>
                 <button className='primary-button'>Send a card</button>
             </div>
         </nav>
