@@ -12,6 +12,8 @@ import CookiePolicy from './pages/cookie-policy/CookiePolicy'
 import ContactUs from './pages/contact-us/ContactUs'
 import FAQ from './pages/faq/FAQ'
 import SignIn from './pages/authentication/sign-in/SignIn'
+import ForgotPassword from './pages/authentication/forgot-password/ForgotPassword'
+import PasswordReset from './pages/authentication/password-reset/PasswordReset'
 import './App.css'
 
 function App() {
