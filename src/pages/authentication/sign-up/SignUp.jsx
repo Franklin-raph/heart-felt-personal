@@ -48,7 +48,7 @@ const SignUp = () => {
         <div className="sign-up-form-footer">
           By signing up, i agree to Heartfelt's{" "}
           <Link to="/terms-and-conditions">Terms of services</Link> and{" "}
-          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/terms-and-conditions">Privacy Policy</Link>
         </div>
       </form>
     </div>
