@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const PriceCards = () => {
   return (
     <div>
-        <div className="pricing parent-container-padding">
+      <div className="pricing parent-container-padding">
         <div className="section-header">
           <h1>Affordable Pricing</h1>
           <p>Here is what they have to say.</p>
@@ -13,7 +13,7 @@ const PriceCards = () => {
             <button className="secondary-button">Pay monthly</button>
           </div>
         </div>
-        <div className="body flex-between g-3">
+        <div className="body flex-between g-3 price_cards_row">
           <div className="card">
             <div className="card-header">
               <p>Premium</p>
@@ -21,70 +21,80 @@ const PriceCards = () => {
                 <h1>$19</h1>
                 <p>user / month</p>
               </div>
-              <p>Aenean at lectus posuere enim id nec. Molestie neque, sed fusce faucibus.</p>
+              <p>
+                Aenean at lectus posuere enim id nec. Molestie neque, sed fusce
+                faucibus.
+              </p>
             </div>
             <ul className="body">
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-close-circle-fill"></i>
+                <i className="ri-close-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-close-circle-fill"></i>
+                <i className="ri-close-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
             </ul>
             <div className="card-footer">
-              <a href="" className="secondary-button">Secondary Action</a>
+              <a href="" className="secondary-button">
+                Secondary Action
+              </a>
             </div>
           </div>
           <div className="card">
             <div className="card-header">
               <div className="flex-between">
-              <p>Team</p>
-              <p className="most-popular">🔥 Most popular</p>
+                <p>Team</p>
+                <p className="most-popular">🔥 Most popular</p>
               </div>
               <div className="price flex-align-end">
                 <h1>$39</h1>
                 <p>user / month</p>
               </div>
-              <p>Aenean at lectus posuere enim id nec. Molestie neque, sed fusce faucibus.</p>
+              <p>
+                Aenean at lectus posuere enim id nec. Molestie neque, sed fusce
+                faucibus.
+              </p>
             </div>
             <ul className="body">
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
             </ul>
             <div className="card-footer">
-              <a href="" className="primary-button">Secondary Action</a>
+              <a href="" className="primary-button">
+                Secondary Action
+              </a>
             </div>
           </div>
           <div className="card">
@@ -94,38 +104,43 @@ const PriceCards = () => {
                 <h1>$19</h1>
                 <p>user / month</p>
               </div>
-              <p>Aenean at lectus posuere enim id nec. Molestie neque, sed fusce faucibus.</p>
+              <p>
+                Aenean at lectus posuere enim id nec. Molestie neque, sed fusce
+                faucibus.
+              </p>
             </div>
             <ul className="body">
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill"></i>
+                <i className="ri-checkbox-circle-fill"></i>
                 <p>Tortor interdum condimentum nunc molestie quam lectus.</p>
               </li>
             </ul>
             <div className="card-footer">
-              <a href="" className="secondary-button">Secondary Action</a>
+              <a href="" className="secondary-button">
+                Secondary Action
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PriceCards
+export default PriceCards;

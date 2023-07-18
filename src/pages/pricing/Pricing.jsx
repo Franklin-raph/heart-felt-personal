@@ -1,5 +1,5 @@
-import Occasions from "../../components/occasions/Occasions"
-import PriceCards from "../../components/price-cards/PriceCards"
+import Occasions from "../../components/occasions/Occasions";
+import PriceCards from "../../components/price-cards/PriceCards";
 
 const Pricing = () => {
   return (
@@ -9,7 +9,11 @@ const Pricing = () => {
       <div className="keyfeatures parent-container-padding">
         <div className="header">
           <h1>Key Features</h1>
-          <p>We know trying a new service out can be scary. That’s why we offer a 7 day money-back guarantee if you aren’t happy with our work, no questions asked</p>
+          <p>
+            We know trying a new service out can be scary. That’s why we offer a
+            7 day money-back guarantee if you aren’t happy with our work, no
+            questions asked
+          </p>
         </div>
         <div className="body">
           <div className="table-header">
@@ -32,61 +36,85 @@ const Pricing = () => {
               <li>API requests per minute</li>
             </ul>
             <ul>
-              <li><i class="ri-check-line"></i></li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
               <li>100</li>
               <li>25,000</li>
               <li>0</li>
               <li>100/mo</li>
-              <li><i class="ri-check-line"></i></li>
-              <li><i class="ri-check-line"></i></li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
               <li>50 GB</li>
               <li>-</li>
             </ul>
             <ul>
-              <li><i class="ri-check-line"></i></li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
               <li>100</li>
               <li>100,000</li>
               <li>2,000</li>
               <li>1,000/mo</li>
-              <li><i class="ri-check-line"></i></li>
-              <li><i class="ri-check-line"></i></li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
               <li>200 GB</li>
               <li>60 RPM</li>
             </ul>
             <ul>
-              <li><i class="ri-check-line"></i></li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
               <li>100</li>
               <li>500,000</li>
               <li>10,000</li>
               <li>2,000/mo</li>
-              <li><i class="ri-check-line"></i></li>
-              <li><i class="ri-check-line"></i></li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
               <li>400 GB</li>
               <li>120 RPM</li>
             </ul>
             <ul>
-              <li><i class="ri-check-line"></i></li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
               <li>100</li>
               <li>Custom</li>
               <li>10,000</li>
               <li>Unlimited</li>
-              <li><i class="ri-check-line"></i></li>
-              <li><i class="ri-check-line"></i></li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
+              <li>
+                <i className="ri-check-line"></i>
+              </li>
               <li>400 GB+</li>
               <li>Custom</li>
             </ul>
           </div>
           <div className="table-buttons">
-             <button></button>
-             <button className="secondary-button">Action</button>
-             <button className="primary-button">Action</button>
-             <button className="secondary-button">Action</button>
-             <button className="secondary-button">Action</button>
+            <button></button>
+            <button className="secondary-button">Action</button>
+            <button className="primary-button">Action</button>
+            <button className="secondary-button">Action</button>
+            <button className="secondary-button">Action</button>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Pricing
+export default Pricing;
