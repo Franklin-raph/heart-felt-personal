@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import giftImage from "../../assets/images/fi-sr-gift.png";
 import BackToTop from "../../components/back-to-top/BackToTop";
 
@@ -63,13 +64,19 @@ const Footer = () => {
           <h4>Transparency</h4>
           <ul>
             <li>
-              <a href="terms-of-use">Terms & Conditions</a>
+              <Link to="/terms-and-conditions" onClick={() => scrollTo(0, 0)}>
+                Terms & Conditions
+              </Link>
             </li>
             <li>
-              <a href="/privacy-policy">Privacy Policy</a>
+              <Link to="/terms-and-conditions" onClick={() => scrollTo(0, 0)}>
+                Privacy Policy
+              </Link>
             </li>
             <li>
-              <a href="/cookie-policy">Cookies</a>
+              <Link to="/terms-and-conditions" onClick={() => scrollTo(0, 0)}>
+                Cookies
+              </Link>
             </li>
           </ul>
         </div>

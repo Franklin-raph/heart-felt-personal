@@ -979,6 +979,9 @@ nav input {
   color: var(--header-texts);
   transition: 0.35s ease-in-out;
 }
+.terms_and_conditions_sidebar a.active {
+  color: var(--primary-color);
+}
 .terms_and_conditions_sidebar a:active,
 .terms_and_conditions_sidebar a:hover {
   color: var(--primary-color);

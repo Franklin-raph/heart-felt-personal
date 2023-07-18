@@ -2,16 +2,35 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const TermsAndConditions = () => {
+  //
+  const terms_link = document.querySelectorAll(".terms_link");
+  terms_link.forEach((term_link) => {
+    term_link.classList.remove("active");
+    term_link.addEventListener("click", () => {
+      term_link.classList.add("active");
+    });
+  });
+  //
   return (
     <div className="terms_and_conditions_section">
       {/*  */}
       <div className="terms_and_conditions_sidebar">
         <h4>The Pages Shows</h4>
-        <Link>Terms and Conditions</Link>
-        <Link>Privacy & Cookie Policy</Link>
-        <Link>Acceptable Use Policy</Link>
-        <Link>Terms of Use</Link>
-        <Link>Terms of Service</Link>
+        <Link to="/terms-and-conditions" className="terms_link active">
+          Terms and Conditions
+        </Link>
+        <Link to="/terms-and-conditions" className="terms_link ">
+          Privacy & Cookie Policy
+        </Link>
+        <Link to="/terms-and-conditions" className="terms_link ">
+          Acceptable Use Policy
+        </Link>
+        <Link to="/terms-and-conditions" className="terms_link ">
+          Terms of Use
+        </Link>
+        <Link to="/terms-and-conditions" className="terms_link ">
+          Terms of Service
+        </Link>
       </div>
       {/*  */}
       <article className="terms_and_conditions_main_content">
