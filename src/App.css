@@ -989,7 +989,7 @@ nav input {
 .terms_and_conditions_main_content {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 35px;
 }
 .terms_and_condtions_segment h2 {
   color: var(--header-texts);
@@ -1219,18 +1219,9 @@ nav input {
 @media screen and (max-width: 808px) {
   .terms_and_conditions_section {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
   .terms_and_conditions_sidebar {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .terms_and_conditions_sidebar h4 {
-    font-size: 16px;
-  }
-  .terms_and_conditions_sidebar a {
-    font-size: 13px;
+    display: none;
   }
   .terms_and_condtions_segment h2 {
     font-size: 24px;

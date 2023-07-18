@@ -3,40 +3,32 @@ import { Link } from "react-router-dom";
 
 const TermsAndConditions = () => {
   //
-  const terms_link = document.querySelectorAll(".terms_link");
-  terms_link.forEach((term_link) => {
-    term_link.classList.remove("active");
-    term_link.addEventListener("click", () => {
-      term_link.classList.add("active");
-    });
-  });
-  //
   return (
     <div className="terms_and_conditions_section">
       {/*  */}
       <div className="terms_and_conditions_sidebar">
         <h4>The Pages Shows</h4>
-        <Link to="/terms-and-conditions" className="terms_link active">
+        <a href="#terms_and_conditions" className="terms_link active">
           Terms and Conditions
-        </Link>
-        <Link to="/terms-and-conditions" className="terms_link ">
+        </a>
+        <a href="#privacy_policy" className="terms_link ">
           Privacy & Cookie Policy
-        </Link>
-        <Link to="/terms-and-conditions" className="terms_link ">
+        </a>
+        <a href="#use_policy" className="terms_link ">
           Acceptable Use Policy
-        </Link>
-        <Link to="/terms-and-conditions" className="terms_link ">
+        </a>
+        <a href="#terms_of_use" className="terms_link ">
           Terms of Use
-        </Link>
-        <Link to="/terms-and-conditions" className="terms_link ">
+        </a>
+        <a href="#terms_of_service" className="terms_link ">
           Terms of Service
-        </Link>
+        </a>
       </div>
       {/*  */}
       <article className="terms_and_conditions_main_content">
         <p className="terms_updated_date">Last Updated: 15th Apr 2023</p>
         {/*  */}
-        <div className="terms_and_condtions_segment">
+        <div id="terms_and_conditions" className="terms_and_condtions_segment">
           <h2>Terms And Conditions</h2>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id,
@@ -61,7 +53,7 @@ const TermsAndConditions = () => {
           </p>
         </div>
         {/*  */}
-        <div className="terms_and_condtions_segment">
+        <div id="privacy_policy" className="terms_and_condtions_segment">
           <h2>Privacy & Cookie Policy</h2>
 
           <p>
@@ -72,7 +64,7 @@ const TermsAndConditions = () => {
           </p>
         </div>
         {/*  */}
-        <div className="terms_and_condtions_segment">
+        <div id="use_policy" className="terms_and_condtions_segment">
           <h2>Acceptable Use Policy</h2>
 
           <p>
@@ -81,7 +73,7 @@ const TermsAndConditions = () => {
           </p>
         </div>
         {/*  */}
-        <div className="terms_and_condtions_segment">
+        <div id="terms_of_use" className="terms_and_condtions_segment">
           <h2>Terms of Use</h2>
 
           <p>
@@ -91,7 +83,7 @@ const TermsAndConditions = () => {
           </p>
         </div>
         {/*  */}
-        <div className="terms_and_condtions_segment">
+        <div id="terms_of_service" className="terms_and_condtions_segment">
           <h2>Terms of Service</h2>
 
           <p>
