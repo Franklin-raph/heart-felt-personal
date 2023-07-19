@@ -1,8 +1,11 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import heartFeltLogo from "../../assets/images/heartfelt logo 2.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+import LoggedInNav from "./LoggedInNav";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     const navOpen = document.querySelector(".ri-menu-line");
     const navClose = document.querySelector(".ri-close-fill");
@@ -31,51 +34,65 @@ const Navbar = () => {
     });
   }, []);
 
+  //
+  const user_info = JSON.parse(localStorage.getItem("user_info"));
+  useEffect(() => {
+    if (!user_info) {
+      navigate("/sign-in");
+    }
+  }, []);
+
   return (
-    <div className="nav">
-      <nav className="parent-container-padding flex-between">
-        <div className="flex-between mobile-nav">
-          <a href="/">
-            <img src={heartFeltLogo} alt="" />
-          </a>
-          <div className="toggler">
-            <i className="ri-menu-line"></i>
-            <i className="ri-close-fill"></i>
-          </div>
-          <ul className="flex-between">
-            <li>
-              <Link to="/about-us">About</Link>
-            </li>
-            <li>
-              <Link to="/pricing">Pricing</Link>
-            </li>
-            <li>
-              <Link to="/try-demo">Try Demo</Link>
-            </li>
-            <div className="flex-between mobile-search">
+    <>
+      {user_info ? (
+        <LoggedInNav />
+      ) : (
+        <div className="nav">
+          <nav className="parent-container-padding flex-between">
+            <div className="flex-between mobile-nav">
+              <a href="/">
+                <img src={heartFeltLogo} alt="" />
+              </a>
+              <div className="toggler">
+                <i className="ri-menu-line"></i>
+                <i className="ri-close-fill"></i>
+              </div>
+              <ul className="flex-between">
+                <li>
+                  <Link to="/about-us">About</Link>
+                </li>
+                <li>
+                  <Link to="/pricing">Pricing</Link>
+                </li>
+                <li>
+                  <Link to="/try-demo">Try Demo</Link>
+                </li>
+                <div className="flex-between mobile-search">
+                  <div className="search-input flex-between">
+                    <i className="ri-search-line"></i>
+                    <input type="text" placeholder="Search" />
+                  </div>
+                  <Link to="/sign-in" className="secondary-button">
+                    Sign in
+                  </Link>
+                  <button className="primary-button">Send a card</button>
+                </div>
+              </ul>
+            </div>
+            <div className="flex-between desktop-search">
               <div className="search-input flex-between">
                 <i className="ri-search-line"></i>
                 <input type="text" placeholder="Search" />
               </div>
-              <Link to="/sign-in" className="secondary-button">
-                Sign in
-              </Link>
+              <button className="secondary-button">
+                <Link to="/sign-in">Sign in</Link>
+              </button>
               <button className="primary-button">Send a card</button>
             </div>
-          </ul>
+          </nav>
         </div>
-        <div className="flex-between desktop-search">
-          <div className="search-input flex-between">
-            <i className="ri-search-line"></i>
-            <input type="text" placeholder="Search" />
-          </div>
-          <button className="secondary-button">
-            <Link to="/sign-in">Sign in</Link>
-          </button>
-          <button className="primary-button">Send a card</button>
-        </div>
-      </nav>
-    </div>
+      )}
+    </>
   );
 };
 

@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+  //
+  const { handleChange, user_details } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  //
+  //on submit function
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    localStorage.setItem("user_info", JSON.stringify(user_details));
+    navigate("/");
+  };
+  //
   return (
     <div>
-      <form className="sign-in-form flex-center">
+      <form className="sign-in-form flex-center" onSubmit={handleSubmit}>
         <div className="header">
           <h1>Welcome Back</h1>
           <p>
@@ -25,11 +39,11 @@ const SignIn = () => {
         <div className="inputs">
           <div>
             <label>Email</label>
-            <input type="email" />
+            <input type="email" onChange={handleChange} />
           </div>
           <div>
             <label>Password</label>
-            <input type="Password" />
+            <input type="Password" onChange={handleChange} />
           </div>
         </div>
         <input

@@ -12,7 +12,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-links parent-container-padding">
-        <div>
+        {/* <div>
           <h4>Product</h4>
           <ul>
             <li>
@@ -28,7 +28,7 @@ const Footer = () => {
               <a href="#">Office & Work Tools</a>
             </li>
           </ul>
-        </div>
+        </div> */}
         <div>
           <h4>Features</h4>
           <ul>
@@ -80,7 +80,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="footer_links_last_col">
           <h4>Subscribe to newsletter</h4>
           <div className="form flex-center">
             <input type="text" placeholder="Enter your email" />

@@ -18,6 +18,14 @@ body {
   overflow-x: hidden !important;
   scroll-behavior: smooth;
 }
+body::-webkit-scrollbar {
+  width: 6px;
+  background: var(--generic-white);
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--link-colors);
+  border-radius: 10px;
+}
 
 :root {
   --primary-color: #299e9e;
@@ -193,6 +201,23 @@ nav input {
   outline: none;
   padding: 8px 10px;
   border-radius: 0 6px 6px 0;
+}
+.nav_profile_wrapper {
+  position: relative;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+.nav_profile_icon {
+  font-size: 28px;
+}
+.user_nav_chevron {
+  position: absolute;
+  bottom: 50%;
+  right: -10px;
+  transform: translate(0, 50%);
+}
+.user_nav_chevron.mobile {
+  right: 76px;
 }
 
 .occasions {
@@ -640,6 +665,7 @@ nav input {
   border-bottom: 1px solid var(--stroke-white);
   margin-bottom: 2rem;
   padding: 8rem 6rem 10rem;
+  gap: 50px;
 }
 
 .footer-links li {
@@ -871,6 +897,9 @@ nav input {
 .toggler {
   display: none;
 }
+.desktop-search {
+  gap: 35px !important;
+}
 
 .sign-in-form {
   flex-direction: column;
@@ -1086,6 +1115,7 @@ nav input {
   overflow: hidden;
   padding-left: 8px;
   padding-right: 8px;
+  cursor: pointer;
 }
 .faq_col_header {
   padding: 18px 8px;
@@ -1103,6 +1133,14 @@ nav input {
   color: var(--body-texts);
   height: 0;
   transition: height 0.35s ease-in-out;
+}
+.faq_body::-webkit-scrollbar {
+  width: 4px;
+  background: transparent;
+}
+.faq_body::-webkit-scrollbar-thumb {
+  background: #d4ecec;
+  border-radius: 100px;
 }
 .show_faq .faq_body {
   height: 70px;
@@ -1280,6 +1318,11 @@ nav input {
   }
   .mobile-search .secondary-button {
     padding: 12px 1.2rem;
+    border-radius: 8px;
+  }
+  .nav_profile_wrapper {
+    display: flex;
+    justify-content: center;
   }
 
   .toggler i {
@@ -1573,6 +1616,10 @@ nav input {
     bottom: 50px;
     left: 7%;
   }
+  .footer_links_last_col {
+    grid-row: 3;
+    grid-column: 1/-1;
+  }
 
   .how-we-help .body h2 {
     font-size: 3rem;
@@ -1647,6 +1694,9 @@ nav input {
   .bringing-physical .body .rectangleImage3 {
     margin-bottom: 10rem;
     width: 220%;
+  }
+  .bringing-physical .header h1 {
+    font-size: 1.8rem;
   }
 
   /*  */
