@@ -1,8 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import heartFeltLogo from "../../assets/images/heartfelt logo 2.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoggedInNav = () => {
+  const [userInfoModal, setUserInfoModal] = useState(false)
+  const user = JSON.parse(localStorage.getItem("user_info"))
+
   useEffect(() => {
     const navOpen = document.querySelector(".ri-menu-line");
     const navClose = document.querySelector(".ri-close-fill");
@@ -30,6 +33,15 @@ const LoggedInNav = () => {
       });
     });
   }, []);
+
+  const openUserInfo = () => {
+    setUserInfoModal(!userInfoModal)
+  }
+
+  const logoutUser = () => {
+    localStorage.clear()
+    location.href = "/sign-in"
+  }
 
   return (
     <div className="nav">
@@ -70,13 +82,75 @@ const LoggedInNav = () => {
             <i className="ri-search-line"></i>
             <input type="text" placeholder="Search" />
           </div>
-          <div className="nav_profile_wrapper">
-            <i className="bx bxs-user nav_profile_icon"></i>
-            <i className="bx bx-caret-down user_nav_chevron"></i>
+          <div className="nav_profile_wrapper"  onClick={openUserInfo}>
+            <div>
+              <i className="bx bxs-user nav_profile_icon"></i>
+            </div>
+            <i class='bx bx-chevron-down user_nav_chevron'></i>
           </div>
           <button className="primary-button">Send a card</button>
         </div>
       </nav>
+      {userInfoModal && 
+        <div className="user-info-drop-down">
+          <div className="user-name-icon flex-start">
+              <div className="drop-down-chevron">
+                <i className="bx bxs-user nav_profile_icon"></i>
+              </div>
+              <div>
+                <h5>{user}</h5>
+                <p>View Public Profile</p>
+              </div>
+          </div>
+          <ul>
+            <li className="flex-between">
+              <div className="flex-start g-1">
+                <i class='bx bx-star'></i>
+                <p>Send a card</p>
+              </div>
+              <i class='bx bx-chevron-right'></i>
+            </li>
+            <li className="flex-between">
+              <div className="flex-start g-1">
+                <i class='bx bx-memory-card'></i>
+                <p>My cards</p>
+              </div>
+              <i class='bx bx-chevron-right'></i>
+            </li>
+            <li className="flex-between">
+              <div className="flex-start g-1">
+                <i class='bx bxs-file-plus'></i>
+                <p>Saved Covers</p>
+              </div>
+              <i class='bx bx-chevron-right'></i>
+            </li>
+          </ul>
+          <ul>
+            <li className="flex-between">
+              <div className="flex-start g-1">
+                <i class='bx bx-cog'></i>
+                <p>Account</p>
+              </div>
+              <i class='bx bx-chevron-right'></i>
+            </li>
+            <li className="flex-between">
+              <div className="flex-start g-1">
+              <i class='bx bx-phone-outgoing'></i>
+                <p>Support</p>
+              </div>
+              <i class='bx bx-chevron-right'></i>
+            </li>
+            <li className="flex-between" onClick={logoutUser}>
+              <div className="flex-start g-1">
+              <i class='bx bx-log-out'></i>
+                <p>Logout</p>
+              </div>
+              <i class='bx bx-chevron-right'></i>
+            </li>
+          </ul>
+        </div>
+      }
+      
     </div>
   );
 };

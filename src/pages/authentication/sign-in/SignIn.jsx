@@ -1,18 +1,22 @@
-import React, { useContext } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../contexts/AuthContext";
+// import { AuthContext } from "../../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   //
-  const { handleChange, user_details } = useContext(AuthContext);
+  // const { handleChange, user_details } = useContext(AuthContext);
 
   const navigate = useNavigate();
   //
   //on submit function
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("user_info", JSON.stringify(user_details));
+    localStorage.setItem("user_info", JSON.stringify(email))
+    // localStorage.setItem("user_info", JSON.stringify(user_details));
     navigate("/");
   };
   //
@@ -39,11 +43,11 @@ const SignIn = () => {
         <div className="inputs">
           <div>
             <label>Email</label>
-            <input type="email" onChange={handleChange} />
+            <input type="email" onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div>
             <label>Password</label>
-            <input type="Password" onChange={handleChange} />
+            <input type="Password" onChange={(e) => setPassword(e.target.value)} />
           </div>
         </div>
         <input

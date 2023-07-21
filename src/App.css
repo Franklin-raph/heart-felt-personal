@@ -18,10 +18,12 @@ body {
   overflow-x: hidden !important;
   scroll-behavior: smooth;
 }
+
 body::-webkit-scrollbar {
   width: 6px;
   background: var(--generic-white);
 }
+
 body::-webkit-scrollbar-thumb {
   background: var(--link-colors);
   border-radius: 10px;
@@ -167,11 +169,20 @@ p {
 
 .nav {
   padding: 0 3rem;
+  border-bottom: 1px solid var(--stroke-white);
 }
 
 nav img {
   width: 100px;
   margin-right: 50px;
+}
+
+.desktop-logo{
+  display: block;
+}
+
+.mobile-logo{
+  display: none;
 }
 
 nav ul {
@@ -202,22 +213,82 @@ nav input {
   padding: 8px 10px;
   border-radius: 0 6px 6px 0;
 }
+
 .nav_profile_wrapper {
   position: relative;
-  color: var(--primary-color);
+  color: #c6cbcf;
   cursor: pointer;
 }
-.nav_profile_icon {
-  font-size: 28px;
+
+.nav_profile_wrapper div{
+  border: 1px solid #c6cbcf;
+  padding: 3px 4px;
+  border-radius: 50px;
+  margin-right: 8px;
 }
+
+.nav_profile_icon {
+  font-size: 18px;
+  background-color: #f2f9fd;;
+  border-radius: 50px;
+  padding: 5px;
+}
+
 .user_nav_chevron {
   position: absolute;
   bottom: 50%;
-  right: -10px;
+  right: -15px;
   transform: translate(0, 50%);
+  font-size: 22px;
 }
+
 .user_nav_chevron.mobile {
   right: 76px;
+}
+
+.user-info-drop-down{
+  background-color: var(--generic-white);
+  box-shadow: 0 0 10px var(--stroke-white);
+  z-index: 90;
+  position: absolute;
+  right: 10%;
+  top: 18%;
+  width: 20%;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.user-info-drop-down .nav_profile_icon {
+  font-size: 22px;
+  color: #c6cbcf;
+}
+
+.user-info-drop-down .user-name-icon{
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--stroke-white);
+  cursor: pointer;
+}
+
+.drop-down-chevron{
+  border: 1px solid #c6cbcf;
+  padding: 4px;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+.user-info-drop-down h5, .user-info-drop-down p{
+  font-size: 12px;
+}
+
+.user-info-drop-down ul li{
+  margin: 1rem 0;
+  color: var(--body-texts);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.user-info-drop-down ul:nth-of-type(1){
+  border-bottom: 1px solid var(--stroke-white);
 }
 
 .occasions {
@@ -660,7 +731,7 @@ nav input {
 
 .footer-links {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--stroke-white);
   border-bottom: 1px solid var(--stroke-white);
   margin-bottom: 2rem;
@@ -974,6 +1045,7 @@ nav input {
   width: 160px;
   background: var(--stroke-white);
 }
+
 .sign-up-form-footer {
   font-size: 14px;
   text-align: center;
@@ -1721,6 +1793,14 @@ nav input {
   .faq_start_call_col {
     grid-column: 1;
     width: 100%;
+  }
+
+  .desktop-logo{
+    display: none;
+  }
+
+  .mobile-logo{
+    display: block;
   }
 }
 
