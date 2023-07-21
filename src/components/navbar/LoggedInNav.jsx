@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 import heartFeltLogo from "../../assets/images/heartfelt logo 2.png";
+import heartFeltMobileLogo from "../../assets/images/heartfelt logo 3.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoggedInNav = () => {
   const [userInfoModal, setUserInfoModal] = useState(false);
   const user = JSON.parse(localStorage.getItem("user_info"));
-  useEffect(() => {
-    if (!user) {
-      location.href = "/sign-in";
-    }
-  }, []);
+  console.log(user);
 
   useEffect(() => {
     const navOpen = document.querySelector(".ri-menu-line");
@@ -52,9 +49,14 @@ const LoggedInNav = () => {
     <div className="nav">
       <nav className="parent-container-padding flex-between">
         <div className="flex-between mobile-nav">
-          <a href="/">
-            <img src={heartFeltLogo} alt="" />
-          </a>
+          <div className="desktop-mobile-logo">
+            <a href="/">
+              <img src={heartFeltLogo} alt="" className="desktop-logo" />
+            </a>
+            <a href="/">
+              <img src={heartFeltMobileLogo} alt="" className="mobile-logo" />
+            </a>
+          </div>
           <div className="toggler">
             <i className="ri-menu-line"></i>
             <i className="ri-close-fill"></i>
@@ -103,7 +105,7 @@ const LoggedInNav = () => {
               <i className="bx bxs-user nav_profile_icon"></i>
             </div>
             <div>
-              <h5>{user}</h5>
+              <h5>{user && user}</h5>
               <p>View Public Profile</p>
             </div>
           </div>
