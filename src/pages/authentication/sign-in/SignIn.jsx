@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -8,11 +8,16 @@ const SignIn = () => {
 
   const navigate = useNavigate();
   //
+  const user_info = JSON.parse(localStorage.getItem("user_info"));
+  useEffect(() => {
+    if (user_info) {
+      navigate("/");
+    }
+  }, []);
   // on submit function
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("user_info", JSON.stringify(email));
-    // localStorage.setItem("user_info", JSON.stringify(user_details));
     navigate("/");
   };
   //

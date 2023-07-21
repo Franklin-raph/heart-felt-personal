@@ -36,11 +36,6 @@ const Navbar = () => {
 
   //
   const user_info = JSON.parse(localStorage.getItem("user_info"));
-  useEffect(() => {
-    if (!user_info) {
-      navigate("/");
-    }
-  }, []);
 
   return (
     <>

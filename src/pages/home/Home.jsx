@@ -10,11 +10,21 @@ import rectangleImage2 from "../../assets/images/Rectangle 39500.png";
 import rectangleImage3 from "../../assets/images/Rectangle 40223.png";
 import underline from "../../assets/images/Underline 5.png";
 import arrow6 from "../../assets/images/Arrow 6.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PriceCards from "../../components/price-cards/PriceCards";
 import Occasions from "../../components/occasions/Occasions";
+import { useEffect } from "react";
 
 const Home = () => {
+  //
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user_info"));
+  useEffect(() => {
+    if (!user) {
+      navigate("/sign-in");
+    }
+  }, []);
+  //
   return (
     <div className="home-page">
       <Occasions />
@@ -31,7 +41,7 @@ const Home = () => {
           </p>
           <button className="primary-button">Send a card</button>
         </div>
-        <img src={image} alt="" width={"45%"}/>
+        <img src={image} alt="" width={"45%"} />
       </div>
 
       <div className="company-logo-section flex-end">

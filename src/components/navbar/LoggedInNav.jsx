@@ -4,9 +4,16 @@ import heartFeltMobileLogo from "../../assets/images/heartfelt logo 3.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoggedInNav = () => {
+  const navigate = useNavigate();
   const [userInfoModal, setUserInfoModal] = useState(false);
   const user = JSON.parse(localStorage.getItem("user_info"));
-  console.log(user);
+
+  //
+  useEffect(() => {
+    if (!user) {
+      navigate("/sign-in");
+    }
+  }, []);
 
   useEffect(() => {
     const navOpen = document.querySelector(".ri-menu-line");
