@@ -735,8 +735,9 @@ nav input {
   border-top: 1px solid var(--stroke-white);
   border-bottom: 1px solid var(--stroke-white);
   margin-bottom: 2rem;
-  padding: 8rem 6rem 10rem;
+  padding: 5rem 12rem 6rem;
   gap: 50px;
+  /* width: 80%; */
 }
 
 .footer-links li {

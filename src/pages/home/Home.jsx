@@ -1,4 +1,5 @@
 import image from "../../assets/images/Frame 1579.png";
+import image2 from "../../assets/images/Edit card illustration.png";
 import vectorImg from "../../assets/images/Vector.png";
 import apple from "../../assets/images/apple.png";
 import amazon from "../../assets/images/amazon.png";
@@ -61,7 +62,7 @@ const Home = () => {
               Explore Cards <i className="ri-arrow-right-up-line"></i>
             </Link>
           </div>
-          <img src={image} alt="" />
+          <img src={image2} alt="" />
         </div>
       </div>
 

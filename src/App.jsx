@@ -15,8 +15,9 @@ import SignIn from "./pages/authentication/sign-in/SignIn";
 import SignUp from "./pages/authentication/sign-up/SignUp";
 import ForgotPassword from "./pages/authentication/forgot-password/ForgotPassword";
 import PasswordReset from "./pages/authentication/password-reset/PasswordReset";
-import "./App.css";
 import TermsAndConditions from "./pages/terms-and-conditions/TermsAndConditions";
+import AccountVerification from "./pages/authentication/account-verification/AccountVerification";
+import "./App.css";
 
 function App() {
   return (
@@ -36,7 +37,8 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
-        <Route path="/password-reset" element={<PasswordReset />} />
+        <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
+        <Route path="/account-verification/:id/:token" element={<AccountVerification />} />
       </Routes>
       <Footer />
     </BrowserRouter>
