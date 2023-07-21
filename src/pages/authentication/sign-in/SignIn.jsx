@@ -1,21 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  //
-  // const { handleChange, user_details } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
   //
-  //on submit function
+  // on submit function
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("user_info", JSON.stringify(email))
+    localStorage.setItem("user_info", JSON.stringify(email));
     // localStorage.setItem("user_info", JSON.stringify(user_details));
     navigate("/");
   };
@@ -47,7 +43,10 @@ const SignIn = () => {
           </div>
           <div>
             <label>Password</label>
-            <input type="Password" onChange={(e) => setPassword(e.target.value)} />
+            <input
+              type="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
         </div>
         <input

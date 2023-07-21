@@ -2,7 +2,6 @@ import { useContext, useEffect } from "react";
 import heartFeltLogo from "../../assets/images/heartfelt logo 2.png";
 import heartFeltMobileLogo from "../../assets/images/heartfelt logo 3.png";
 import { Link, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../../contexts/AuthContext";
 import LoggedInNav from "./LoggedInNav";
 
 const Navbar = () => {
@@ -53,10 +52,14 @@ const Navbar = () => {
             <div className="flex-between mobile-nav">
               <div className="desktop-mobile-logo">
                 <a href="/">
-                  <img src={heartFeltLogo} alt="" className="desktop-logo"/>
+                  <img src={heartFeltLogo} alt="" className="desktop-logo" />
                 </a>
                 <a href="/">
-                  <img src={heartFeltMobileLogo} alt="" className="mobile-logo"/>
+                  <img
+                    src={heartFeltMobileLogo}
+                    alt=""
+                    className="mobile-logo"
+                  />
                 </a>
               </div>
               <div className="toggler">
