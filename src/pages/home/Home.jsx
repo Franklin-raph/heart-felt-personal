@@ -1,4 +1,4 @@
-import image from "../../assets/images/image.png";
+import image from "../../assets/images/Frame 1579.png";
 import vectorImg from "../../assets/images/Vector.png";
 import apple from "../../assets/images/apple.png";
 import amazon from "../../assets/images/amazon.png";
@@ -31,7 +31,7 @@ const Home = () => {
           </p>
           <button className="primary-button">Send a card</button>
         </div>
-        <img src={image} alt="" />
+        <img src={image} alt="" width={"45%"}/>
       </div>
 
       <div className="company-logo-section flex-end">
