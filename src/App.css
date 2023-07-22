@@ -1429,7 +1429,7 @@ nav input {
 .add_gift_card_section {
   width: 90%;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 60px;
 }
 .add_card_header {
   display: flex;
@@ -1437,8 +1437,13 @@ nav input {
   align-items: center;
   margin-bottom: 20px;
 }
+.add_gift_card_header,
+.search_gift_card_form,
 .add_card_header h3 {
-  font-size: 28px;
+  margin-left: 20px;
+}
+.add_card_header h3 {
+  font-size: 24px;
   font-weight: 500;
 }
 .add_card_header i {
@@ -1452,7 +1457,7 @@ nav input {
   align-items: center;
   margin-bottom: 40px;
   box-shadow: 0 0 0 1.5px var(--stroke-white);
-  width: 374px;
+  width: 300px;
   border-radius: 8px;
   padding: 4px 5px;
   font-size: 20px;
@@ -1461,8 +1466,8 @@ nav input {
   border: 0;
   outline: 0;
   width: 100%;
-  padding: 10px 8px;
-  font-size: 18px;
+  padding: 7px 5px;
+  font-size: 14px;
 }
 .add_gift_segment {
   display: flex;
@@ -1478,10 +1483,10 @@ nav input {
   gap: 5px;
 }
 .add_gift_card_header h5 {
-  font-size: 26px;
+  font-size: 19px;
 }
 .add_gift_card_header p {
-  font-size: 18px;
+  font-size: 14px;
   color: var(--body-texts);
 }
 .gift_card_segment_row {
@@ -1527,12 +1532,13 @@ nav input {
 }
 .gift_card_segment_card_context h5 {
   margin-bottom: 5px;
-  font-size: 14px;
+  font-size: 12px;
 }
 .gift_card_segment_card_context p {
   display: flex;
   gap: 5px;
   color: var(--body-texts);
+  font-size: 11px;
 }
 
 /*  */

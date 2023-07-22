@@ -107,7 +107,7 @@ const AddGiftCard = () => {
       {/*  */}
       <div className="add_gift_segment">
         <div className="add_gift_card_header">
-          <h5>Smart eGift Cards</h5>
+          <h5>eGift From Top Brands</h5>
           <p>
             Allow recipients to choose the brands they want when redeeming their
             gift card value. Give the gift of choice!.
