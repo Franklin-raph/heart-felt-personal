@@ -18,6 +18,8 @@ import PasswordReset from "./pages/authentication/password-reset/PasswordReset";
 import TermsAndConditions from "./pages/terms-and-conditions/TermsAndConditions";
 import AccountVerification from "./pages/authentication/account-verification/AccountVerification";
 import "./App.css";
+import UserDashboard from "./pages/dashboard/UserDashboard";
+import AddGiftCard from "./pages/add-gift-card/AddGiftCard";
 
 function App() {
   return (
@@ -38,7 +40,12 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
-        <Route path="/account-verification/:id/:token" element={<AccountVerification />} />
+        <Route
+          path="/account-verification/:id/:token"
+          element={<AccountVerification />}
+        />
+        <Route path="/user-dashboard" element={<UserDashboard />} />
+        <Route path="/add-gift-card" element={<AddGiftCard />} />
       </Routes>
       <Footer />
     </BrowserRouter>
