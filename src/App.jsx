@@ -20,6 +20,7 @@ import AccountVerification from "./pages/authentication/account-verification/Acc
 import "./App.css";
 import UserDashboard from "./pages/dashboard/UserDashboard";
 import AddGiftCard from "./pages/add-gift-card/AddGiftCard";
+import SingleCardView from "./pages/single-card-view/SingleCardView";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/add-gift-card" element={<AddGiftCard />} />
+        <Route path="/single-card-view" element={<SingleCardView />} />
       </Routes>
       <Footer />
     </BrowserRouter>
