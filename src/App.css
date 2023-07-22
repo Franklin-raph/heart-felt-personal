@@ -1304,16 +1304,21 @@ nav input {
   font-size: 32px;
   display: none;
   position: relative;
-  z-index: 35;
   position: absolute;
+  cursor: pointer;
 }
 .user_dashboard_toggler.open {
   margin-top: -40px;
 }
 .user_dashboard_toggler.close {
-  left: 350px;
+  right: 30px;
 }
+
 /*  */
+.userdashboard_content {
+  overflow-y: scroll;
+  height: 500px;
+}
 .dashboard_content_header {
   font-size: 28px;
   margin-bottom: 15px;
@@ -1343,7 +1348,6 @@ nav input {
   font-weight: 600;
 }
 .user_dashboard_item_row {
-  height: 400px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1351,7 +1355,6 @@ nav input {
   padding: 8px 0;
   border-top: 1.3px solid var(--stroke-white);
   border-bottom: 1.3px solid var(--stroke-white);
-  overflow-y: scroll;
   padding-right: 20px;
 }
 .user_dashboard_item_row::-webkit-scrollbar {
@@ -1668,15 +1671,18 @@ nav input {
   }
   .sidebar_nav {
     position: fixed;
-    top: 140px;
+    top: 95px;
     left: -1000px;
     background: var(--generic-white);
-    height: 400px;
-    width: 50%;
+    height: 100dvh;
+    width: 100%;
     padding: 10px 20px;
     z-index: 30;
     border: 0;
     transition: 0.35s ease-in-out;
+  }
+  .sidebar_nav.open_sidebar {
+    left: 0;
   }
   .user_dashboard_toggler {
     display: block;
@@ -1853,6 +1859,9 @@ nav input {
   }
   .faq_second_segment .faq_header h2 {
     font-size: 19px;
+  }
+  .user_dashboard_col_2 {
+    overflow-x: auto;
   }
   .userdashboard_content {
     overflow-x: scroll !important;

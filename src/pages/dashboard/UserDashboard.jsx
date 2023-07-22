@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import DashBoardNav from "../../components/dashboard-nav/DashBoardNav";
 import { Link, useNavigate } from "react-router-dom";
 import cardImgPreview from "../../assets/images/card_preview_template.jpg";
@@ -12,12 +12,20 @@ const UserDashboard = () => {
       navigate("/sign-in");
     }
   }, []);
+  //
+  const sidebar = useRef();
+  const openSidebar = () => {
+    sidebar.current.classList.toggle("open_sidebar");
+  };
 
   //
   return (
     <section className="user_dashbaord_section">
-      <i className="ri-align-justify user_dashboard_toggler open"></i>
-      <DashBoardNav />
+      <i
+        className="ri-align-justify user_dashboard_toggler open"
+        onClick={openSidebar}
+      ></i>
+      <DashBoardNav sidebar={sidebar} openSidebar={openSidebar} />
       <div className="user_dashboard_col_2">
         <div className="dashboard_content_header">
           <h3>My Cards</h3>

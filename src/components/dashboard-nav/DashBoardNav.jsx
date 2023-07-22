@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const DashBoardNav = () => {
+const DashBoardNav = ({ sidebar, openSidebar }) => {
   //
   const user = JSON.parse(localStorage.getItem("user_info"));
 
   //
   return (
-    <article className="sidebar_nav">
-      <i class="ri-close-line user_dashboard_toggler close"></i>
+    <article className="sidebar_nav" ref={sidebar}>
+      <i
+        className="ri-close-line user_dashboard_toggler close"
+        onClick={openSidebar}
+      ></i>
       <div className="sidebar_header">
         <h4>{user && user.charAt(0)}</h4>
         <div className="sidebar_header_text">
