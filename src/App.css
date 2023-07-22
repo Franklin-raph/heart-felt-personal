@@ -1609,7 +1609,7 @@ nav input {
 }
 
 .single_card_col.col_1 i,
-.single_card_col.col_3 i{
+.single_card_col.col_3 i {
   font-size: 1rem;
 }
 
@@ -1719,6 +1719,102 @@ nav input {
   color: var(--primary-color);
   cursor: pointer;
 }
+/*  */
+/* delivery_details_section styles */
+/*  */
+.delivery_details_section{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-items: center;
+}
+/*  */
+.delivery_details_col_1{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+/*  */
+.delivery_details_col_1_header{
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  color: var(--header-texts);
+}
+/*  */
+.delivery_details_col_1_header h2{
+  font-size: 28px;
+  font-weight: 800;
+}
+/*  */
+.delivery_details_col_1_header h4{
+  font-size: 19px;
+  font-weight: 700;
+}
+/*  */
+.delivery_details_form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--body-texts);
+}
+/*  */
+.delivery_details_form input{
+
+  width: 100%;
+  border: 0;
+  outline: 0;
+}
+.delivery_details_form .delivery_name_input{
+  padding: 8px 0 8px 8px;
+  box-shadow: 0 0 0 1.5px var(--stroke-white);
+  border-radius: 8px;
+}
+/*  */
+.delivery_details_form .input_one, .delivery_details_form .input_two{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+/*  */
+.coupon_input{
+  display: flex;
+  align-items: center;
+}
+/*  */
+.coupon_input{
+  box-shadow: 0 0 0 1.5px var(--stroke-white);
+  border-radius: 8px;
+  padding: 5px 3px;
+}
+/*  */
+.coupon_input input{
+  box-shadow: none;
+}
+/*  */
+.coupon_input .delivery_form_btn{
+  background: var(--header-texts);
+  color: var(--generic-white);
+  border-radius: 8px;
+  padding: 5px 8px;
+}
+/*  */
+.delivery_form_purchase_btn{
+  background: var(--primary-color);
+  color: var(--generic-white);
+}
+/*  */
+.delivery_details_col_2{
+  background: rgba(165, 165, 165, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 10px;
+}
+
 
 /*  */
 /* ================ MEDIA QUERY ==================== */
@@ -2406,6 +2502,12 @@ nav input {
   }
   .single_card_countdown_row {
     gap: 20px;
+  }
+  /*  */
+  .add_gift_card_header,
+  .search_gift_card_form,
+  .add_card_header h3 {
+    margin-left: 0;
   }
 }
 

@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import deliver_details_icon from "../../assets/images/delivery-details-img.png";
+import payStackIcon from "../../assets/images/paystack.svg"
 
 const DeliveryDetails = () => {
   return (
@@ -12,15 +14,16 @@ const DeliveryDetails = () => {
         <form className="delivery_details_form">
           <div className="input_one">
             <h5>Full Name</h5>
-            <input type="text" placeholder="Eg. James Eze" />
+            <input type="text" className="delivery_name_input" placeholder="Eg. James Eze" />
           </div>
           <div className="input_two">
             <h5>Coupon Code</h5>
             <div className="coupon_input">
               <input type="text" placeholder="Enter Code" />
-              <button>Apply</button>
+              <div className="delivery_form_btn">Apply</div>
             </div>
           </div>
+          <button className="delivery_form_purchase_btn">Purchase Card</button>
         </form>
       </div>
 
@@ -46,9 +49,23 @@ const DeliveryDetails = () => {
               </div>
               <div className="delievry_total_price">
                 <p>Total Price</p>
-                <h6>₦</h6>
+                <h6>₦8,974</h6>
               </div>
             </div>
+            <div className="delivery_details_summary_row_2">
+              <h4>Pay With</h4>
+              <div>
+                <input type="checkbox" />
+                <img src={payStackIcon} alt="" />
+                <p>Paystack</p>
+              </div>
+              <div>
+                <input type="checkbox" />
+                <img src={payStackIcon} alt="" />
+                <p>Flutterwave</p>
+              </div>
+            </div>
+            <Link className="delivery_details_footer_link">Change Gift Card</Link>
           </div>
         </div>
       </div>
