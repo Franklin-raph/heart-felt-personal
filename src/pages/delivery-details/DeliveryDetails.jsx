@@ -36,6 +36,18 @@ const DeliveryDetails = () => {
                 <p>Card</p>
                 <h6>₦4,999</h6>
               </div>
+              <div>
+                <p>Gift Card</p>
+                <h6>₦3,500</h6>
+              </div>
+              <div>
+                <p>VAT (7.5%)</p>
+                <h6>₦375</h6>
+              </div>
+              <div className="delievry_total_price">
+                <p>Total Price</p>
+                <h6>₦</h6>
+              </div>
             </div>
           </div>
         </div>
