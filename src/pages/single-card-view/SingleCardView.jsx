@@ -6,15 +6,14 @@ const SingleCardView = () => {
       <div className="single_card_page_header">
         <h2 className="single_card_header_h3">Group Greeting Card</h2>
         <div className="single_card_countdown_row">
-          {/*  */}
-          <div className="single_card_countdown_col">
+          <p>12 Dec. 2023</p>
+          {/* <div className="single_card_countdown_col">
             <h4>DAYS</h4>
             <div>
               <h4>83</h4>
               <span>:</span>
             </div>
           </div>
-          {/*  */}
           <div className="single_card_countdown_col">
             <h4>HOURS</h4>
             <div>
@@ -22,7 +21,6 @@ const SingleCardView = () => {
               <span>:</span>
             </div>
           </div>
-          {/*  */}
           <div className="single_card_countdown_col">
             <h4>MINUTES</h4>
             <div>
@@ -30,14 +28,12 @@ const SingleCardView = () => {
               <span>:</span>
             </div>
           </div>
-          {/*  */}
           <div className="single_card_countdown_col">
             <h4>SECONDS</h4>
             <div>
               <h4>87</h4>
             </div>
-          </div>
-          {/*  */}
+          </div> */}
         </div>
       </div>
 

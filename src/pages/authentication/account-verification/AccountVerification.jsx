@@ -12,18 +12,18 @@ const AccountVerification = () => {
   
   return (
     <div>
-      <form className="sign-in-form flex-center">
+      <div className="sign-in-form flex-center" style={{ padding:"3rem 1rem" }}>
         <div className="header" style={{ marginBottom:"1rem" }}>
           <i class='bx bxs-check-circle' style={{ fontSize:"3rem", marginBottom:"1rem", color:"#299e9e" }}></i>
-          <h1>Account Verification Successfull</h1>
+          <h1>Account Verification Successful</h1>
         </div>
-        <p style={{ marginBottom:"1rem" }}>Your Account has being verified successfully</p>
+        <p style={{ marginBottom:"1rem", textAlign:"center" }}>Your Account has being verified successfully</p>
         <input
           type="submit"
           value="Ok"
           className="submit-btn primary-button"
         />
-      </form>
+      </div>
     </div>
   )
 }

@@ -17,11 +17,13 @@ import ForgotPassword from "./pages/authentication/forgot-password/ForgotPasswor
 import PasswordReset from "./pages/authentication/password-reset/PasswordReset";
 import TermsAndConditions from "./pages/terms-and-conditions/TermsAndConditions";
 import AccountVerification from "./pages/authentication/account-verification/AccountVerification";
-import "./App.css";
 import UserDashboard from "./pages/dashboard/UserDashboard";
 import AddGiftCard from "./pages/add-gift-card/AddGiftCard";
 import SingleCardView from "./pages/single-card-view/SingleCardView";
 import DeliveryDetails from "./pages/delivery-details/DeliveryDetails";
+import PaymentSuccessful from "./pages/payment-successful/PaymentSuccessful";
+import "./App.css";
+import PaymentFailed from "./pages/payment-failed/PaymentFailed";
 
 function App() {
   return (
@@ -49,7 +51,9 @@ function App() {
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/add-gift-card" element={<AddGiftCard />} />
         <Route path="/single-card-view" element={<SingleCardView />} />
-        <Route path="/delivery-details" element={<DeliveryDetails />} />
+        <Route path="/card-delivery-details" element={<DeliveryDetails />} />
+        <Route path="/payment-successful" element={<PaymentSuccessful />} />
+        <Route path="/payment-failed" element={<PaymentFailed />} />
       </Routes>
       <Footer />
     </BrowserRouter>

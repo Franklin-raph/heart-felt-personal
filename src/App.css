@@ -1565,7 +1565,8 @@ nav input {
   display: flex;
   justify-content: center;
   gap: 40px;
-  margin-bottom: 50px;
+  margin: 0 0 2rem;
+  color: var(--body-texts);
 }
 .single_card_countdown_col {
   display: flex;
@@ -1596,13 +1597,22 @@ nav input {
   align-items: start;
   gap: 30px;
 }
+
 .single_card_col.col_1,
 .single_card_col.col_3 {
   display: flex;
   flex-direction: column;
   gap: 20px;
   color: var(--header-texts);
+  font-size: 14px;
+  color: var(--body-texts);
 }
+
+.single_card_col.col_1 i,
+.single_card_col.col_3 i{
+  font-size: 1rem;
+}
+
 .single_card_col.col_2 {
   width: auto;
   overflow: hidden;
@@ -1612,9 +1622,11 @@ nav input {
   box-shadow: 0 0 0 1.5px var(--stroke-white);
   border-radius: 8px;
 }
+
 .single_card_col.col_2 img {
   object-fit: cover;
 }
+
 .single_card_col.col_1 div,
 .single_card_col.col_3 div {
   display: flex;
@@ -1622,15 +1634,17 @@ nav input {
   gap: 10px;
   box-shadow: 0 0 0 1.5px var(--stroke-white);
   border-radius: 8px;
-  padding: 6px 16px 6px 4px;
+  padding: 6px 16px 6px 8px;
   cursor: pointer;
   transition: 0.35s ease-in-out;
 }
+
 .single_card_col.col_1 div:hover,
 .single_card_col.col_3 div:hover {
   box-shadow: 0 0 0 1.5px var(--primary-color);
   color: var(--primary-color);
 }
+
 .single_card_pagination {
   margin-top: 30px;
   display: flex;
@@ -1657,11 +1671,13 @@ nav input {
   font-size: 16px;
   transition: 0.35s ease-in-out;
 }
+
 .single_card_pagination p:hover,
 .single_card_pagination p.active {
   background: var(--primary-color);
   color: var(--generic-white);
 }
+
 .single_card_view_footer {
   margin-top: 50px;
   display: flex;
@@ -1670,6 +1686,7 @@ nav input {
   gap: 12px;
   text-align: center;
 }
+
 .single_card_copy_box {
   width: 375px;
   display: flex;
@@ -1679,7 +1696,9 @@ nav input {
   box-shadow: 0 0 0 1.5px var(--stroke-white);
   border-radius: 8px;
   padding: 4px 5px 4px 5px;
+  margin-bottom: 2rem;
 }
+
 .single_card_copy_box button {
   color: var(--generic-white);
   background: var(--header-texts);
