@@ -1838,6 +1838,7 @@ nav input {
   width: 40%;
   border-radius: 6px;
   padding: 2rem;
+  position: relative;
 }
 
 .gift-card-settings-modal .header h2{
@@ -1878,6 +1879,15 @@ nav input {
   width: 77%;
   border-radius: 6px;
   margin: 10px 0 1rem;
+}
+
+.gift-card-settings-modal i{
+  position: absolute;
+  right: 5%;
+  top: 3%;
+  font-size: 1.4rem;
+  color: var(--body-texts);
+  cursor: pointer;
 }
 
 .gift-card-settings-modal button{

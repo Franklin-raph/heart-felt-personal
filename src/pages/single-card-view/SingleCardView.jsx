@@ -124,6 +124,7 @@ const SingleCardView = () => {
       {isGiftCardSettingsOpen && 
       <div className="gift-card-settings-modal-bg flex-center">
         <div className="gift-card-settings-modal">
+          <i class="ri-close-fill" onClick={() => setIsGiftCardSettingsOpen(!isGiftCardSettingsOpen)}></i>
           <div className="header">
             <h2>Gift Card Settings</h2>
             <p>Gift card can only be canceled within 24 hours after purchase.</p>
@@ -142,7 +143,7 @@ const SingleCardView = () => {
             </div>
             <input type="text" placeholder="# Amount" />
             <div className="flex-start g-1" style={{ marginTop:"10px" }}>
-              <input type="radio" />
+              <input type="checkbox" />
               <label style={{ display:"block" }}>Allow other signers contribute</label>
             </div>
           </div>
