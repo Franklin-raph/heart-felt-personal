@@ -5,9 +5,63 @@ const AddGiftCard = () => {
   const gift_card = [
     {
       card_title: "Modern New Year Celeb...",
-      card_price: `<span>₦500</span>
-                <span>-</span>
-                <span>₦50,000</span>`,
+      card_price: "₦500",
+      card_dash: "-",
+      card_maxPrice: "₦50,000",
+    },
+    {
+      card_title: "Gold Happy Birthday Ca...",
+      card_price: "₦500",
+      card_dash: "-",
+      card_maxPrice: "₦50,000",
+    },
+    {
+      card_title: "Modern New Year Celeb...",
+      card_price: "₦500",
+      card_dash: "-",
+      card_maxPrice: "₦50,000",
+    },
+    {
+      card_title: "Gold Happy Birthday Ca...",
+      card_price: "₦500",
+      card_dash: "-",
+      card_maxPrice: "₦50,000",
+    },
+    {
+      card_title: "Modern New Year Celeb...",
+      card_price: "₦500",
+      card_dash: "-",
+      card_maxPrice: "₦50,000",
+    },
+    {
+      card_title: "Gold Happy Birthday Ca...",
+      card_price: "₦500",
+      card_dash: "-",
+      card_maxPrice: "₦50,000",
+    },
+    {
+      card_title: "Modern New Year Celeb...",
+      card_price: "₦500",
+      card_dash: "-",
+      card_maxPrice: "₦50,000",
+    },
+    {
+      card_title: "Gold Happy Birthday Ca...",
+      card_price: "₦500",
+      card_dash: "-",
+      card_maxPrice: "₦50,000",
+    },
+    {
+      card_title: "Modern New Year Celeb...",
+      card_price: "₦500",
+      card_dash: "-",
+      card_maxPrice: "₦50,000",
+    },
+    {
+      card_title: "Gold Happy Birthday Ca...",
+      card_price: "₦500",
+      card_dash: "-",
+      card_maxPrice: "₦50,000",
     },
   ];
 
@@ -24,7 +78,7 @@ const AddGiftCard = () => {
         <input type="text" placeholder="Which gift card do you want?" />
       </form>
       {/*  */}
-      <div className="add_gift_segment">
+      <div className="add_gift_segment first">
         <div className="add_gift_card_header">
           <h5>Smart eGift Cards</h5>
           <p>
@@ -32,21 +86,23 @@ const AddGiftCard = () => {
             gift card value. Give the gift of choice!.
           </p>
         </div>
+        {/*  */}
         <div className="gift_card_segment_row row_1">
-          {/*  */}
-          <div className="gift_card_segment_card">
-            <div className="gift_card_segment_card_img"></div>
-            <div className="gift_card_segment_card_context">
-              <h5>Gold Happy Birthdy Ca...</h5>
-              <p>
-                <span>₦500</span>
-                <span>-</span>
-                <span>₦50,000</span>
-              </p>
+          {gift_card.map((card, i) => (
+            <div className="gift_card_segment_card" key={i}>
+              <div className="gift_card_segment_card_img"></div>
+              <div className="gift_card_segment_card_context">
+                <h5> {card.card_title} </h5>
+                <p>
+                  <span>{card.card_price}</span>
+                  <span>{card.card_dash}</span>
+                  <span>{card.card_maxPrice}</span>
+                </p>
+              </div>
             </div>
-          </div>
-          {/*  */}
+          ))}
         </div>
+        {/*  */}
       </div>
       {/*  */}
       <div className="add_gift_segment">
@@ -59,7 +115,19 @@ const AddGiftCard = () => {
         </div>
         {/*  */}
         <div className="gift_card_segment_row row_2">
-          {/* {gift_card.map((card))} */}
+          {gift_card.map((card, i) => (
+            <div className="gift_card_segment_card" key={i}>
+              <div className="gift_card_segment_card_img"></div>
+              <div className="gift_card_segment_card_context">
+                <h5> {card.card_title} </h5>
+                <p>
+                  <span>{card.card_price}</span>
+                  <span>{card.card_dash}</span>
+                  <span>{card.card_maxPrice}</span>
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       {/*  */}

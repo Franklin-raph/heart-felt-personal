@@ -1467,7 +1467,10 @@ nav input {
 .add_gift_segment {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 40px;
+}
+.add_gift_segment.first {
+  margin-bottom: 80px;
 }
 .add_gift_card_header {
   display: flex;
@@ -1484,6 +1487,7 @@ nav input {
 .gift_card_segment_row {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
   column-gap: 10px;
   row-gap: 20px;
 }
@@ -1494,6 +1498,7 @@ nav input {
 }
 .gift_card_segment_card_img {
   position: relative;
+  margin: 0 auto;
   height: 10rem;
   width: 12rem;
   background: var(--stroke-white);
@@ -1503,12 +1508,13 @@ nav input {
   content: "";
   height: 10rem;
   width: 6rem;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.12);
   position: absolute;
   top: 0;
   left: 0;
   backdrop-filter: blur(30px);
-  animation: animate_gift_card_skeleton 1.8s ease-in-out infinite;
+  animation: animate_gift_card_skeleton 4s ease-in-out infinite;
+  animation-delay: 0ms;
   transition: 0.5s ease-in-out;
 }
 @keyframes animate_gift_card_skeleton {
@@ -1565,6 +1571,11 @@ nav input {
   }
   .user_dashbaord_section {
     width: 90%;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .gift_card_segment_row {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -1748,6 +1759,11 @@ nav input {
   .user_dashbaord_section {
     width: 100%;
     padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 864px) {
+  .gift_card_segment_row {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (max-width: 808px) {
@@ -1973,6 +1989,15 @@ nav input {
   .userdashboard_content {
     overflow-x: scroll !important;
   }
+  .gift_card_segment_row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .add_gift_card_header h5 {
+    font-size: 22px;
+  }
+  .add_gift_card_header p {
+    font-size: 15px;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -2142,6 +2167,21 @@ nav input {
   .mobile-logo {
     display: block;
     width: 50%;
+  }
+  .gift_card_segment_row {
+    grid-template-columns: 1fr;
+  }
+  .gift_card_segment_card_img {
+    width: 15rem;
+  }
+  .search_gift_card_form {
+    width: 100%;
+  }
+  .add_gift_card_header h5 {
+    font-size: 19px;
+  }
+  .add_gift_card_header p {
+    font-size: 12.5px;
   }
 }
 
