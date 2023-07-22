@@ -1,6 +1,14 @@
 import imagePreview from "../../assets/images/card_preview_template.jpg";
+import deliveryDetailsImage from "../../assets/images/delivery-details-img.png"
+import { useState } from "react";
 
 const SingleCardView = () => {
+  const[isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false)
+
+  function openGiftCardSettings(){
+    setIsGiftCardSettingsOpen(!isGiftCardSettingsOpen)
+  }
+
   return (
     <article className="single_card_view_section">
       <div className="single_card_page_header">
@@ -41,7 +49,7 @@ const SingleCardView = () => {
       <div className="single_card_view_row">
         <div className="single_card_col col_1">
           {/*  */}
-          <div>
+          <div onClick={openGiftCardSettings}>
             <i className="bx bx-cog"></i>
             <p>Card Settings</p>
           </div>
@@ -113,6 +121,35 @@ const SingleCardView = () => {
         </div>
       </div>
       {/*  */}
+      {isGiftCardSettingsOpen && 
+      <div className="gift-card-settings-modal-bg flex-center">
+        <div className="gift-card-settings-modal">
+          <div className="header">
+            <h2>Gift Card Settings</h2>
+            <p>Gift card can only be canceled within 24 hours after purchase.</p>
+          </div>
+          <div className="body">
+            <h4>eGird Card</h4>
+            <img src={deliveryDetailsImage} alt="" />
+            <div className="amount">
+              <h4>Select Amount</h4>
+             <div className="flex-start g-1">
+              <p>#500</p>
+              <p>#500</p>
+              <p>#500</p>
+              <p>#500</p>
+             </div>
+            </div>
+            <input type="text" placeholder="# Amount" />
+            <div className="flex-start g-1" style={{ marginTop:"10px" }}>
+              <input type="radio" />
+              <label style={{ display:"block" }}>Allow other signers contribute</label>
+            </div>
+          </div>
+          <button className="primary-button">Proceed</button>
+        </div>
+      </div>
+      }
     </article>
   );
 };
