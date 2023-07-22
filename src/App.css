@@ -1949,6 +1949,7 @@ nav input {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    box-shadow: none;
   }
 }
 @media screen and (max-width: 864px) {
