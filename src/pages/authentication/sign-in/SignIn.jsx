@@ -11,14 +11,14 @@ const SignIn = () => {
   const user_info = JSON.parse(localStorage.getItem("user_info"));
   useEffect(() => {
     if (user_info) {
-      navigate("/");
+      navigate("/user-dashboard");
     }
   }, []);
   // on submit function
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("user_info", JSON.stringify(email));
-    navigate("/");
+    navigate("/user-dashboard");
   };
   //
   return (
