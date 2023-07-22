@@ -40,6 +40,8 @@ body::-webkit-scrollbar-thumb {
   --body-texts: #525252;
   --minor-color-1: #22c55e;
   --minor-color-2: rgba(41, 158, 158, 0.15);
+  --minor-color-1: #22c55e;
+  --minor-color-2: rgba(41, 158, 158, 0.15);
 }
 
 a {
