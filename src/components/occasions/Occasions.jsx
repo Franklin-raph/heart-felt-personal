@@ -11,7 +11,7 @@ const Occasions = () => {
           <i className="ri-arrow-down-s-line"></i>
         </button>
         <ul className="flex-between g-3">
-          <li>Birthday</li>
+          <li onClick={()=> navigate("/upload-card-cover")}>Birthday</li>
           <li>Annivasary</li>
           <li>Goodwill</li>
           <li>Festival</li>
