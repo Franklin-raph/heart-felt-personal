@@ -6,61 +6,51 @@ const AddGiftCard = () => {
     {
       card_title: "Modern New Year Celeb...",
       card_price: "₦500",
-      card_dash: "-",
       card_maxPrice: "₦50,000",
     },
     {
       card_title: "Gold Happy Birthday Ca...",
       card_price: "₦500",
-      card_dash: "-",
       card_maxPrice: "₦50,000",
     },
     {
       card_title: "Modern New Year Celeb...",
       card_price: "₦500",
-      card_dash: "-",
       card_maxPrice: "₦50,000",
     },
     {
       card_title: "Gold Happy Birthday Ca...",
       card_price: "₦500",
-      card_dash: "-",
       card_maxPrice: "₦50,000",
     },
     {
       card_title: "Modern New Year Celeb...",
       card_price: "₦500",
-      card_dash: "-",
       card_maxPrice: "₦50,000",
     },
     {
       card_title: "Gold Happy Birthday Ca...",
       card_price: "₦500",
-      card_dash: "-",
       card_maxPrice: "₦50,000",
     },
     {
       card_title: "Modern New Year Celeb...",
       card_price: "₦500",
-      card_dash: "-",
       card_maxPrice: "₦50,000",
     },
     {
       card_title: "Gold Happy Birthday Ca...",
       card_price: "₦500",
-      card_dash: "-",
       card_maxPrice: "₦50,000",
     },
     {
       card_title: "Modern New Year Celeb...",
       card_price: "₦500",
-      card_dash: "-",
       card_maxPrice: "₦50,000",
     },
     {
       card_title: "Gold Happy Birthday Ca...",
       card_price: "₦500",
-      card_dash: "-",
       card_maxPrice: "₦50,000",
     },
   ];
@@ -95,7 +85,7 @@ const AddGiftCard = () => {
                 <h5> {card.card_title} </h5>
                 <p>
                   <span>{card.card_price}</span>
-                  <span>{card.card_dash}</span>
+                  <span>-</span>
                   <span>{card.card_maxPrice}</span>
                 </p>
               </div>
