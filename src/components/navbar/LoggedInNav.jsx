@@ -47,6 +47,11 @@ const LoggedInNav = () => {
     setUserInfoModal(!userInfoModal);
   };
 
+  const navigateToUserDashboard = () => {
+    navigate("/user-dashboard")
+    openUserInfo()
+  }
+
   const logoutUser = () => {
     localStorage.clear();
     location.href = "/sign-in";
@@ -111,7 +116,7 @@ const LoggedInNav = () => {
             <div className="drop-down-chevron">
               <i className="bx bxs-user nav_profile_icon"></i>
             </div>
-            <div>
+            <div onClick={() => navigateToUserDashboard()}>
               <h5>{user && user}</h5>
               <p>View Public Profile</p>
             </div>

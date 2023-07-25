@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const SingleCardView = () => {
   const[isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false)
+  const[isHowGiftCardWorksOpen, setIsHowGiftCardWorksOpen] = useState(false)
 
   function openGiftCardSettings(){
     setIsGiftCardSettingsOpen(!isGiftCardSettingsOpen)
@@ -124,6 +125,7 @@ const SingleCardView = () => {
       {isGiftCardSettingsOpen && 
       <div className="gift-card-settings-modal-bg flex-center">
         <div className="gift-card-settings-modal">
+          <i class="ri-close-fill" onClick={() => setIsGiftCardSettingsOpen(!isGiftCardSettingsOpen)}></i>
           <div className="header">
             <h2>Gift Card Settings</h2>
             <p>Gift card can only be canceled within 24 hours after purchase.</p>
@@ -135,19 +137,50 @@ const SingleCardView = () => {
               <h4>Select Amount</h4>
              <div className="flex-start g-1">
               <p>#500</p>
-              <p>#500</p>
-              <p>#500</p>
-              <p>#500</p>
+              <p>#1,500</p>
+              <p>#2,000</p>
+              <p>#2,500</p>
              </div>
             </div>
             <input type="text" placeholder="# Amount" />
             <div className="flex-start g-1" style={{ marginTop:"10px" }}>
-              <input type="radio" />
-              <label style={{ display:"block" }}>Allow other signers contribute</label>
+              <input type="checkbox" />
+              <label style={{ display:"block", fontSize:"14px" }}>Allow other signers contribute</label>
+              <i class="ri-information-fill" onClick={() => setIsHowGiftCardWorksOpen(true)}></i>
             </div>
           </div>
           <button className="primary-button">Proceed</button>
         </div>
+      </div>
+      }
+
+      {isHowGiftCardWorksOpen && 
+        <div className="how-gift-card-works-modal">
+          <div className="header flex-between">
+            <p>How gift card works</p>
+            <i class="ri-close-fill" onClick={() => setIsHowGiftCardWorksOpen(false)}></i>
+          </div>
+          <div className="body">
+            <h4>Gift card would</h4>
+            <ul>
+              <li>
+                <h5>Allow people contribute</h5>
+                <p>Purchase gift card and allow multiple people to contribute to the total value of the card.</p>
+              </li>
+              <li>
+                <h5>Make signers add more gift card</h5>
+                <p>Upon sharing your card, signers can add their preferred amount to the total value of the gift card.</p>
+              </li>
+              <li>
+                <h5>Send to recipient</h5>
+                <p>All contributions added to the gift card is sent. Each contribution has a processing.</p>
+              </li>
+            </ul>
+          </div>
+          <div className="footer flex-between-start">
+            <i class="ri-information-fill"></i>
+            <p>People can contribute. Option cannot be changed after card purchase.</p>
+          </div>
       </div>
       }
     </article>
