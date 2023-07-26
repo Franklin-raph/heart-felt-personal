@@ -2035,7 +2035,7 @@ nav input {
   margin-bottom: 2rem;
 }
 
-.upload-card .upload-card-nav{
+.upload-card-nav{
   padding: 1rem 9rem;
   margin-bottom: 2rem;
 }
@@ -2048,7 +2048,7 @@ nav input {
   margin-right: 10px;
 }
 
-.upload-card-container{
+.upload-card-container, .upload-card-container-preview{
   text-align: center;
   flex-direction: column;
 }
@@ -2106,6 +2106,18 @@ nav input {
 
 .upload-card-container .body p:nth-child(5){
   margin-top: 10px;
+}
+
+.upload-card-container-preview .body img{
+  border-radius: 6px;
+}
+
+.upload-card-container-preview .body{
+  margin-top: 2rem;
+  padding: .5rem;
+  border: 1px dotted var(--stroke-white);
+  border-radius: 6px;
+  margin-bottom: 2.5rem;
 }
 /*  */
 /* ================ MEDIA QUERY ==================== */

@@ -27,6 +27,7 @@ import UploadCardCover from "./pages/upload-card-cover/UploadCardCover";
 import "./App.css";
 import UploadCard from "./pages/upload-card/UploadCard";
 import PreviewUploadedCard from "./pages/preview-uploaded-card/PreviewUploadedCard";
+import SavedCards from "./pages/saved-cards/SavedCards";
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
         <Route path="/upload-card-cover" element={<UploadCardCover />} />
         <Route path="/upload-card" element={<UploadCard />} />
         <Route path="/preview-uploaded-card" element={<PreviewUploadedCard />} />
+        <Route path="/saved-card" element={<SavedCards />} />
       </Routes>
       <Footer />
     </BrowserRouter>
