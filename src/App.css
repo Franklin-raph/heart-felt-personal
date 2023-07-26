@@ -2226,6 +2226,11 @@ nav input {
   margin-bottom: 2rem;
 }
 
+.upload-card-nav .edit_and_continue{
+  display: flex;
+  gap: 10px;
+}
+
 .upload-card-nav > button{
   border: 1px solid var(--stroke-white);
 }
@@ -2864,6 +2869,10 @@ nav input {
   .add_gift_card_header p {
     font-size: 15px;
   }
+
+  .upload-card-nav{
+    padding: 1rem 4rem;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -2943,6 +2952,10 @@ nav input {
 
   .faq_body {
     font-size: 12px;
+  }
+
+   .upload-card-nav{
+    padding: 1rem 2rem;
   }
 }
 
@@ -3105,6 +3118,10 @@ nav input {
 
   .upload-card-container .body p{
     font-size: 12px;
+  }
+
+    .upload-card-nav{
+    flex-direction: column-reverse;
   }
 }
 
