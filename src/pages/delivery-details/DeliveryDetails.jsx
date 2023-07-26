@@ -33,10 +33,12 @@ const DeliveryDetails = () => {
           <h5>Order Summary</h5>
           <div className="delivery_details_img">
             <img src={deliver_details_icon} alt="" />
+          </div>
+        </div>
             <div className="delivery_details_summary_row">
               <h4>Total</h4>
               <div>
-                <p>Card</p>
+                <p>Card Cover</p>
                 <h6>₦4,999</h6>
               </div>
               <div>
@@ -66,8 +68,6 @@ const DeliveryDetails = () => {
               </div>
             </div>
             <Link className="delivery_details_footer_link">Change Gift Card</Link>
-          </div>
-        </div>
       </div>
     </section>
   );

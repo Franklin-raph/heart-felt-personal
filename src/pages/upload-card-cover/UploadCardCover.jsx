@@ -88,7 +88,7 @@ const UploadCardCover = () => {
             <div className="gift_card_segment_row_upload_card_cover row_2">
                 <div className="gift_card_segment_card">
                     <div className="upload_gift_card_segment_card flex-center" onClick={()=> navigate("/upload-card")}>
-                        <i class='bx bx-upload'></i>
+                        <i className='bx bx-upload'></i>
                         <h4>Upload card cover</h4>
                         <p>max 30mb</p>
                     </div>

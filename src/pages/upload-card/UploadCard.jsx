@@ -13,7 +13,7 @@ const UploadCard = () => {
          </div>
         </div>
         <div className="body">
-          <i class='bx bx-images'></i>
+          <i className='bx bx-images'></i>
           <p>Please upload and image or, Browse </p>
           <p>Maximum 5mb file size. 440px width and 550px height recommended</p>
           <p>
