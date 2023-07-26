@@ -139,7 +139,7 @@ const LoggedInNav = () => {
             <li className="flex-between">
               <div className="flex-start g-1">
                 <i className="bx bxs-file-plus"></i>
-                <p>Saved Covers</p>
+                <p onClick={()=> navigate("/saved-card")} >Saved Covers</p>
               </div>
               <i className="bx bx-chevron-right"></i>
             </li>
