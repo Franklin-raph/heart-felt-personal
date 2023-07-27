@@ -57,12 +57,12 @@ const DeliveryDetails = () => {
             <div className="delivery_details_summary_row_2">
               <h4>Pay With</h4>
               <div>
-                <input type="checkbox" />
+                <input type="radio" name="paywith"/>
                 <img src={payStackIcon} alt="" />
                 <p>Paystack</p>
               </div>
               <div>
-                <input type="checkbox" />
+                <input type="radio" name="paywith"/>
                 <img src={payStackIcon} alt="" />
                 <p>Flutterwave</p>
               </div>

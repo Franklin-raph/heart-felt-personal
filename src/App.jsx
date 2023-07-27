@@ -50,15 +50,17 @@ function App() {
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
         <Route path="/account-verification/:id/:token" element={<AccountVerification />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
-        <Route path="/add-gift-card" element={<AddGiftCard />} />
-        <Route path="/single-card-view" element={<SingleCardView />} />
-        <Route path="/card-delivery-details" element={<DeliveryDetails />} />
-        <Route path="/payment-successful" element={<PaymentSuccessful />} />
-        <Route path="/payment-failed" element={<PaymentFailed />} />
         <Route path="/upload-card-cover" element={<UploadCardCover />} />
         <Route path="/upload-card" element={<UploadCard />} />
-        <Route path="/preview-uploaded-card" element={<PreviewUploadedCard />} />
         <Route path="/saved-card" element={<SavedCards />} />
+        <Route path="/preview-uploaded-card" element={<PreviewUploadedCard />} />
+
+        {/* not yet linked */}
+        <Route path="/payment-failed" element={<PaymentFailed />} />
+        <Route path="/payment-successful" element={<PaymentSuccessful />} />
+        <Route path="/card-delivery-details" element={<DeliveryDetails />} />
+        <Route path="/single-card-view" element={<SingleCardView />} />
+        <Route path="/add-gift-card" element={<AddGiftCard />} />
       </Routes>
       <Footer />
     </BrowserRouter>

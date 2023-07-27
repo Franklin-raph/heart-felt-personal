@@ -98,7 +98,7 @@ const UploadCardCover = () => {
                     </div>
                 </div>
                 {gift_card.map((card, i) => (
-                <div className="gift_card_segment_card" key={i}>
+                <div className="gift_card_segment_card" key={i} onClick={() => navigate("/preview-uploaded-card")}>
                     <div className="gift_card_segment_card_img"></div>
                     <div className="gift_card_segment_card_context">
                     <h5> {card.card_title} </h5>

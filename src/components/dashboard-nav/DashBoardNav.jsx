@@ -27,7 +27,7 @@ const DashBoardNav = ({ sidebar, openSidebar }) => {
         </div>
         <div className="sidebar_link">
           <i className="bx bxs-file-plus"></i>
-          <Link>Saved Covers</Link>
+          <Link to="/saved-card">Saved Covers</Link>
         </div>
         <div className="sidebar_link">
           <i className="bx bx-cog"></i>
