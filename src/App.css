@@ -2423,6 +2423,7 @@ nav input {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 320;
   opacity: 0;
   visibility:hidden;
   pointer-events: none;
