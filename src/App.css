@@ -2468,7 +2468,7 @@ nav input {
   50%{
     transform: translate(-50%,-50%) scale(0.8);
   }
-  55%{
+  75%{
     transform: translate(-50%,-50%) scale(1.15);
   }
   100%{
