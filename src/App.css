@@ -2038,7 +2038,7 @@ nav input {
 /*  */
 /* gift card settings styles */
 /*  */
-.gift-card-settings-modal-bg{
+.gift-card-settings-modal-bg, .editCardModalBg{
   position: fixed;
   background-color: #000000d0;
   width: 100%;
@@ -2310,6 +2310,104 @@ nav input {
   border: 1px dotted var(--stroke-white);
   border-radius: 6px;
   margin-bottom: 2.5rem;
+}
+
+.allOcassionsDropDown{
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1rem;
+  width: 80%;
+  background-color: var(--generic-white);
+  padding: 1rem;
+  border: 1px solid var(--stroke-white);
+  border-radius: 6px;
+  box-shadow: 0 0 30px #00000022;
+  position: absolute;
+  left: 10.5%;
+  z-index: 9;
+  top: 78%;
+}
+
+.allOcassionsDropDown li{
+  cursor: pointer;
+  color: var(--body-texts);
+  font-size: 13px;
+}
+
+.saved-card .body{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* row-gap: .4rem; */
+  column-gap: 2rem;
+  text-align: left;
+  padding-top: 2rem;
+}
+
+.saved-card .body h4{
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.saved-card .upload-card-container .body p:nth-child(3){
+  margin-bottom: 20px;
+}
+
+.saved-card .body .image{
+  width: 100%;
+  height: 10rem;
+  background-color: #e3e3e3;
+  cursor: pointer;
+}
+
+.editCardModal{
+  background-color: #fff;
+  width: 30%;
+  padding: 1rem 0;
+  border-radius: 6px;
+}
+
+.editCardModal .header{
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--stroke-white);
+  padding: 0 1rem 1rem;
+}
+
+.editCardModal .modal-body{
+  padding: 3rem;
+  flex-direction: column;
+}
+
+.editCardModal .ri-close-fill{
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.editCardModal .modal-body img{
+  margin-bottom: 1rem;
+}
+
+.editCardModal .modal-body .controls .upToDown{
+  transform: rotate(135deg);
+}
+
+.editCardModal .modal-body .controls .rightToLeft{
+  transform: rotate(45deg);
+}
+
+.editCardModal .modal-body .controls{
+  background-color: #061818;
+  padding: 10px;
+  color: var(--generic-white);
+  font-size: 1.2rem;
+}
+
+.editCardModal .footer button{
+  margin-right: 1rem;
+  padding: 8px 1rem;
+}
+
+.editCardModal .modal-body .controls i{
+  /* font-weight: 500; */
 }
 /*  */
 /* ================ MEDIA QUERY ==================== */

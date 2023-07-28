@@ -1,12 +1,14 @@
-import React from "react";
+import {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import AllOcassionsDropDown from "../all-ocassions-drop-down/AllOcassionsDropDown";
 
 const Occasions = () => {
   const navigate = useNavigate();
+  const [openOcassions, setOpenOcassions] = useState(false)
   return (
-    <div style={{ padding: "0 3rem" }}>
+    <div style={{ padding: "0 3rem", position:"relative" }}>
       <div className="parent-container-padding flex-between occasion-tab">
-        <button className="occasions flex-between g-1">
+        <button className="occasions flex-between g-1" onClick={() => setOpenOcassions(!openOcassions)}>
           <p>Occasions</p>
           <i className="ri-arrow-down-s-line"></i>
         </button>
@@ -23,6 +25,8 @@ const Occasions = () => {
           Try Demo
         </button>
       </div>
+      {openOcassions && <AllOcassionsDropDown /> }
+      
     </div>
   );
 };
