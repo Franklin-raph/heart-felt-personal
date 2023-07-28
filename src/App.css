@@ -2456,14 +2456,20 @@ nav input {
     opacity: 1;
   visibility: visible;
   pointer-events:all;
-  animation: animate_card_view_modal .3s ease-in-out;
+  animation: animate_card_view_modal .6s ease-in-out;
 }
 @keyframes animate_card_view_modal{
   0%{
     transform: translate(-50%,-50%) scale(0.5);
   }
-  50%{
+  25%{
     transform: translate(-50%,-50%) scale(1.25);
+  }
+  50%{
+    transform: translate(-50%,-50%) scale(0.8);
+  }
+  55%{
+    transform: translate(-50%,-50%) scale(1.15);
   }
   100%{
     transform: translate(-50%,-50%) scale(1);
