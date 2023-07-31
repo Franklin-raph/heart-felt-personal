@@ -1,26 +1,113 @@
 import { Link } from "react-router-dom";
-import deliver_details_icon from "../../assets/images/delivery-details-img.png";
-import payStackIcon from "../../assets/images/paystack.svg"
+import deliver_details_icon from "../../assets/images/delivery-details-card-sample.png";
+import payStackIcon from "../../assets/images/paystack.svg";
+import { useState } from "react";
 
 const DeliveryDetails = () => {
+  const [isTime, setIsTime] = useState(false);
+  const [isDate, setIsDate] = useState(false);
+
+  //
   return (
     <section className="delivery_details_section">
       <div className="delivery_details_col_1">
-        <div className="delivery_details_col_1_header">
-          <h2>Delivery Details</h2>
-          <h4>Sender Details</h4>
-        </div>
-        {/*  */}
+        {/* Recipient Details */}
         <form className="delivery_details_form">
-          <div className="input_one">
-            <h5>Full Name</h5>
-            <input type="text" className="delivery_name_input" placeholder="Eg. James Eze" />
+          <div className="recipient_details">
+            <h4>Recipient Details</h4>
+            <div>
+              <label htmlFor="recipient_name">Full Name</label>
+              <input
+                type="text"
+                id="recipient_name"
+                placeholder="Eg. James Eze"
+              />
+            </div>
+            <div>
+              <label htmlFor="recipient_email">Email Address</label>
+              <input
+                type="email"
+                id="recipient_email"
+                placeholder="example@example.com"
+              />
+            </div>
           </div>
-          <div className="input_two">
-            <h5>Coupon Code</h5>
-            <div className="coupon_input">
-              <input type="text" placeholder="Enter Code" />
-              <div className="delivery_form_btn">Apply</div>
+          {/* Sender Details */}
+          <div className="recipient_details">
+            <h4>Sender Details</h4>
+            <div>
+              <label htmlFor="sender_name">Full Name</label>
+              <input type="text" id="sender_name" placeholder="Eg. James Eze" />
+            </div>
+          </div>
+          {/* Delivery Details */}
+          <div className="recipient_details">
+            <h4>Delivery Details</h4>
+            <div className="delivery_details_dual_holder">
+              <div>
+                <label htmlFor="delivery_date">Date</label>
+                <input
+                  type={isDate === true ? "date" : "text"}
+                  placeholder="dd-mm-yyy"
+                  onFocus={() => setIsDate(true)}
+                  id="delivery_date"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="delivery_time">Time</label>
+                <input
+                  type={isTime === true ? "time" : "text"}
+                  onFocus={() => setIsTime(true)}
+                  placeholder="Eg. 12:00 Am"
+                  id="delivery_time"
+                />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="delivery_time_zone">Time Zone</label>
+              <input
+                type="text"
+                id="delivery_time_zone"
+                placeholder="Eg. UTC +1"
+              />
+            </div>
+          </div>
+          {/* Preferences */}
+          <div className="recipient_details preferences">
+            <h4>Preferences</h4>
+            <div>
+              <input type="checkbox" id="want_card_check" />
+              <label htmlFor="want_card_check">
+                I want to add Gift card <i className="bx bxs-error-circle"></i>
+              </label>
+            </div>
+            {/*  */}
+            <div>
+              <input type="checkbox" id="add_confetti" />
+              <label htmlFor="add_confetti">Add confetti</label>
+            </div>
+            {/*  */}
+            <div>
+              <input type="checkbox" id="send_mails_check" />
+              <label htmlFor="send_mails_check">
+                Send list of signed signatures to my email
+              </label>
+            </div>
+            {/*  */}
+            <div>
+              <input type="checkbox" id="set_reminder_check" />
+              <label htmlFor="set_reminder_check">
+                Set a reminder for next year
+              </label>
+            </div>
+            {/*  */}
+          </div>
+          <div className="coupon_input">
+            <label htmlFor="coupon_input">Coupon Code</label>
+            <div className="coupon_input_box">
+              <input type="text" id="coupon_input" placeholder="Enter Code" />
+              <button>Apply</button>
             </div>
           </div>
           <button className="delivery_form_purchase_btn">Purchase Card</button>
@@ -35,39 +122,39 @@ const DeliveryDetails = () => {
             <img src={deliver_details_icon} alt="" />
           </div>
         </div>
-            <div className="delivery_details_summary_row">
-              <h4>Total</h4>
-              <div>
-                <p>Card Cover</p>
-                <h6>₦4,999</h6>
-              </div>
-              <div>
-                <p>Gift Card</p>
-                <h6>₦3,500</h6>
-              </div>
-              <div>
-                <p>VAT (7.5%)</p>
-                <h6>₦375</h6>
-              </div>
-              <div className="delievry_total_price">
-                <p>Total Price</p>
-                <h6>₦8,974</h6>
-              </div>
-            </div>
-            <div className="delivery_details_summary_row_2">
-              <h4>Pay With</h4>
-              <div>
-                <input type="radio" name="paywith"/>
-                <img src={payStackIcon} alt="" />
-                <p>Paystack</p>
-              </div>
-              <div>
-                <input type="radio" name="paywith"/>
-                <img src={payStackIcon} alt="" />
-                <p>Flutterwave</p>
-              </div>
-            </div>
-            <Link className="delivery_details_footer_link">Change Gift Card</Link>
+        <div className="delivery_details_summary_row">
+          <h4>Total</h4>
+          <div>
+            <p>Card Cover</p>
+            <h6>₦4,999</h6>
+          </div>
+          <div>
+            <p>Gift Card</p>
+            <h6>₦3,500</h6>
+          </div>
+          <div>
+            <p>VAT (7.5%)</p>
+            <h6>₦375</h6>
+          </div>
+          <div className="delievry_total_price">
+            <p>Total Price</p>
+            <h6>₦8,974</h6>
+          </div>
+        </div>
+        <div className="delivery_details_summary_row_2">
+          <h4>Pay With</h4>
+          <div>
+            <input type="radio" name="paywith" />
+            <img src={payStackIcon} alt="" />
+            <p>Paystack</p>
+          </div>
+          <div>
+            <input type="radio" name="paywith" />
+            <img src={payStackIcon} alt="" />
+            <p>Flutterwave</p>
+          </div>
+        </div>
+        <Link className="delivery_details_footer_link">Change Gift Card</Link>
       </div>
     </section>
   );
