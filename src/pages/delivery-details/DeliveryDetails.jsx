@@ -6,6 +6,7 @@ import { useState } from "react";
 const DeliveryDetails = () => {
   const [isTime, setIsTime] = useState(false);
   const [isDate, setIsDate] = useState(false);
+  const [wantGiftCard, setWantGiftCard] = useState(true);
 
   //
   return (
@@ -50,6 +51,7 @@ const DeliveryDetails = () => {
                   type={isDate === true ? "date" : "text"}
                   placeholder="dd-mm-yyy"
                   onFocus={() => setIsDate(true)}
+                  onBlur={() => setIsDate(false)}
                   id="delivery_date"
                 />
               </div>
@@ -59,6 +61,7 @@ const DeliveryDetails = () => {
                 <input
                   type={isTime === true ? "time" : "text"}
                   onFocus={() => setIsTime(true)}
+                  onBlur={() => setIsTime(false)}
                   placeholder="Eg. 12:00 Am"
                   id="delivery_time"
                 />
@@ -76,11 +79,40 @@ const DeliveryDetails = () => {
           {/* Preferences */}
           <div className="recipient_details preferences">
             <h4>Preferences</h4>
-            <div>
-              <input type="checkbox" id="want_card_check" />
-              <label htmlFor="want_card_check">
-                I want to add Gift card <i className="bx bxs-error-circle"></i>
-              </label>
+            <div className="want_gift_card_segment">
+              <div className="the_input_check">
+                <input
+                  type="checkbox"
+                  id="want_card_check"
+                  checked={wantGiftCard}
+                  onChange={(e) => setWantGiftCard(!wantGiftCard)}
+                />
+                <label htmlFor="want_card_check">
+                  I want to add Gift card{" "}
+                  <i className="bx bxs-error-circle"></i>
+                </label>
+              </div>
+
+              {wantGiftCard && (
+                <div className="want_gift_card_inputs">
+                  <div>
+                    <label htmlFor="sender_name">Gift voucher name</label>
+                    <input
+                      type="text"
+                      id="sender_name"
+                      placeholder="Eg. Amazon Card"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="sender_name">Voucher code</label>
+                    <input type="text" id="sender_name" placeholder="AHS$100" />
+                  </div>
+                  <div>
+                    <label htmlFor="sender_name">Voucher amount</label>
+                    <input type="text" id="sender_name" placeholder="$100" />
+                  </div>
+                </div>
+              )}
             </div>
             {/*  */}
             <div>

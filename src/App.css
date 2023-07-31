@@ -1865,6 +1865,7 @@ nav input {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
+  align-items: start;
   gap: 40px;
 }
 /*  */
@@ -1948,6 +1949,19 @@ nav input {
 
 .delivery_details_form input {
   width: 100%;
+}
+
+.want_gift_card_segment {
+  flex-direction: column !important;
+}
+
+.want_gift_card_inputs {
+  flex-direction: column !important;
+}
+
+.want_gift_card_inputs div {
+  flex-direction: column !important;
+  align-items: stretch !important;
 }
 
 .coupon_input {
