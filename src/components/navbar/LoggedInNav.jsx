@@ -11,7 +11,7 @@ const LoggedInNav = () => {
   //
   useEffect(() => {
     if (!user) {
-      navigate("/sign-in");
+      navigate("/");
     }
   }, []);
 
@@ -54,7 +54,7 @@ const LoggedInNav = () => {
 
   const logoutUser = () => {
     localStorage.clear();
-    location.href = "/sign-in";
+    location.href = "/";
   };
 
   return (
@@ -103,9 +103,10 @@ const LoggedInNav = () => {
           </div>
           <div className="nav_profile_wrapper" onClick={openUserInfo}>
             <div>
-              <i className="bx bxs-user nav_profile_icon"></i>
+              {/* <i className="bx bxs-user nav_profile_icon"></i> */}
+              <i class="ri-user-3-line nav_profile_icon"></i>
             </div>
-            <i className="bx bx-chevron-down user_nav_chevron"></i>
+            <i class="ri-arrow-down-s-line user_nav_chevron"></i>
           </div>
           <button className="primary-button">Send a card</button>
         </div>
@@ -114,7 +115,7 @@ const LoggedInNav = () => {
         <div className="user-info-drop-down">
           <div className="user-name-icon flex-start">
             <div className="drop-down-chevron">
-              <i className="bx bxs-user nav_profile_icon"></i>
+              <i class="ri-user-3-line nav_profile_icon"></i>
             </div>
             <div onClick={() => navigateToUserDashboard()}>
               <h5>{user && user}</h5>
@@ -127,44 +128,44 @@ const LoggedInNav = () => {
                 <i className="bx bx-star"></i>
                 <p>Send a card</p>
               </div>
-              <i className="bx bx-chevron-right"></i>
+              <i class="ri-arrow-right-s-line"></i>
             </li>
             <li className="flex-between">
               <div className="flex-start g-1">
                 <i className="bx bx-memory-card"></i>
                 <p>My cards</p>
               </div>
-              <i className="bx bx-chevron-right"></i>
+              <i class="ri-arrow-right-s-line"></i>
             </li>
             <li className="flex-between">
               <div className="flex-start g-1">
                 <i className="bx bxs-file-plus"></i>
                 <p onClick={()=> navigate("/saved-card")} >Saved Covers</p>
               </div>
-              <i className="bx bx-chevron-right"></i>
+              <i class="ri-arrow-right-s-line"></i>
             </li>
           </ul>
           <ul>
             <li className="flex-between">
               <div className="flex-start g-1">
-                <i className="bx bx-cog"></i>
+                <i class="ri-settings-3-line"></i>
                 <p>Account</p>
               </div>
-              <i className="bx bx-chevron-right"></i>
+              <i class="ri-arrow-right-s-line"></i>
             </li>
             <li className="flex-between">
               <div className="flex-start g-1">
-                <i className="bx bx-phone-outgoing"></i>
+                <i class="ri-phone-line"></i>
                 <p>Support</p>
               </div>
-              <i className="bx bx-chevron-right"></i>
+              <i class="ri-arrow-right-s-line"></i>
             </li>
             <li className="flex-between" onClick={logoutUser}>
               <div className="flex-start g-1">
-                <i className="bx bx-log-out"></i>
+                <i class="ri-logout-box-line"></i>
                 <p>Logout</p>
               </div>
-              <i className="bx bx-chevron-right"></i>
+              <i class="ri-arrow-right-s-line"></i>
             </li>
           </ul>
         </div>

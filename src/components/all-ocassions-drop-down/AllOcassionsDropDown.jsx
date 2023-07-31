@@ -9,8 +9,8 @@ const AllOcassionsDropDown = () => {
   return (
     <div>
         <ul className='allOcassionsDropDown'>
-            {allOcassions.map((occasion,i) => (
-                <li key={i}>{occasion}</li>
+            {allOcassions.map(occasion => (
+                <li>{occasion}</li>
             ))}
         </ul>
     </div>

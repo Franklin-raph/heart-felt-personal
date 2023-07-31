@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UploadCardCoverSideNav from "../../components/upload-card-cover-side-nav/UploadCardCoverSideNav";
 import Occasions from "../../components/occasions/Occasions";
+import deliver_details_image from "../../assets/images/delivery-details-img.png";
 
 const UploadCardCover = () => {
     const navigate = useNavigate();
+    const [openPreviewCardModal, setOpenPreviewCardModal] = useState(false)
     //
     const user = JSON.parse(localStorage.getItem("user_info"));
     useEffect(() => {
@@ -98,13 +100,19 @@ const UploadCardCover = () => {
                     </div>
                 </div>
                 {gift_card.map((card, i) => (
-                <div className="gift_card_segment_card" key={i} onClick={() => navigate("/preview-uploaded-card")}>
-                    <div className="gift_card_segment_card_img"></div>
+                <div className="gift_card_segment_card" key={i} >
+                    <div className="gift_card_segment_card_img">
+                      <div className="card_overlay">
+                        <button onClick={() => setOpenPreviewCardModal(true)}>Preview</button>
+                        <button onClick={() => navigate("/card-delivery-details")}>Use Card</button>
+                      </div>
+                      <img src={deliver_details_image} alt="" />
+                    </div>
                     <div className="gift_card_segment_card_context">
                     <h5> {card.card_title} </h5>
                     <p>
                         <span>{card.card_price}</span>
-                        <span>{card.card_dash}</span>
+                        <span>-</span>
                         <span>{card.card_maxPrice}</span>
                     </p>
                     </div>
@@ -113,6 +121,12 @@ const UploadCardCover = () => {
             </div>
         </div>
         </section>
+        {openPreviewCardModal && 
+        <div className="previewCardModal flex-center">
+          <i class="ri-close-fill" onClick={() => setOpenPreviewCardModal(false)}></i>
+          <img src={deliver_details_image} alt="" />
+        </div>
+        }
     </div>
   )
 }

@@ -54,8 +54,8 @@ const SavedCards = () => {
                 </div>
             </div>
             <div className="body">
-              {gift_card.map((card, i) => (
-                <div key={i} onClick={() => setIsEditCardOpen(true)}>
+              {gift_card.map(card => (
+                <div onClick={() => setIsEditCardOpen(true)}>
                   <div className="image"></div>
                   <h4>{card.card_title}</h4>
                   <p>{card.card_text}</p>

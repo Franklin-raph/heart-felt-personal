@@ -1,7 +1,6 @@
 import imagePreview from "../../assets/images/card_preview_template.jpg";
 import deliveryDetailsImage from "../../assets/images/delivery-details-img.png"
-import { useRef, useState } from "react";
-import SingleCardViewModal from "../../components/single-card-view-modal/SingleCardViewModal";
+import { useState } from "react";
 
 const SingleCardView = () => {
   const[isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false)
@@ -9,18 +8,6 @@ const SingleCardView = () => {
 
   function openGiftCardSettings(){
     setIsGiftCardSettingsOpen(!isGiftCardSettingsOpen)
-  }
-
-  const card_view_modal_overlay = useRef()
-  const card_view_modal = useRef()
-
-  const show_card_view_modal = () => {
-    card_view_modal.current.classList.add("show_single_card_modal")
-    card_view_modal_overlay.current.classList.add("show_single_card_modal")
-  }
-  const close_card_view_modal = () => {
-    card_view_modal.current.classList.remove("show_single_card_modal")
-    card_view_modal_overlay.current.classList.remove("show_single_card_modal")
   }
 
   return (
@@ -93,7 +80,7 @@ const SingleCardView = () => {
         {/* col 3 */}
         <div className="single_card_col col_1">
           {/*  */}
-          <div onClick={show_card_view_modal}>
+          <div>
             <i className="bx bx-pencil"></i>
             <p>Sign Card</p>
           </div>
@@ -196,9 +183,6 @@ const SingleCardView = () => {
           </div>
       </div>
       }
-      {/*  */}
-      <div className="single_card_modal_overlay" ref={card_view_modal_overlay} onClick={close_card_view_modal}></div>
-      <SingleCardViewModal card_view_modal={card_view_modal} close_card_view_modal={close_card_view_modal} />
     </article>
   );
 };

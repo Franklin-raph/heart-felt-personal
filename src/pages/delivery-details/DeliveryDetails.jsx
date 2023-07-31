@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import deliver_details_icon from "../../assets/images/delivery-details-img.png";
+import deliver_details_image from "../../assets/images/delivery-details-img.png";
 import payStackIcon from "../../assets/images/paystack.svg"
 
 const DeliveryDetails = () => {
@@ -32,7 +32,7 @@ const DeliveryDetails = () => {
         <div className="delivery_details_col_2_header">
           <h5>Order Summary</h5>
           <div className="delivery_details_img">
-            <img src={deliver_details_icon} alt="" />
+            <img src={deliver_details_image} alt="" />
           </div>
         </div>
             <div className="delivery_details_summary_row">
