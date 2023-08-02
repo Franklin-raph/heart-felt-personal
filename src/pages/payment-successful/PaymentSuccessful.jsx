@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const PaymentSuccessful = () => {
+  const navigate = useNavigate()
   return (
     <div>
       <div className="sign-in-form flex-center" style={{ padding:"3rem 1rem" }}>
@@ -15,6 +17,7 @@ const PaymentSuccessful = () => {
           type="submit"
           value="View Card"
           className="submit-btn primary-button"
+          onClick={()=> navigate("/single-card-view")}
         />
       </div>
     </div>

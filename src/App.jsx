@@ -54,13 +54,13 @@ function App() {
         <Route path="/upload-card" element={<UploadCard />} />
         <Route path="/saved-card" element={<SavedCards />} />
         <Route path="/preview-uploaded-card" element={<PreviewUploadedCard />} />
+        <Route path="/card-delivery-details" element={<DeliveryDetails />} />
+        <Route path="/payment-successful" element={<PaymentSuccessful />} />
+        <Route path="/single-card-view" element={<SingleCardView />} />
 
         {/* not yet linked */}
         <Route path="/payment-failed" element={<PaymentFailed />} />
-        <Route path="/payment-successful" element={<PaymentSuccessful />} />
-        <Route path="/card-delivery-details" element={<DeliveryDetails />} />
-        <Route path="/single-card-view" element={<SingleCardView />} />
-        <Route path="/add-gift-card" element={<AddGiftCard />} />
+        {/* <Route path="/add-gift-card" element={<AddGiftCard />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>

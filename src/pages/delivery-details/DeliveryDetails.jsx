@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import deliver_details_image from "../../assets/images/delivery-details-img.png";
 import payStackIcon from "../../assets/images/paystack.svg"
 import deliver_details_icon from "../../assets/images/delivery-details-card-sample.png";
@@ -8,13 +8,18 @@ const DeliveryDetails = () => {
   const [isTime, setIsTime] = useState(false);
   const [isDate, setIsDate] = useState(false);
   const [wantGiftCard, setWantGiftCard] = useState(true);
+  const navigate = useNavigate()
+
+  function submitCardDeliveryDetails(e){
+    e.preventDefault()
+  }
 
   //
   return (
     <section className="delivery_details_section">
       <div className="delivery_details_col_1">
         {/* Recipient Details */}
-        <form className="delivery_details_form">
+        <form className="delivery_details_form" onSubmit={submitCardDeliveryDetails}>
           <div className="recipient_details">
             <h4>Recipient Details</h4>
             <div>
@@ -143,7 +148,7 @@ const DeliveryDetails = () => {
               <button>Apply</button>
             </div>
           </div>
-          <button className="delivery_form_purchase_btn">Purchase Card</button>
+          <button className="delivery_form_purchase_btn" onClick={() => navigate("/payment-successful") }>Purchase Card</button>
         </form>
       </div>
 
