@@ -139,7 +139,7 @@ const SingleCardView = () => {
         <div className="gift-card-settings-modal-bg flex-center">
           <div className="gift-card-settings-modal">
             <i
-              class="ri-close-fill"
+              className="ri-close-fill"
               onClick={() => setIsGiftCardSettingsOpen(!isGiftCardSettingsOpen)}
             ></i>
             <div className="header">
@@ -167,7 +167,7 @@ const SingleCardView = () => {
                   Allow other signers contribute
                 </label>
                 <i
-                  class="ri-information-fill"
+                  className="ri-information-fill"
                   onClick={() => setIsHowGiftCardWorksOpen(true)}
                 ></i>
               </div>
@@ -182,7 +182,7 @@ const SingleCardView = () => {
           <div className="header flex-between">
             <p>How gift card works</p>
             <i
-              class="ri-close-fill"
+              className="ri-close-fill"
               onClick={() => setIsHowGiftCardWorksOpen(false)}
             ></i>
           </div>
@@ -213,7 +213,7 @@ const SingleCardView = () => {
             </ul>
           </div>
           <div className="footer flex-between-start">
-            <i class="ri-information-fill"></i>
+            <i className="ri-information-fill"></i>
             <p>
               People can contribute. Option cannot be changed after card
               purchase.

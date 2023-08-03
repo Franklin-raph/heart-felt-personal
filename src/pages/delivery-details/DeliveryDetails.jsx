@@ -1,25 +1,111 @@
 import { Link, useNavigate } from "react-router-dom";
-import deliver_details_image from "../../assets/images/delivery-details-img.png";
-import payStackIcon from "../../assets/images/paystack.svg"
+import payStackIcon from "../../assets/images/paystack.svg";
 import deliver_details_icon from "../../assets/images/delivery-details-card-sample.png";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { FillInAllFormDetails } from "../../components/form-error-modal/DeliveryDetailsErrorModal";
 
 const DeliveryDetails = () => {
+  // References
+  const error_modal_1 = useRef();
+
+  //
   const [isTime, setIsTime] = useState(false);
   const [isDate, setIsDate] = useState(false);
-  const [wantGiftCard, setWantGiftCard] = useState(true);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  function submitCardDeliveryDetails(e){
-    e.preventDefault()
+  // form inputs states
+  const [recipientFullName, setRecipientFullName] = useState("");
+  const [recipientEmail, setRecipientEmail] = useState("");
+  const [senderFullName, setSenderFullName] = useState("");
+  const [deliveryDate, setDeliveryDate] = useState("");
+  const [deliveryTime, setDeliveryTime] = useState("");
+  const [deliveryTimeZone, setDeliveryTimeZone] = useState("");
+  const [deliveryVoucherName, setDeliveryVoucherName] = useState(""); //only when checked
+  const [deliveryVoucherCode, setDeliveryVoucherCode] = useState(""); //only when checked
+  const [deliveryVoucherAmount, setDeliveryVoucherAmount] = useState(""); //only when checked
+  const [deliveryCouponCode, setDeliveryCouponCode] = useState("");
+
+  // check inputs
+  const [addGiftCardCheck, setAddGiftCardCheck] = useState(true);
+
+  // delivery details input data
+  const delivery_input_details = {
+    recipientFullName,
+    recipientEmail,
+    senderFullName,
+    deliveryDate,
+    deliveryTime,
+    deliveryTimeZone,
+    deliveryVoucherName,
+    deliveryVoucherCode,
+    deliveryVoucherAmount,
+    deliveryCouponCode,
+  };
+
+  function submitCardDeliveryDetails(e) {
+    e.preventDefault();
+
+    //
+    if (
+      !recipientFullName ||
+      !recipientEmail ||
+      !senderFullName ||
+      !deliveryDate ||
+      !deliveryTime ||
+      !deliveryTimeZone ||
+      !deliveryCouponCode
+    ) {
+      error_modal_1.current.classList.toggle("show_delivery_error_modal");
+      return;
+    } else if (addGiftCardCheck === true) {
+      if (
+        !recipientFullName ||
+        !recipientEmail ||
+        !senderFullName ||
+        !deliveryDate ||
+        !deliveryTime ||
+        !deliveryTimeZone ||
+        !deliveryCouponCode ||
+        !deliveryVoucherName ||
+        !deliveryVoucherCode ||
+        !deliveryVoucherAmount
+      ) {
+        error_modal_1.current.classList.toggle("show_delivery_error_modal");
+        return;
+      } else {
+        console.log(delivery_input_details);
+      }
+    }
+    navigate("/payment-successful");
+    console.log(delivery_input_details);
+
+    // reset delivery details form
+    setRecipientFullName("");
+    setRecipientEmail("");
+    setSenderFullName("");
+    setDeliveryDate("");
+    setDeliveryTime("");
+    setDeliveryTimeZone("");
+    setDeliveryVoucherName("");
+    setDeliveryVoucherCode("");
+    setDeliveryVoucherAmount("");
+    setDeliveryCouponCode("");
   }
+
+  // close error modal 1
+  const close_error_modal_1 = () => {
+    error_modal_1.current.classList.toggle("show_delivery_error_modal");
+  };
 
   //
   return (
     <section className="delivery_details_section">
       <div className="delivery_details_col_1">
         {/* Recipient Details */}
-        <form className="delivery_details_form" onSubmit={submitCardDeliveryDetails}>
+        <form
+          className="delivery_details_form"
+          onSubmit={submitCardDeliveryDetails}
+        >
           <div className="recipient_details">
             <h4>Recipient Details</h4>
             <div>
@@ -28,6 +114,8 @@ const DeliveryDetails = () => {
                 type="text"
                 id="recipient_name"
                 placeholder="Eg. James Eze"
+                onChange={(e) => setRecipientFullName(e.target.value)}
+                value={recipientFullName}
               />
             </div>
             <div>
@@ -36,6 +124,8 @@ const DeliveryDetails = () => {
                 type="email"
                 id="recipient_email"
                 placeholder="example@example.com"
+                onChange={(e) => setRecipientEmail(e.target.value)}
+                value={recipientEmail}
               />
             </div>
           </div>
@@ -44,7 +134,13 @@ const DeliveryDetails = () => {
             <h4>Sender Details</h4>
             <div>
               <label htmlFor="sender_name">Full Name</label>
-              <input type="text" id="sender_name" placeholder="Eg. James Eze" />
+              <input
+                type="text"
+                id="sender_name"
+                placeholder="Eg. James Eze"
+                onChange={(e) => setSenderFullName(e.target.value)}
+                value={senderFullName}
+              />
             </div>
           </div>
           {/* Delivery Details */}
@@ -58,6 +154,8 @@ const DeliveryDetails = () => {
                   placeholder="dd-mm-yyy"
                   onFocus={() => setIsDate(true)}
                   onBlur={() => setIsDate(false)}
+                  onChange={(e) => setDeliveryDate(e.target.value)}
+                  value={deliveryDate}
                   id="delivery_date"
                 />
               </div>
@@ -68,6 +166,8 @@ const DeliveryDetails = () => {
                   type={isTime === true ? "time" : "text"}
                   onFocus={() => setIsTime(true)}
                   onBlur={() => setIsTime(false)}
+                  onChange={(e) => setDeliveryTime(e.target.value)}
+                  value={deliveryTime}
                   placeholder="Eg. 12:00 Am"
                   id="delivery_time"
                 />
@@ -79,6 +179,8 @@ const DeliveryDetails = () => {
                 type="text"
                 id="delivery_time_zone"
                 placeholder="Eg. UTC +1"
+                onChange={(e) => setDeliveryTimeZone(e.target.value)}
+                value={deliveryTimeZone}
               />
             </div>
           </div>
@@ -90,8 +192,8 @@ const DeliveryDetails = () => {
                 <input
                   type="checkbox"
                   id="want_card_check"
-                  checked={wantGiftCard}
-                  onChange={(e) => setWantGiftCard(!wantGiftCard)}
+                  checked={addGiftCardCheck}
+                  onChange={(e) => setAddGiftCardCheck(!addGiftCardCheck)}
                 />
                 <label htmlFor="want_card_check">
                   I want to add Gift card{" "}
@@ -99,7 +201,7 @@ const DeliveryDetails = () => {
                 </label>
               </div>
 
-              {wantGiftCard && (
+              {addGiftCardCheck && (
                 <div className="want_gift_card_inputs">
                   <div>
                     <label htmlFor="sender_name">Gift voucher name</label>
@@ -107,15 +209,29 @@ const DeliveryDetails = () => {
                       type="text"
                       id="sender_name"
                       placeholder="Eg. Amazon Card"
+                      onChange={(e) => setDeliveryVoucherName(e.target.value)}
+                      value={deliveryVoucherName}
                     />
                   </div>
                   <div>
                     <label htmlFor="sender_name">Voucher code</label>
-                    <input type="text" id="sender_name" placeholder="AHS$100" />
+                    <input
+                      type="text"
+                      id="sender_name"
+                      placeholder="AHS$100"
+                      onChange={(e) => setDeliveryVoucherCode(e.target.value)}
+                      value={deliveryVoucherCode}
+                    />
                   </div>
                   <div>
                     <label htmlFor="sender_name">Voucher amount</label>
-                    <input type="text" id="sender_name" placeholder="$100" />
+                    <input
+                      type="text"
+                      id="sender_name"
+                      placeholder="$100"
+                      onChange={(e) => setDeliveryVoucherAmount(e.target.value)}
+                      value={deliveryVoucherAmount}
+                    />
                   </div>
                 </div>
               )}
@@ -144,11 +260,17 @@ const DeliveryDetails = () => {
           <div className="coupon_input">
             <label htmlFor="coupon_input">Coupon Code</label>
             <div className="coupon_input_box">
-              <input type="text" id="coupon_input" placeholder="Enter Code" />
+              <input
+                type="text"
+                id="coupon_input"
+                placeholder="Enter Code"
+                onChange={(e) => setDeliveryCouponCode(e.target.value)}
+                value={deliveryCouponCode}
+              />
               <button>Apply</button>
             </div>
           </div>
-          <button className="delivery_form_purchase_btn" onClick={() => navigate("/payment-successful") }>Purchase Card</button>
+          <button className="delivery_form_purchase_btn">Purchase Card</button>
         </form>
       </div>
 
@@ -157,7 +279,7 @@ const DeliveryDetails = () => {
         <div className="delivery_details_col_2_header">
           <h5>Order Summary</h5>
           <div className="delivery_details_img">
-            <img src={deliver_details_image} alt="" />
+            <img src={deliver_details_icon} alt="" />
           </div>
         </div>
         <div className="delivery_details_summary_row">
@@ -194,6 +316,10 @@ const DeliveryDetails = () => {
         </div>
         <Link className="delivery_details_footer_link">Change Gift Card</Link>
       </div>
+      <FillInAllFormDetails
+        error_modal_1={error_modal_1}
+        close_modal_1={close_error_modal_1}
+      />
     </section>
   );
 };

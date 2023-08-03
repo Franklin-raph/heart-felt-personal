@@ -2641,6 +2641,75 @@ nav input {
   box-shadow: 0 0 0 1.5px var(--minor-color-3);
 }
 
+/* Error modal styls */
+
+.delivery_details_error_container {
+  background: rgba(0, 0, 0, 0.73);
+  backdrop-filter: blur(4px);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: 0.35s ease-in-out;
+}
+
+.show_delivery_error_modal.delivery_details_error_container {
+  opacity: 1;
+  pointer-events: all;
+  visibility: visible;
+}
+
+.delivery_details_error_box {
+  width: 50%;
+  background: var(--generic-white);
+  padding: 1.4rem 1.8rem;
+  border-radius: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+  transition: 0.35s ease-in-out;
+}
+
+.show_delivery_error_modal.delivery_details_error_container
+  .delivery_details_error_box {
+  animation: animate_delivery_error_modal 0.4s ease-in-out;
+}
+
+@keyframes animate_delivery_error_modal {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.delivery_details_error_box i {
+  color: var(--minor-color-3);
+  font-size: 28px;
+}
+
+.delivery_details_error_box h4 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.close_error_modal {
+  background: var(--primary-color);
+  color: var(--generic-white);
+  padding: 8px 25px;
+  border-radius: 8px;
+}
+
 /*  */
 /* ================ MEDIA QUERY ==================== */
 
@@ -3298,6 +3367,11 @@ nav input {
 
   .upload-card-nav {
     padding: 1rem 2rem;
+  }
+
+  .delivery_details_error_box {
+    width: 90%;
+    text-align: center;
   }
 }
 
