@@ -4,7 +4,7 @@ import UploadCardCoverSideNav from "../../components/upload-card-cover-side-nav/
 import Occasions from "../../components/occasions/Occasions";
 import deliver_details_image from "../../assets/images/delivery-details-img.png";
 
-const UploadCardCover = () => {
+const UploadCardCoverBirthday = () => {
     const navigate = useNavigate();
     const [openPreviewCardModal, setOpenPreviewCardModal] = useState(false)
     //
@@ -131,4 +131,4 @@ const UploadCardCover = () => {
   )
 }
 
-export default UploadCardCover
+export default UploadCardCoverBirthday

@@ -23,7 +23,7 @@ import SingleCardView from "./pages/single-card-view/SingleCardView";
 import DeliveryDetails from "./pages/delivery-details/DeliveryDetails";
 import PaymentSuccessful from "./pages/payment-successful/PaymentSuccessful";
 import PaymentFailed from "./pages/payment-failed/PaymentFailed";
-import UploadCardCover from "./pages/upload-card-cover/UploadCardCover";
+import UploadCardCoverBirthday from "./pages/upload-card-cover-birthday/UploadCardCoverBirthday";
 import "./App.css";
 import UploadCard from "./pages/upload-card/UploadCard";
 import PreviewUploadedCard from "./pages/preview-uploaded-card/PreviewUploadedCard";
@@ -50,7 +50,7 @@ function App() {
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
         <Route path="/account-verification/:id/:token" element={<AccountVerification />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
-        <Route path="/upload-card-cover" element={<UploadCardCover />} />
+        <Route path="/upload-card-cover-birthday" element={<UploadCardCoverBirthday />} />
         <Route path="/upload-card" element={<UploadCard />} />
         <Route path="/saved-card" element={<SavedCards />} />
         <Route path="/preview-uploaded-card" element={<PreviewUploadedCard />} />
