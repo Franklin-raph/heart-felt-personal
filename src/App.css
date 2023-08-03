@@ -42,8 +42,7 @@ body::-webkit-scrollbar-thumb {
   --body-texts: #525252;
   --minor-color-1: #22c55e;
   --minor-color-2: rgba(41, 158, 158, 0.15);
-  --minor-color-1: #22c55e;
-  --minor-color-2: rgba(41, 158, 158, 0.15);
+  --minor-color-3: #f03e3e;
 }
 
 a {
@@ -226,7 +225,8 @@ nav input {
   cursor: pointer;
 }
 
-.nav_profile_wrapper div, .drop-down-chevron  {
+.nav_profile_wrapper div,
+.drop-down-chevron {
   border: 1px solid #c6cbcf;
   /* padding:6px 5px; */
   height: 40px;
@@ -297,7 +297,7 @@ nav input {
   border-bottom: 1px solid var(--stroke-white);
 }
 
-.user-info-drop-down ul li i{
+.user-info-drop-down ul li i {
   border: none;
 }
 
@@ -1632,7 +1632,7 @@ nav input {
   cursor: pointer;
 }
 
-.card_overlay{
+.card_overlay {
   background-color: rgba(0, 0, 0, 0.83);
   position: absolute;
   width: 100%;
@@ -1644,27 +1644,27 @@ nav input {
   flex-direction: column;
   /* display: none; */
   bottom: -100%;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-.gift_card_segment_card_img:hover .card_overlay{
+.gift_card_segment_card_img:hover .card_overlay {
   bottom: 0%;
 }
 
-.card_overlay button:nth-child(1){
+.card_overlay button:nth-child(1) {
   border: 1px solid var(--generic-white);
   padding: 5px 12px;
   margin-bottom: 10px;
   color: var(--generic-white);
 }
 
-.card_overlay button:nth-child(2){
+.card_overlay button:nth-child(2) {
   background-color: var(--generic-white);
   border: none;
   padding: 7px 10px;
 }
 
-.previewCardModal{
+.previewCardModal {
   position: fixed;
   background-color: #000000dc;
   left: 0;
@@ -1674,7 +1674,7 @@ nav input {
   z-index: 999;
 }
 
-.previewCardModal i{
+.previewCardModal i {
   color: #fff;
   position: absolute;
   top: 28%;

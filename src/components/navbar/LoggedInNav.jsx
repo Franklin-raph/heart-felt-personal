@@ -48,9 +48,9 @@ const LoggedInNav = () => {
   };
 
   const navigateToUserDashboard = () => {
-    navigate("/user-dashboard")
-    openUserInfo()
-  }
+    navigate("/user-dashboard");
+    openUserInfo();
+  };
 
   const logoutUser = () => {
     localStorage.clear();
@@ -104,9 +104,9 @@ const LoggedInNav = () => {
           <div className="nav_profile_wrapper" onClick={openUserInfo}>
             <div>
               {/* <i className="bx bxs-user nav_profile_icon"></i> */}
-              <i class="ri-user-3-line nav_profile_icon"></i>
+              <i className="ri-user-3-line nav_profile_icon"></i>
             </div>
-            <i class="ri-arrow-down-s-line user_nav_chevron"></i>
+            <i className="ri-arrow-down-s-line user_nav_chevron"></i>
           </div>
           <button className="primary-button">Send a card</button>
         </div>
@@ -115,7 +115,7 @@ const LoggedInNav = () => {
         <div className="user-info-drop-down">
           <div className="user-name-icon flex-start">
             <div className="drop-down-chevron">
-              <i class="ri-user-3-line nav_profile_icon"></i>
+              <i className="ri-user-3-line nav_profile_icon"></i>
             </div>
             <div onClick={() => navigateToUserDashboard()}>
               <h5>{user && user}</h5>
@@ -128,44 +128,44 @@ const LoggedInNav = () => {
                 <i className="bx bx-star"></i>
                 <p>Send a card</p>
               </div>
-              <i class="ri-arrow-right-s-line"></i>
+              <i className="ri-arrow-right-s-line"></i>
             </li>
             <li className="flex-between">
               <div className="flex-start g-1">
                 <i className="bx bx-memory-card"></i>
                 <p>My cards</p>
               </div>
-              <i class="ri-arrow-right-s-line"></i>
+              <i className="ri-arrow-right-s-line"></i>
             </li>
             <li className="flex-between">
               <div className="flex-start g-1">
                 <i className="bx bxs-file-plus"></i>
-                <p onClick={()=> navigate("/saved-card")} >Saved Covers</p>
+                <p onClick={() => navigate("/saved-card")}>Saved Covers</p>
               </div>
-              <i class="ri-arrow-right-s-line"></i>
+              <i className="ri-arrow-right-s-line"></i>
             </li>
           </ul>
           <ul>
             <li className="flex-between">
               <div className="flex-start g-1">
-                <i class="ri-settings-3-line"></i>
+                <i className="ri-settings-3-line"></i>
                 <p>Account</p>
               </div>
-              <i class="ri-arrow-right-s-line"></i>
+              <i className="ri-arrow-right-s-line"></i>
             </li>
             <li className="flex-between">
               <div className="flex-start g-1">
-                <i class="ri-phone-line"></i>
+                <i className="ri-phone-line"></i>
                 <p>Support</p>
               </div>
-              <i class="ri-arrow-right-s-line"></i>
+              <i className="ri-arrow-right-s-line"></i>
             </li>
             <li className="flex-between" onClick={logoutUser}>
               <div className="flex-start g-1">
-                <i class="ri-logout-box-line"></i>
+                <i className="ri-logout-box-line"></i>
                 <p>Logout</p>
               </div>
-              <i class="ri-arrow-right-s-line"></i>
+              <i className="ri-arrow-right-s-line"></i>
             </li>
           </ul>
         </div>
