@@ -48,12 +48,21 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
-        <Route path="/account-verification/:id/:token" element={<AccountVerification />} />
+        <Route
+          path="/account-verification/:id/:token"
+          element={<AccountVerification />}
+        />
         <Route path="/user-dashboard" element={<UserDashboard />} />
-        <Route path="/upload-card-cover-birthday" element={<UploadCardCoverBirthday />} />
+        <Route
+          path="/upload-card-cover-birthday"
+          element={<UploadCardCoverBirthday />}
+        />
         <Route path="/upload-card" element={<UploadCard />} />
         <Route path="/saved-card" element={<SavedCards />} />
-        <Route path="/preview-uploaded-card" element={<PreviewUploadedCard />} />
+        <Route
+          path="/preview-uploaded-card"
+          element={<PreviewUploadedCard />}
+        />
         <Route path="/card-delivery-details" element={<DeliveryDetails />} />
         <Route path="/payment-successful" element={<PaymentSuccessful />} />
         <Route path="/single-card-view" element={<SingleCardView />} />
