@@ -28,6 +28,12 @@ import "./App.css";
 import UploadCard from "./pages/upload-card/UploadCard";
 import PreviewUploadedCard from "./pages/preview-uploaded-card/PreviewUploadedCard";
 import SavedCards from "./pages/saved-cards/SavedCards";
+import Annivasary from "./pages/annivasary/Annivasary";
+import Festival from "./pages/festival/Festival";
+import Love from "./pages/love/Love";
+import Relationship from "./pages/relationship/Relationship";
+import Goodwill from "./pages/goodwill/Goodwill";
+import Sympathy from "./pages/sympathy/Sympathy";
 
 function App() {
   return (
@@ -66,6 +72,12 @@ function App() {
         <Route path="/card-delivery-details" element={<DeliveryDetails />} />
         <Route path="/payment-successful" element={<PaymentSuccessful />} />
         <Route path="/single-card-view" element={<SingleCardView />} />
+        <Route path="/upload-card-cover-festival" element={<Festival />} />
+        <Route path="/upload-card-cover-love" element={<Love />} />
+        <Route path="/upload-card-cover-goodwill" element={<Goodwill />} />
+        <Route path="/upload-card-cover-relationship" element={<Relationship />} />
+        <Route path="/upload-card-cover-sympathy" element={<Sympathy />} />
+        <Route path="/upload-card-cover-annivasary" element={<Annivasary />} />
 
         {/* not yet linked */}
         <Route path="/payment-failed" element={<PaymentFailed />} />

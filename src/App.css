@@ -2421,9 +2421,10 @@ nav input {
 
 .allOcassionsDropDown {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  width: 80%;
+  width: 40%;
+  height: 68vh;
   background-color: var(--generic-white);
   padding: 1rem;
   border: 1px solid var(--stroke-white);
