@@ -73,10 +73,10 @@ const DeliveryDetails = () => {
         error_modal_1.current.classList.toggle("show_delivery_error_modal");
         return;
       } else {
+        navigate("/payment-successful");
         console.log(delivery_input_details);
       }
     }
-    navigate("/payment-successful");
     console.log(delivery_input_details);
 
     // reset delivery details form
@@ -257,7 +257,7 @@ const DeliveryDetails = () => {
             </div>
             {/*  */}
           </div>
-          <div className="coupon_input">
+          {/* <div className="coupon_input">
             <label htmlFor="coupon_input">Coupon Code</label>
             <div className="coupon_input_box">
               <input
@@ -269,7 +269,7 @@ const DeliveryDetails = () => {
               />
               <button>Apply</button>
             </div>
-          </div>
+          </div> */}
           <button className="delivery_form_purchase_btn">Purchase Card</button>
         </form>
       </div>

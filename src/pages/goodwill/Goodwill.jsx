@@ -8,12 +8,12 @@ const Goodwill = () => {
     const navigate = useNavigate();
     const [openPreviewCardModal, setOpenPreviewCardModal] = useState(false);
     //
-    const user = JSON.parse(localStorage.getItem("user_info"));
-    useEffect(() => {
-      if (!user) {
-        navigate("/");
-      }
-    }, []);
+    // const user = JSON.parse(localStorage.getItem("user_info"));
+    // useEffect(() => {
+    //   if (!user) {
+    //     navigate("/");
+    //   }
+    // }, []);
     //
     const sidebar = useRef();
     const openSidebar = () => {

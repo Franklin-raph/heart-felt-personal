@@ -47,7 +47,7 @@ const SavedCards = () => {
         <div className="upload-card-nav flex-between g-3">
           <button onClick={()=> navigate("/upload-card-cover-birthday")}>Cancel</button>
           <div className='edit_and_continue'>
-            <button className='primary-button' onClick={() => navigate("/preview-uploaded-card")}>Continue</button>
+            <button className='primary-button' onClick={() => navigate("/card-delivery-details")}>Continue</button>
           </div>
         </div>
         <div className="upload-card-container flex-center">
@@ -60,7 +60,7 @@ const SavedCards = () => {
             </div>
             <div className="body">
               {gift_card.map((card, i) => (
-                <div key={i} onClick={() => setIsEditCardOpen(true)}>
+                <div key={i} onClick={() => navigate("/single-card-view")}>
                   <div className="gift_card_segment_card_img image"></div>
                   <h4>{card.card_title}</h4>
                   <p>{card.card_text}</p>
