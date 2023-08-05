@@ -18,7 +18,7 @@ const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("user_info", JSON.stringify(email));
-    navigate("/user-dashboard");
+    navigate("/");
   };
   //
   return (

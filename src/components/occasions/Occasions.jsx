@@ -14,12 +14,12 @@ const Occasions = () => {
         </button>
         <ul className="flex-between g-3">
           <li onClick={()=> navigate("/upload-card-cover-birthday")}>Birthday</li>
-          <li>Annivasary</li>
-          <li>Goodwill</li>
-          <li>Festival</li>
-          <li>Sympathy</li>
-          <li>Love</li>
-          <li>Relationship</li>
+          <li onClick={()=> navigate("/upload-card-cover-annivasary")}>Annivasary</li>
+          <li onClick={()=> navigate("/upload-card-cover-goodwill")}>Goodwill</li>
+          <li onClick={()=> navigate("/upload-card-cover-festival")}>Festival</li>
+          <li onClick={()=> navigate("/upload-card-cover-sympathy")}>Sympathy</li>
+          <li onClick={()=> navigate("/upload-card-cover-love")}>Love</li>
+          <li onClick={()=> navigate("/upload-card-cover-relationship")}>Relationship</li>
         </ul>
         <button className="occasions" onClick={() => navigate("/try-demo")}>
           Try Demo

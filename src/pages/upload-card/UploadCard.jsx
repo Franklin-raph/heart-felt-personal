@@ -32,7 +32,12 @@ const UploadCard = () => {
   //
   return (
     <div className="upload-card">
-      <UploadCardNav />
+      <div className="upload-card-nav flex-between g-3">
+        <button onClick={()=> navigate("/upload-card-cover-birthday")}>Cancel</button>
+        <div className='edit_and_continue'>
+          <button className='primary-button' onClick={() => navigate("/preview-uploaded-card")}>Continue</button>
+        </div>
+      </div>
       <div className="upload-card-container flex-center">
         <div className="header">
           <h2>What card cover will you use?</h2>
