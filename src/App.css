@@ -2138,7 +2138,7 @@ nav input {
 
 .gift-card-settings-modal {
   background-color: #fff;
-  width: 40%;
+  width: 600px;
   border-radius: 6px;
   padding: 2rem;
   position: relative;
@@ -2167,12 +2167,17 @@ nav input {
   margin: 10px 0;
 }
 
+.gift_card_settings_modal_prices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+}
+
 .gift-card-settings-modal .amount div p {
   border: 1px solid var(--stroke-white);
   border-radius: 6px;
   padding: 3px 2rem;
   cursor: pointer;
-  width: 50%;
 }
 
 .gift-card-settings-modal .body input[type="text"] {
@@ -2448,6 +2453,10 @@ nav input {
   column-gap: 2rem;
   text-align: left;
   padding-top: 2rem;
+}
+
+.saved-card .body .image {
+  margin: 0;
 }
 
 .saved-card .body h4 {
@@ -2784,6 +2793,14 @@ nav input {
 
   .gift_card_segment_row_upload_card_cover {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .saved-card .body {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .editCardModal {
+    width: 400px;
   }
 }
 
@@ -3307,6 +3324,17 @@ nav input {
   .uploaded_img {
     width: 100%;
   }
+
+  .saved-card .body {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gift-card-settings-modal {
+    width: 90%;
+  }
+
+  .gift_card_settings_modal_prices {
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -3395,6 +3423,10 @@ nav input {
   .delivery_details_error_box {
     width: 90%;
     text-align: center;
+  }
+
+  .upload-card-container .body {
+    width: 90%;
   }
 }
 
@@ -3548,7 +3580,7 @@ nav input {
   }
 
   .upload-card-container .body {
-    width: 90%;
+    width: 100%;
   }
 
   .upload-card-container .header h2 {
@@ -3585,11 +3617,19 @@ nav input {
   .recipient_details.preferences label {
     font-size: 14px;
   }
+
+  .editCardModal {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 374px) {
   .view_modal_input_form {
     width: 270px;
+  }
+
+  .upload-card-container .body {
+    grid-template-columns: 1fr;
   }
 }
 

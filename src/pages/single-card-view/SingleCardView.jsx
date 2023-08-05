@@ -136,90 +136,17 @@ const SingleCardView = () => {
       </div>
       {/*  */}
       {isGiftCardSettingsOpen && (
-        <div className="gift-card-settings-modal-bg flex-center">
-          <div className="gift-card-settings-modal">
-            <i
-              className="ri-close-fill"
-              onClick={() => setIsGiftCardSettingsOpen(!isGiftCardSettingsOpen)}
-            ></i>
-            <div className="header">
-              <h2>Gift Card Settings</h2>
-              <p>
-                Gift card can only be canceled within 24 hours after purchase.
-              </p>
-            </div>
-            <div className="body">
-              <h4>eGird Card</h4>
-              <img src={deliveryDetailsImage} alt="" />
-              <div className="amount">
-                <h4>Select Amount</h4>
-                <div className="flex-start g-1">
-                  <p>#500</p>
-                  <p>#1,500</p>
-                  <p>#2,000</p>
-                  <p>#2,500</p>
-                </div>
-              </div>
-              <input type="text" placeholder="# Amount" />
-              <div className="flex-start g-1" style={{ marginTop: "10px" }}>
-                <input type="checkbox" />
-                <label style={{ display: "block", fontSize: "14px" }}>
-                  Allow other signers contribute
-                </label>
-                <i
-                  className="ri-information-fill"
-                  onClick={() => setIsHowGiftCardWorksOpen(true)}
-                ></i>
-              </div>
-            </div>
-            <button className="primary-button">Proceed</button>
-          </div>
-        </div>
+        <GiftCardSettingsModal
+          isGiftCardSettingsOpen={isGiftCardSettingsOpen}
+          setIsGiftCardSettingsOpen={setIsGiftCardSettingsOpen}
+          setIsHowGiftCardWorksOpen={setIsHowGiftCardWorksOpen}
+        />
       )}
 
       {isHowGiftCardWorksOpen && (
-        <div className="how-gift-card-works-modal">
-          <div className="header flex-between">
-            <p>How gift card works</p>
-            <i
-              className="ri-close-fill"
-              onClick={() => setIsHowGiftCardWorksOpen(false)}
-            ></i>
-          </div>
-          <div className="body">
-            <h4>Gift card would</h4>
-            <ul>
-              <li>
-                <h5>Allow people contribute</h5>
-                <p>
-                  Purchase gift card and allow multiple people to contribute to
-                  the total value of the card.
-                </p>
-              </li>
-              <li>
-                <h5>Make signers add more gift card</h5>
-                <p>
-                  Upon sharing your card, signers can add their preferred amount
-                  to the total value of the gift card.
-                </p>
-              </li>
-              <li>
-                <h5>Send to recipient</h5>
-                <p>
-                  All contributions added to the gift card is sent. Each
-                  contribution has a processing.
-                </p>
-              </li>
-            </ul>
-          </div>
-          <div className="footer flex-between-start">
-            <i className="ri-information-fill"></i>
-            <p>
-              People can contribute. Option cannot be changed after card
-              purchase.
-            </p>
-          </div>
-        </div>
+        <HowGiftCardWorksModal
+          setIsHowGiftCardWorksOpen={setIsHowGiftCardWorksOpen}
+        />
       )}
       {/*  */}
       <div
@@ -236,3 +163,102 @@ const SingleCardView = () => {
 };
 
 export default SingleCardView;
+
+// Const Modals
+
+// Gift Card Settings Modal
+
+export const GiftCardSettingsModal = ({
+  isGiftCardSettingsOpen,
+  setIsGiftCardSettingsOpen,
+  setIsHowGiftCardWorksOpen,
+}) => {
+  return (
+    <div className="gift-card-settings-modal-bg flex-center">
+      <div className="gift-card-settings-modal">
+        <i
+          className="ri-close-fill"
+          onClick={() => setIsGiftCardSettingsOpen(!isGiftCardSettingsOpen)}
+        ></i>
+        <div className="header">
+          <h2>Gift Card Settings</h2>
+          <p>Gift card can only be canceled within 24 hours after purchase.</p>
+        </div>
+        <div className="body">
+          <h4>eGird Card</h4>
+          <img src={deliveryDetailsImage} alt="" />
+          <div className="amount">
+            <h4>Select Amount</h4>
+            <div className="gift_card_settings_modal_prices g-1">
+              <p>#500</p>
+              <p>#1,500</p>
+              <p>#2,000</p>
+              <p>#2,500</p>
+            </div>
+          </div>
+          <input type="text" placeholder="# Amount" />
+          <div className="flex-start g-1" style={{ marginTop: "10px" }}>
+            <input type="checkbox" />
+            <label style={{ display: "block", fontSize: "14px" }}>
+              Allow other signers contribute
+            </label>
+            <i
+              className="ri-information-fill"
+              onClick={() => setIsHowGiftCardWorksOpen(true)}
+            ></i>
+          </div>
+        </div>
+        <button className="primary-button">Proceed</button>
+      </div>
+    </div>
+  );
+};
+
+// How Gift Card Works Modal Here
+export const HowGiftCardWorksModal = ({ setIsHowGiftCardWorksOpen }) => {
+  return (
+    <div className="how-gift-card-works-modal">
+      <div className="header flex-between">
+        <p>How gift card works</p>
+        <i
+          className="ri-close-fill"
+          onClick={() => setIsHowGiftCardWorksOpen(false)}
+        ></i>
+      </div>
+      <div className="body">
+        <h4>Gift card would</h4>
+        <ul>
+          <li>
+            <h5>Allow people contribute</h5>
+            <p>
+              Purchase gift card and allow multiple people to contribute to the
+              total value of the card.
+            </p>
+          </li>
+          <li>
+            <h5>Make signers add more gift card</h5>
+            <p>
+              Upon sharing your card, signers can add their preferred amount to
+              the total value of the gift card.
+            </p>
+          </li>
+          <li>
+            <h5>Send to recipient</h5>
+            <p>
+              All contributions added to the gift card is sent. Each
+              contribution has a processing.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div className="footer flex-between-start">
+        <i className="ri-information-fill"></i>
+        <p>
+          People can contribute. Option cannot be changed after card purchase.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+//
