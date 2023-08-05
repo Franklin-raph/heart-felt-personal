@@ -2599,6 +2599,7 @@ nav input {
 }
 
 .view_modal_input_controls {
+  position: relative;
   background: var(--header-texts);
   color: var(--generic-white);
   border-radius: 8px;
@@ -2606,7 +2607,52 @@ nav input {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  overflow: hidden;
+}
+
+.tool_tip_card {
+  position: absolute;
+  top: -45px;
+  background: var(--header-texts);
+  padding: 5px 20px;
+}
+
+.tool_tip_card p {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.colour_tip.tool_tip_card {
+  left: -2%;
+}
+
+.type_tip.tool_tip_card {
+  left: 12%;
+}
+
+.size_tip.tool_tip_card {
+  left: 35%;
+}
+
+.style_tip.tool_tip_card {
+  left: 55%;
+}
+
+.align_tip.tool_tip_card {
+  left: 70%;
+}
+
+.sender_tip.tool_tip_card {
+  right: -18%;
+}
+
+.tool_tip_card_arrow {
+  height: 12px;
+  width: 12px;
+  background: var(--header-texts);
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: rotate(45deg) translateX(-50%);
 }
 
 .card_view_control div {
@@ -2631,6 +2677,7 @@ nav input {
   background: var(--primary-color);
   padding: 10px 6px;
   cursor: pointer;
+  border-radius: 0 8px 8px 0;
 }
 
 .view_modal_input form {
