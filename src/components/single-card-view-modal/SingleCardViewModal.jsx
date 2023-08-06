@@ -1,4 +1,7 @@
 import { useState } from "react";
+import TextEditColorModal, {
+  TextEditFamilyModal,
+} from "../single-card-text-edit-modals/SingleCardTextEditModal";
 const SingleCardViewModal = ({ card_view_modal, close_card_view_modal }) => {
   const [colorToolTip, setColorToolTip] = useState(false);
   const [typefaceToolTip, setTypefaceToolTip] = useState(false);
@@ -6,6 +9,22 @@ const SingleCardViewModal = ({ card_view_modal, close_card_view_modal }) => {
   const [textStyleToolTip, setTextStyleToolTip] = useState(false);
   const [textAlignToolTip, setTextAlignToolTip] = useState(false);
   const [senderNameToolTip, setSenderNameToolTip] = useState(false);
+
+  // Wants Text Edit States
+  const [showColorPalette, setShowColorPalette] = useState(false);
+  const [textEditFonts, setTextEditFonts] = useState(false);
+
+  //
+  const handleShowColorPalette = (e) => {
+    setShowColorPalette(!showColorPalette);
+    setTextEditFonts(false);
+  };
+
+  //
+  const handleShowTextEditFonts = () => {
+    setTextEditFonts(!textEditFonts);
+    setShowColorPalette(false);
+  };
 
   //
   return (
@@ -16,6 +35,7 @@ const SingleCardViewModal = ({ card_view_modal, close_card_view_modal }) => {
             className="card_view_control font_weight_control"
             onMouseOver={() => setColorToolTip(true)}
             onMouseOut={() => setColorToolTip(false)}
+            onClick={handleShowColorPalette}
           >
             <div>
               <p>O</p>
@@ -26,6 +46,7 @@ const SingleCardViewModal = ({ card_view_modal, close_card_view_modal }) => {
             className="card_view_control font_family_control"
             onMouseOver={() => setTypefaceToolTip(true)}
             onMouseOut={() => setTypefaceToolTip(false)}
+            onClick={handleShowTextEditFonts}
           >
             <div>
               <p>Aa</p>
@@ -74,6 +95,8 @@ const SingleCardViewModal = ({ card_view_modal, close_card_view_modal }) => {
           {textStyleToolTip && <EditTextStyleToolTip />}
           {textAlignToolTip && <EditTextAlignToolTip />}
           {senderNameToolTip && <SenderNameToolTip />}
+          {showColorPalette && <TextEditColorModal />}
+          {textEditFonts && <TextEditFamilyModal />}
         </div>
         <div className="view_modal_input_form">
           <form>
