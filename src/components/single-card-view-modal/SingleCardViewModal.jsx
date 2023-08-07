@@ -1,6 +1,8 @@
 import { useState } from "react";
 import TextEditColorModal, {
+  TextEditAlignModal,
   TextEditFamilyModal,
+  TextEditSizeModal,
 } from "../single-card-text-edit-modals/SingleCardTextEditModal";
 const SingleCardViewModal = ({ card_view_modal, close_card_view_modal }) => {
   const [colorToolTip, setColorToolTip] = useState(false);
@@ -13,17 +15,38 @@ const SingleCardViewModal = ({ card_view_modal, close_card_view_modal }) => {
   // Wants Text Edit States
   const [showColorPalette, setShowColorPalette] = useState(false);
   const [textEditFonts, setTextEditFonts] = useState(false);
+  const [showEditSizeModal, setShowEditSizeModal] = useState(false);
+  const [showTextAlignModal, setShowTextAlignModal] = useState(false);
 
   //
   const handleShowColorPalette = (e) => {
     setShowColorPalette(!showColorPalette);
     setTextEditFonts(false);
+    setShowEditSizeModal(false);
+    setShowTextAlignModal(false);
   };
 
   //
   const handleShowTextEditFonts = () => {
     setTextEditFonts(!textEditFonts);
     setShowColorPalette(false);
+    setShowEditSizeModal(false);
+    setShowTextAlignModal(false);
+  };
+
+  //
+  const handleShowTextSizeModal = () => {
+    setShowEditSizeModal(!showEditSizeModal);
+    setTextEditFonts(false);
+    setShowColorPalette(false);
+    setShowTextAlignModal(false);
+  };
+
+  //
+  const handleShowTextAlignModal = () => {
+    setShowTextAlignModal(!showTextAlignModal);
+    setTextEditFonts(false);
+    setShowEditSizeModal(false);
   };
 
   //
@@ -57,6 +80,7 @@ const SingleCardViewModal = ({ card_view_modal, close_card_view_modal }) => {
             className="card_view_control font_size_control"
             onMouseOver={() => setTextSizeToolTip(true)}
             onMouseOut={() => setTextSizeToolTip(false)}
+            onClick={handleShowTextSizeModal}
           >
             <div>
               <p>Small</p>
@@ -76,6 +100,7 @@ const SingleCardViewModal = ({ card_view_modal, close_card_view_modal }) => {
             className="card_view_control font_align_control"
             onMouseOver={() => setTextAlignToolTip(true)}
             onMouseOut={() => setTextAlignToolTip(false)}
+            onClick={handleShowTextAlignModal}
           >
             <div>
               <i className="ri-bar-chart-horizontal-line"></i>
@@ -97,6 +122,8 @@ const SingleCardViewModal = ({ card_view_modal, close_card_view_modal }) => {
           {senderNameToolTip && <SenderNameToolTip />}
           {showColorPalette && <TextEditColorModal />}
           {textEditFonts && <TextEditFamilyModal />}
+          {showEditSizeModal && <TextEditSizeModal />}
+          {showTextAlignModal && <TextEditAlignModal />}
         </div>
         <div className="view_modal_input_form">
           <form>

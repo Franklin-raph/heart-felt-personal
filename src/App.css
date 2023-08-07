@@ -2595,7 +2595,7 @@ nav input {
 .view_modal_input {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
 }
 
 .view_modal_input_controls {
@@ -2682,6 +2682,93 @@ nav input {
   gap: 10px;
   background: var(--header-texts);
   padding: 10px 18px;
+}
+
+.text_edit_size_modal {
+  position: absolute;
+  top: -170px;
+  left: 90px;
+  background: var(--header-texts);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.7rem 0.5rem;
+}
+
+.text_align_modal {
+  position: absolute;
+  right: 2px;
+  top: -40px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--header-texts);
+}
+
+.text_align_bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.text_align_bars div {
+  height: 2.5px;
+  width: 28px;
+  background: var(--generic-white);
+  border-radius: 8px;
+  transition: 0.25s ease-in-out;
+}
+
+.text_align_bars:hover div,
+.text_align_bars:active div {
+  background: var(--primary-color);
+}
+
+.text_align_bars.bar_one div:nth-child(2) {
+  width: 24px;
+}
+
+.text_align_bars.bar_one div:nth-child(3) {
+  width: 20px;
+}
+
+.text_align_bars.bar_two div:nth-child(2) {
+  width: 23px;
+  align-self: center;
+}
+
+.text_align_bars.bar_two div:nth-child(3) {
+  width: 19px;
+  align-self: center;
+}
+
+.text_align_bars.bar_three div:nth-child(2) {
+  width: 24px;
+  align-self: flex-end;
+}
+
+.text_align_bars.bar_three div:nth-child(3) {
+  width: 20px;
+  align-self: flex-end;
+}
+
+.text_size_holder {
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+  font-size: 10.5px;
+}
+
+.text_size_holder:hover {
+  color: var(--primary-color);
+}
+
+.text_edit_size_modal input {
+  border: 0;
+  outline: 0;
+  padding: 6px 8px 6px 5px;
+  border-radius: 6px;
 }
 
 /*  */
