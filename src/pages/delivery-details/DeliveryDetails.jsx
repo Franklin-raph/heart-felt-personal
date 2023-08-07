@@ -14,6 +14,9 @@ const DeliveryDetails = () => {
   const navigate = useNavigate();
 
   // form inputs states
+  const [uploadedCard, setUploadedCard] = useState(
+    localStorage.getItem("uploaded_card_img")
+  );
   const [recipientFullName, setRecipientFullName] = useState("");
   const [recipientEmail, setRecipientEmail] = useState("");
   const [senderFullName, setSenderFullName] = useState("");
@@ -23,7 +26,6 @@ const DeliveryDetails = () => {
   const [deliveryVoucherName, setDeliveryVoucherName] = useState(""); //only when checked
   const [deliveryVoucherCode, setDeliveryVoucherCode] = useState(""); //only when checked
   const [deliveryVoucherAmount, setDeliveryVoucherAmount] = useState(""); //only when checked
-  const [deliveryCouponCode, setDeliveryCouponCode] = useState("");
 
   // check inputs
   const [addGiftCardCheck, setAddGiftCardCheck] = useState(true);
@@ -86,7 +88,6 @@ const DeliveryDetails = () => {
     setDeliveryVoucherName("");
     setDeliveryVoucherCode("");
     setDeliveryVoucherAmount("");
-    setDeliveryCouponCode("");
   }
 
   // close error modal 1
@@ -276,7 +277,8 @@ const DeliveryDetails = () => {
         <div className="delivery_details_col_2_header">
           <h5>Order Summary</h5>
           <div className="delivery_details_img">
-            <img src={deliver_details_icon} alt="" />
+            {uploadedCard && <img src={uploadedCard} alt="" />}
+            {!uploadedCard && <img src={deliver_details_icon} alt="" />}
           </div>
         </div>
         <div className="delivery_details_summary_row">

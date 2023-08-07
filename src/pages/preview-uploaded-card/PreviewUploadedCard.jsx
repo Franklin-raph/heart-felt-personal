@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const PreviewUploadedCard = () => {
   // states
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [imagePreview, setImagePreview] = useState(
     localStorage.getItem("uploaded_card_img")
   );
@@ -14,9 +14,16 @@ const PreviewUploadedCard = () => {
   return (
     <div className="upload-card">
       <div className="upload-card-nav flex-between g-3">
-        <button onClick={()=> navigate("/upload-card-cover-birthday")}>Cancel</button>
-        <div className='edit_and_continue'>
-          <button className='primary-button' onClick={() => navigate("/saved-card")}>Continue</button>
+        <button onClick={() => navigate("/upload-card-cover-birthday")}>
+          Cancel
+        </button>
+        <div className="edit_and_continue">
+          <button
+            className="primary-button"
+            onClick={() => navigate("/card-delivery-details")}
+          >
+            Continue
+          </button>
         </div>
       </div>
       <div className="upload-card-container-preview flex-center">
