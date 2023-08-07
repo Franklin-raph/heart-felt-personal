@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const FlutterPage = () => {
+  const navigate = useNavigate();
+
+  //
   return (
     <div className="flutter_page_card">
       <div className="flutter_card_header">
@@ -40,7 +43,12 @@ const FlutterPage = () => {
           </label>
         </div>
       </form>
-      <button className="flutter_pay_btn">Pay NGN2,000</button>
+      <button
+        className="flutter_pay_btn"
+        onClick={() => navigate("/payment-successful")}
+      >
+        Pay NGN2,000
+      </button>
       <div className="flutter_other_btns">
         <button className="flutter_pay_with_btn">
           <i className="ri-bank-card-2-fill"></i>Pay with USSD
@@ -55,9 +63,6 @@ const FlutterPage = () => {
           <i className="ri-flutter-fill"></i>Pay with Barta
         </button>
       </div>
-      <Link to="/single-card-view" className="back_to_card_view">
-        Done!
-      </Link>
     </div>
   );
 };

@@ -3034,14 +3034,6 @@ nav input {
   padding-right: 40px;
 }
 
-.back_to_card_view {
-  background: var(--primary-color);
-  color: var(--stroke-white);
-  text-align: center;
-  padding: 10px 8px;
-  border-radius: 10px;
-}
-
 /*  */
 /* ================ MEDIA QUERY ==================== */
 

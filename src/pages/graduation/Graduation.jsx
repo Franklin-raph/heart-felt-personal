@@ -4,7 +4,7 @@ import UploadCardCoverSideNav from "../../components/upload-card-cover-side-nav/
 import Occasions from "../../components/occasions/Occasions";
 import deliver_details_image from "../../assets/images/delivery-details-img.png";
 
-const Annivasary = () => {
+const Graduation = () => {
   const navigate = useNavigate();
   const [openPreviewCardModal, setOpenPreviewCardModal] = useState(false);
   //
@@ -62,7 +62,7 @@ const Annivasary = () => {
     <div className="upload-card-cover">
       <Occasions />
       <div className="header">
-        <h1>Annivasary Cards</h1>
+        <h1>Graduation Cards</h1>
         <p>
           Express love to friends and family all over the world, with special
           memories of gifts.
@@ -129,4 +129,4 @@ const Annivasary = () => {
   );
 };
 
-export default Annivasary;
+export default Graduation;
