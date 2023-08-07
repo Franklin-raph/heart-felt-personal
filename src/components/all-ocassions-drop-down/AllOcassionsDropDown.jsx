@@ -33,7 +33,9 @@ const AllOcassionsDropDown = () => {
     <div>
       <ul className="allOcassionsDropDown">
         {allOcassions.map((occasion, i) => (
-          <li key={i}>{occasion}</li>
+          <li key={i} onClick={console.log()}>
+            {occasion}
+          </li>
         ))}
       </ul>
     </div>

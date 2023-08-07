@@ -1279,7 +1279,7 @@ nav input {
 .user_dashbaord_section {
   position: relative;
   display: grid;
-  grid-template-columns: auto 2.5fr;
+  grid-template-columns: auto 1fr;
   align-items: stretch;
   gap: 40px;
 }
@@ -1590,7 +1590,7 @@ nav input {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  column-gap: 20px;
+  column-gap: 14px;
   row-gap: 20px;
 }
 
@@ -1622,6 +1622,7 @@ nav input {
 }
 
 .gift_card_segment_card_img {
+  overflow: hidden;
   position: relative;
   margin: 0 10px;
   height: 10rem;
