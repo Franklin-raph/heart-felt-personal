@@ -67,6 +67,28 @@ const AllOcassionsDropDown = () => {
       navigate("/upload-card-cover-new-home");
     } else if (e.target.textContent === "Christmass") {
       navigate("/upload-card-cover-christmas");
+    } else if (e.target.textContent === "Thanksgiving") {
+      navigate("/upload-card-cover-thanksgiving");
+    } else if (e.target.textContent === "Condolences") {
+      navigate("/upload-card-cover-condolences");
+    } else if (e.target.textContent === "Just Because") {
+      navigate("/upload-card-cover-just-because");
+    } else if (e.target.textContent === "Save the Date") {
+      navigate("/upload-card-cover-save-the-date");
+    } else if (e.target.textContent === "Work Anniversary") {
+      navigate("/upload-card-cover-work-anniversary");
+    } else if (e.target.textContent === "Halloween") {
+      navigate("/upload-card-cover-halloween");
+    } else if (e.target.textContent === "New Year") {
+      navigate("/upload-card-cover-new-year");
+    } else if (e.target.textContent === "Admin Day") {
+      navigate("/upload-card-cover-admin-day");
+    } else if (e.target.textContent === "Boss Day") {
+      navigate("/upload-card-cover-boss-day");
+    } else if (e.target.textContent === "Welcome") {
+      navigate("/upload-card-cover-welcome-cards");
+    } else if (e.target.textContent === "Baby/Birth Announcement") {
+      navigate("/upload-card-cover-baby-birth-announcement");
     }
   };
 

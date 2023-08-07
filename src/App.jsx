@@ -47,6 +47,17 @@ import Graduation from "./pages/graduation/Graduation";
 import Maternity from "./pages/maternity/Maternity";
 import NewHome from "./pages/new-home/NewHome";
 import Christmas from "./pages/christmas/Christmas";
+import ThanksGiving from "./pages/thanksgiving/ThanksGiving";
+import Condolences from "./pages/condolences/Condolences";
+import JustBecause from "./pages/just-because/JustBecause";
+import SaveTheDate from "./pages/save-the-date/SaveTheDate";
+import WorkAnniversary from "./pages/work-annivasary/WorkAnniversary";
+import Halloween from "./pages/hallowen/Halloween";
+import NewYear from "./pages/new-year/NewYear";
+import AdminDay from "./pages/admin-day/AdminDay";
+import BossDay from "./pages/boss-day/BossDay";
+import WelcomeCards from "./pages/welcome-cards/WelcomeCards";
+import BabyBirhAnnouncement from "./pages/baby-birth-announcement/BabyBirthAnnouncement";
 
 function App() {
   return (
@@ -113,6 +124,38 @@ function App() {
         <Route path="/upload-card-cover-maternity" element={<Maternity />} />
         <Route path="/upload-card-cover-new-home" element={<NewHome />} />
         <Route path="/upload-card-cover-christmas" element={<Christmas />} />
+        <Route
+          path="/upload-card-cover-thanksgiving"
+          element={<ThanksGiving />}
+        />
+        <Route
+          path="/upload-card-cover-condolences"
+          element={<Condolences />}
+        />
+        <Route
+          path="/upload-card-cover-just-because"
+          element={<JustBecause />}
+        />
+        <Route
+          path="/upload-card-cover-save-the-date"
+          element={<SaveTheDate />}
+        />
+        <Route
+          path="/upload-card-cover-work-anniversary"
+          element={<WorkAnniversary />}
+        />
+        <Route path="/upload-card-cover-halloween" element={<Halloween />} />
+        <Route path="/upload-card-cover-new-year" element={<NewYear />} />
+        <Route path="/upload-card-cover-admin-day" element={<AdminDay />} />
+        <Route path="/upload-card-cover-boss-day" element={<BossDay />} />
+        <Route
+          path="/upload-card-cover-welcome-cards"
+          element={<WelcomeCards />}
+        />
+        <Route
+          path="/upload-card-cover-baby-birth-announcement"
+          element={<BabyBirhAnnouncement />}
+        />
 
         {/* End of Upload Card Cover Pages */}
 
