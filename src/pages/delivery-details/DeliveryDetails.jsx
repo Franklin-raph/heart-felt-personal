@@ -39,7 +39,6 @@ const DeliveryDetails = () => {
     deliveryVoucherName,
     deliveryVoucherCode,
     deliveryVoucherAmount,
-    deliveryCouponCode,
   };
 
   function submitCardDeliveryDetails(e) {
@@ -52,8 +51,7 @@ const DeliveryDetails = () => {
       !senderFullName ||
       !deliveryDate ||
       !deliveryTime ||
-      !deliveryTimeZone ||
-      !deliveryCouponCode
+      !deliveryTimeZone
     ) {
       error_modal_1.current.classList.toggle("show_delivery_error_modal");
       return;
@@ -65,7 +63,6 @@ const DeliveryDetails = () => {
         !deliveryDate ||
         !deliveryTime ||
         !deliveryTimeZone ||
-        !deliveryCouponCode ||
         !deliveryVoucherName ||
         !deliveryVoucherCode ||
         !deliveryVoucherAmount
@@ -73,7 +70,7 @@ const DeliveryDetails = () => {
         error_modal_1.current.classList.toggle("show_delivery_error_modal");
         return;
       } else {
-        navigate("/payment-successful");
+        navigate("/payment-page");
         console.log(delivery_input_details);
       }
     }

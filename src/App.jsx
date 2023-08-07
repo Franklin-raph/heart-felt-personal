@@ -34,10 +34,13 @@ import Love from "./pages/love/Love";
 import Relationship from "./pages/relationship/Relationship";
 import Goodwill from "./pages/goodwill/Goodwill";
 import Sympathy from "./pages/sympathy/Sympathy";
+import FlutterPage from "./pages/flutter-page/FlutterPage";
+import GetToTopOnRender from "./components/get-to-top-on-render/GetToTopOnRender";
 
 function App() {
   return (
     <BrowserRouter>
+      <GetToTopOnRender />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -75,13 +78,17 @@ function App() {
         <Route path="/upload-card-cover-festival" element={<Festival />} />
         <Route path="/upload-card-cover-love" element={<Love />} />
         <Route path="/upload-card-cover-goodwill" element={<Goodwill />} />
-        <Route path="/upload-card-cover-relationship" element={<Relationship />} />
+        <Route
+          path="/upload-card-cover-relationship"
+          element={<Relationship />}
+        />
         <Route path="/upload-card-cover-sympathy" element={<Sympathy />} />
         <Route path="/upload-card-cover-annivasary" element={<Annivasary />} />
 
         {/* not yet linked */}
         <Route path="/payment-failed" element={<PaymentFailed />} />
         {/* <Route path="/add-gift-card" element={<AddGiftCard />} /> */}
+        <Route path="/payment-page" element={<FlutterPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

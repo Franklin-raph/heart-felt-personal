@@ -33,7 +33,7 @@ const AllOcassionsDropDown = () => {
     <div>
       <ul className="allOcassionsDropDown">
         {allOcassions.map((occasion, i) => (
-          <li key={i} onClick={console.log()}>
+          <li key={i} onClick={(e) => console.log(e.target.textContent)}>
             {occasion}
           </li>
         ))}
