@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+//Text Color Modal
+
 export default function TextEditColorModal() {
   // input color states
   const [inputColorOne, setInputColorOne] = useState("#000000");
@@ -195,6 +197,55 @@ export const TextEditFamilyModal = () => {
         onClick={(e) => setTextEditFont("Atholas")}
       >
         Atholas
+      </div>
+    </div>
+  );
+};
+
+// Text Sizes Modal
+
+export const TextEditSizeModal = () => {
+  return (
+    <div className="text_edit_size_modal">
+      <div className="text_size_holder">
+        <p>Small</p>
+      </div>
+      <div className="text_size_holder">
+        <p>Medium</p>
+      </div>
+      <div className="text_size_holder">
+        <p>Large</p>
+      </div>
+      <div className="text_size_holder">
+        <p>Extra large</p>
+      </div>
+      <div className="text_size_holder">
+        <p>Huge</p>
+      </div>
+      <input type="text" placeholder="custom font size" />
+    </div>
+  );
+};
+
+// Text Align Modal
+
+export const TextEditAlignModal = () => {
+  return (
+    <div className="text_align_modal">
+      <div className="text_align_bars bar_one">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div className="text_align_bars bar_two">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div className="text_align_bars bar_three">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
   );

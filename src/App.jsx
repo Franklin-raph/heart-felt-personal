@@ -34,10 +34,35 @@ import Love from "./pages/love/Love";
 import Relationship from "./pages/relationship/Relationship";
 import Goodwill from "./pages/goodwill/Goodwill";
 import Sympathy from "./pages/sympathy/Sympathy";
+import FlutterPage from "./pages/flutter-page/FlutterPage";
+import GetToTopOnRender from "./components/get-to-top-on-render/GetToTopOnRender";
+import Farewell from "./pages/farewell/Farewell";
+import ThankYou from "./pages/thank-you/ThankYou";
+import Congrats from "./pages/congrats/Congrats";
+import Wedding from "./pages/wedding/Wedding";
+import Retirement from "./pages/retirement/Retirement";
+import GetWellSoon from "./pages/get-well-soon/GetWellSoon";
+import Promotion from "./pages/promotion/Promotion";
+import Graduation from "./pages/graduation/Graduation";
+import Maternity from "./pages/maternity/Maternity";
+import NewHome from "./pages/new-home/NewHome";
+import Christmas from "./pages/christmas/Christmas";
+import ThanksGiving from "./pages/thanksgiving/ThanksGiving";
+import Condolences from "./pages/condolences/Condolences";
+import JustBecause from "./pages/just-because/JustBecause";
+import SaveTheDate from "./pages/save-the-date/SaveTheDate";
+import WorkAnniversary from "./pages/work-annivasary/WorkAnniversary";
+import Halloween from "./pages/hallowen/Halloween";
+import NewYear from "./pages/new-year/NewYear";
+import AdminDay from "./pages/admin-day/AdminDay";
+import BossDay from "./pages/boss-day/BossDay";
+import WelcomeCards from "./pages/welcome-cards/WelcomeCards";
+import BabyBirhAnnouncement from "./pages/baby-birth-announcement/BabyBirthAnnouncement";
 
 function App() {
   return (
     <BrowserRouter>
+      <GetToTopOnRender />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -59,29 +84,85 @@ function App() {
           element={<AccountVerification />}
         />
         <Route path="/user-dashboard" element={<UserDashboard />} />
+        <Route path="/upload-card" element={<UploadCard />} />
+        <Route path="/saved-card" element={<SavedCards />} />
+        <Route path="/card-delivery-details" element={<DeliveryDetails />} />
+        <Route path="/payment-successful" element={<PaymentSuccessful />} />
+        <Route path="/single-card-view" element={<SingleCardView />} />
+
+        {/*  */}
+        {/* Upload Card Cover Pages */}
+        {/*  */}
         <Route
           path="/upload-card-cover-birthday"
           element={<UploadCardCoverBirthday />}
         />
-        <Route path="/upload-card" element={<UploadCard />} />
-        <Route path="/saved-card" element={<SavedCards />} />
         <Route
           path="/preview-uploaded-card"
           element={<PreviewUploadedCard />}
         />
-        <Route path="/card-delivery-details" element={<DeliveryDetails />} />
-        <Route path="/payment-successful" element={<PaymentSuccessful />} />
-        <Route path="/single-card-view" element={<SingleCardView />} />
         <Route path="/upload-card-cover-festival" element={<Festival />} />
         <Route path="/upload-card-cover-love" element={<Love />} />
         <Route path="/upload-card-cover-goodwill" element={<Goodwill />} />
-        <Route path="/upload-card-cover-relationship" element={<Relationship />} />
+        <Route
+          path="/upload-card-cover-relationship"
+          element={<Relationship />}
+        />
         <Route path="/upload-card-cover-sympathy" element={<Sympathy />} />
         <Route path="/upload-card-cover-annivasary" element={<Annivasary />} />
+        <Route path="/upload-card-cover-farewell" element={<Farewell />} />
+        <Route path="/upload-card-cover-thank-you" element={<ThankYou />} />
+        <Route path="/upload-card-cover-congrats" element={<Congrats />} />
+        <Route path="/upload-card-cover-wedding" element={<Wedding />} />
+        <Route path="/upload-card-cover-retirement" element={<Retirement />} />
+        <Route
+          path="/upload-card-cover-get-well-soon"
+          element={<GetWellSoon />}
+        />
+        <Route path="/upload-card-cover-promotion" element={<Promotion />} />
+        <Route path="/upload-card-cover-graduation" element={<Graduation />} />
+        <Route path="/upload-card-cover-maternity" element={<Maternity />} />
+        <Route path="/upload-card-cover-new-home" element={<NewHome />} />
+        <Route path="/upload-card-cover-christmas" element={<Christmas />} />
+        <Route
+          path="/upload-card-cover-thanksgiving"
+          element={<ThanksGiving />}
+        />
+        <Route
+          path="/upload-card-cover-condolences"
+          element={<Condolences />}
+        />
+        <Route
+          path="/upload-card-cover-just-because"
+          element={<JustBecause />}
+        />
+        <Route
+          path="/upload-card-cover-save-the-date"
+          element={<SaveTheDate />}
+        />
+        <Route
+          path="/upload-card-cover-work-anniversary"
+          element={<WorkAnniversary />}
+        />
+        <Route path="/upload-card-cover-halloween" element={<Halloween />} />
+        <Route path="/upload-card-cover-new-year" element={<NewYear />} />
+        <Route path="/upload-card-cover-admin-day" element={<AdminDay />} />
+        <Route path="/upload-card-cover-boss-day" element={<BossDay />} />
+        <Route
+          path="/upload-card-cover-welcome-cards"
+          element={<WelcomeCards />}
+        />
+        <Route
+          path="/upload-card-cover-baby-birth-announcement"
+          element={<BabyBirhAnnouncement />}
+        />
+
+        {/* End of Upload Card Cover Pages */}
 
         {/* not yet linked */}
         <Route path="/payment-failed" element={<PaymentFailed />} />
         {/* <Route path="/add-gift-card" element={<AddGiftCard />} /> */}
+        <Route path="/payment-page" element={<FlutterPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

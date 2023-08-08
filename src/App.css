@@ -1279,7 +1279,7 @@ nav input {
 .user_dashbaord_section {
   position: relative;
   display: grid;
-  grid-template-columns: auto 2.5fr;
+  grid-template-columns: auto 1fr;
   align-items: stretch;
   gap: 40px;
 }
@@ -1590,7 +1590,7 @@ nav input {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  column-gap: 20px;
+  column-gap: 14px;
   row-gap: 20px;
 }
 
@@ -1622,6 +1622,7 @@ nav input {
 }
 
 .gift_card_segment_card_img {
+  overflow: hidden;
   position: relative;
   margin: 0 10px;
   height: 10rem;
@@ -2595,7 +2596,7 @@ nav input {
 .view_modal_input {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
 }
 
 .view_modal_input_controls {
@@ -2682,6 +2683,93 @@ nav input {
   gap: 10px;
   background: var(--header-texts);
   padding: 10px 18px;
+}
+
+.text_edit_size_modal {
+  position: absolute;
+  top: -170px;
+  left: 90px;
+  background: var(--header-texts);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.7rem 0.5rem;
+}
+
+.text_align_modal {
+  position: absolute;
+  right: 2px;
+  top: -40px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--header-texts);
+}
+
+.text_align_bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.text_align_bars div {
+  height: 2.5px;
+  width: 28px;
+  background: var(--generic-white);
+  border-radius: 8px;
+  transition: 0.25s ease-in-out;
+}
+
+.text_align_bars:hover div,
+.text_align_bars:active div {
+  background: var(--primary-color);
+}
+
+.text_align_bars.bar_one div:nth-child(2) {
+  width: 24px;
+}
+
+.text_align_bars.bar_one div:nth-child(3) {
+  width: 20px;
+}
+
+.text_align_bars.bar_two div:nth-child(2) {
+  width: 23px;
+  align-self: center;
+}
+
+.text_align_bars.bar_two div:nth-child(3) {
+  width: 19px;
+  align-self: center;
+}
+
+.text_align_bars.bar_three div:nth-child(2) {
+  width: 24px;
+  align-self: flex-end;
+}
+
+.text_align_bars.bar_three div:nth-child(3) {
+  width: 20px;
+  align-self: flex-end;
+}
+
+.text_size_holder {
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+  font-size: 10.5px;
+}
+
+.text_size_holder:hover {
+  color: var(--primary-color);
+}
+
+.text_edit_size_modal input {
+  border: 0;
+  outline: 0;
+  padding: 6px 8px 6px 5px;
+  border-radius: 6px;
 }
 
 /*  */
@@ -2824,6 +2912,126 @@ nav input {
   color: var(--generic-white);
   padding: 8px 25px;
   border-radius: 8px;
+}
+
+/* flutter page styles */
+.flutter_page_card {
+  margin-top: 80px !important;
+  width: 374px;
+  margin: 0 auto;
+  background: rgba(251, 211, 211, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  border-top: 3px solid var(--minor-color-3);
+}
+
+.flutter_card_header {
+  background: #ffffff;
+  padding: 15px 10px;
+}
+
+.flutter_page_img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: var(--icons-color);
+  opacity: 0.7;
+}
+
+.flutter_page_context {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px;
+  color: var(--body-texts);
+}
+
+.flutter_page_context div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flutter_page_form {
+  margin: 0 auto;
+  padding: 15px 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.flutter_input_one {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.flutter_input_one div {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.flutter_input_one i {
+  font-size: 28px;
+  color: var(--body-texts);
+}
+
+.flutter_input_one input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+}
+
+.flutter_input_two {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flutter_input_two input {
+  border: 0;
+  outline: 0;
+}
+
+.flutter_input_three {
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.flutter_other_btns {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  gap: 8px;
+}
+
+.flutter_pay_with_btn {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 1px solid #c6cbcf;
+}
+
+.flutter_pay_with_btn:last-child {
+  border-bottom: 0;
+}
+
+.flutter_pay_btn {
+  background: #f59f00;
+  color: var(--generic-white);
+  align-self: center;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 /*  */

@@ -6,16 +6,6 @@ const UploadCard = () => {
   const navigate = useNavigate();
 
   //
-  useEffect(() => {
-    setImageUploaded(localStorage.getItem("uploaded_card_img"));
-  }, []);
-
-  // states
-  const [imageUploaded, setImageUploaded] = useState(
-    localStorage.getItem("uploaded_card_img")
-  );
-
-  //
   const getUploadFile = (e) => {
     const file = e.target.files[0];
 
@@ -24,7 +14,7 @@ const UploadCard = () => {
     reader.onload = (e) => {
       const fileImg = e.target.result;
       localStorage.setItem("uploaded_card_img", fileImg);
-      setImageUploaded(fileImg);
+      navigate("/preview-uploaded-card");
     };
     reader.readAsDataURL(file);
   };
@@ -33,9 +23,16 @@ const UploadCard = () => {
   return (
     <div className="upload-card">
       <div className="upload-card-nav flex-between g-3">
-        <button onClick={()=> navigate("/upload-card-cover-birthday")}>Cancel</button>
-        <div className='edit_and_continue'>
-          <button className='primary-button' onClick={() => navigate("/preview-uploaded-card")}>Continue</button>
+        <button onClick={() => navigate("/upload-card-cover-birthday")}>
+          Cancel
+        </button>
+        <div className="edit_and_continue">
+          <button
+            className="primary-button"
+            onClick={() => navigate("/preview-uploaded-card")}
+          >
+            Continue
+          </button>
         </div>
       </div>
       <div className="upload-card-container flex-center">
@@ -51,10 +48,7 @@ const UploadCard = () => {
             className="first_upload_card_label"
             htmlFor="upload_card_input"
           >
-            {imageUploaded && (
-              <img src={`${imageUploaded}`} className="uploaded_img" />
-            )}
-            {!imageUploaded && <i className="bx bx-images"></i>}
+            <i className="bx bx-images"></i>
           </label>
           <input type="file" id="upload_card_input" onChange={getUploadFile} />
           <p>
