@@ -73,7 +73,7 @@ const SavedCards = () => {
         </div>
         <div className="body">
           {gift_card.map((card, i) => (
-            <div key={i} onClick={() => setIsEditCardOpen(true)}>
+            <div key={i} onClick={() => navigate("/card-delivery-details")}>
               <div className="gift_card_segment_card_img image"></div>
               <h4>{card.card_title}</h4>
               <p>{card.card_text}</p>
@@ -81,7 +81,7 @@ const SavedCards = () => {
           ))}
         </div>
       </div>
-      {isEditCardOpen ? (
+      {/* {isEditCardOpen ? (
         <div className="editCardModalBg flex-center">
           <div className="editCardModal">
             <div className="header flex-between">
@@ -119,7 +119,7 @@ const SavedCards = () => {
         </div>
       ) : (
         ""
-      )}
+      )} */}
     </div>
   );
 };
