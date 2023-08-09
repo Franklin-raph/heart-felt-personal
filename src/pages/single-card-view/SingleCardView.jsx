@@ -7,9 +7,10 @@ import SingleCardViewModal from "../../components/single-card-view-modal/SingleC
 
 // swiper slides imports
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards, Pagination } from "swiper/modules";
+import { EffectCards, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-cards";
+import "swiper/css/navigation";
 
 const SingleCardView = () => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
@@ -105,9 +106,10 @@ const SingleCardView = () => {
         <Swiper
           effect={"cards"}
           grabCursor={true}
-          modules={[EffectCards, Pagination]}
+          modules={[EffectCards, Pagination, Navigation]}
           pagination={pagination}
           loop={true}
+          navigation={true}
           className="mySwiper"
         >
           <SwiperSlide className="single_card_col col_2">
