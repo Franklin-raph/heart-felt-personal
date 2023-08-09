@@ -3,6 +3,12 @@ import deliveryDetailsImage from "../../assets/images/delivery-details-img.png";
 import { useRef, useState } from "react";
 import SingleCardViewModal from "../../components/single-card-view-modal/SingleCardViewModal";
 
+// swiper slides imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-cards";
+
 const SingleCardView = () => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
   const [isHowGiftCardWorksOpen, setIsHowGiftCardWorksOpen] = useState(false);
@@ -21,6 +27,14 @@ const SingleCardView = () => {
   const close_card_view_modal = () => {
     card_view_modal.current.classList.remove("show_single_card_modal");
     card_view_modal_overlay.current.classList.remove("show_single_card_modal");
+  };
+
+  //
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + '">' + (index + 1) + "</span>";
+    },
   };
 
   return (
@@ -86,9 +100,24 @@ const SingleCardView = () => {
         </div>
 
         {/* col 2 */}
-        <div className="single_card_col col_2">
-          <img src={imagePreview} alt="" />
-        </div>
+        <Swiper
+          effect={"cards"}
+          grabCursor={true}
+          modules={[EffectCards, Pagination]}
+          pagination={pagination}
+          loop={true}
+          className="mySwiper"
+        >
+          <SwiperSlide className="single_card_col col_2">
+            <img src={imagePreview} alt="" />
+          </SwiperSlide>
+          <SwiperSlide className="single_card_col col_2">
+            <img src={imagePreview} alt="" />
+          </SwiperSlide>
+          <SwiperSlide className="single_card_col col_2">
+            <img src={imagePreview} alt="" />
+          </SwiperSlide>
+        </Swiper>
 
         {/* col 3 */}
         <div className="single_card_col col_1">
@@ -96,6 +125,11 @@ const SingleCardView = () => {
           <div onClick={show_card_view_modal}>
             <i className="bx bx-pencil"></i>
             <p>Sign Card</p>
+          </div>
+          {/*  */}
+          <div>
+            <i className="bx bxs-videos"></i>
+            <p>Add Video</p>
           </div>
           {/*  */}
           <div>
@@ -109,15 +143,6 @@ const SingleCardView = () => {
           </div>
           {/*  */}
         </div>
-      </div>
-      {/*  */}
-      <div className="single_card_pagination">
-        <i className="bx bx-chevron-left"></i>
-        <p className="active">1</p>
-        <p>2</p>
-        <p>3</p>
-        <p>4</p>
-        <i className="bx bx-chevron-right"></i>
       </div>
       {/*  */}
       <div className="single_card_view_footer">

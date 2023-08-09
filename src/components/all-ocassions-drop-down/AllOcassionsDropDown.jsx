@@ -75,7 +75,7 @@ const AllOcassionsDropDown = () => {
       navigate("/upload-card-cover-just-because");
     } else if (e.target.textContent === "Save the Date") {
       navigate("/upload-card-cover-save-the-date");
-    } else if (e.target.textContent === "Work Anniversary") {
+    } else if (e.target.textContent === "Work Annivasary") {
       navigate("/upload-card-cover-work-anniversary");
     } else if (e.target.textContent === "Halloween") {
       navigate("/upload-card-cover-halloween");
