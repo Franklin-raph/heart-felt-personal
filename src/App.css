@@ -1278,6 +1278,7 @@ nav input {
 /*  */
 .user_dashbaord_section {
   position: relative;
+  padding: 0 6rem;
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: stretch;
@@ -1290,9 +1291,9 @@ nav input {
 }
 
 .user_dashbaord_section {
-  width: 80%;
   margin: 0 auto;
   margin-top: 40px;
+  padding: 0 8rem;
 }
 
 .sidebar_header {
@@ -1588,13 +1589,14 @@ nav input {
 
 .gift_card_segment_row_upload_card_cover {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   column-gap: 14px;
   row-gap: 20px;
 }
 
 .gift_card_segment_card {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -1631,6 +1633,10 @@ nav input {
   overflow: hidden;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.gift_card_segment_card_img img {
+  object-fit: cover;
 }
 
 .card_overlay {
@@ -3074,10 +3080,6 @@ nav input {
     width: 40%;
   }
 
-  .user_dashbaord_section {
-    width: 90%;
-  }
-
   .upload-card-cover .header {
     margin: 3rem 0 3rem 4rem;
   }
@@ -3276,10 +3278,6 @@ nav input {
   }
   .keyfeatures .body {
     overflow-x: scroll;
-  }
-  .user_dashbaord_section {
-    width: 100%;
-    padding: 0 2rem;
   }
   /*  */
   /* single card view styles */
