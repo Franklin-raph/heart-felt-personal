@@ -16,20 +16,23 @@ const SingleCardView = () => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
   const [isHowGiftCardWorksOpen, setIsHowGiftCardWorksOpen] = useState(false);
 
+  //
+  const [showTextEditModalBtn, setShowTextEditModalBtn] = useState(false);
+
   function openGiftCardSettings() {
     setIsGiftCardSettingsOpen(!isGiftCardSettingsOpen);
   }
 
-  const card_view_modal_overlay = useRef();
+  // const card_view_modal_overlay = useRef();
   const card_view_modal = useRef();
 
   const show_card_view_modal = () => {
     card_view_modal.current.classList.add("show_single_card_modal");
-    card_view_modal_overlay.current.classList.add("show_single_card_modal");
+    setShowTextEditModalBtn(true);
   };
   const close_card_view_modal = () => {
     card_view_modal.current.classList.remove("show_single_card_modal");
-    card_view_modal_overlay.current.classList.remove("show_single_card_modal");
+    setShowTextEditModalBtn(false);
   };
 
   //
@@ -126,25 +129,43 @@ const SingleCardView = () => {
         {/* col 3 */}
         <div className="single_card_col col_1">
           {/*  */}
-          <div onClick={show_card_view_modal}>
-            <i className="bx bx-pencil"></i>
-            <p>Sign Card</p>
-          </div>
-          {/*  */}
-          <div>
-            <i className="bx bxs-videos"></i>
-            <p>Add Video</p>
-          </div>
-          {/*  */}
-          <div>
-            <i className="bx bxs-image"></i>
-            <p>Add Photo</p>
-          </div>
-          {/*  */}
-          <div>
-            <i className="bx bx-smile"></i>
-            <p>Add GIF/Sticker</p>
-          </div>
+          {!showTextEditModalBtn ? (
+            <>
+              <div onClick={show_card_view_modal}>
+                <i className="bx bx-pencil"></i>
+                <p>Sign Card</p>
+              </div>
+              {/*  */}
+              <div>
+                <i className="bx bxs-videos"></i>
+                <p>Add Video</p>
+              </div>
+              {/*  */}
+              <div>
+                <i className="bx bxs-image"></i>
+                <p>Add Photo</p>
+              </div>
+              {/*  */}
+              <div>
+                <i className="bx bx-smile"></i>
+                <p>Add GIF/Sticker</p>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="modal_save_changes">
+                <i className="bx bxs-file-blank"></i>
+                <p>Save Changes</p>
+              </div>
+              <div
+                className="modal_cancel_changes"
+                onClick={close_card_view_modal}
+              >
+                <i className="bx bxs-x-circle"></i>
+                <p>Cancel</p>
+              </div>
+            </>
+          )}
           {/*  */}
         </div>
       </div>
@@ -178,15 +199,12 @@ const SingleCardView = () => {
         />
       )}
       {/*  */}
-      <div
+      {/* <div
         className="single_card_modal_overlay"
         ref={card_view_modal_overlay}
         onClick={close_card_view_modal}
-      ></div>
-      <SingleCardViewModal
-        card_view_modal={card_view_modal}
-        close_card_view_modal={close_card_view_modal}
-      />
+      ></div> */}
+      <SingleCardViewModal card_view_modal={card_view_modal} />
     </article>
   );
 };
