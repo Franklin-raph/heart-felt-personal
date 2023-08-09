@@ -58,6 +58,7 @@ import AdminDay from "./pages/admin-day/AdminDay";
 import BossDay from "./pages/boss-day/BossDay";
 import WelcomeCards from "./pages/welcome-cards/WelcomeCards";
 import BabyBirhAnnouncement from "./pages/baby-birth-announcement/BabyBirthAnnouncement";
+import PageNotFound from "./pages/page-not-found/PageNotFound";
 
 function App() {
   return (
@@ -163,6 +164,7 @@ function App() {
         <Route path="/payment-failed" element={<PaymentFailed />} />
         {/* <Route path="/add-gift-card" element={<AddGiftCard />} /> */}
         <Route path="/payment-page" element={<FlutterPage />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -29,6 +29,7 @@ const DeliveryDetails = () => {
 
   // check inputs
   const [addGiftCardCheck, setAddGiftCardCheck] = useState(true);
+  const [addVideoCheck, setAddVideoCheck] = useState(false);
 
   // delivery details input data
   const delivery_input_details = {
@@ -73,10 +74,8 @@ const DeliveryDetails = () => {
         return;
       } else {
         navigate("/payment-page");
-        console.log(delivery_input_details);
       }
     }
-    console.log(delivery_input_details);
 
     // reset delivery details form
     setRecipientFullName("");
@@ -88,6 +87,7 @@ const DeliveryDetails = () => {
     setDeliveryVoucherName("");
     setDeliveryVoucherCode("");
     setDeliveryVoucherAmount("");
+    navigate("/payment-page");
   }
 
   // close error modal 1
@@ -236,6 +236,21 @@ const DeliveryDetails = () => {
             </div>
             {/*  */}
             <div>
+              <input
+                type="checkbox"
+                id="add_video"
+                checked={addVideoCheck}
+                onChange={() => setAddVideoCheck(!addVideoCheck)}
+              />
+              <label htmlFor="add_video">Add video</label>
+            </div>
+            {/*  */}
+            <div>
+              <input type="checkbox" id="add_audio" />
+              <label htmlFor="add_audio">Add Audio</label>
+            </div>
+            {/*  */}
+            <div>
               <input type="checkbox" id="add_confetti" />
               <label htmlFor="add_confetti">Add confetti</label>
             </div>
@@ -287,10 +302,12 @@ const DeliveryDetails = () => {
             <p>Card Cover</p>
             <h6>₦4,999</h6>
           </div>
-          <div>
-            <p>Video ...</p>
-            <h6>₦3,500</h6>
-          </div>
+          {addVideoCheck && (
+            <div>
+              <p>Video ...</p>
+              <h6>₦3,500</h6>
+            </div>
+          )}
           <div>
             <p>VAT (7.5%)</p>
             <h6>₦375</h6>

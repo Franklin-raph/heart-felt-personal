@@ -3042,6 +3042,40 @@ nav input {
   padding-right: 40px;
 }
 
+.page_not_found_holder {
+  position: relative;
+  width: 376px;
+  margin: 0 auto;
+}
+
+.page_not_found_container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.page_not_found_text {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.page_not_found_anime_one {
+  animation: anime_not_found_leaf 2s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes anime_not_found_leaf {
+  0% {
+    transform: rotateY(10deg) translate(-169.93432px, -164.42601px);
+  }
+  100% {
+    transform: rotateY(-10deg) translate(-169.93432px, -164.42601px);
+  }
+}
+
 /*  */
 /* ================ MEDIA QUERY ==================== */
 
