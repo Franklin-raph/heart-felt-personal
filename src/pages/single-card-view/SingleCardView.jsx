@@ -1,6 +1,6 @@
 import imagePreview_1 from "../../assets/images/card_preview_template.jpg";
 import imagePreview_2 from "../../assets/images/delivery-details-card-sample.png";
-import imagePreview_3 from "../../assets/images/dirthday-card-template-image.jpg";
+import imagePreview_3 from "../../assets/images/birthday-card-template-image.jpg";
 import deliveryDetailsImage from "../../assets/images/delivery-details-img.png";
 import { useRef, useState } from "react";
 import SingleCardViewModal from "../../components/single-card-view-modal/SingleCardViewModal";
