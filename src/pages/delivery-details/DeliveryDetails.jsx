@@ -288,7 +288,7 @@ const DeliveryDetails = () => {
             <h6>₦4,999</h6>
           </div>
           <div>
-            <p>Gift Card</p>
+            <p>Video ...</p>
             <h6>₦3,500</h6>
           </div>
           <div>
