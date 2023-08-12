@@ -3186,6 +3186,12 @@ nav input {
   align-self: flex-end;
 }
 
+.save_password_change_btn.delete_account {
+  background: var(--minor-color-3);
+  color: var(--generic-white);
+  align-self: flex-end;
+}
+
 /*  */
 /* ================ MEDIA QUERY ==================== */
 

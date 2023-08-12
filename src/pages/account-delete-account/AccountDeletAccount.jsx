@@ -3,7 +3,7 @@ import DashBoardNav from "../../components/dashboard-nav/DashBoardNav";
 import { useNavigate } from "react-router-dom";
 import { AccountInfoNavLinks } from "../account-personal-info/AccountInfo";
 
-const AccountChangePassword = () => {
+const AccountDeletAccount = () => {
   const navigate = useNavigate();
   //
   const user = JSON.parse(localStorage.getItem("user_info"));
@@ -35,26 +35,21 @@ const AccountChangePassword = () => {
         {/*  */}
         <form className="account_personal_info_form">
           <div className="account_info_input_div">
-            <label htmlFor="first_name">Old Password</label>
+            <label htmlFor="first_name">Type in Password to confirm</label>
             <input
               className="change_password_input"
               type="text"
               id="first_name"
             />
+            <p>Once this action is done, you loose access to your account</p>
           </div>
-          <div className="account_info_input_div">
-            <label htmlFor="last_name">New Password</label>
-            <input
-              className="change_password_input"
-              type="text"
-              id="last_name"
-            />
-          </div>
-          <button className="save_password_change_btn">Save</button>
+          <button className="save_password_change_btn delete_account">
+            Delete Account
+          </button>
         </form>
       </div>
     </section>
   );
 };
 
-export default AccountChangePassword;
+export default AccountDeletAccount;

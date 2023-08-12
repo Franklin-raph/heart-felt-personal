@@ -3,7 +3,7 @@ import DashBoardNav from "../../components/dashboard-nav/DashBoardNav";
 import { useNavigate } from "react-router-dom";
 import { AccountInfoNavLinks } from "../account-personal-info/AccountInfo";
 
-const AccountChangePassword = () => {
+const AccountCustomName = () => {
   const navigate = useNavigate();
   //
   const user = JSON.parse(localStorage.getItem("user_info"));
@@ -35,20 +35,14 @@ const AccountChangePassword = () => {
         {/*  */}
         <form className="account_personal_info_form">
           <div className="account_info_input_div">
-            <label htmlFor="first_name">Old Password</label>
+            <label htmlFor="first_name">Custom Name</label>
             <input
               className="change_password_input"
               type="text"
               id="first_name"
+              placeholder="Mary"
             />
-          </div>
-          <div className="account_info_input_div">
-            <label htmlFor="last_name">New Password</label>
-            <input
-              className="change_password_input"
-              type="text"
-              id="last_name"
-            />
+            <p>This Refrects as "From" in all group cards sent.</p>
           </div>
           <button className="save_password_change_btn">Save</button>
         </form>
@@ -57,4 +51,4 @@ const AccountChangePassword = () => {
   );
 };
 
-export default AccountChangePassword;
+export default AccountCustomName;
