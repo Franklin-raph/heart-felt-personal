@@ -59,6 +59,8 @@ import BossDay from "./pages/boss-day/BossDay";
 import WelcomeCards from "./pages/welcome-cards/WelcomeCards";
 import BabyBirhAnnouncement from "./pages/baby-birth-announcement/BabyBirthAnnouncement";
 import PageNotFound from "./pages/page-not-found/PageNotFound";
+import AccountInfo from "./pages/account-personal-info/AccountInfo";
+import AccountChangePassword from "./pages/account-change-password/AccountChangePassword";
 
 function App() {
   return (
@@ -85,6 +87,11 @@ function App() {
           element={<AccountVerification />}
         />
         <Route path="/user-dashboard" element={<UserDashboard />} />
+        <Route path="/account-personal-info" element={<AccountInfo />} />
+        <Route
+          path="/account-change-password"
+          element={<AccountChangePassword />}
+        />
         <Route path="/upload-card" element={<UploadCard />} />
         <Route path="/saved-card" element={<SavedCards />} />
         <Route path="/card-delivery-details" element={<DeliveryDetails />} />

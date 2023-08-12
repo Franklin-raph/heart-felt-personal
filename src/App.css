@@ -1336,6 +1336,10 @@ nav input {
   gap: 20px;
 }
 
+.sidebar_links a.active {
+  color: var(--primary-color);
+}
+
 .sidebar_link {
   display: flex;
   align-items: center;
@@ -3099,6 +3103,89 @@ nav input {
   }
 }
 
+.account_personal_info_image_row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.account_personal_info_form {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#account_image_profile_input {
+  display: none;
+}
+
+.account_personal_info_img_div {
+  height: 100px;
+  width: 100px;
+  background: var(--stroke-white);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.account_personal_info_img_div img {
+  object-fit: contain;
+  width: 100%;
+  image-resolution: 600dpi;
+}
+
+.account_personal_info_image_row label {
+  background: var(--generic-white);
+  padding: 4px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 1%;
+  left: 8%;
+  box-shadow: 0 0 0 1px rgba(141, 141, 141, 0.681);
+  cursor: pointer;
+}
+
+.account_personal_info_img_div label i {
+  font-size: 16px;
+}
+
+.account_personal_info_edit_btn {
+  background: var(--primary-color);
+  color: var(--generic-white);
+}
+
+.account_info_input_div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--body-texts);
+}
+
+.account_info_input_div input {
+  padding: 15px 0 5px 6px;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid var(--body-texts);
+}
+
+.change_password_input {
+  border: 1px solid var(--body-texts) !important;
+  border-radius: 8px;
+  padding: 15px 0 15px 8px !important;
+}
+
+.save_password_change_btn {
+  background: var(--primary-color);
+  color: var(--generic-white);
+  align-self: flex-end;
+}
+
 /*  */
 /* ================ MEDIA QUERY ==================== */
 
@@ -3676,12 +3763,6 @@ nav input {
     padding: 1rem 4rem;
   }
 
-  .single_card_view_modal {
-    width: 90%;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .view_modal_buttons {
     flex-direction: row;
   }
@@ -3792,6 +3873,10 @@ nav input {
 
   .upload-card-container .body {
     width: 90%;
+  }
+
+  .single_card_view_modal {
+    width: 290px;
   }
 }
 
