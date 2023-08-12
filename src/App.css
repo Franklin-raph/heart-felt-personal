@@ -3230,11 +3230,75 @@ nav input {
   display: flex;
   justify-content: space-between;
   align-items: end;
+  margin-bottom: 40px;
+}
+
+.notifications_row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .notifications_page_explore_cards_btn {
   background: var(--primary-color);
   color: var(--generic-white);
+}
+
+.card_sent_notification {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 0 0 1px rgba(165, 165, 165, 0.6);
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+.card_notification_context {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card_notification_context h4 {
+  user-select: none;
+  color: var(--body-texts);
+}
+
+.card_notification_context p {
+  user-select: none;
+  color: var(--icons-color);
+  font-size: 12px;
+}
+
+.card_sent_notification_toggle {
+  position: relative;
+  height: 16px;
+  width: 30px;
+  border-radius: 8px;
+  background: rgb(152, 152, 152);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.card_sent_notification_toggle div {
+  position: absolute;
+  top: 50%;
+  margin-left: 2.5px;
+  transform: translate(0, -50%);
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: var(--generic-white);
+  transition: 0.3s ease-in-out;
+}
+
+.toggle_notification.card_sent_notification_toggle {
+  background: var(--primary-color);
+}
+
+.toggle_notification.card_sent_notification_toggle div {
+  margin-left: 18px;
 }
 
 /*  */

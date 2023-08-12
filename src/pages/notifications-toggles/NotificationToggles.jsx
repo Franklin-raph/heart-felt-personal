@@ -36,7 +36,13 @@ const NotificationToggles = () => {
           </button>
         </div>
         {/*  */}
-        <div className="notifications_row"></div>
+        <div className="notifications_row">
+          <CardSentNotification />
+          <CardOpenedNotification />
+          <SpecialPromotionsNotification />
+          <NewFeaturesNotification />
+          <SystemUpdatesNotification />
+        </div>
       </div>
     </section>
   );
@@ -45,3 +51,156 @@ const NotificationToggles = () => {
 export default NotificationToggles;
 
 //
+//
+//CARD SENT NOTIFICATION
+//
+//
+export const CardSentNotification = () => {
+  const cardSentNotificationToggle = useRef();
+
+  //
+  const handleToggleCardSentNotification = () => {
+    cardSentNotificationToggle.current.classList.toggle("toggle_notification");
+  };
+
+  //
+  return (
+    <div className="card_sent_notification">
+      <div className="card_notification_context">
+        <h4>Card Sent</h4>
+        <p>Recieve an email when your card is sent to receipient</p>
+      </div>
+      <div
+        className="card_sent_notification_toggle toggle_notification"
+        onClick={handleToggleCardSentNotification}
+        ref={cardSentNotificationToggle}
+      >
+        <div></div>
+      </div>
+    </div>
+  );
+};
+
+//
+//
+//CARD OPENED NOTIFICATION
+//
+//
+export const CardOpenedNotification = () => {
+  const cardSentNotificationToggle = useRef();
+
+  //
+  const handleToggleCardSentNotification = () => {
+    cardSentNotificationToggle.current.classList.toggle("toggle_notification");
+  };
+
+  //
+  return (
+    <div className="card_sent_notification">
+      <div className="card_notification_context">
+        <h4>Card Opened</h4>
+        <p>Recieve an email when your card is opened by receipient</p>
+      </div>
+      <div
+        className="card_sent_notification_toggle"
+        onClick={handleToggleCardSentNotification}
+        ref={cardSentNotificationToggle}
+      >
+        <div></div>
+      </div>
+    </div>
+  );
+};
+
+//
+//
+//SPECIAL PROMOTIONS
+//
+//
+export const SpecialPromotionsNotification = () => {
+  const cardSentNotificationToggle = useRef();
+
+  //
+  const handleToggleCardSentNotification = () => {
+    cardSentNotificationToggle.current.classList.toggle("toggle_notification");
+  };
+
+  //
+  return (
+    <div className="card_sent_notification">
+      <div className="card_notification_context">
+        <h4>Special Promotions</h4>
+        <p>Be notified when they are special promotions and discounts</p>
+      </div>
+      <div
+        className="card_sent_notification_toggle toggle_notification"
+        onClick={handleToggleCardSentNotification}
+        ref={cardSentNotificationToggle}
+      >
+        <div></div>
+      </div>
+    </div>
+  );
+};
+
+//
+//
+//NEW FEATURES
+//
+//
+export const NewFeaturesNotification = () => {
+  const cardSentNotificationToggle = useRef();
+
+  //
+  const handleToggleCardSentNotification = () => {
+    cardSentNotificationToggle.current.classList.toggle("toggle_notification");
+  };
+
+  //
+  return (
+    <div className="card_sent_notification">
+      <div className="card_notification_context">
+        <h4>New Features</h4>
+        <p>Be the first to hear about new features</p>
+      </div>
+      <div
+        className="card_sent_notification_toggle toggle_notification"
+        onClick={handleToggleCardSentNotification}
+        ref={cardSentNotificationToggle}
+      >
+        <div></div>
+      </div>
+    </div>
+  );
+};
+
+//
+//
+//SYSTEM UPDATES
+//
+//
+export const SystemUpdatesNotification = () => {
+  const cardSentNotificationToggle = useRef();
+
+  //
+  const handleToggleCardSentNotification = () => {
+    cardSentNotificationToggle.current.classList.toggle("toggle_notification");
+  };
+
+  //
+  return (
+    <div className="card_sent_notification">
+      <div className="card_notification_context">
+        <h4>System Updates</h4>
+        <p>Be notified when they are important updates.</p>
+      </div>
+      <div
+        className="card_sent_notification_toggle"
+        onClick={handleToggleCardSentNotification}
+        ref={cardSentNotificationToggle}
+      >
+        <div></div>
+      </div>
+    </div>
+  );
+};
