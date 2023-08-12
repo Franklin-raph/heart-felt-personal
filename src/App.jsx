@@ -63,6 +63,8 @@ import AccountInfo from "./pages/account-personal-info/AccountInfo";
 import AccountChangePassword from "./pages/account-change-password/AccountChangePassword";
 import AccountCustomName from "./pages/account-custom-name/AccountCustomName";
 import AccountDeletAccount from "./pages/account-delete-account/AccountDeletAccount";
+import TaxExemption from "./pages/tax-exemption/TaxExemption";
+import NotificationToggles from "./pages/notifications-toggles/NotificationToggles";
 
 function App() {
   return (
@@ -98,6 +100,8 @@ function App() {
           path="/account-delete-account"
           element={<AccountDeletAccount />}
         />
+        <Route path="/tax-exemption" element={<TaxExemption />} />
+        <Route path="/notifications" element={<NotificationToggles />} />
         <Route path="/account-custom-name" element={<AccountCustomName />} />
         <Route path="/upload-card" element={<UploadCard />} />
         <Route path="/saved-card" element={<SavedCards />} />

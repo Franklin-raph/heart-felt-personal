@@ -1383,6 +1383,16 @@ nav input {
   height: 500px;
 }
 
+.userdashboard_content::-webkit-scrollbar {
+  width: 4px;
+  background: var(--stroke-white);
+}
+
+.userdashboard_content::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
 .dashboard_content_header {
   font-size: 28px;
   margin-bottom: 15px;
@@ -3130,9 +3140,9 @@ nav input {
 }
 
 .account_personal_info_img_div img {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
-  image-resolution: 600dpi;
+  height: 100%;
 }
 
 .account_personal_info_image_row label {
@@ -3161,6 +3171,7 @@ nav input {
 }
 
 .account_info_input_div {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -3190,6 +3201,40 @@ nav input {
   background: var(--minor-color-3);
   color: var(--generic-white);
   align-self: flex-end;
+}
+
+.tax_exempt_input::-webkit-file-upload-button {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  margin-right: 45px;
+}
+
+.file_choose_custom_btn {
+  background: var(--stroke-white);
+  padding: 6px 8px;
+  border-radius: 5px;
+  color: var(--icons-color);
+  position: absolute;
+  bottom: 15%;
+  left: 1%;
+  cursor: pointer;
+}
+
+.dashboard_content_header.tax_exempt p {
+  font-size: 14px;
+  color: var(--body-texts);
+}
+
+.dashboard_content_header.tax_exempt.notifications {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.notifications_page_explore_cards_btn {
+  background: var(--primary-color);
+  color: var(--generic-white);
 }
 
 /*  */

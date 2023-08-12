@@ -43,7 +43,7 @@ const DashBoardNav = ({ sidebar, openSidebar }) => {
         </div>
         <div className="sidebar_link">
           <i className="ri-notification-2-fill"></i>
-          <NavLink to="/my-cards">Notifications</NavLink>
+          <NavLink to="/notifications">Notifications</NavLink>
         </div>
       </div>
     </article>
