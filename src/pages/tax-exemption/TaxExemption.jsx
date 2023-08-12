@@ -41,6 +41,7 @@ const TaxExemption = () => {
             <input
               className="change_password_input tax_exempt_input"
               type="file"
+              accept=".docx,.doc,.pdf"
               id="first_name"
             />
           </div>
