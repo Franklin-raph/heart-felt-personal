@@ -3248,10 +3248,10 @@ nav input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 20.5px;
   box-shadow: 0 0 0 1px rgba(165, 165, 165, 0.6);
   padding: 10px 12px;
-  border-radius: 8px;
+  border-radius: 7.8px;
 }
 
 .card_notification_context {
