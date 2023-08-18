@@ -3599,6 +3599,10 @@ nav input {
   .upload-card-cover .header {
     margin: 3rem 0 3rem 2rem;
   }
+
+  .user_dashbaord_section {
+    padding: 0 4rem;
+  }
 }
 
 @media screen and (max-width: 964px) {
@@ -3653,6 +3657,7 @@ nav input {
   .user_dashbaord_section {
     grid-template-columns: 1fr;
     gap: 0;
+    padding: 0 1.8rem;
   }
 
   .sidebar_nav {
