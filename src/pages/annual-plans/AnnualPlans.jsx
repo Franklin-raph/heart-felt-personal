@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import DashBoardNav from "../../components/dashboard-nav/DashBoardNav";
 import { NavLink, useNavigate } from "react-router-dom";
+import template_sample from "../../assets/images/card_preview_template.jpg";
+import template_sample_2 from "../../assets/images/delivery-details-img.png";
+import template_sample_3 from "../../assets/images/delivery-details-card-sample.png";
+import template_sample_4 from "../../assets/images/birthday-card-template-image.jpg";
 
 const AnnualPlans = () => {
   //
@@ -33,13 +37,141 @@ const AnnualPlans = () => {
         {/*  */}
         <AnnualPlanNavLinks />
         {/*  */}
-        <div className="dashboard_item_row_header">
-          <h4>Type</h4>
-          <h4>Start Date</h4>
-          <h4>End Date</h4>
-          <h4>Card Used</h4>
-          <h4>Receipt</h4>
-          <h4>Tax Invoice</h4>
+        <div className="annual_plan_table">
+          <table>
+            {/*  */}
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Card Used</th>
+                <th>Receipt</th>
+                <th>Tax Invoice</th>
+              </tr>
+            </thead>
+            {/*  */}
+            <tbody>
+              {/*  */}
+              <tr>
+                <td>Sapling</td>
+                <td>04 April 2022</td>
+                <td>04 April 2023</td>
+                <td>2 of 25</td>
+                <td>
+                  <img src={template_sample} alt="" />
+                </td>
+                <td>
+                  <img src={template_sample} alt="" />
+                </td>
+              </tr>
+              {/*  */}
+              <tr>
+                <td>Sapling</td>
+                <td>04 April 2022</td>
+                <td>04 April 2023</td>
+                <td>2 of 25</td>
+                <td>
+                  <img src={template_sample_2} alt="" />
+                </td>
+                <td>
+                  <img src={template_sample_2} alt="" />
+                </td>
+              </tr>
+              {/*  */}
+              <tr>
+                <td>Sapling</td>
+                <td>04 April 2022</td>
+                <td>04 April 2023</td>
+                <td>2 of 25</td>
+                <td>
+                  <img src={template_sample_3} alt="" />
+                </td>
+                <td>
+                  <img src={template_sample_3} alt="" />
+                </td>
+              </tr>
+              {/*  */}
+              <tr>
+                <td>Sapling</td>
+                <td>04 April 2022</td>
+                <td>04 April 2023</td>
+                <td>2 of 25</td>
+                <td>
+                  <img src={template_sample} alt="" />
+                </td>
+                <td>
+                  <img src={template_sample} alt="" />
+                </td>
+              </tr>
+              {/*  */}
+              <tr>
+                <td>Sapling</td>
+                <td>04 April 2022</td>
+                <td>04 April 2023</td>
+                <td>2 of 25</td>
+                <td>
+                  <img src={template_sample_4} alt="" />
+                </td>
+                <td>
+                  <img src={template_sample_4} alt="" />
+                </td>
+              </tr>
+              {/*  */}
+              <tr>
+                <td>Sapling</td>
+                <td>04 April 2022</td>
+                <td>04 April 2023</td>
+                <td>2 of 25</td>
+                <td>
+                  <img src={template_sample_2} alt="" />
+                </td>
+                <td>
+                  <img src={template_sample_2} alt="" />
+                </td>
+              </tr>
+              {/*  */}
+              <tr>
+                <td>Sapling</td>
+                <td>04 April 2022</td>
+                <td>04 April 2023</td>
+                <td>2 of 25</td>
+                <td>
+                  <img src={template_sample} alt="" />
+                </td>
+                <td>
+                  <img src={template_sample} alt="" />
+                </td>
+              </tr>
+              {/*  */}
+              <tr>
+                <td>Sapling</td>
+                <td>04 April 2022</td>
+                <td>04 April 2023</td>
+                <td>2 of 25</td>
+                <td>
+                  <img src={template_sample_4} alt="" />
+                </td>
+                <td>
+                  <img src={template_sample_4} alt="" />
+                </td>
+              </tr>
+              {/*  */}
+              <tr>
+                <td>Sapling</td>
+                <td>04 April 2022</td>
+                <td>04 April 2023</td>
+                <td>2 of 25</td>
+                <td>
+                  <img src={template_sample_2} alt="" />
+                </td>
+                <td>
+                  <img src={template_sample_2} alt="" />
+                </td>
+              </tr>
+            </tbody>
+            {/*  */}
+          </table>
         </div>
         {/*  */}
       </div>

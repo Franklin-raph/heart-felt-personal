@@ -1405,6 +1405,7 @@ nav input {
 .dashboard_content_head {
   display: flex;
   gap: 50px;
+  flex-wrap: wrap;
 }
 
 .dashboard_content_head_link {
@@ -3304,6 +3305,55 @@ nav input {
 
 .toggle_notification.card_sent_notification_toggle div {
   margin-left: 18px;
+}
+
+.annual_plan_table {
+  margin-top: 25px;
+  max-height: 450px;
+  overflow: auto;
+}
+
+.annual_plan_table table {
+  width: 100%;
+  color: var(--body-texts);
+}
+
+.annual_plan_table table thead {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.annual_plan_table table thead tr th {
+  font-size: 14px;
+}
+
+.annual_plan_table table,
+.annual_plan_table th,
+.annual_plan_table td {
+  padding: 1rem;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.annual_plan_table tr td img {
+  width: 50px;
+}
+
+.annual_plan_table tbody tr {
+  transition: 1.3s ease-out;
+  margin-bottom: 0.4rem;
+}
+
+.annual_plan_table tbody tr:hover {
+  background: rgba(41, 158, 158, 0.15);
+  border-left: 1.5px solid var(--header-texts);
+}
+
+.annual_plan_table tbody td {
+  padding: 0.8rem;
 }
 
 /*  */
