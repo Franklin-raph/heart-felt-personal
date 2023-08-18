@@ -31,9 +31,9 @@ const NotificationToggles = () => {
             <h3>Account</h3>
             <p>Create settings for your email notifications.</p>
           </div>
-          <button className="notifications_page_explore_cards_btn">
+          {/* <button className="notifications_page_explore_cards_btn">
             Explore Cards
-          </button>
+          </button> */}
         </div>
         {/*  */}
         <div className="notifications_row">

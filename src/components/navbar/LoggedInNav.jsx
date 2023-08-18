@@ -126,14 +126,14 @@ const LoggedInNav = () => {
             <li className="flex-between">
               <div className="flex-start g-1">
                 <i className="bx bx-star"></i>
-                <p>Send a card</p>
+                <p onClick={() => navigate("/upload-card")}>Send a card</p>
               </div>
               <i className="ri-arrow-right-s-line"></i>
             </li>
             <li className="flex-between">
               <div className="flex-start g-1">
                 <i className="bx bx-memory-card"></i>
-                <p>My cards</p>
+                <p onClick={() => navigate("/user-dashboard")}>My cards</p>
               </div>
               <i className="ri-arrow-right-s-line"></i>
             </li>
@@ -149,14 +149,16 @@ const LoggedInNav = () => {
             <li className="flex-between">
               <div className="flex-start g-1">
                 <i className="ri-settings-3-line"></i>
-                <p>Account</p>
+                <p onClick={() => navigate("/account-personal-info")}>
+                  Account
+                </p>
               </div>
               <i className="ri-arrow-right-s-line"></i>
             </li>
             <li className="flex-between">
               <div className="flex-start g-1">
                 <i className="ri-phone-line"></i>
-                <p>Support</p>
+                <p onClick={() => navigate("/faq")}>Support</p>
               </div>
               <i className="ri-arrow-right-s-line"></i>
             </li>

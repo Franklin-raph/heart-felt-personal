@@ -1299,7 +1299,7 @@ nav input {
 .sidebar_header {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .sidebar_header h4 {
@@ -1333,7 +1333,7 @@ nav input {
 .sidebar_links {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 45px;
 }
 
 .sidebar_links a.active {
@@ -1346,7 +1346,7 @@ nav input {
   gap: 10px;
   color: var(--body-texts);
   transition: 0.35s ease-in-out;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .sidebar_link:hover {
@@ -1414,6 +1414,7 @@ nav input {
 
 .dashboard_content_head_link.active {
   color: var(--primary-color);
+  border-bottom: 1.3px solid var(--primary-color);
 }
 
 .dashboard_item_row_header {
