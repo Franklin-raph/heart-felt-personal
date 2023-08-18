@@ -27,7 +27,7 @@ const TaxExemption = () => {
       <DashBoardNav sidebar={sidebar} openSidebar={openSidebar} />
       <div className="user_dashboard_col_2">
         <div className="dashboard_content_header tax_exempt">
-          <h3>Account</h3>
+          <h3>Tax Exemption</h3>
           <p>To make payment without tax, upload your tax certificate.</p>
         </div>
         {/*  */}
