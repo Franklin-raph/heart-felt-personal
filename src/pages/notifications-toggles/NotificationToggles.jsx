@@ -28,7 +28,7 @@ const NotificationToggles = () => {
       <div className="user_dashboard_col_2">
         <div className="dashboard_content_header tax_exempt notifications">
           <div>
-            <h3>Account</h3>
+            <h3>Notification</h3>
             <p>Create settings for your email notifications.</p>
           </div>
           {/* <button className="notifications_page_explore_cards_btn">
