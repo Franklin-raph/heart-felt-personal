@@ -3343,7 +3343,7 @@ nav input {
 }
 
 .annual_plan_table tbody tr {
-  transition: 1.3s ease-out;
+  transition: 0.3s ease-out;
   margin-bottom: 0.4rem;
 }
 
