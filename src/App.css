@@ -1398,6 +1398,10 @@ nav input {
   margin-bottom: 15px;
 }
 
+.dashboard_content_header h3 {
+  font-size: 1.6rem;
+}
+
 .dashboard_content_head {
   display: flex;
   gap: 50px;

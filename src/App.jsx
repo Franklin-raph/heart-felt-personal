@@ -65,6 +65,7 @@ import AccountCustomName from "./pages/account-custom-name/AccountCustomName";
 import AccountDeletAccount from "./pages/account-delete-account/AccountDeletAccount";
 import TaxExemption from "./pages/tax-exemption/TaxExemption";
 import NotificationToggles from "./pages/notifications-toggles/NotificationToggles";
+import SignedCards from "./pages/signed-cards/SignedCards";
 
 function App() {
   return (
@@ -91,6 +92,7 @@ function App() {
           element={<AccountVerification />}
         />
         <Route path="/user-dashboard" element={<UserDashboard />} />
+        <Route path="/user-dashboard-signed-cards" element={<SignedCards />} />
         <Route path="/account-personal-info" element={<AccountInfo />} />
         <Route
           path="/account-change-password"

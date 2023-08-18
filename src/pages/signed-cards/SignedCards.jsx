@@ -3,7 +3,8 @@ import DashBoardNav from "../../components/dashboard-nav/DashBoardNav";
 import { NavLink, useNavigate } from "react-router-dom";
 import cardImgPreview from "../../assets/images/card_preview_template.jpg";
 
-const UserDashboard = () => {
+const SignedCards = () => {
+  //
   const navigate = useNavigate();
   //
   const user = JSON.parse(localStorage.getItem("user_info"));
@@ -28,7 +29,7 @@ const UserDashboard = () => {
       <DashBoardNav sidebar={sidebar} openSidebar={openSidebar} />
       <div className="user_dashboard_col_2">
         <div className="dashboard_content_header">
-          <h3>My Cards</h3>
+          <h3>Signed Cards</h3>
         </div>
         {/*  */}
         <div className="userdashboard_content">
@@ -57,13 +58,14 @@ const UserDashboard = () => {
           </div>
           <div className="user_dashboard_item_row">
             {/*  */}
+
             <div className="user_dashboard_card_item">
               <img src={cardImgPreview} alt="" className="dashboard_item_img" />
               <p className="card_preview_create_date">10 April 2023</p>
               <p className="card_preview_created_by">Chisom</p>
               <p className="card_preview_recipient">Chisom</p>
               <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status unpaid">Unpaid</p>
+              <p className="card_preview_status sent">Signed</p>
               <div className="update_card_preview_icons">
                 <i className="ri-eye-line"></i>
                 <i className="bx bx-link"></i>
@@ -77,7 +79,7 @@ const UserDashboard = () => {
               <p className="card_preview_created_by">Chisom</p>
               <p className="card_preview_recipient">Chisom</p>
               <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status sent">Sent</p>
+              <p className="card_preview_status sent">Signed</p>
               <div className="update_card_preview_icons">
                 <i className="ri-eye-line"></i>
                 <i className="bx bx-link"></i>
@@ -91,49 +93,7 @@ const UserDashboard = () => {
               <p className="card_preview_created_by">Chisom</p>
               <p className="card_preview_recipient">Chisom</p>
               <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status unpaid">Unpaid</p>
-              <div className="update_card_preview_icons">
-                <i className="ri-eye-line"></i>
-                <i className="bx bx-link"></i>
-                <i className="bx bx-dots-horizontal-rounded"></i>
-              </div>
-            </div>
-            {/*  */}
-            <div className="user_dashboard_card_item">
-              <img src={cardImgPreview} alt="" className="dashboard_item_img" />
-              <p className="card_preview_create_date">10 April 2023</p>
-              <p className="card_preview_created_by">Chisom</p>
-              <p className="card_preview_recipient">Chisom</p>
-              <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status sent">Sent</p>
-              <div className="update_card_preview_icons">
-                <i className="ri-eye-line"></i>
-                <i className="bx bx-link"></i>
-                <i className="bx bx-dots-horizontal-rounded"></i>
-              </div>
-            </div>
-            {/*  */}
-            <div className="user_dashboard_card_item">
-              <img src={cardImgPreview} alt="" className="dashboard_item_img" />
-              <p className="card_preview_create_date">10 April 2023</p>
-              <p className="card_preview_created_by">Chisom</p>
-              <p className="card_preview_recipient">Chisom</p>
-              <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status unpaid">Unpaid</p>
-              <div className="update_card_preview_icons">
-                <i className="ri-eye-line"></i>
-                <i className="bx bx-link"></i>
-                <i className="bx bx-dots-horizontal-rounded"></i>
-              </div>
-            </div>
-            {/*  */}
-            <div className="user_dashboard_card_item">
-              <img src={cardImgPreview} alt="" className="dashboard_item_img" />
-              <p className="card_preview_create_date">10 April 2023</p>
-              <p className="card_preview_created_by">Chisom</p>
-              <p className="card_preview_recipient">Chisom</p>
-              <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status unpaid">Unpaid</p>
+              <p className="card_preview_status sent">Signed</p>
               <div className="update_card_preview_icons">
                 <i className="ri-eye-line"></i>
                 <i className="bx bx-link"></i>
@@ -148,4 +108,4 @@ const UserDashboard = () => {
   );
 };
 
-export default UserDashboard;
+export default SignedCards;
