@@ -67,6 +67,7 @@ import TaxExemption from "./pages/tax-exemption/TaxExemption";
 import NotificationToggles from "./pages/notifications-toggles/NotificationToggles";
 import SignedCards from "./pages/signed-cards/SignedCards";
 import AnnualPlans from "./pages/annual-plans/AnnualPlans";
+import MyTeams from "./pages/my-team/MyTeams";
 
 function App() {
   return (
@@ -106,6 +107,7 @@ function App() {
         <Route path="/tax-exemption" element={<TaxExemption />} />
         <Route path="/notifications" element={<NotificationToggles />} />
         <Route path="/annual-plan" element={<AnnualPlans />} />
+        <Route path="/annual-plan-my-team" element={<MyTeams />} />
         <Route path="/account-custom-name" element={<AccountCustomName />} />
         <Route path="/upload-card" element={<UploadCard />} />
         <Route path="/saved-card" element={<SavedCards />} />

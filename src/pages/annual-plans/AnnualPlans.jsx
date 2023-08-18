@@ -191,13 +191,13 @@ export const AnnualPlanNavLinks = () => {
         Subscription History
       </NavLink>
       <NavLink
-        to="/annual-plan/my-team"
+        to="/annual-plan-my-team"
         className="dashboard_content_head_link"
       >
         My Team
       </NavLink>
       <NavLink
-        to="/annual-plan/logo-settings"
+        to="/annual-plan-logo-settings"
         className="dashboard_content_head_link"
       >
         Logo Settings

@@ -1404,6 +1404,7 @@ nav input {
 
 .dashboard_content_head {
   display: flex;
+  align-items: center;
   gap: 50px;
   flex-wrap: wrap;
 }
@@ -3313,6 +3314,15 @@ nav input {
   overflow: auto;
 }
 
+.annual_plan_table::-webkit-scrollbar {
+  width: 4px;
+}
+
+.annual_plan_table::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
 .annual_plan_table table {
   width: 100%;
   color: var(--body-texts);
@@ -3344,7 +3354,6 @@ nav input {
 
 .annual_plan_table tbody tr {
   transition: 0.3s ease-out;
-  margin-bottom: 0.4rem;
 }
 
 .annual_plan_table tbody tr:hover {
@@ -3354,6 +3363,54 @@ nav input {
 
 .annual_plan_table tbody td {
   padding: 0.8rem;
+}
+
+.annual_plan_table.my_teams .team_table_icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
+}
+
+.annual_plan_table.my_teams .team_table_icons i {
+  font-size: 17px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  border-radius: 50%;
+  background: var(--minor-color-3);
+  color: var(--generic-white);
+  cursor: pointer;
+}
+
+.annual_plan_table.my_teams .team_table_icons i.bx-link {
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: var(--generic-white);
+}
+
+.annual_plan_table.my_teams tbody tr:hover .team_table_icons {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: all !important;
+}
+
+.annual_plan_my_team_nav_link_button {
+  background: var(--primary-color);
+  color: var(--generic-white);
+  margin-left: auto;
 }
 
 /*  */
@@ -3952,9 +4009,6 @@ nav input {
 
   .gift-card-settings-modal {
     width: 90%;
-  }
-
-  .gift_card_settings_modal_prices {
   }
 }
 
