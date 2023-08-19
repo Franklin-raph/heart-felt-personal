@@ -68,6 +68,7 @@ import NotificationToggles from "./pages/notifications-toggles/NotificationToggl
 import SignedCards from "./pages/signed-cards/SignedCards";
 import AnnualPlans from "./pages/annual-plans/AnnualPlans";
 import MyTeams from "./pages/my-team/MyTeams";
+import LogoSettings from "./pages/logo-settings/LogoSettings";
 
 function App() {
   return (
@@ -108,6 +109,7 @@ function App() {
         <Route path="/notifications" element={<NotificationToggles />} />
         <Route path="/annual-plan" element={<AnnualPlans />} />
         <Route path="/annual-plan-my-team" element={<MyTeams />} />
+        <Route path="/annual-plan-logo-settings" element={<LogoSettings />} />
         <Route path="/account-custom-name" element={<AccountCustomName />} />
         <Route path="/upload-card" element={<UploadCard />} />
         <Route path="/saved-card" element={<SavedCards />} />

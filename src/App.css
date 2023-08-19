@@ -3413,6 +3413,72 @@ nav input {
   margin-left: auto;
 }
 
+.annual_plan_header,
+.annual_plan_logo_preview {
+  margin-top: 2rem;
+}
+
+.annual_plan_logo_preview img {
+  width: 140px;
+}
+
+.annual_plan_logo_toggle {
+  position: relative;
+  height: 17px;
+  width: 38px;
+  border-radius: 10px;
+  background: rgb(152, 152, 152);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.annual_plan_logo_toggle div {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: var(--generic-white);
+  margin-left: 2px;
+  transition: 0.35s ease-in-out;
+}
+
+.toggle_annual_plan.annual_plan_logo_toggle div {
+  margin-left: 20px;
+}
+
+.toggle_annual_plan.annual_plan_logo_toggle {
+  background: var(--primary-color);
+}
+
+.annual_plan_header p {
+  font-size: 14px;
+  color: var(--body-texts);
+}
+
+.annual_plan_upload_logo_btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--generic-white);
+  margin-top: 1rem;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+#annual_plan_logo_upload {
+  display: none;
+}
+
+.annual_plan_logo_context {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--icons-color);
+  margin-top: 20px;
+}
+
 /*  */
 /* ================ MEDIA QUERY ==================== */
 
