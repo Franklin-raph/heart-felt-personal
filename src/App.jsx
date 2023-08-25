@@ -70,7 +70,9 @@ import AnnualPlans from "./pages/annual-plans/AnnualPlans";
 import MyTeams from "./pages/my-team/MyTeams";
 import LogoSettings from "./pages/logo-settings/LogoSettings";
 
+
 function App() {
+  const baseUrl = "https://heartfelt-new.vercel.app"
   return (
     <BrowserRouter>
       <GetToTopOnRender />
@@ -87,7 +89,7 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-up" element={<SignUp baseUrl={baseUrl}/>} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
         <Route

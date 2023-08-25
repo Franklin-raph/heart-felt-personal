@@ -1,10 +1,47 @@
-import React from "react";
+import {useState} from "react";
 import { Link } from "react-router-dom";
+import ErrorAlert from "../../../components/alert/ErrorAlert";
+import SuccessAlert from "../../../components/alert/SuccessAlert";
 
-const SignUp = () => {
+const SignUp = ({baseUrl}) => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [country, setCountry] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [loader, setLoader] = useState(false)
+
+  console.log(baseUrl)
+
+  async function handleAccountSignUp(e){
+    e.preventDefault()
+    if(!name || !password || !email || !country){
+      setError("Please fill in all fields")
+      console.log(error)
+    }else{
+      setLoader(true)
+      const response = await fetch(`${baseUrl}/register`, {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify({name:name, email:email, password:password, country:country})
+      })
+      const data = await response.json()
+      if(response.ok){
+        setSuccess(data.error)
+        setSuccess(data.message)
+      }
+      console.log(response, data)
+    }
+  }
+
   return (
     <div>
-      <form className="sign-in-form flex-center">
+      {error && <ErrorAlert error={error} setError={setError}/>}
+      {success && <SuccessAlert success={success} setSuccess={setSuccess}/>}
+      <form className="sign-in-form flex-center" onSubmit={handleAccountSignUp}>
         <div className="header">
           <h1>Get started for free</h1>
           <p>
@@ -25,26 +62,37 @@ const SignUp = () => {
         <div className="inputs">
           <div>
             <label>Full Name</label>
-            <input type="text" placeholder="full name" />
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="full name" />
           </div>
           <div>
             <label>Email</label>
-            <input type="email" placeholder="email" />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" />
           </div>
           <div>
             <label>Password</label>
-            <input type="Password" placeholder="password" />
+            <input type="Password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
           </div>
           <div>
             <label>Country</label>
-            <input type="text" placeholder="country" />
+            <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="country" />
           </div>
         </div>
-        <input
+        {loader ?
+          <button className="submit-btn primary-button">
+            <i className="fa-solid fa-spinner fa-spin"></i>
+          </button>
+          :
+          <button type="submit" className="submit-btn primary-button">
+            Create Account
+          </button>
+         }
+        
+        
+        {/* <input
           type="submit"
           value="Create Account"
-          className="submit-btn primary-button"
-        />
+          
+        /> */}
         <div className="sign-up-form-footer">
           By signing up, i agree to Heartfelt's{" "}
           <Link to="/terms-and-conditions">Terms of services</Link> and{" "}
