@@ -43,6 +43,25 @@ const SingleCardView = () => {
     },
   };
 
+  //
+  const user_code = useRef();
+  const user_code_copy_btn = useRef();
+
+  //
+  const handleCopyUserCode = () => {
+    navigator.clipboard.writeText(user_code.current.textContent);
+    user_code_copy_btn.current.textContent = "Copied!";
+    user_code_copy_btn.current.style.background = "transparent";
+    user_code_copy_btn.current.style.boxShadow = "0 0 0 1.3px #061818";
+    user_code_copy_btn.current.style.color = " #061818";
+    setTimeout(() => {
+      user_code_copy_btn.current.textContent = "Copy";
+      user_code_copy_btn.current.style.background = "#061818";
+      user_code_copy_btn.current.style.boxShadow = "none";
+      user_code_copy_btn.current.style.color = "#ffffff";
+    }, 4000);
+  };
+
   return (
     <article className="single_card_view_section">
       <div className="single_card_page_header">
@@ -150,6 +169,11 @@ const SingleCardView = () => {
                 <i className="bx bx-smile"></i>
                 <p>Add GIF/Sticker</p>
               </div>
+              {/*  */}
+              <div>
+                <i className="bx bx-text"></i>
+                <p>Add Text</p>
+              </div>
             </>
           ) : (
             <>
@@ -172,8 +196,10 @@ const SingleCardView = () => {
       {/*  */}
       <div className="single_card_view_footer">
         <div className="single_card_copy_box">
-          <p>Chisom-HUEY78</p>
-          <button>Copy</button>
+          <p ref={user_code}>Chisom-HUEY78</p>
+          <button onClick={handleCopyUserCode} ref={user_code_copy_btn}>
+            Copy
+          </button>
         </div>
         <h6>Share link to sign card</h6>
         <div className="single_card_footer_links">
