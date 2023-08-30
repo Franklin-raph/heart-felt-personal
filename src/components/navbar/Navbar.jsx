@@ -80,6 +80,35 @@ const Navbar = () => {
                     Sign in
                   </Link>
                   <button className="primary-button">Send a card</button>
+                  <div className="nav_bar_mobile_nav_links">
+                    <li onClick={() => navigate("/upload-card-cover-birthday")}>
+                      Birthday
+                    </li>
+                    <li
+                      onClick={() => navigate("/upload-card-cover-annivasary")}
+                    >
+                      Annivasary
+                    </li>
+                    <li onClick={() => navigate("/upload-card-cover-goodwill")}>
+                      Goodwill
+                    </li>
+                    <li onClick={() => navigate("/upload-card-cover-festival")}>
+                      Festival
+                    </li>
+                    <li onClick={() => navigate("/upload-card-cover-sympathy")}>
+                      Sympathy
+                    </li>
+                    <li onClick={() => navigate("/upload-card-cover-love")}>
+                      Love
+                    </li>
+                    <li
+                      onClick={() =>
+                        navigate("/upload-card-cover-relationship")
+                      }
+                    >
+                      Relationship
+                    </li>
+                  </div>
                 </div>
               </ul>
             </div>

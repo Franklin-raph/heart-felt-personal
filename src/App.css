@@ -82,10 +82,10 @@ p {
   stroke: #ffffff;
   stroke-miterlimit: 10;
   box-shadow: inset 0px 0px 0px #ec4848;
-  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
   margin: 1rem auto;
 }
-
 
 .check__cancel {
   transform-origin: 50% 50%;
@@ -96,25 +96,24 @@ p {
 
 @keyframes stroke {
   100% {
-      stroke-dashoffset: 0;
+    stroke-dashoffset: 0;
   }
 }
 
 @keyframes scale {
-
   0%,
   100% {
-      transform: none;
+    transform: none;
   }
 
   50% {
-      transform: scale3d(1.1, 1.1, 1);
+    transform: scale3d(1.1, 1.1, 1);
   }
 }
 
 @keyframes fill {
   100% {
-      box-shadow: inset 0px 0px 0px 30px #ec4848;
+    box-shadow: inset 0px 0px 0px 30px #ec4848;
   }
 }
 
@@ -137,7 +136,8 @@ p {
   stroke-miterlimit: 10;
   margin: 10% auto;
   box-shadow: inset 0px 0px 0px #00ff8c;
-  animation: successFill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+  animation: successFill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
 }
 
 .checkmark__check {
@@ -149,31 +149,31 @@ p {
 
 @keyframes stroke {
   100% {
-      stroke-dashoffset: 0
+    stroke-dashoffset: 0;
   }
 }
 
 @keyframes scale {
-
   0%,
   100% {
-      transform: none
+    transform: none;
   }
 
   50% {
-      transform: scale3d(1.1, 1.1, 1)
+    transform: scale3d(1.1, 1.1, 1);
   }
 }
 
 @keyframes successFill {
   100% {
-      box-shadow: inset 0px 0px 0px 30px #00ff8c;
+    box-shadow: inset 0px 0px 0px 30px #00ff8c;
   }
 }
 
 /* ANIMATED CHECKMARK ENDS */
 
-.successModalBg, .errorModalBg{
+.successModalBg,
+.errorModalBg {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -187,11 +187,13 @@ p {
   z-index: 99;
 }
 
-.successModalBg, .errorModalBg{
+.successModalBg,
+.errorModalBg {
   z-index: 100;
 }
 
-.successModal, .failureModal{
+.successModal,
+.failureModal {
   background-color: #fff;
   color: #000;
   padding: 2rem;
@@ -3619,7 +3621,8 @@ nav input {
 }
 
 @media screen and (max-width: 1200px) {
-  .successModal, .failureModal{
+  .successModal,
+  .failureModal {
     width: 50%;
   }
 
@@ -3682,7 +3685,8 @@ nav input {
     padding: 0;
   }
 
-  .successModal, .failureModal{
+  .successModal,
+  .failureModal {
     width: 60%;
   }
 
@@ -3793,17 +3797,27 @@ nav input {
   nav ul {
     position: fixed;
     flex-direction: column;
-    box-shadow: 0 0 30px #33333340;
-    width: 60%;
+    box-shadow: 0 0 30px rgba(51, 51, 51, 0.27);
+    width: 98%;
+    height: 90vh;
+    justify-content: start !important;
+    align-items: start !important;
     margin: 0 auto;
     background-color: var(--generic-white);
     top: -100%;
     left: 0;
     right: 0;
     z-index: 999;
-    padding: 4rem 2rem;
+    padding: 3rem 1.5rem;
     gap: 35px;
     transition: 0.7s;
+    overflow-y: scroll;
+  }
+
+  .nav_bar_mobile_nav_links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 
   nav ul li a {
@@ -3831,8 +3845,19 @@ nav input {
   }
 
   .mobile-search {
+    width: 100%;
     display: grid;
     gap: 25px;
+    justify-content: stretch;
+  }
+
+  .mobile-search .search-input input {
+    width: 100%;
+  }
+
+  .mobile-search .secondary-button,
+  .mobile-search .primary-button {
+    justify-self: start;
   }
 
   .bringing-physical .header {
@@ -4000,8 +4025,8 @@ nav input {
 }
 
 @media screen and (max-width: 768px) {
-
-  .successModal, .failureModal{
+  .successModal,
+  .failureModal {
     width: 70%;
   }
 
@@ -4224,8 +4249,8 @@ nav input {
 }
 
 @media screen and (max-width: 576px) {
-  
-  .successModal, .failureModal{
+  .successModal,
+  .failureModal {
     width: 80%;
   }
 
@@ -4526,8 +4551,9 @@ nav input {
   .upload-card-container .body {
     grid-template-columns: 1fr;
   }
-  
-  .successModal, .failureModal{
+
+  .successModal,
+  .failureModal {
     width: 90%;
   }
 }
@@ -4556,5 +4582,3 @@ nav input {
 .back-to-top i {
   font-size: 1.5rem;
 }
-
-
