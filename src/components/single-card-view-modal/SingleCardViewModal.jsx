@@ -131,7 +131,10 @@ const SingleCardViewModal = ({ card_view_modal }) => {
           </div>
           <div className="view_modal_input_form">
             <form>
-              <TextareaAutosize placeholder="your message here..." />
+              <TextareaAutosize
+                maxRows={6}
+                placeholder="your message here..."
+              />
             </form>
           </div>
         </div>
