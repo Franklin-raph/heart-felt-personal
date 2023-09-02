@@ -4,7 +4,7 @@ import TextEditColorModal, {
   TextEditFamilyModal,
   TextEditSizeModal,
 } from "../single-card-text-edit-modals/SingleCardTextEditModal";
-import TextareaAutosize from "react-autosize-textarea";
+// import TextareaAutosize from "react-autosize-textarea";
 const SingleCardViewModal = ({ card_view_modal }) => {
   const [colorToolTip, setColorToolTip] = useState(false);
   const [typefaceToolTip, setTypefaceToolTip] = useState(false);
