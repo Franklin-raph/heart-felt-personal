@@ -4,7 +4,6 @@ import TextEditColorModal, {
   TextEditFamilyModal,
   TextEditSizeModal,
 } from "../single-card-text-edit-modals/SingleCardTextEditModal";
-
 import TextareaAutosize from "react-autosize-textarea";
 const SingleCardViewModal = ({ card_view_modal }) => {
   const [colorToolTip, setColorToolTip] = useState(false);
@@ -131,10 +130,11 @@ const SingleCardViewModal = ({ card_view_modal }) => {
           </div>
           <div className="view_modal_input_form">
             <form>
-              <TextareaAutosize
-                maxRows={6}
+              {/* <TextareaAutosize
+                maxRows={8}
+                rows={1}
                 placeholder="your message here..."
-              />
+              /> */}
             </form>
           </div>
         </div>
