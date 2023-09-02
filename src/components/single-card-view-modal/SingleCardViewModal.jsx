@@ -135,6 +135,7 @@ const SingleCardViewModal = ({ card_view_modal }) => {
                 rows={1}
                 placeholder="your message here..."
               /> */}
+              <textarea rows="1" placeholder="your message here..."></textarea>
             </form>
           </div>
         </div>
