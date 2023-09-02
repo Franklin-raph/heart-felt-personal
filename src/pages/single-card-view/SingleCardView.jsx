@@ -207,16 +207,29 @@ const SingleCardView = () => {
         <h6>Share link to sign card</h6>
         <div className="single_card_footer_links">
           <Link
-            to={`https://www.facebook.com/sharer/sharer.php?u=${location.href}`}
+            to={`https://www.facebook.com/sharer/sharer.php?url=${location.href}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {console.log(location)}
             <i className="bx bxl-facebook"></i>
           </Link>
-          <i className="bx bxl-twitter"></i>
+          <Link
+            to={`https://twitter.com/intent/tweet?url=${location.href}&text=${location.href}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="bx bxl-twitter"></i>
+          </Link>
           <i className="bx bxl-youtube"></i>
-          <i className="bx bxl-linkedin"></i>
+          <Link
+            to={`https://www.linkedin.com/shareArticle?url=${
+              location.href
+            }&title=${location.pathname.slice(1)}&summary=${location.href}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="bx bxl-linkedin"></i>
+          </Link>
           <i className="bx bxs-message-rounded-dots"></i>
         </div>
       </div>
