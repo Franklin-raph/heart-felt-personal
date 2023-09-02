@@ -13,6 +13,7 @@ import { EffectCards, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import "swiper/css/navigation";
+import { Link } from "react-router-dom";
 
 const SingleCardView = () => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
@@ -205,7 +206,14 @@ const SingleCardView = () => {
         </div>
         <h6>Share link to sign card</h6>
         <div className="single_card_footer_links">
-          <i className="bx bxl-facebook"></i>
+          <Link
+            to={`https://www.facebook.com/sharer/sharer.php?u=${location.href}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {console.log(location)}
+            <i className="bx bxl-facebook"></i>
+          </Link>
           <i className="bx bxl-twitter"></i>
           <i className="bx bxl-youtube"></i>
           <i className="bx bxl-linkedin"></i>

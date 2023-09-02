@@ -2742,7 +2742,7 @@ nav input {
 
 .single_card_view_modal_holder {
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -2994,7 +2994,6 @@ nav input {
   border: 0;
   outline: 0;
   box-shadow: 0 0 0 1.5px var(--primary-color);
-  border-radius: 8px;
   padding: 15px 15px;
   resize: none;
 }
