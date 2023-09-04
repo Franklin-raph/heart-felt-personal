@@ -88,13 +88,13 @@ function App() {
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-in" element={<SignIn baseUrl={baseUrl}/>} />
         <Route path="/sign-up" element={<SignUp baseUrl={baseUrl}/>} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
         <Route
-          path="/account-verification/:id/:token"
-          element={<AccountVerification />}
+          path="/verify/:token"
+          element={<AccountVerification baseUrl={baseUrl}/>}
         />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/user-dashboard-signed-cards" element={<SignedCards />} />

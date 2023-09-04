@@ -29,9 +29,12 @@ const SignUp = ({baseUrl}) => {
         body: JSON.stringify({name:name, email:email, password:password, country:country})
       })
       const data = await response.json()
+      if(response) setLoader(false)
       if(response.ok){
-        setSuccess(data.error)
         setSuccess(data.message)
+      }
+      if(!response.ok){
+        setError(data.error)
       }
       console.log(response, data)
     }

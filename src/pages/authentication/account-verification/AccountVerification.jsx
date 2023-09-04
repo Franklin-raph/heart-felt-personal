@@ -1,23 +1,40 @@
-import {useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
+import {useEffect, useState} from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
 
-const AccountVerification = () => {
+const AccountVerification = ({baseUrl}) => {
     const user_info = JSON.parse(localStorage.getItem("user_info"));
     const navigate = useNavigate()
+    const {token} = useParams()
+    const [isSuccess, setIsSuccess] = useState()
     useEffect(() => {
       if (!user_info) {
-        navigate("/account-verification/:id/:token");
+        navigate("/verify/:token");
       }
+      verifyAccount()
+
+      console.log(token)
     }, []);
+
+    async function verifyAccount(){
+      const response = await fetch(`${baseUrl}/verify/${token}`)
+      const data = await response.json()
+      if(response.ok) setIsSuccess(true)
+      if(!response.ok) setIsSuccess(false)
+      console.log(response, data)
+    }
   
   return (
     <div>
       <div className="sign-in-form flex-center" style={{ padding:"3rem 1rem" }}>
         <div className="header" style={{ marginBottom:"1rem" }}>
-          <i class='bx bxs-check-circle' style={{ fontSize:"3rem", marginBottom:"1rem", color:"#299e9e" }}></i>
-          <h1>Account Verification Successful</h1>
+          {isSuccess && <i class='bx bxs-check-circle' style={{ fontSize:"3rem", marginBottom:"1rem", color:"#299e9e" }}></i>}
+          {/* <i class='' style='color:#ffffff' ></i> */}
+          {!isSuccess && <i class='bx bxs-x-circle' style={{ fontSize:"3rem", marginBottom:"1rem", color:"#E20809" }}></i>}
+          {isSuccess && <h1>Account Verification Successful</h1>}
+          {!isSuccess && <h1>Account Verification Un-Successful</h1>}
         </div>
-        <p style={{ marginBottom:"1rem", textAlign:"center" }}>Your Account has being verified successfully</p>
+        {isSuccess && <p style={{ marginBottom:"1rem", textAlign:"center" }}>Your Account has being verified successfully, please proceed to login using the button below</p>}
+        {!isSuccess && <p style={{ marginBottom:"1rem", textAlign:"center" }}>invalid verification link, please check the link again or proceed to login using the button below</p>}
         <input
           type="submit"
           value="Ok"
