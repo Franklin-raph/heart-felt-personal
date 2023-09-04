@@ -1,9 +1,11 @@
 import {useEffect, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import Loader from '../../../assets/images/YouTube_loading_symbol_3_(transparent).gif'
 
 const AccountVerification = ({baseUrl}) => {
     const user_info = JSON.parse(localStorage.getItem("user_info"));
     const navigate = useNavigate()
+    const [pageLoader, setPageLoader] = useState(false)
     const {token} = useParams()
     const [isSuccess, setIsSuccess] = useState()
     useEffect(() => {
@@ -16,8 +18,10 @@ const AccountVerification = ({baseUrl}) => {
     }, []);
 
     async function verifyAccount(){
+      setPageLoader(true)
       const response = await fetch(`${baseUrl}/verify/${token}`)
       const data = await response.json()
+      if(response) setPageLoader(false)
       if(response.ok) setIsSuccess(true)
       if(!response.ok) setIsSuccess(false)
       console.log(response, data)
@@ -25,6 +29,13 @@ const AccountVerification = ({baseUrl}) => {
   
   return (
     <div>
+      {pageLoader && 
+        <div className='loader-bg'>
+          <div className="loader">
+            <img src={Loader} alt=""/>
+          </div>
+        </div>
+      }
       <div className="sign-in-form flex-center" style={{ padding:"3rem 1rem" }}>
         <div className="header" style={{ marginBottom:"1rem" }}>
           {isSuccess && <i class='bx bxs-check-circle' style={{ fontSize:"3rem", marginBottom:"1rem", color:"#299e9e" }}></i>}
@@ -39,6 +50,7 @@ const AccountVerification = ({baseUrl}) => {
           type="submit"
           value="Ok"
           className="submit-btn primary-button"
+          onClick={navigate("/sign-in")}
         />
       </div>
     </div>
