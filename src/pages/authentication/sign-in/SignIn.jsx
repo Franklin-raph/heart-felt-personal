@@ -1,28 +1,52 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import ErrorAlert from "../../../components/alert/ErrorAlert";
 
-const SignIn = () => {
+const SignIn = ({baseUrl}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState()
+  const [loader, setLoader] = useState(false)
 
   const navigate = useNavigate();
   //
-  const user_info = JSON.parse(localStorage.getItem("user_info"));
+  const user_info = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     if (user_info) {
       navigate("/user-dashboard");
     }
   }, []);
+  
   // on submit function
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    localStorage.setItem("user_info", JSON.stringify(email));
-    navigate("/");
+    console.log(({email, password}))
+    if(!email || !password){
+      setError("Please fill in all fields")
+    }else{
+      setLoader(true)
+      const response = await fetch(`${baseUrl}/login`, {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify({email, password})
+      })
+      const data = await response.json()
+      console.log(response, data)
+      if(response) setLoader(false)
+      if(!response.ok) setError(data.message)
+      if(response.ok){
+        localStorage.setItem("user", JSON.stringify(data))
+        navigate("/")
+      }
+    }
   };
   //
   return (
     <div>
+      {error && <ErrorAlert error={error} setError={setError}/>}
       <form className="sign-in-form flex-center" onSubmit={handleSubmit}>
         <div className="header">
           <h1>Welcome Back</h1>
@@ -54,11 +78,17 @@ const SignIn = () => {
             />
           </div>
         </div>
-        <input
-          type="submit"
-          value="Log in"
-          className="submit-btn primary-button"
-        />
+        {loader ?
+          <button className="submit-btn primary-button">
+            <i className="fa-solid fa-spinner fa-spin"></i>
+          </button>
+          :
+          <input
+            type="submit"
+            value="Log in"
+            className="submit-btn primary-button"
+          />
+        }
         <Link to="/forgotPassword">Forgot Password?</Link>
       </form>
     </div>

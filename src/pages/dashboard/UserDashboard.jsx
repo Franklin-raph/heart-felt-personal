@@ -6,7 +6,7 @@ import cardImgPreview from "../../assets/images/card_preview_template.jpg";
 const UserDashboard = () => {
   const navigate = useNavigate();
   //
-  const user = JSON.parse(localStorage.getItem("user_info"));
+  const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     if (!user) {
       navigate("/");

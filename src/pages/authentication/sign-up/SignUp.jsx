@@ -18,7 +18,6 @@ const SignUp = ({baseUrl}) => {
     e.preventDefault()
     if(!name || !password || !email || !country){
       setError("Please fill in all fields")
-      console.log(error)
     }else{
       setLoader(true)
       const response = await fetch(`${baseUrl}/register`, {

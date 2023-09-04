@@ -6,7 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 const LoggedInNav = () => {
   const navigate = useNavigate();
   const [userInfoModal, setUserInfoModal] = useState(false);
-  const user = JSON.parse(localStorage.getItem("user_info"));
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user)
 
   //
   useEffect(() => {
@@ -141,7 +142,7 @@ const LoggedInNav = () => {
               <i className="ri-user-3-line nav_profile_icon"></i>
             </div>
             <div onClick={() => navigateToUserDashboard()}>
-              <h5>{user && user}</h5>
+              <h5>{user && user.user.email}</h5>
               <p>View Public Profile</p>
             </div>
           </div>

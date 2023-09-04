@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const DashBoardNav = ({ sidebar, openSidebar }) => {
   //
-  const user = JSON.parse(localStorage.getItem("user_info"));
+  const user = JSON.parse(localStorage.getItem("user"));
 
   //
   return (
@@ -13,9 +13,9 @@ const DashBoardNav = ({ sidebar, openSidebar }) => {
         onClick={openSidebar}
       ></i>
       <div className="sidebar_header g-1">
-        <h4>{user && user.charAt(0)}</h4>
+        <h4>{user && user.user.email.charAt(0)}</h4>
         <div className="sidebar_header_text">
-          <h5>{user && user}</h5>
+          <h5>{user && user.user.email}</h5>
           <p style={{ fontSize: "13px" }}>Welcome</p>
         </div>
       </div>

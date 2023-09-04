@@ -7,7 +7,7 @@ const SignedCards = () => {
   //
   const navigate = useNavigate();
   //
-  const user = JSON.parse(localStorage.getItem("user_info"));
+  const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     if (!user) {
       navigate("/");
