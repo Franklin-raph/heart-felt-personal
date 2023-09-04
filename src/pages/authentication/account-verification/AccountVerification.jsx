@@ -7,9 +7,9 @@ const AccountVerification = ({baseUrl}) => {
     const {token} = useParams()
     const [isSuccess, setIsSuccess] = useState()
     useEffect(() => {
-      if (!user_info) {
-        navigate("/verify/:token");
-      }
+      // if (!user_info) {
+      //   navigate("/verify/:token");
+      // }
       verifyAccount()
 
       console.log(token)
