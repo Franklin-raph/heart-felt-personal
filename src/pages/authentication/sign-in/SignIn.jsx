@@ -8,6 +8,7 @@ const SignIn = ({baseUrl}) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState()
   const [loader, setLoader] = useState(false)
+  const [resendVerificationEmailText, setResendVerificationEmailText] = useState(false)
 
   const navigate = useNavigate();
   //
@@ -17,7 +18,7 @@ const SignIn = ({baseUrl}) => {
       navigate("/user-dashboard");
     }
   }, []);
-  
+
   // on submit function
   async function handleSubmit(e) {
     e.preventDefault();
@@ -34,19 +35,28 @@ const SignIn = ({baseUrl}) => {
         body: JSON.stringify({email, password})
       })
       const data = await response.json()
-      console.log(response, data)
+      console.log(response, data, response.status)
       if(response) setLoader(false)
-      if(!response.ok) setError(data.message)
+      if(!response.ok) { 
+        setError(data.message)
+      }
+      if(response.status === 400){
+        setResendVerificationEmailText(true)
+      }else{
+        setResendVerificationEmailText(false)
+      }
+
       if(response.ok){
         localStorage.setItem("user", JSON.stringify(data))
         navigate("/")
       }
     }
   };
+
   //
   return (
     <div>
-      {error && <ErrorAlert error={error} setError={setError}/>}
+      {error && <ErrorAlert baseUrl={baseUrl} error={error} resendVerificationEmailText={resendVerificationEmailText} email={email} setError={setError}/>}
       <form className="sign-in-form flex-center" onSubmit={handleSubmit}>
         <div className="header">
           <h1>Welcome Back</h1>

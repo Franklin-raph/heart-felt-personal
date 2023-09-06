@@ -27,6 +27,7 @@ const SignUp = ({baseUrl}) => {
         },
         body: JSON.stringify({name:name, email:email, password:password, country:country})
       })
+      localStorage.setItem("userEmail", email)
       const data = await response.json()
       if(response) setLoader(false)
       if(response.ok){
