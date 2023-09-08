@@ -4,59 +4,72 @@ import UploadCardCoverSideNav from "../../components/upload-card-cover-side-nav/
 import Occasions from "../../components/occasions/Occasions";
 import deliver_details_image from "../../assets/images/delivery-details-img.png";
 
-const UploadCardCoverBirthday = () => {
+const UploadCardCoverBirthday = ({baseUrl}) => {
   const navigate = useNavigate();
   const [openPreviewCardModal, setOpenPreviewCardModal] = useState(false);
+  const [gift_card, setGift_card] = useState([])
   //
-  // const user = JSON.parse(localStorage.getItem("user_info"));
-  // useEffect(() => {
-  //   if (!user) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  const user = JSON.parse(localStorage.getItem("user"));
+  useEffect(() => {
+    // if (!user) {
+    //   navigate("/");
+    // }
+    if (user) {
+      navigate("/upload-card-cover-birthday");
+    }
+    fetchCards()
+  }, []);
   //
   const sidebar = useRef();
   const openSidebar = () => {
     sidebar.current.classList.toggle("open_sidebar");
   };
 
-  const gift_card = [
-    {
-      card_title: "Modern New Year Celeb...",
-      card_price: "₦500",
-      card_maxPrice: "₦50,000",
-    },
-    {
-      card_title: "Gold Happy Birthday Ca...",
-      card_price: "₦500",
-      card_maxPrice: "₦50,000",
-    },
-    {
-      card_title: "Modern New Year Celeb...",
-      card_price: "₦500",
-      card_maxPrice: "₦50,000",
-    },
-    {
-      card_title: "Gold Happy Birthday Ca...",
-      card_price: "₦500",
-      card_maxPrice: "₦50,000",
-    },
-    {
-      card_title: "Modern New Year Celeb...",
-      card_price: "₦500",
-      card_maxPrice: "₦50,000",
-    },
-    {
-      card_title: "Gold Happy Birthday Ca...",
-      card_price: "₦500",
-      card_maxPrice: "₦50,000",
-    },
-    {
-      card_title: "Modern New Year Celeb...",
-      card_price: "₦500",
-      card_maxPrice: "₦50,000",
-    },
-  ];
+  async function fetchCards(){
+    const response = await fetch(`${baseUrl}/fetch-cards`)
+    const data = await response.json()
+    setGift_card(data.data)
+    console.log(data)
+  }
+  console.log(gift_card)
+
+  // const gift_card = [
+  //   {
+  //     card_title: "Modern New Year Celeb...",
+  //     card_price: "₦500",
+  //     card_maxPrice: "₦50,000",
+  //   },
+  //   {
+  //     card_title: "Gold Happy Birthday Ca...",
+  //     card_price: "₦500",
+  //     card_maxPrice: "₦50,000",
+  //   },
+  //   {
+  //     card_title: "Modern New Year Celeb...",
+  //     card_price: "₦500",
+  //     card_maxPrice: "₦50,000",
+  //   },
+  //   {
+  //     card_title: "Gold Happy Birthday Ca...",
+  //     card_price: "₦500",
+  //     card_maxPrice: "₦50,000",
+  //   },
+  //   {
+  //     card_title: "Modern New Year Celeb...",
+  //     card_price: "₦500",
+  //     card_maxPrice: "₦50,000",
+  //   },
+  //   {
+  //     card_title: "Gold Happy Birthday Ca...",
+  //     card_price: "₦500",
+  //     card_maxPrice: "₦50,000",
+  //   },
+  //   {
+  //     card_title: "Modern New Year Celeb...",
+  //     card_price: "₦500",
+  //     card_maxPrice: "₦50,000",
+  //   },
+  // ];
 
   return (
     <div className="upload-card-cover">
@@ -101,15 +114,14 @@ const UploadCardCoverBirthday = () => {
                       Use Card
                     </button>
                   </div>
-                  <img src={deliver_details_image} alt="" />
+                  <img src={card.coverUrl} alt="" />
                 </div>
                 <div className="gift_card_segment_card_context">
-                  <h5> {card.card_title} </h5>
-                  <p>
+                  <h5> {card.name} </h5>
+                  <div>
                     <span>{card.card_price}</span>
-                    <span>-</span>
                     <span>{card.card_maxPrice}</span>
-                  </p>
+                  </div>
                 </div>
               </div>
             ))}

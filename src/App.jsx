@@ -124,7 +124,7 @@ function App() {
         {/*  */}
         <Route
           path="/upload-card-cover-birthday"
-          element={<UploadCardCoverBirthday />}
+          element={<UploadCardCoverBirthday baseUrl={baseUrl}/>}
         />
         <Route
           path="/preview-uploaded-card"
