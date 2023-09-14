@@ -99,8 +99,6 @@ const UploadCardCoverBirthday = ({baseUrl}) => {
                 <p>max 30mb</p>
               </div>
               <div className="gift_card_segment_card_context">
-                <h5> Happy Birthday </h5>
-                <p>Birthday</p>
               </div>
             </div>
             {gift_card.map((card, i) => (
@@ -117,7 +115,6 @@ const UploadCardCoverBirthday = ({baseUrl}) => {
                   <img src={card.coverUrl} alt="" />
                 </div>
                 <div className="gift_card_segment_card_context">
-                  <h5> {card.name} </h5>
                   <div>
                     <span>{card.card_price}</span>
                     <span>{card.card_maxPrice}</span>

@@ -128,7 +128,7 @@ function App() {
         />
         <Route
           path="/preview-uploaded-card"
-          element={<PreviewUploadedCard />}
+          element={<PreviewUploadedCard baseUrl={baseUrl}/>}
         />
         <Route path="/upload-card-cover-festival" element={<Festival />} />
         <Route path="/upload-card-cover-love" element={<Love />} />
