@@ -4622,6 +4622,8 @@ nav input {
   padding: 1rem;
   z-index: 9;
   border-radius: 10px;
+  height: 50vh;
+  overflow-y: scroll;
 }
 
 .timeZone p{
