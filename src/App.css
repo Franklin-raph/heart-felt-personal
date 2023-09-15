@@ -4613,3 +4613,25 @@ nav input {
 .back-to-top i {
   font-size: 1.5rem;
 }
+
+.timeZone{
+  position: absolute;
+  border: 1px solid #333;
+  top: 120%;
+  background-color: #fff;
+  padding: 1rem;
+  z-index: 9;
+  border-radius: 10px;
+}
+
+.timeZone p{
+  cursor: pointer;
+  padding: 7px;
+  font-size: 12px;
+}
+
+
+.timeZone p:hover{
+  background-color: #7a7a7a;
+  color: #fff;
+}

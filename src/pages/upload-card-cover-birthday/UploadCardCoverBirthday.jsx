@@ -12,9 +12,6 @@ const UploadCardCoverBirthday = ({baseUrl}) => {
   //
   const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
-    // if (!user) {
-    //   navigate("/");
-    // }
     if (user) {
       navigate("/upload-card-cover-birthday");
     }
@@ -36,47 +33,12 @@ const UploadCardCoverBirthday = ({baseUrl}) => {
   function showCard(imgsrc){
     setOpenPreviewCardModal(true)
     setImgSrc(imgsrc)
-    console.log(imgsrc)
   }
-  console.log(gift_card)
 
-  // const gift_card = [
-  //   {
-  //     card_title: "Modern New Year Celeb...",
-  //     card_price: "₦500",
-  //     card_maxPrice: "₦50,000",
-  //   },
-  //   {
-  //     card_title: "Gold Happy Birthday Ca...",
-  //     card_price: "₦500",
-  //     card_maxPrice: "₦50,000",
-  //   },
-  //   {
-  //     card_title: "Modern New Year Celeb...",
-  //     card_price: "₦500",
-  //     card_maxPrice: "₦50,000",
-  //   },
-  //   {
-  //     card_title: "Gold Happy Birthday Ca...",
-  //     card_price: "₦500",
-  //     card_maxPrice: "₦50,000",
-  //   },
-  //   {
-  //     card_title: "Modern New Year Celeb...",
-  //     card_price: "₦500",
-  //     card_maxPrice: "₦50,000",
-  //   },
-  //   {
-  //     card_title: "Gold Happy Birthday Ca...",
-  //     card_price: "₦500",
-  //     card_maxPrice: "₦50,000",
-  //   },
-  //   {
-  //     card_title: "Modern New Year Celeb...",
-  //     card_price: "₦500",
-  //     card_maxPrice: "₦50,000",
-  //   },
-  // ];
+  function navigateToCardDeliveryDetails(imgsrc){
+    localStorage.setItem("card_cover", JSON.stringify(imgsrc))
+    navigate("/card-delivery-details")
+  }
 
   return (
     <div className="upload-card-cover">
@@ -111,13 +73,10 @@ const UploadCardCoverBirthday = ({baseUrl}) => {
             {gift_card.map((card, i) => (
               <div className="gift_card_segment_card" key={i}>
                   <div className="card_overlay">
-                    <button onClick={() => {
-                      showCard(card.coverUrl)
-                      }
-                      }>
+                    <button onClick={() => showCard(card.coverUrl)}>
                       Preview
                     </button>
-                    <button onClick={() => navigate("/card-delivery-details")}>
+                    <button onClick={() => navigateToCardDeliveryDetails(card.coverUrl)}>
                       Use Card
                     </button>
                   </div>
