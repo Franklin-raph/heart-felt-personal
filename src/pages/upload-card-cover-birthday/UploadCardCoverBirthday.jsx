@@ -103,7 +103,6 @@ const UploadCardCoverBirthday = ({baseUrl}) => {
             </div>
             {gift_card.map((card, i) => (
               <div className="gift_card_segment_card" key={i}>
-                <div className="gift_card_segment_card_img">
                   <div className="card_overlay">
                     <button onClick={() => setOpenPreviewCardModal(true)}>
                       Preview
@@ -113,13 +112,6 @@ const UploadCardCoverBirthday = ({baseUrl}) => {
                     </button>
                   </div>
                   <img src={card.coverUrl} alt="" />
-                </div>
-                <div className="gift_card_segment_card_context">
-                  <div>
-                    <span>{card.card_price}</span>
-                    <span>{card.card_maxPrice}</span>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
