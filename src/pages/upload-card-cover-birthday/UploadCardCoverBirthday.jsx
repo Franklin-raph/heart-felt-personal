@@ -7,6 +7,7 @@ import deliver_details_image from "../../assets/images/delivery-details-img.png"
 const UploadCardCoverBirthday = ({baseUrl}) => {
   const navigate = useNavigate();
   const [openPreviewCardModal, setOpenPreviewCardModal] = useState(false);
+  const [imgsrc, setImgSrc] = useState("")
   const [gift_card, setGift_card] = useState([])
   //
   const user = JSON.parse(localStorage.getItem("user"));
@@ -30,6 +31,12 @@ const UploadCardCoverBirthday = ({baseUrl}) => {
     const data = await response.json()
     setGift_card(data.data)
     console.log(data)
+  }
+
+  function showCard(imgsrc){
+    setOpenPreviewCardModal(true)
+    setImgSrc(imgsrc)
+    console.log(imgsrc)
   }
   console.log(gift_card)
 
@@ -104,7 +111,10 @@ const UploadCardCoverBirthday = ({baseUrl}) => {
             {gift_card.map((card, i) => (
               <div className="gift_card_segment_card" key={i}>
                   <div className="card_overlay">
-                    <button onClick={() => setOpenPreviewCardModal(true)}>
+                    <button onClick={() => {
+                      showCard(card.coverUrl)
+                      }
+                      }>
                       Preview
                     </button>
                     <button onClick={() => navigate("/card-delivery-details")}>
@@ -123,7 +133,7 @@ const UploadCardCoverBirthday = ({baseUrl}) => {
             className="ri-close-fill"
             onClick={() => setOpenPreviewCardModal(false)}
           ></i>
-          <img src={deliver_details_image} alt="" />
+          <img src={imgsrc} alt="" width="15%"/>
         </div>
       )}
     </div>
