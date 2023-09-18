@@ -2,21 +2,42 @@ import React, { useEffect, useRef, useState } from "react";
 import UploadCardNav from "../../components/upload-card-nav/UploadCardNav";
 import { useNavigate } from "react-router-dom";
 
-const UploadCard = () => {
+const UploadCard = ({baseUrl}) => {
   const navigate = useNavigate();
+  const [imgFile, setImgFile] = useState(null)
+  console.log(baseUrl)
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user)
 
   //
-  const getUploadFile = (e) => {
-    const file = e.target.files[0];
+  const getUploadFile = async (e) => {
+    // const file = e.target.files[0];
+    // setImgFile(e.target.files[0])
 
-    let reader = new FileReader();
+    // console.log(file)
+    console.log(imgFile)
 
-    reader.onload = (e) => {
-      const fileImg = e.target.result;
-      localStorage.setItem("uploaded_card_img", fileImg);
-      navigate("/preview-uploaded-card");
-    };
-    reader.readAsDataURL(file);
+    // let reader = new FileReader();
+
+    // reader.onload = (e) => {
+    //   const fileImg = e.target.result;
+    //   localStorage.setItem("uploaded_card_img", fileImg);
+    //   navigate("/preview-uploaded-card");
+    // };
+    // reader.readAsDataURL(file);
+
+    const fd = new FormData();
+    fd.append('image', imgFile)
+    const response = await fetch(`${baseUrl}/upload`,{
+      method:"POST",
+      body: fd,
+      headers:{
+        Authorization: `Bearer ${user.accessToken}`
+      }
+    })
+    const data = await response.json()
+    console.log(data)
+
   };
 
   //
@@ -38,7 +59,7 @@ const UploadCard = () => {
           >
             <i className="bx bx-images"></i>
           </label>
-          <input type="file" id="upload_card_input" onChange={getUploadFile} />
+          <input type="file" id="upload_card_input" onChange={(e) => setImgFile(e.target.files[0])} />
           <p>
             Please upload and image or,{" "}
             <label
@@ -64,7 +85,8 @@ const UploadCard = () => {
         <div className="edit_and_continue">
           <button
             className="primary-button"
-            onClick={() => navigate("/preview-uploaded-card")}
+            // onClick={() => navigate("/preview-uploaded-card")}
+            onClick={getUploadFile}
           >
             Continue
           </button>

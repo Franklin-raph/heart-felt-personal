@@ -19,10 +19,10 @@ const PreviewUploadedCard = ({baseUrl}) => {
   async function uploadCardToMyLibrary(){
     console.log(JSON.stringify({image: localStorage.getItem("uploaded_card_img")}))
     if(isChecked){
-      const response = await fetch(`${baseUrl}/upload-custom-card-cover`,{
+      const response = await fetch(`${baseUrl}/upload`,{
         method:"POST",
         headers:{
-          "Content-type":"application/json",
+          "Content-type":"multipath/form-data",
           Authorization: `Bearer ${user.accessToken}`
         },
         body: JSON.stringify({image: localStorage.getItem("uploaded_card_img")})

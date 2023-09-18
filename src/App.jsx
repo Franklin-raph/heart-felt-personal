@@ -113,7 +113,7 @@ function App() {
         <Route path="/annual-plan-my-team" element={<MyTeams />} />
         <Route path="/annual-plan-logo-settings" element={<LogoSettings />} />
         <Route path="/account-custom-name" element={<AccountCustomName />} />
-        <Route path="/upload-card" element={<UploadCard />} />
+        <Route path="/upload-card" element={<UploadCard baseUrl={baseUrl} />} />
         <Route path="/saved-card" element={<SavedCards />} />
         <Route path="/card-delivery-details" element={<DeliveryDetails />} />
         <Route path="/payment-successful" element={<PaymentSuccessful />} />
