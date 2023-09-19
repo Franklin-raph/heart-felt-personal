@@ -43,16 +43,14 @@ const UploadCard = ({ baseUrl }) => {
       if (response.ok) {
         setSuccess(true);
         setSuccessMsg(data.message);
-        localStorage.setItem(
-          "uploaded-card",
-          JSON.stringify(data.response.url)
-        );
+        localStorage.setItem("uploaded-card", JSON.stringify(data.response.url));
       } else {
         console.log(data.message);
       }
       console.log(data);
     } else {
-      navigate("/preview-uploaded-card");
+      localStorage.setItem("uploaded-card", JSON.stringify(URL.createObjectURL(imgFile)));
+      navigate("/card-delivery-details");
     }
   }
 

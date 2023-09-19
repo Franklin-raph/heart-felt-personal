@@ -15,6 +15,7 @@ const DeliveryDetails = () => {
 
   // form inputs states
   const uploadedCard = JSON.parse(localStorage.getItem("uploaded-card"));
+  console.log(uploadedCard)
   const [recipientFullName, setRecipientFullName] = useState("");
   const [recipientEmail, setRecipientEmail] = useState("");
   const [senderFullName, setSenderFullName] = useState("");
@@ -358,6 +359,8 @@ const DeliveryDetails = () => {
           <h5>Order Summary</h5>
           <div className="delivery_details_img">
             {uploadedCard && <img src={uploadedCard} alt="" />}
+            {console.log(<img src={uploadedCard} alt="" />)}
+            {console.log(uploadedCard)}
             {!uploadedCard && <img src={deliver_details_icon} alt="" />}
           </div>
         </div>
