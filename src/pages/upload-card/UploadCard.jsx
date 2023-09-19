@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import UploadCardNav from "../../components/upload-card-nav/UploadCardNav";
 import { useNavigate } from "react-router-dom";
+import ErrorAlert from "../../components/alert/ErrorAlert";
 
 const UploadCard = ({baseUrl}) => {
   const navigate = useNavigate();
@@ -20,41 +21,42 @@ const UploadCard = ({baseUrl}) => {
     if(e.target.files && e.target.files.length > 0){
       setImgFile(e.target.files[0])
     }
-    console.log(URL.createObjectURL(e.target.files[0]))
-
   };
 
   async function uploadImageToServer(){
     if(isChecked){
-      setLoader(true)
       const fd = new FormData();
       fd.append('image', imgFile)
       console.log(imgFile)
-      const response = await fetch(`${baseUrl}/upload`,{
-        method:"POST",
-        body: fd,
-        headers:{
-          Authorization: `Bearer ${user.accessToken}`
-        }
-      })
-      const data = await response.json()
-      if(response) setLoader(false)
-      if(response.ok){
-        alert(data.message)
+      if(imgFile.size > 5242880){
+        setError("File size must not be more than 5Mb")
+        return
       }else{
-        console.log(data.message)
+        setLoader(true)
+        const response = await fetch(`${baseUrl}/upload`,{
+          method:"POST",
+          body: fd,
+          headers:{
+            Authorization: `Bearer ${user.accessToken}`
+          }
+        })
+        const data = await response.json()
+        if(response) setLoader(false)
+        if(response.ok){
+          alert(data.message)
+        }else{
+          console.log(data.message)
+        }
       }
-      console.log(data)
     }else{
       navigate("/preview-uploaded-card")
     }
-
   }
 
   //
   return (
     <div className="upload-card">
-      
+      {error && <ErrorAlert error={error} setError={setError}/>}
       <div className="upload-card-container flex-center">
         <div className="header">
           <h2>What card cover will you use?</h2>
