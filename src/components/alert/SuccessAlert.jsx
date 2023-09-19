@@ -1,8 +1,9 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 // , setFromEmailVerify, fromEmailVerify
 const SuccessAlert = ({ success, setSuccess }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   return (
     <div>
       <div className="successModalBg">
@@ -10,18 +11,22 @@ const SuccessAlert = ({ success, setSuccess }) => {
           className="successModal flex items-center justify-center flex-col gap-5"
           style={{ position: "relative" }}
         >
-          <i
-            className="fa-solid fa-xmark"
-            style={{
-              color: "#333",
-              position: "absolute",
-              cursor: "pointer",
-              top: "15px",
-              right: "15px",
-              fontSize: "22px",
-            }}
-            onClick={() => setSuccess(false)}
-          ></i>
+          {location.pathname === "/upload-card" ? (
+            <></>
+          ) : (
+            <i
+              className="fa-solid fa-xmark"
+              style={{
+                color: "#333",
+                position: "absolute",
+                cursor: "pointer",
+                top: "15px",
+                right: "15px",
+                fontSize: "22px",
+              }}
+              onClick={() => setSuccess(false)}
+            ></i>
+          )}
           <svg
             className="checkmark"
             xmlns="http://www.w3.org/2000/svg"
@@ -34,6 +39,16 @@ const SuccessAlert = ({ success, setSuccess }) => {
             />
           </svg>
           <p style={{ color: "black" }}>{success}</p>
+          {location.pathname === "/upload-card" ? (
+            <button
+              className="upload_card_modal_btn"
+              onClick={() => navigate("/card-delivery-details")}
+            >
+              Okay
+            </button>
+          ) : (
+            <></>
+          )}
           {/* {fromEmailVerify && <button onClick={()=> {
                     navigate("/login")
                     setFromEmailVerify(false)
