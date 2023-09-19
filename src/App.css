@@ -204,6 +204,12 @@ p {
   font-size: 18px;
 }
 
+.upload_card_modal_btn {
+  background: var(--primary-color);
+  color: var(--generic-white);
+  margin-top: 1.5rem;
+}
+
 /* Utility Classes begins */
 
 .primary-button {
@@ -2464,6 +2470,10 @@ nav input {
   font-size: 13px;
 }
 
+.upload-card {
+  position: relative;
+}
+
 .upload-card-cover .header {
   margin: 3rem 0 3rem 9rem;
   width: 30%;
@@ -3611,7 +3621,7 @@ nav input {
   margin-top: 20px;
 }
 
-.loader-bg{
+.loader-bg {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -3625,20 +3635,20 @@ nav input {
   justify-content: center;
 }
 
-.loader{
+.loader {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.resendVerificationEmailText{
+.resendVerificationEmailText {
   color: #299e9e;
   font-size: 14px;
   cursor: pointer;
   margin-top: 10px;
 }
 
-.loader img{
+.loader img {
   width: 30%;
 }
 
@@ -4614,7 +4624,7 @@ nav input {
   font-size: 1.5rem;
 }
 
-.timeZone{
+.timeZone {
   position: absolute;
   border: 1px solid #333;
   top: 120%;
@@ -4626,14 +4636,13 @@ nav input {
   overflow-y: scroll;
 }
 
-.timeZone p{
+.timeZone p {
   cursor: pointer;
   padding: 7px;
   font-size: 12px;
 }
 
-
-.timeZone p:hover{
+.timeZone p:hover {
   background-color: #7a7a7a;
   color: #fff;
 }

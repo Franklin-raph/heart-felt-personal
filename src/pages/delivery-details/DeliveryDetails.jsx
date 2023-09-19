@@ -14,7 +14,7 @@ const DeliveryDetails = () => {
   const navigate = useNavigate();
 
   // form inputs states
-  const uploadedCard = JSON.parse(localStorage.getItem("card_cover"))
+  const uploadedCard = JSON.parse(localStorage.getItem("uploaded-card"));
   const [recipientFullName, setRecipientFullName] = useState("");
   const [recipientEmail, setRecipientEmail] = useState("");
   const [senderFullName, setSenderFullName] = useState("");
@@ -25,51 +25,50 @@ const DeliveryDetails = () => {
   const [deliveryVoucherCode, setDeliveryVoucherCode] = useState(""); //only when checked
   const [deliveryVoucherAmount, setDeliveryVoucherAmount] = useState(""); //only when checked
 
-  const [listOfTimeZones, setListOfTimeZones] = useState(false)
+  const [listOfTimeZones, setListOfTimeZones] = useState(false);
 
   // check inputs
   const [addGiftCardCheck, setAddGiftCardCheck] = useState(true);
   const [addVideoCheck, setAddVideoCheck] = useState(false);
 
-  const timeZones =  [
-      {"name": "UTC-12:00", "offset": "-12:00"},
-      {"name": "UTC-11:00", "offset": "-11:00"},
-      {"name": "UTC-10:00", "offset": "-10:00"},
-      {"name": "UTC-09:00", "offset": "-09:00"},
-      {"name": "UTC-08:00", "offset": "-08:00"},
-      {"name": "UTC-07:00", "offset": "-07:00"},
-      {"name": "UTC-06:00", "offset": "-06:00"},
-      {"name": "UTC-05:00", "offset": "-05:00"},
-      {"name": "UTC-04:00", "offset": "-04:00"},
-      {"name": "UTC-03:00", "offset": "-03:00"},
-      {"name": "UTC-02:00", "offset": "-02:00"},
-      {"name": "UTC-01:00", "offset": "-01:00"},
-      {"name": "UTC", "offset": "00:00"},
-      {"name": "UTC+01:00", "offset": "+01:00"},
-      {"name": "UTC+02:00", "offset": "+02:00"},
-      {"name": "UTC+03:00", "offset": "+03:00"},
-      {"name": "UTC+03:30", "offset": "+03:30"},
-      {"name": "UTC+04:00", "offset": "+04:00"},
-      {"name": "UTC+04:30", "offset": "+04:30"},
-      {"name": "UTC+05:00", "offset": "+05:00"},
-      {"name": "UTC+05:30", "offset": "+05:30"},
-      {"name": "UTC+05:45", "offset": "+05:45"},
-      {"name": "UTC+06:00", "offset": "+06:00"},
-      {"name": "UTC+06:30", "offset": "+06:30"},
-      {"name": "UTC+07:00", "offset": "+07:00"},
-      {"name": "UTC+08:00", "offset": "+08:00"},
-      {"name": "UTC+08:45", "offset": "+08:45"},
-      {"name": "UTC+09:00", "offset": "+09:00"},
-      {"name": "UTC+09:30", "offset": "+09:30"},
-      {"name": "UTC+10:00", "offset": "+10:00"},
-      {"name": "UTC+10:30", "offset": "+10:30"},
-      {"name": "UTC+11:00", "offset": "+11:00"},
-      {"name": "UTC+12:00", "offset": "+12:00"},
-      {"name": "UTC+12:45", "offset": "+12:45"},
-      {"name": "UTC+13:00", "offset": "+13:00"},
-      {"name": "UTC+14:00", "offset": "+14:00"}
-    ]
-  
+  const timeZones = [
+    { name: "UTC-12:00", offset: "-12:00" },
+    { name: "UTC-11:00", offset: "-11:00" },
+    { name: "UTC-10:00", offset: "-10:00" },
+    { name: "UTC-09:00", offset: "-09:00" },
+    { name: "UTC-08:00", offset: "-08:00" },
+    { name: "UTC-07:00", offset: "-07:00" },
+    { name: "UTC-06:00", offset: "-06:00" },
+    { name: "UTC-05:00", offset: "-05:00" },
+    { name: "UTC-04:00", offset: "-04:00" },
+    { name: "UTC-03:00", offset: "-03:00" },
+    { name: "UTC-02:00", offset: "-02:00" },
+    { name: "UTC-01:00", offset: "-01:00" },
+    { name: "UTC", offset: "00:00" },
+    { name: "UTC+01:00", offset: "+01:00" },
+    { name: "UTC+02:00", offset: "+02:00" },
+    { name: "UTC+03:00", offset: "+03:00" },
+    { name: "UTC+03:30", offset: "+03:30" },
+    { name: "UTC+04:00", offset: "+04:00" },
+    { name: "UTC+04:30", offset: "+04:30" },
+    { name: "UTC+05:00", offset: "+05:00" },
+    { name: "UTC+05:30", offset: "+05:30" },
+    { name: "UTC+05:45", offset: "+05:45" },
+    { name: "UTC+06:00", offset: "+06:00" },
+    { name: "UTC+06:30", offset: "+06:30" },
+    { name: "UTC+07:00", offset: "+07:00" },
+    { name: "UTC+08:00", offset: "+08:00" },
+    { name: "UTC+08:45", offset: "+08:45" },
+    { name: "UTC+09:00", offset: "+09:00" },
+    { name: "UTC+09:30", offset: "+09:30" },
+    { name: "UTC+10:00", offset: "+10:00" },
+    { name: "UTC+10:30", offset: "+10:30" },
+    { name: "UTC+11:00", offset: "+11:00" },
+    { name: "UTC+12:00", offset: "+12:00" },
+    { name: "UTC+12:45", offset: "+12:45" },
+    { name: "UTC+13:00", offset: "+13:00" },
+    { name: "UTC+14:00", offset: "+14:00" },
+  ];
 
   // delivery details input data
   const delivery_input_details = {
@@ -135,8 +134,8 @@ const DeliveryDetails = () => {
     error_modal_1.current.classList.toggle("show_delivery_error_modal");
   };
 
-  function openListOfTimeZones(){
-    alert("Hello")
+  function openListOfTimeZones() {
+    alert("Hello");
   }
 
   //
@@ -215,9 +214,15 @@ const DeliveryDetails = () => {
                 />
               </div>
             </div>
-            <div style={{ position:"relative" }}>
+            <div style={{ position: "relative" }}>
               <label htmlFor="delivery_time_zone">Time Zone</label>
-              <div style={{ display:"flex", flexDirection:"row", alignItems:"center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
                 <input
                   type="text"
                   id="delivery_time_zone"
@@ -225,14 +230,20 @@ const DeliveryDetails = () => {
                   // onChange={(e) => setDeliveryTimeZone(e.target.value)}
                   value={deliveryTimeZone}
                 />
-                <i class="ri-arrow-down-s-line" style={{ fontSize:"22px", cursor:"pointer" }} onClick={() => setListOfTimeZones(!listOfTimeZones)}></i>
-                {listOfTimeZones && 
+                <i
+                  className="ri-arrow-down-s-line"
+                  style={{ fontSize: "22px", cursor: "pointer" }}
+                  onClick={() => setListOfTimeZones(!listOfTimeZones)}
+                ></i>
+                {listOfTimeZones && (
                   <div className="timeZone">
-                    {timeZones.map(timeZone => (
-                      <p onClick={() => setDeliveryTimeZone(timeZone.name)}>{timeZone.name}</p>
+                    {timeZones.map((timeZone) => (
+                      <p onClick={() => setDeliveryTimeZone(timeZone.name)}>
+                        {timeZone.name}
+                      </p>
                     ))}
                   </div>
-                }
+                )}
               </div>
             </div>
           </div>
