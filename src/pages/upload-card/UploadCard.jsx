@@ -26,7 +26,7 @@ const UploadCard = ({ baseUrl }) => {
   };
 
   async function uploadImageToServer() {
-    if (isChecked) {
+    // if (isChecked) {
       setLoader(true);
       const fd = new FormData();
       fd.append("image", imgFile);
@@ -42,16 +42,17 @@ const UploadCard = ({ baseUrl }) => {
       if (response) setLoader(false);
       if (response.ok) {
         setSuccess(true);
-        setSuccessMsg(data.message);
+        // setSuccessMsg(data.message);
         localStorage.setItem("uploaded-card", JSON.stringify(data.response.url));
-      } else {
-        console.log(data.message);
+        navigate("/card-delivery-details");
+      }
+      if(!response.ok){
+        setError("Something went wrong please try uploading the card again")
       }
       console.log(data);
-    } else {
-      localStorage.setItem("uploaded-card", JSON.stringify(URL.createObjectURL(imgFile)));
-      navigate("/card-delivery-details");
-    }
+    // } else {
+      // localStorage.setItem("uploaded-card", JSON.stringify(URL.createObjectURL(imgFile)));
+    // }
   }
 
   //

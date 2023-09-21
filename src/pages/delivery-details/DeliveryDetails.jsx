@@ -4,7 +4,7 @@ import deliver_details_icon from "../../assets/images/delivery-details-card-samp
 import { useRef, useState } from "react";
 import { FillInAllFormDetails } from "../../components/form-error-modal/DeliveryDetailsErrorModal";
 
-const DeliveryDetails = () => {
+const DeliveryDetails = ({baseUrl}) => {
   // References
   const error_modal_1 = useRef();
 
@@ -12,6 +12,7 @@ const DeliveryDetails = () => {
   const [isTime, setIsTime] = useState(false);
   const [isDate, setIsDate] = useState(false);
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
 
   // form inputs states
   const uploadedCard = JSON.parse(localStorage.getItem("uploaded-card"));
@@ -84,7 +85,7 @@ const DeliveryDetails = () => {
     deliveryVoucherAmount,
   };
 
-  function submitCardDeliveryDetails(e) {
+  async function submitCardDeliveryDetails(e) {
     e.preventDefault();
 
     //
@@ -113,6 +114,24 @@ const DeliveryDetails = () => {
         error_modal_1.current.classList.toggle("show_delivery_error_modal");
         return;
       } else {
+        console.log(JSON.stringify({recipientEmail:recipientEmail, recipientFullName:recipientFullName, addConfetti:"false",sendToEmail:"false",
+        cardCoverUrl:uploadedCard, date:deliveryDate, time:deliveryTime, timeZone:"UTC +1", addGiftCard:"false",
+        setNextYearReminder:"false", couponCode:"1234"}))
+        const response = await fetch(`${baseUrl}/create-card`,{
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${user.accessToken}`
+          },
+          body: JSON.stringify({recipientEmail:recipientEmail, recipientFullName:recipientFullName, addConfetti:"false",sendToEmail:"false",
+                                cardCoverUrl:uploadedCard, date:deliveryDate, time:deliveryTime, timeZone:"UTC +1", addGiftCard:"false",
+                                setNextYearReminder:"false", couponCode:"1234"})
+        })
+        const data = await response.json()
+        console.log(response, data)
+        // if(response.ok){
+
+        // }
         navigate("/payment-page");
       }
     }

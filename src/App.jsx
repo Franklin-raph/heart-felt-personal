@@ -96,7 +96,7 @@ function App() {
           path="/verify/:token"
           element={<AccountVerification baseUrl={baseUrl}/>}
         />
-        <Route path="/user-dashboard" element={<UserDashboard />} />
+        <Route path="/user-dashboard" element={<UserDashboard baseUrl={baseUrl}/>} />
         <Route path="/user-dashboard-signed-cards" element={<SignedCards />} />
         <Route path="/account-personal-info" element={<AccountInfo />} />
         <Route
@@ -115,7 +115,7 @@ function App() {
         <Route path="/account-custom-name" element={<AccountCustomName />} />
         <Route path="/upload-card" element={<UploadCard baseUrl={baseUrl} />} />
         <Route path="/saved-card" element={<SavedCards />} />
-        <Route path="/card-delivery-details" element={<DeliveryDetails />} />
+        <Route path="/card-delivery-details" element={<DeliveryDetails baseUrl={baseUrl}/>} />
         <Route path="/payment-successful" element={<PaymentSuccessful />} />
         <Route path="/single-card-view" element={<SingleCardView />} />
 

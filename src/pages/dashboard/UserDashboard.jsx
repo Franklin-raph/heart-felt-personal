@@ -1,22 +1,40 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import DashBoardNav from "../../components/dashboard-nav/DashBoardNav";
 import { NavLink, useNavigate } from "react-router-dom";
 import cardImgPreview from "../../assets/images/card_preview_template.jpg";
 
-const UserDashboard = () => {
+const UserDashboard = ({baseUrl}) => {
   const navigate = useNavigate();
+  const [allMyCardTemplates, setAllMyCardTemplates] = useState([])
   //
   const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     if (!user) {
       navigate("/");
     }
+    getMySavedCards()
   }, []);
   //
   const sidebar = useRef();
   const openSidebar = () => {
     sidebar.current.classList.toggle("open_sidebar");
   };
+
+  async function getMySavedCards(){
+    const response = await fetch(`${baseUrl}/fetch-user-templates`,{
+      headers: {
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+    const data = await response.json()
+    if(response.ok){
+      setAllMyCardTemplates(data.data)
+    }
+    if(!response.ok){
+      alert("Something went wrong")
+    }
+    console.log(response, data)
+  }
 
   //
   return (
@@ -55,93 +73,28 @@ const UserDashboard = () => {
             <h4>Entries</h4>
             <h4>Status</h4>
           </div>
-          <div className="user_dashboard_item_row">
-            {/*  */}
-            <div className="user_dashboard_card_item">
-              <img src={cardImgPreview} alt="" className="dashboard_item_img" />
-              <p className="card_preview_create_date">10 April 2023</p>
-              <p className="card_preview_created_by">Chisom</p>
-              <p className="card_preview_recipient">Chisom</p>
-              <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status unpaid">Unpaid</p>
-              <div className="update_card_preview_icons">
-                <i className="ri-eye-line"></i>
-                <i className="bx bx-link"></i>
-                <i className="bx bx-dots-horizontal-rounded"></i>
+          
+          {allMyCardTemplates && allMyCardTemplates.length === 0 && <p style={{ fontSize:"1.4rem", textAlign:"center", marginTop:"5rem" }}>You have no saved cards yet</p>}
+          {allMyCardTemplates && 
+            allMyCardTemplates.map(cardTemplate => (
+              <div className="user_dashboard_item_row">
+                <div className="user_dashboard_card_item">
+                  <img src={cardImgPreview} alt="" className="dashboard_item_img" />
+                  <p className="card_preview_create_date">10 April 2023</p>
+                  <p className="card_preview_created_by">Chisom</p>
+                  <p className="card_preview_recipient">Chisom</p>
+                  <p className="card_preview_Entries">2</p>
+                  <p className="card_preview_status unpaid">Unpaid</p>
+                  <div className="update_card_preview_icons">
+                    <i className="ri-eye-line"></i>
+                    <i className="bx bx-link"></i>
+                    <i className="bx bx-dots-horizontal-rounded"></i>
+                  </div>
+                </div>
               </div>
-            </div>
-            {/*  */}
-            <div className="user_dashboard_card_item">
-              <img src={cardImgPreview} alt="" className="dashboard_item_img" />
-              <p className="card_preview_create_date">10 April 2023</p>
-              <p className="card_preview_created_by">Chisom</p>
-              <p className="card_preview_recipient">Chisom</p>
-              <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status sent">Sent</p>
-              <div className="update_card_preview_icons">
-                <i className="ri-eye-line"></i>
-                <i className="bx bx-link"></i>
-                <i className="bx bx-dots-horizontal-rounded"></i>
-              </div>
-            </div>
-            {/*  */}
-            <div className="user_dashboard_card_item">
-              <img src={cardImgPreview} alt="" className="dashboard_item_img" />
-              <p className="card_preview_create_date">10 April 2023</p>
-              <p className="card_preview_created_by">Chisom</p>
-              <p className="card_preview_recipient">Chisom</p>
-              <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status unpaid">Unpaid</p>
-              <div className="update_card_preview_icons">
-                <i className="ri-eye-line"></i>
-                <i className="bx bx-link"></i>
-                <i className="bx bx-dots-horizontal-rounded"></i>
-              </div>
-            </div>
-            {/*  */}
-            <div className="user_dashboard_card_item">
-              <img src={cardImgPreview} alt="" className="dashboard_item_img" />
-              <p className="card_preview_create_date">10 April 2023</p>
-              <p className="card_preview_created_by">Chisom</p>
-              <p className="card_preview_recipient">Chisom</p>
-              <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status sent">Sent</p>
-              <div className="update_card_preview_icons">
-                <i className="ri-eye-line"></i>
-                <i className="bx bx-link"></i>
-                <i className="bx bx-dots-horizontal-rounded"></i>
-              </div>
-            </div>
-            {/*  */}
-            <div className="user_dashboard_card_item">
-              <img src={cardImgPreview} alt="" className="dashboard_item_img" />
-              <p className="card_preview_create_date">10 April 2023</p>
-              <p className="card_preview_created_by">Chisom</p>
-              <p className="card_preview_recipient">Chisom</p>
-              <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status unpaid">Unpaid</p>
-              <div className="update_card_preview_icons">
-                <i className="ri-eye-line"></i>
-                <i className="bx bx-link"></i>
-                <i className="bx bx-dots-horizontal-rounded"></i>
-              </div>
-            </div>
-            {/*  */}
-            <div className="user_dashboard_card_item">
-              <img src={cardImgPreview} alt="" className="dashboard_item_img" />
-              <p className="card_preview_create_date">10 April 2023</p>
-              <p className="card_preview_created_by">Chisom</p>
-              <p className="card_preview_recipient">Chisom</p>
-              <p className="card_preview_Entries">2</p>
-              <p className="card_preview_status unpaid">Unpaid</p>
-              <div className="update_card_preview_icons">
-                <i className="ri-eye-line"></i>
-                <i className="bx bx-link"></i>
-                <i className="bx bx-dots-horizontal-rounded"></i>
-              </div>
-            </div>
-            {/*  */}
-          </div>
+          ))
+          }
+          
         </div>
       </div>
     </section>
