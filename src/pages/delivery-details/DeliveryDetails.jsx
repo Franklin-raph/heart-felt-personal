@@ -3,6 +3,7 @@ import payStackIcon from "../../assets/images/paystack.svg";
 import deliver_details_icon from "../../assets/images/delivery-details-card-sample.png";
 import { useRef, useState } from "react";
 import { FillInAllFormDetails } from "../../components/form-error-modal/DeliveryDetailsErrorModal";
+import PaystackPop from "@paystack/inline-js"
 
 const DeliveryDetails = ({baseUrl}) => {
   // References
@@ -16,7 +17,6 @@ const DeliveryDetails = ({baseUrl}) => {
 
   // form inputs states
   const uploadedCard = JSON.parse(localStorage.getItem("uploaded-card"));
-  console.log(uploadedCard)
   const [recipientFullName, setRecipientFullName] = useState("");
   const [recipientEmail, setRecipientEmail] = useState("");
   const [senderFullName, setSenderFullName] = useState("");
@@ -26,11 +26,12 @@ const DeliveryDetails = ({baseUrl}) => {
   const [deliveryVoucherName, setDeliveryVoucherName] = useState(""); //only when checked
   const [deliveryVoucherCode, setDeliveryVoucherCode] = useState(""); //only when checked
   const [deliveryVoucherAmount, setDeliveryVoucherAmount] = useState(""); //only when checked
+  const [loader, setLoader] = useState(false)
 
   const [listOfTimeZones, setListOfTimeZones] = useState(false);
 
   // check inputs
-  const [addGiftCardCheck, setAddGiftCardCheck] = useState(true);
+  const [addGiftCardCheck, setAddGiftCardCheck] = useState(false);
   const [addVideoCheck, setAddVideoCheck] = useState(false);
 
   const timeZones = [
@@ -89,34 +90,13 @@ const DeliveryDetails = ({baseUrl}) => {
     e.preventDefault();
 
     //
-    if (
-      !recipientFullName ||
-      !recipientEmail ||
-      !senderFullName ||
-      !deliveryDate ||
-      !deliveryTime ||
-      !deliveryTimeZone
-    ) {
+    if ( !recipientFullName || !recipientEmail || !senderFullName || !deliveryDate || !deliveryTime || !deliveryTimeZone) {
       error_modal_1.current.classList.toggle("show_delivery_error_modal");
       return;
-    } else if (addGiftCardCheck === true) {
-      if (
-        !recipientFullName ||
-        !recipientEmail ||
-        !senderFullName ||
-        !deliveryDate ||
-        !deliveryTime ||
-        !deliveryTimeZone ||
-        !deliveryVoucherName ||
-        !deliveryVoucherCode ||
-        !deliveryVoucherAmount
-      ) {
-        error_modal_1.current.classList.toggle("show_delivery_error_modal");
-        return;
-      } else {
-        console.log(JSON.stringify({recipientEmail:recipientEmail, recipientFullName:recipientFullName, addConfetti:"false",sendToEmail:"false",
-        cardCoverUrl:uploadedCard, date:deliveryDate, time:deliveryTime, timeZone:"UTC +1", addGiftCard:"false",
-        setNextYearReminder:"false", couponCode:"1234"}))
+    }
+      else {
+        console.log("first")
+        setLoader(true)
         const response = await fetch(`${baseUrl}/create-card`,{
           method:"POST",
           headers:{
@@ -128,39 +108,35 @@ const DeliveryDetails = ({baseUrl}) => {
                                 setNextYearReminder:"false", couponCode:"1234"})
         })
         const data = await response.json()
+        if(response) setLoader(false)
         if(response.ok){
           console.log(`${data.data.paymentLink}`)
-          window.location.href = `${data.data.paymentLink}`
+          payWithPayStack()
+          // window.location.href = `${data.data.paymentLink}`
         }
-        console.log(response, data)
-        // if(response.ok){
-
-        // }
-        // navigate("/payment-page");
       }
     }
-
-    // reset delivery details form
-    setRecipientFullName("");
-    setRecipientEmail("");
-    setSenderFullName("");
-    setDeliveryDate("");
-    setDeliveryTime("");
-    setDeliveryTimeZone("");
-    setDeliveryVoucherName("");
-    setDeliveryVoucherCode("");
-    setDeliveryVoucherAmount("");
-    // navigate("/payment-page");
-  }
-
   // close error modal 1
   const close_error_modal_1 = () => {
     error_modal_1.current.classList.toggle("show_delivery_error_modal");
   };
 
-  function openListOfTimeZones() {
-    alert("Hello");
-  }
+      function payWithPayStack(){
+        const payStack = new PaystackPop()
+        console.log(payStack)
+        payStack.newTransaction({
+          key:"pk_test_12420d20e0b354e9670266456195a13f3a03ec68",
+          amount:100,
+          email:"heartfelt@gmail.com",
+          onSuccess(transaction){
+            console.log(transaction)
+            navigate("/payment-successful")
+          },
+          oncancel(){
+            console.log("Failed Transaction")
+          }
+        })
+      }
 
   //
   return (
@@ -283,7 +259,7 @@ const DeliveryDetails = ({baseUrl}) => {
                   onChange={(e) => setAddGiftCardCheck(!addGiftCardCheck)}
                 />
                 <label htmlFor="want_card_check">
-                  I want to add Gift card{" "}
+                  I want to add Gift card
                   <i className="bx bxs-error-circle"></i>
                 </label>
               </div>
@@ -372,7 +348,12 @@ const DeliveryDetails = ({baseUrl}) => {
               <button>Apply</button>
             </div>
           </div> */}
-          <button className="delivery_form_purchase_btn">Purchase Card</button>
+          {loader ?
+            <button className="delivery_form_purchase_btn"><i className="fa-solid fa-spinner fa-spin"></i></button>
+           : 
+            <button className="delivery_form_purchase_btn">Purchase Card</button>
+           }
+          
         </form>
       </div>
 
@@ -382,8 +363,6 @@ const DeliveryDetails = ({baseUrl}) => {
           <h5>Order Summary</h5>
           <div className="delivery_details_img">
             {uploadedCard && <img src={uploadedCard} alt="" />}
-            {console.log(<img src={uploadedCard} alt="" />)}
-            {console.log(uploadedCard)}
             {!uploadedCard && <img src={deliver_details_icon} alt="" />}
           </div>
         </div>
@@ -411,17 +390,17 @@ const DeliveryDetails = ({baseUrl}) => {
         <div className="delivery_details_summary_row_2">
           <h4>Pay With</h4>
           <div>
-            <input type="radio" name="paywith" />
+            {/* <input type="radio" name="paywith" /> */}
             <img src={payStackIcon} alt="" />
             <p>Paystack</p>
           </div>
-          <div>
+          {/* <div>
             <input type="radio" name="paywith" />
             <img src={payStackIcon} alt="" />
             <p>Flutterwave</p>
-          </div>
+          </div> */}
         </div>
-        <Link className="delivery_details_footer_link">Change Gift Card</Link>
+        {/* <Link className="delivery_details_footer_link">Change Gift Card</Link> */}
       </div>
       <FillInAllFormDetails
         error_modal_1={error_modal_1}
