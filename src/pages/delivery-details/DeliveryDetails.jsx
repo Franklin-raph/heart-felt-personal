@@ -128,11 +128,15 @@ const DeliveryDetails = ({baseUrl}) => {
                                 setNextYearReminder:"false", couponCode:"1234"})
         })
         const data = await response.json()
+        if(response.ok){
+          console.log(`${data.data.paymentLink}`)
+          window.location.href = `${data.data.paymentLink}`
+        }
         console.log(response, data)
         // if(response.ok){
 
         // }
-        navigate("/payment-page");
+        // navigate("/payment-page");
       }
     }
 
@@ -146,7 +150,7 @@ const DeliveryDetails = ({baseUrl}) => {
     setDeliveryVoucherName("");
     setDeliveryVoucherCode("");
     setDeliveryVoucherAmount("");
-    navigate("/payment-page");
+    // navigate("/payment-page");
   }
 
   // close error modal 1
