@@ -36,7 +36,7 @@ const UploadCardCoverBirthday = ({baseUrl}) => {
   }
 
   function navigateToCardDeliveryDetails(imgsrc){
-    localStorage.setItem("card_cover", JSON.stringify(imgsrc))
+    localStorage.setItem("uploaded-card", JSON.stringify(imgsrc))
     navigate("/card-delivery-details")
   }
 

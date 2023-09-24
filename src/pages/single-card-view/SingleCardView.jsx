@@ -21,6 +21,7 @@ const SingleCardView = () => {
 
   //
   const [showTextEditModalBtn, setShowTextEditModalBtn] = useState(false);
+  const uploadedCard = JSON.parse(localStorage.getItem("uploaded-card"));
 
   function openGiftCardSettings() {
     setIsGiftCardSettingsOpen(!isGiftCardSettingsOpen);
@@ -138,7 +139,7 @@ const SingleCardView = () => {
           className="mySwiper"
         >
           <SwiperSlide className="single_card_col col_2">
-            <img src={imagePreview_2} alt="" />
+            <img src={uploadedCard} alt="" />
           </SwiperSlide>
           <SwiperSlide className="single_card_col col_2">
             <img src={imagePreview_4} alt="" />

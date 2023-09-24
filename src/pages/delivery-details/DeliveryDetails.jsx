@@ -27,6 +27,7 @@ const DeliveryDetails = ({baseUrl}) => {
   const [deliveryVoucherCode, setDeliveryVoucherCode] = useState(""); //only when checked
   const [deliveryVoucherAmount, setDeliveryVoucherAmount] = useState(""); //only when checked
   const [loader, setLoader] = useState(false)
+  const [confirmPaymentLoader, setConfirmPaymentLoader] = useState(false)
 
   const [listOfTimeZones, setListOfTimeZones] = useState(false);
 
@@ -108,10 +109,11 @@ const DeliveryDetails = ({baseUrl}) => {
                                 setNextYearReminder:"false", couponCode:"1234"})
         })
         const data = await response.json()
+        console.log(data)
         if(response) setLoader(false)
         if(response.ok){
-          console.log(`${data.data.paymentLink}`)
-          payWithPayStack()
+          getPayStackToken(data.cardID)
+          // payWithPayStack()
           // window.location.href = `${data.data.paymentLink}`
         }
       }
@@ -121,16 +123,47 @@ const DeliveryDetails = ({baseUrl}) => {
     error_modal_1.current.classList.toggle("show_delivery_error_modal");
   };
 
-      function payWithPayStack(){
+  async function getPayStackToken(cardID){
+    const response = await fetch(`${baseUrl}/create-paystack-checkout-token`,{
+      method:"POST",
+      body: JSON.stringify({amount:"1000", userCardID:cardID}),
+      headers:{
+        "Content-Type":"application/json",
+        Authorization: `Bearer ${user.accessToken}`
+      },
+    })
+    const data = await response.json()
+    if(response.ok){
+      payWithPayStack(data.token)
+    }
+  }
+
+  async function confirmPayment(reference, transactionID){
+    setConfirmPaymentLoader(true)
+    const response = await fetch(`${baseUrl}/paystack-confirm`,{
+      method:"POST",
+      body: JSON.stringify({reference:reference, transactionID:transactionID}),
+      headers:{
+        "Content-Type":"application/json",
+        Authorization: `Bearer ${user.accessToken}`
+      },
+    })
+    const data = await response.json()
+    if(response) setConfirmPaymentLoader(false)
+    if(response.ok){
+      navigate("/payment-successful")
+    }
+    if(!response.ok) console.log("An error occured")
+  }
+
+      function payWithPayStack(transactionID){
         const payStack = new PaystackPop()
-        console.log(payStack)
         payStack.newTransaction({
-          key:"pk_test_12420d20e0b354e9670266456195a13f3a03ec68",
-          amount:100,
+          key:"pk_test_2852b659f13472e782ddd68c68b248987bab40b6",
+          amount:1*1000,
           email:"heartfelt@gmail.com",
           onSuccess(transaction){
-            console.log(transaction)
-            navigate("/payment-successful")
+            confirmPayment(transaction.reference, transactionID)
           },
           oncancel(){
             console.log("Failed Transaction")
@@ -141,6 +174,14 @@ const DeliveryDetails = ({baseUrl}) => {
   //
   return (
     <section className="delivery_details_section">
+      {confirmPaymentLoader &&
+        <div className="confirm-payment-loader-bg">
+          <div className="confirm-payment-body">
+            <i className="fa-solid fa-spinner fa-spin"></i>
+            <p>Please wait while we confirm your payment</p>
+          </div>
+        </div>
+      }
       <div className="delivery_details_col_1">
         {/* Recipient Details */}
         <form
