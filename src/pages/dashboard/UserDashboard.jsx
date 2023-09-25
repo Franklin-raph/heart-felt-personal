@@ -31,7 +31,7 @@ const UserDashboard = ({baseUrl}) => {
       setAllMyCardTemplates(data.data)
     }
     if(!response.ok){
-      alert("Something went wrong")
+      // alert("Something went wrong")
     }
     console.log(response, data)
   }
@@ -73,7 +73,7 @@ const UserDashboard = ({baseUrl}) => {
             <h4>Entries</h4>
             <h4>Status</h4>
           </div>
-          
+
           {allMyCardTemplates && allMyCardTemplates.length === 0 && <p style={{ fontSize:"1.4rem", textAlign:"center", marginTop:"5rem" }}>You have no saved cards yet</p>}
           {allMyCardTemplates && 
             allMyCardTemplates.map(cardTemplate => (
