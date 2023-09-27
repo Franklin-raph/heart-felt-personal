@@ -1,8 +1,7 @@
 import imagePreview_1 from "../../assets/images/card_preview_template.jpg";
 import imagePreview_2 from "../../assets/images/delivery-details-card-sample.png";
 import imagePreview_3 from "../../assets/images/birthday-card-template-image.jpg";
-import imagePreview_4 from "../../assets/images/blank-signed-card.jpg";
-import imagePreview_5 from "../../assets/images/blank-signed-card-1.jpg";
+import imagePreview_4 from "../../assets/images/sign-card-initial-view.webp";
 import deliveryDetailsImage from "../../assets/images/delivery-details-img.png";
 import { useRef, useState } from "react";
 import SingleCardViewModal from "../../components/single-card-view-modal/SingleCardViewModal";
@@ -139,13 +138,13 @@ const SingleCardView = () => {
           className="mySwiper"
         >
           <SwiperSlide className="single_card_col col_2">
-            <img src={uploadedCard} alt="" />
+            <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" />
           </SwiperSlide>
           <SwiperSlide className="single_card_col col_2">
             <img src={imagePreview_4} alt="" />
           </SwiperSlide>
           <SwiperSlide className="single_card_col col_2">
-            <img src={imagePreview_5} alt="" />
+            <img src={imagePreview_4} alt="" />
           </SwiperSlide>
         </Swiper>
 
