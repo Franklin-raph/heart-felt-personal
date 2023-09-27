@@ -2022,7 +2022,7 @@ nav input {
 }
 
 .single_card_view_row .swiper {
-  width: 376px;
+  width: 280px;
   height: 100%;
 }
 
@@ -3684,6 +3684,8 @@ nav input {
 
 /*  */
 /* ================ MEDIA QUERY ==================== */
+/* ===================================================== */
+/* ===================================================== */
 
 @media screen and (max-width: 1240px) {
   .gift_card_segment_row_upload_card_cover {
@@ -3691,6 +3693,9 @@ nav input {
   }
 }
 
+/* ============================================= */
+/* ============================================= */
+/* ============================================= */
 @media screen and (max-width: 1200px) {
   .successModal,
   .failureModal {
@@ -3733,6 +3738,9 @@ nav input {
   }
 }
 
+/* ========================================== */
+/* ========================================== */
+/* ========================================== */
 @media screen and (max-width: 1080px) {
   .gift_card_segment_row {
     grid-template-columns: repeat(4, 1fr);
@@ -3751,6 +3759,9 @@ nav input {
   }
 }
 
+/* ======================================= */
+/* ======================================= */
+/* ======================================= */
 @media screen and (max-width: 992px) {
   .nav {
     padding: 0;
@@ -4014,13 +4025,18 @@ nav input {
   }
 }
 
+/* ======================================= */
+/* ======================================= */
+/* ======================================= */
 @media screen and (max-width: 964px) {
   .gift_card_segment_row_upload_card_cover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/*  */
+/* ==================================== */
+/* ==================================== */
+/* ==================================== */
 @media screen and (max-width: 864px) {
   .gift_card_segment_row {
     grid-template-columns: repeat(3, 1fr);
@@ -4035,6 +4051,9 @@ nav input {
   }
 }
 
+/* ========================================== */
+/* ========================================== */
+/* ========================================== */
 @media screen and (max-width: 808px) {
   .terms_and_conditions_section {
     grid-template-columns: 1fr;
@@ -4095,6 +4114,9 @@ nav input {
   }
 }
 
+/* =========================================== */
+/* =========================================== */
+/* =========================================== */
 @media screen and (max-width: 768px) {
   .successModal,
   .failureModal {
@@ -4319,6 +4341,9 @@ nav input {
   }
 }
 
+/* =========================================== */
+/* =========================================== */
+/* =========================================== */
 @media screen and (max-width: 576px) {
   .successModal,
   .failureModal {
@@ -4419,8 +4444,15 @@ nav input {
   .single_card_view_modal {
     width: 290px;
   }
+
+  .single_card_view_row .swiper {
+    width: 200px;
+  }
 }
 
+/* ====================================== */
+/* ====================================== */
+/* ====================================== */
 @media screen and (max-width: 480px) {
   .pricing .card,
   .get-started-steps-section .header,
@@ -4552,6 +4584,11 @@ nav input {
   .single_card_countdown_row {
     gap: 20px;
   }
+
+  .single_card_view_row .swiper {
+    width: 180px;
+    height: 80%;
+  }
   /*  */
   .add_gift_card_header,
   .search_gift_card_form,
@@ -4614,6 +4651,10 @@ nav input {
   }
 }
 
+/* ======================== */
+/* ======================== */
+/* ======================== */
+
 @media screen and (max-width: 374px) {
   .view_modal_input_form {
     width: 270px;
@@ -4627,8 +4668,15 @@ nav input {
   .failureModal {
     width: 90%;
   }
+
+  .single_card_view_row .swiper {
+    width: 150px;
+  }
 }
 
+/* ============================== */
+/* ============================== */
+/* ============================== */
 @media screen and (max-width: 330px) {
   .view_modal_buttons {
     flex-direction: column;
