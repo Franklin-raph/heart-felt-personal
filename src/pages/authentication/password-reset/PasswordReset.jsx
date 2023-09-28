@@ -6,9 +6,7 @@ const PasswordReset = () => {
   const user_info = JSON.parse(localStorage.getItem("user_info"));
   const navigate = useNavigate()
   useEffect(() => {
-    if (!user_info) {
-      navigate("/password-reset/:id/:token");
-    }
+    
   }, []);
 
 
