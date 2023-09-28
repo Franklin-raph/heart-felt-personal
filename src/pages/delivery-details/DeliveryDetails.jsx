@@ -34,6 +34,7 @@ const DeliveryDetails = ({ baseUrl }) => {
   // check inputs
   const [addGiftCardCheck, setAddGiftCardCheck] = useState(false);
   const [addVideoCheck, setAddVideoCheck] = useState(false);
+  const [addAudioCheck, setAddAudioCheck] = useState(false);
 
   const timeZones = [
     { name: "UTC-12:00", offset: "-12:00" },
@@ -102,7 +103,6 @@ const DeliveryDetails = ({ baseUrl }) => {
       error_modal_1.current.classList.toggle("show_delivery_error_modal");
       return;
     } else {
-      console.log("first");
       setLoader(true);
       const response = await fetch(`${baseUrl}/create-card`, {
         method: "POST",
@@ -140,6 +140,8 @@ const DeliveryDetails = ({ baseUrl }) => {
   };
 
   async function getPayStackToken(cardID) {
+    console.log(cardID);
+    localStorage.setItem("cardID", JSON.stringify(cardID));
     const response = await fetch(`${baseUrl}/create-paystack-checkout-token`, {
       method: "POST",
       body: JSON.stringify({ amount: "1000", userCardID: cardID }),
@@ -374,14 +376,19 @@ const DeliveryDetails = ({ baseUrl }) => {
             </div>
             {/*  */}
             <div>
-              <input type="checkbox" id="add_audio" />
+              <input
+                type="checkbox"
+                id="add_audio"
+                checked={addAudioCheck}
+                onChange={() => setAddAudioCheck(!addAudioCheck)}
+              />
               <label htmlFor="add_audio">Add Audio</label>
             </div>
             {/*  */}
-            <div>
+            {/* <div>
               <input type="checkbox" id="add_confetti" />
               <label htmlFor="add_confetti">Add confetti</label>
-            </div>
+            </div> */}
             {/*  */}
             <div>
               <input type="checkbox" id="send_mails_check" />
@@ -441,6 +448,12 @@ const DeliveryDetails = ({ baseUrl }) => {
           {addVideoCheck && (
             <div>
               <p>Video ...</p>
+              <h6>₦3,500</h6>
+            </div>
+          )}
+          {addAudioCheck && (
+            <div>
+              <p>Audio ...</p>
               <h6>₦3,500</h6>
             </div>
           )}

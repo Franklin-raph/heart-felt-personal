@@ -89,7 +89,10 @@ function App() {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/sign-in" element={<SignIn baseUrl={baseUrl} />} />
         <Route path="/sign-up" element={<SignUp baseUrl={baseUrl} />} />
-        <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route
+          path="/forgotPassword"
+          element={<ForgotPassword baseUrl={baseUrl} />}
+        />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
         <Route
           path="/verify/:token"

@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const ForgotPassword = () => {
+const ForgotPassword = ({ baseUrl }) => {
+  const [email, setEmail] = useState();
+  //
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+    console.log(JSON.stringify({ email: email }));
+    try {
+      const res = await fetch(`${baseUrl}/password-reset`, {
+        method: "POST",
+        body: JSON.stringify({ email: email }),
+      });
+      const data = await res.json();
+      console.log(data, res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  //
   return (
     <div>
-      <form className="sign-in-form flex-center">
+      <form
+        className="sign-in-form flex-center"
+        onSubmit={handleForgotPassword}
+      >
         <div className="header">
           <h1>Forgot your passord?</h1>
           <p>
@@ -15,7 +36,11 @@ const ForgotPassword = () => {
         <div className="inputs">
           <div>
             <label>Email Adress</label>
-            <input type="email" placeholder="email address" />
+            <input
+              type="email"
+              placeholder="email address"
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
         </div>
         <input

@@ -12,7 +12,6 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
   const [textStyleToolTip, setTextStyleToolTip] = useState(false);
   const [textAlignToolTip, setTextAlignToolTip] = useState(false);
   const [senderNameToolTip, setSenderNameToolTip] = useState(false);
-  const [user, setUser] = useState();
 
   // Wants Text Edit States
   const [showColorPalette, setShowColorPalette] = useState(false);
@@ -53,25 +52,33 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
   };
 
   // ======================
-  useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem("user")));
-  }, []);
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  const cardID = JSON.parse(localStorage.getItem("cardID"));
+
   // ========================
   const [comment, setComment] = useState();
   // ======================
   const handleSignCard = async (e) => {
+    console.log(
+      JSON.stringify({
+        comment: comment,
+        commentBy: user.user.email,
+        cardID: cardID,
+      })
+    );
     e.preventDefault();
     try {
       const res = await fetch(`${baseUrl}/sign-card`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${user && user.accessToken}`,
+          Authorization: `Bearer ${user.accessToken}`,
         },
         body: JSON.stringify({
           comment: comment,
-          commentBy: "James",
-          cardID: "11223",
+          commentBy: user.user.email,
+          cardID: cardID,
         }),
       });
       const data = await res.json();
