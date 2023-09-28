@@ -10,6 +10,9 @@ const PasswordReset = ({baseUrl}) => {
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
   const [loader, setLoader] = useState(false)
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setconfirmPassword] = useState("")
+  const [btnLoader, setBtnLoader] = useState(false)
   const {token} = useParams()
 
   useEffect(() => {
@@ -38,6 +41,36 @@ const PasswordReset = ({baseUrl}) => {
     console.log(data)
   }
 
+  async function resetPassword(e){
+    e.preventDefault()
+    if(password === "" || confirmPassword === ""){
+      setError("Plesae fill in the fields")
+      return
+    }else if(password !== confirmPassword){
+      setError("Password fields do not match")
+      return
+    }else{
+      setBtnLoader(true)
+      const response = await fetch(`${baseUrl}/update-password`,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify({password:password, token:token})
+      })
+      const data = await response.json()
+      console.log(response, data)
+      if(response) setBtnLoader(false)
+      if(response.ok){
+        setSuccess("Your password has been successfully updated you can proceed to login")
+      }
+
+      if(!response.ok){
+        setError("An error occured please try again later")
+      }
+    }
+  }
+
 
   return (
     <div>
@@ -56,18 +89,26 @@ const PasswordReset = ({baseUrl}) => {
         <div className="inputs">
           <div>
             <label>Password</label>
-            <input type="password" placeholder="*******" />
+            <input type="password" placeholder="*******" onChange={e => setPassword(e.target.value)} />
           </div>
           <div>
             <label>Confirm Password</label>
-            <input type="password" placeholder="**********" />
+            <input type="password" placeholder="**********" onChange={e => setconfirmPassword(e.target.value)} />
           </div>
         </div>
-        <input
+        
+        {btnLoader ?
+          <button className="submit-btn primary-button">
+            <i className="fa-solid fa-spinner fa-spin"></i>
+          </button>
+          :
+          <input
           type="submit"
           value="Submit"
           className="submit-btn primary-button"
+          onClick={resetPassword}
         />
+        }
       </form>
       {success && <SuccessAlert success={success} setSuccess={setSuccess} />}
       {error && <ErrorAlert error={error} setError={setError} />}
