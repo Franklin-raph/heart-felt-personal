@@ -93,7 +93,7 @@ function App() {
           path="/forgotPassword"
           element={<ForgotPassword baseUrl={baseUrl} />}
         />
-        <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
+        <Route path="/password-reset/:token" element={<PasswordReset />} />
         <Route
           path="/verify/:token"
           element={<AccountVerification baseUrl={baseUrl} />}
