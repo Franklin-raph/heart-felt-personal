@@ -2,21 +2,20 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const ForgotPassword = ({ baseUrl }) => {
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState("");
   //
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     console.log(JSON.stringify({ email: email }));
-    try {
-      const res = await fetch(`${baseUrl}/password-reset`, {
-        method: "POST",
-        body: JSON.stringify({ email: email }),
-      });
-      const data = await res.json();
-      console.log(data, res);
-    } catch (err) {
-      console.log(err);
-    }
+    const response = await fetch(`${baseUrl}/password-reset`,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify({email:email})
+    })
+    const data = await response.json()
+    console.log(data)
   };
 
   //
