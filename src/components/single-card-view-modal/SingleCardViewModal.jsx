@@ -1,17 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TextEditColorModal, {
   TextEditAlignModal,
   TextEditFamilyModal,
   TextEditSizeModal,
 } from "../single-card-text-edit-modals/SingleCardTextEditModal";
 // import TextareaAutosize from "react-autosize-textarea";
-const SingleCardViewModal = ({ card_view_modal }) => {
+const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
   const [colorToolTip, setColorToolTip] = useState(false);
   const [typefaceToolTip, setTypefaceToolTip] = useState(false);
   const [textSizeToolTip, setTextSizeToolTip] = useState(false);
   const [textStyleToolTip, setTextStyleToolTip] = useState(false);
   const [textAlignToolTip, setTextAlignToolTip] = useState(false);
   const [senderNameToolTip, setSenderNameToolTip] = useState(false);
+  const [user, setUser] = useState();
 
   // Wants Text Edit States
   const [showColorPalette, setShowColorPalette] = useState(false);
@@ -20,7 +21,7 @@ const SingleCardViewModal = ({ card_view_modal }) => {
   const [showTextAlignModal, setShowTextAlignModal] = useState(false);
 
   //
-  const handleShowColorPalette = (e) => {
+  const handleShowColorPalette = () => {
     setShowColorPalette(!showColorPalette);
     setTextEditFonts(false);
     setShowEditSizeModal(false);
@@ -50,6 +51,37 @@ const SingleCardViewModal = ({ card_view_modal }) => {
     setShowEditSizeModal(false);
     setShowColorPalette(false);
   };
+
+  // ======================
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")));
+  }, []);
+  // ========================
+  const [comment, setComment] = useState();
+  // ======================
+  const handleSignCard = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`${baseUrl}/sign-card`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user && user.accessToken}`,
+        },
+        body: JSON.stringify({
+          comment: comment,
+          commentBy: "James",
+          cardID: "11223",
+        }),
+      });
+      const data = await res.json();
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  // ======================
+  // ======================
 
   //
   return (
@@ -129,13 +161,18 @@ const SingleCardViewModal = ({ card_view_modal }) => {
             {showTextAlignModal && <TextEditAlignModal />}
           </div>
           <div className="view_modal_input_form">
-            <form>
+            <form onSubmit={handleSignCard}>
               {/* <TextareaAutosize
                 maxRows={8}
                 rows={1}
                 placeholder="your message here..."
               /> */}
-              <textarea rows="1" placeholder="your message here..."></textarea>
+              <textarea
+                rows="1"
+                placeholder="your message here..."
+                onChange={(e) => setComment(e.target.value)}
+              ></textarea>
+              <button className="view_modal_input_btn">Sign Card</button>
             </form>
           </div>
         </div>
@@ -209,7 +246,7 @@ export const EditTextAlignToolTip = () => {
 export const SenderNameToolTip = () => {
   return (
     <div className="sender_tip tool_tip_card">
-      <p>Hide Sender's Name</p>
+      <p>Hide Sender{"'s"} Name</p>
       <div className="tool_tip_card_arrow"></div>
     </div>
   );

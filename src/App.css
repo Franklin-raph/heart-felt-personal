@@ -2753,7 +2753,7 @@ nav input {
 
 .single_card_view_modal_holder {
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -2786,6 +2786,12 @@ nav input {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.view_modal_input_btn {
+  background: var(--primary-color);
+  color: var(--generic-white);
+  margin-top: 1rem;
 }
 
 .view_modal_input_controls {
@@ -3007,6 +3013,7 @@ nav input {
   box-shadow: 0 0 0 1.5px var(--primary-color);
   padding: 15px 15px;
   resize: none;
+  form-sizing: normal;
 }
 
 .view_modal_buttons {

@@ -70,9 +70,8 @@ import AnnualPlans from "./pages/annual-plans/AnnualPlans";
 import MyTeams from "./pages/my-team/MyTeams";
 import LogoSettings from "./pages/logo-settings/LogoSettings";
 
-
 function App() {
-  const baseUrl = "https://heartfelt-new.vercel.app"
+  const baseUrl = "https://heartfelt-new.vercel.app";
   return (
     <BrowserRouter>
       <GetToTopOnRender />
@@ -88,15 +87,18 @@ function App() {
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/sign-in" element={<SignIn baseUrl={baseUrl}/>} />
-        <Route path="/sign-up" element={<SignUp baseUrl={baseUrl}/>} />
+        <Route path="/sign-in" element={<SignIn baseUrl={baseUrl} />} />
+        <Route path="/sign-up" element={<SignUp baseUrl={baseUrl} />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
         <Route
           path="/verify/:token"
-          element={<AccountVerification baseUrl={baseUrl}/>}
+          element={<AccountVerification baseUrl={baseUrl} />}
         />
-        <Route path="/user-dashboard" element={<UserDashboard baseUrl={baseUrl}/>} />
+        <Route
+          path="/user-dashboard"
+          element={<UserDashboard baseUrl={baseUrl} />}
+        />
         <Route path="/user-dashboard-signed-cards" element={<SignedCards />} />
         <Route path="/account-personal-info" element={<AccountInfo />} />
         <Route
@@ -115,20 +117,26 @@ function App() {
         <Route path="/account-custom-name" element={<AccountCustomName />} />
         <Route path="/upload-card" element={<UploadCard baseUrl={baseUrl} />} />
         <Route path="/saved-card" element={<SavedCards />} />
-        <Route path="/card-delivery-details" element={<DeliveryDetails baseUrl={baseUrl}/>} />
+        <Route
+          path="/card-delivery-details"
+          element={<DeliveryDetails baseUrl={baseUrl} />}
+        />
         <Route path="/payment-successful" element={<PaymentSuccessful />} />
-        <Route path="/single-card-view" element={<SingleCardView />} />
+        <Route
+          path="/single-card-view"
+          element={<SingleCardView baseUrl={baseUrl} />}
+        />
 
         {/*  */}
         {/* Upload Card Cover Pages */}
         {/*  */}
         <Route
           path="/upload-card-cover-birthday"
-          element={<UploadCardCoverBirthday baseUrl={baseUrl}/>}
+          element={<UploadCardCoverBirthday baseUrl={baseUrl} />}
         />
         <Route
           path="/preview-uploaded-card"
-          element={<PreviewUploadedCard baseUrl={baseUrl}/>}
+          element={<PreviewUploadedCard baseUrl={baseUrl} />}
         />
         <Route path="/upload-card-cover-festival" element={<Festival />} />
         <Route path="/upload-card-cover-love" element={<Love />} />

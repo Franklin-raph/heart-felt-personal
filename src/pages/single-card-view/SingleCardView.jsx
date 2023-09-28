@@ -14,7 +14,7 @@ import "swiper/css/effect-cards";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
 
-const SingleCardView = () => {
+const SingleCardView = ({ baseUrl }) => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
   const [isHowGiftCardWorksOpen, setIsHowGiftCardWorksOpen] = useState(false);
 
@@ -253,7 +253,10 @@ const SingleCardView = () => {
         ref={card_view_modal_overlay}
         onClick={close_card_view_modal}
       ></div> */}
-      <SingleCardViewModal card_view_modal={card_view_modal} />
+      <SingleCardViewModal
+        card_view_modal={card_view_modal}
+        baseUrl={baseUrl}
+      />
     </article>
   );
 };

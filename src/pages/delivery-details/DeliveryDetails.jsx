@@ -3,9 +3,9 @@ import payStackIcon from "../../assets/images/paystack.svg";
 import deliver_details_icon from "../../assets/images/delivery-details-card-sample.png";
 import { useRef, useState } from "react";
 import { FillInAllFormDetails } from "../../components/form-error-modal/DeliveryDetailsErrorModal";
-import PaystackPop from "@paystack/inline-js"
+import PaystackPop from "@paystack/inline-js";
 
-const DeliveryDetails = ({baseUrl}) => {
+const DeliveryDetails = ({ baseUrl }) => {
   // References
   const error_modal_1 = useRef();
 
@@ -26,8 +26,8 @@ const DeliveryDetails = ({baseUrl}) => {
   const [deliveryVoucherName, setDeliveryVoucherName] = useState(""); //only when checked
   const [deliveryVoucherCode, setDeliveryVoucherCode] = useState(""); //only when checked
   const [deliveryVoucherAmount, setDeliveryVoucherAmount] = useState(""); //only when checked
-  const [loader, setLoader] = useState(false)
-  const [confirmPaymentLoader, setConfirmPaymentLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
+  const [confirmPaymentLoader, setConfirmPaymentLoader] = useState(false);
 
   const [listOfTimeZones, setListOfTimeZones] = useState(false);
 
@@ -91,97 +91,116 @@ const DeliveryDetails = ({baseUrl}) => {
     e.preventDefault();
 
     //
-    if ( !recipientFullName || !recipientEmail || !senderFullName || !deliveryDate || !deliveryTime || !deliveryTimeZone) {
+    if (
+      !recipientFullName ||
+      !recipientEmail ||
+      !senderFullName ||
+      !deliveryDate ||
+      !deliveryTime ||
+      !deliveryTimeZone
+    ) {
       error_modal_1.current.classList.toggle("show_delivery_error_modal");
       return;
-    }
-      else {
-        console.log("first")
-        setLoader(true)
-        const response = await fetch(`${baseUrl}/create-card`,{
-          method:"POST",
-          headers:{
-            "Content-Type":"application/json",
-            Authorization: `Bearer ${user.accessToken}`
-          },
-          body: JSON.stringify({recipientEmail:recipientEmail, recipientFullName:recipientFullName, addConfetti:"false",sendToEmail:"false",
-                                cardCoverUrl:uploadedCard, date:deliveryDate, time:deliveryTime, timeZone:"UTC +1", addGiftCard:"false",
-                                setNextYearReminder:"false", couponCode:"1234"})
-        })
-        const data = await response.json()
-        console.log(data)
-        if(response) setLoader(false)
-        if(response.ok){
-          getPayStackToken(data.cardID)
-          // payWithPayStack()
-          // window.location.href = `${data.data.paymentLink}`
-        }
+    } else {
+      console.log("first");
+      setLoader(true);
+      const response = await fetch(`${baseUrl}/create-card`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+        body: JSON.stringify({
+          recipientEmail: recipientEmail,
+          recipientFullName: recipientFullName,
+          addConfetti: "false",
+          sendToEmail: "false",
+          cardCoverUrl: uploadedCard,
+          date: deliveryDate,
+          time: deliveryTime,
+          timeZone: "UTC +1",
+          addGiftCard: "false",
+          setNextYearReminder: "false",
+          couponCode: "1234",
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+      if (response) setLoader(false);
+      if (response.ok) {
+        getPayStackToken(data.cardID);
+        // payWithPayStack()
+        // window.location.href = `${data.data.paymentLink}`
       }
     }
+  }
   // close error modal 1
   const close_error_modal_1 = () => {
     error_modal_1.current.classList.toggle("show_delivery_error_modal");
   };
 
-  async function getPayStackToken(cardID){
-    const response = await fetch(`${baseUrl}/create-paystack-checkout-token`,{
-      method:"POST",
-      body: JSON.stringify({amount:"1000", userCardID:cardID}),
-      headers:{
-        "Content-Type":"application/json",
-        Authorization: `Bearer ${user.accessToken}`
+  async function getPayStackToken(cardID) {
+    const response = await fetch(`${baseUrl}/create-paystack-checkout-token`, {
+      method: "POST",
+      body: JSON.stringify({ amount: "1000", userCardID: cardID }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.accessToken}`,
       },
-    })
-    const data = await response.json()
-    if(response.ok){
-      payWithPayStack(data.token)
+    });
+    const data = await response.json();
+    if (response.ok) {
+      payWithPayStack(data.token);
     }
   }
 
-  async function confirmPayment(reference, transactionID){
-    setConfirmPaymentLoader(true)
-    const response = await fetch(`${baseUrl}/paystack-confirm`,{
-      method:"POST",
-      body: JSON.stringify({reference:reference, transactionID:transactionID}),
-      headers:{
-        "Content-Type":"application/json",
-        Authorization: `Bearer ${user.accessToken}`
+  async function confirmPayment(reference, transactionID) {
+    setConfirmPaymentLoader(true);
+    const response = await fetch(`${baseUrl}/paystack-confirm`, {
+      method: "POST",
+      body: JSON.stringify({
+        reference: reference,
+        transactionID: transactionID,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.accessToken}`,
       },
-    })
-    const data = await response.json()
-    if(response) setConfirmPaymentLoader(false)
-    if(response.ok){
-      navigate("/payment-successful")
+    });
+    const data = await response.json();
+    if (response) setConfirmPaymentLoader(false);
+    if (response.ok) {
+      navigate("/payment-successful");
     }
-    if(!response.ok) console.log("An error occured")
+    if (!response.ok) console.log("An error occured");
   }
 
-      function payWithPayStack(transactionID){
-        const payStack = new PaystackPop()
-        payStack.newTransaction({
-          key:"pk_test_2852b659f13472e782ddd68c68b248987bab40b6",
-          amount:1*1000,
-          email:"heartfelt@gmail.com",
-          onSuccess(transaction){
-            confirmPayment(transaction.reference, transactionID)
-          },
-          oncancel(){
-            console.log("Failed Transaction")
-          }
-        })
-      }
+  function payWithPayStack(transactionID) {
+    const payStack = new PaystackPop();
+    payStack.newTransaction({
+      key: "pk_test_2852b659f13472e782ddd68c68b248987bab40b6",
+      amount: 1 * 1000,
+      email: "heartfelt@gmail.com",
+      onSuccess(transaction) {
+        confirmPayment(transaction.reference, transactionID);
+      },
+      oncancel() {
+        console.log("Failed Transaction");
+      },
+    });
+  }
 
   //
   return (
     <section className="delivery_details_section">
-      {confirmPaymentLoader &&
+      {confirmPaymentLoader && (
         <div className="confirm-payment-loader-bg">
           <div className="confirm-payment-body">
             <i className="fa-solid fa-spinner fa-spin"></i>
             <p>Please wait while we confirm your payment</p>
           </div>
         </div>
-      }
+      )}
       <div className="delivery_details_col_1">
         {/* Recipient Details */}
         <form
@@ -269,7 +288,7 @@ const DeliveryDetails = ({baseUrl}) => {
                   id="delivery_time_zone"
                   placeholder="Eg. UTC +1"
                   // onChange={(e) => setDeliveryTimeZone(e.target.value)}
-                  value={deliveryTimeZone}
+                  defaultValue={deliveryTimeZone}
                 />
                 <i
                   className="ri-arrow-down-s-line"
@@ -278,8 +297,11 @@ const DeliveryDetails = ({baseUrl}) => {
                 ></i>
                 {listOfTimeZones && (
                   <div className="timeZone">
-                    {timeZones.map((timeZone) => (
-                      <p onClick={() => setDeliveryTimeZone(timeZone.name)}>
+                    {timeZones.map((timeZone, i) => (
+                      <p
+                        key={i}
+                        onClick={() => setDeliveryTimeZone(timeZone.name)}
+                      >
                         {timeZone.name}
                       </p>
                     ))}
@@ -389,12 +411,15 @@ const DeliveryDetails = ({baseUrl}) => {
               <button>Apply</button>
             </div>
           </div> */}
-          {loader ?
-            <button className="delivery_form_purchase_btn"><i className="fa-solid fa-spinner fa-spin"></i></button>
-           : 
-            <button className="delivery_form_purchase_btn">Purchase Card</button>
-           }
-          
+          {loader ? (
+            <button className="delivery_form_purchase_btn">
+              <i className="fa-solid fa-spinner fa-spin"></i>
+            </button>
+          ) : (
+            <button className="delivery_form_purchase_btn">
+              Purchase Card
+            </button>
+          )}
         </form>
       </div>
 
