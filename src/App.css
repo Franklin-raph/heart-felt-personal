@@ -4731,3 +4731,32 @@ nav input {
   background-color: #7a7a7a;
   color: #fff;
 }
+
+
+.pageLoader-bg{
+  width: 100%;
+  height: 100vh;
+  background: #000000e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.pageLoader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+
+.pageLoader i{
+  font-size: 1.5rem;
+}
