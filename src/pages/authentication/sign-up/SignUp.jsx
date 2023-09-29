@@ -8,6 +8,7 @@ const SignUp = ({ baseUrl }) => {
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [password, setPassword] = useState("");
+  const [notPassword, setNotPassword] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [loader, setLoader] = useState(false);
@@ -89,11 +90,30 @@ const SignUp = ({ baseUrl }) => {
           <div>
             <label>Password</label>
             <input
-              type="Password"
+              type={notPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="password"
             />
+            <div
+              style={{
+                display: "flex",
+                gap: "7.5px",
+                alignItems: "center",
+              }}
+            >
+              <input
+                type="checkbox"
+                onChange={() => setNotPassword(!notPassword)}
+                id="password_reset_is_pass_check"
+              />
+              <label
+                htmlFor="password_reset_is_pass_check"
+                style={{ fontSize: "11.5px" }}
+              >
+                Show password
+              </label>
+            </div>
             <small className="password_hint">
               Password must be 8 characters long, must have a number, must have
               a special character, must have one uppercase and one lowercase.
