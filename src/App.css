@@ -2022,8 +2022,8 @@ nav input {
 }
 
 .single_card_view_row .swiper {
-  width: 280px;
-  height: 100%;
+  width: 360px;
+  height: 70%;
 }
 
 .single_card_view_row .swiper-slide {
@@ -2746,20 +2746,20 @@ nav input {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 376px;
-  height: 45%;
+  height: 100%;
   margin: 0 auto;
   z-index: 325;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: 0.35s ease-in-out;
-  background: var(--stroke-white);
+  background: var(--generic-white);
   padding: 12px 5px 12px 5px;
 }
 
 .single_card_view_modal_holder {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -3016,7 +3016,7 @@ nav input {
   width: 100%;
   border: 0;
   outline: 0;
-  box-shadow: 0 0 0 1.5px var(--primary-color);
+  box-shadow: 0 0 0 1px var(--primary-color);
   padding: 15px 15px;
   resize: none;
   form-sizing: normal;
@@ -4503,7 +4503,7 @@ nav input {
   }
 
   .single_card_view_row .swiper {
-    width: 200px;
+    width: 248px;
   }
 }
 
@@ -4643,8 +4643,8 @@ nav input {
   }
 
   .single_card_view_row .swiper {
-    width: 180px;
-    height: 80%;
+    width: 210px;
+    height: 65%;
   }
   /*  */
   .add_gift_card_header,
@@ -4727,7 +4727,7 @@ nav input {
   }
 
   .single_card_view_row .swiper {
-    width: 150px;
+    width: 168px;
   }
 }
 

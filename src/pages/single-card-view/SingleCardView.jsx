@@ -141,15 +141,18 @@ const SingleCardView = ({ baseUrl }) => {
           <SwiperSlide className="single_card_col col_2">
             <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" />
           </SwiperSlide>
-          {/* <SwiperSlide className="single_card_col col_2">
-            <img src={imagePreview_4} alt="" />
-          </SwiperSlide> */}
           <SwiperSlide className="single_card_col col_2">
-            <SingleCardViewTextArea />
+            <img src={imagePreview_4} alt="" />
           </SwiperSlide>
           <SwiperSlide className="single_card_col col_2">
             <img src={imagePreview_4} alt="" />
           </SwiperSlide>
+          {/* ============= */}
+          {/* ==================== */}
+          <SingleCardViewModal
+            card_view_modal={card_view_modal}
+            baseUrl={baseUrl}
+          />
         </Swiper>
 
         {/* col 3 */}
@@ -257,12 +260,6 @@ const SingleCardView = ({ baseUrl }) => {
         ref={card_view_modal_overlay}
         onClick={close_card_view_modal}
       ></div> */}
-
-      {/* ==================== */}
-      {/* <SingleCardViewModal
-        card_view_modal={card_view_modal}
-        baseUrl={baseUrl}
-      /> */}
     </article>
   );
 };

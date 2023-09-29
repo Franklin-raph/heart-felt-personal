@@ -175,7 +175,7 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
                 placeholder="your message here..."
               /> */}
               <textarea
-                rows="1"
+                rows="16"
                 placeholder="your message here..."
                 onChange={(e) => setComment(e.target.value)}
               ></textarea>

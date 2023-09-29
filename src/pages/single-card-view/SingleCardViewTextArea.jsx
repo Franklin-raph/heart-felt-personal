@@ -7,16 +7,15 @@ const SingleCardViewTextArea = () => {
   //
   const modules = {
     toolbar: [
-      [{ header: [1, 2, false] }],
-      ["bold", "italic", "underline", "strike", "blockquote", "color"],
-      [
-        { list: "ordered" },
-        { list: "bullet" },
-        { indent: "-1" },
-        { indent: "+1" },
-      ],
-      ["link", "image"],
-      ["clean"],
+      ["bold", "italic", "underline", "strike"], // toggled buttons
+      ["blockquote", { list: "ordered" }, { list: "bullet" }, { font: [] }],
+      [{ align: [] }, { color: [] }, { background: [] }],
+
+      // [],
+
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+      ["clean"], // remove formatting button
     ],
   };
   //
