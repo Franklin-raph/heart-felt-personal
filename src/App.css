@@ -1945,6 +1945,7 @@ nav input {
 }
 
 .single_card_col.col_2 {
+  position: relative;
   width: auto;
   overflow: hidden;
   display: flex;
