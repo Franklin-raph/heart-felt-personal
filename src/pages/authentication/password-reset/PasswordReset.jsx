@@ -116,12 +116,17 @@ const PasswordReset = ({ baseUrl }) => {
               a special character, must have one uppercase and one lowercase.
             </small>
           </div>
-          <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              gap: "7.5px",
+              alignItems: "center",
+            }}
+          >
             <input
               type="checkbox"
               onChange={() => setNotPassword(!notPassword)}
               id="password_reset_is_pass_check"
-              style={{ width: "auto", margin: "0" }}
             />
             <label
               htmlFor="password_reset_is_pass_check"

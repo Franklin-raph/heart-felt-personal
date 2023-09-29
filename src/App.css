@@ -3374,6 +3374,36 @@ nav input {
   margin-top: 1rem;
 }
 
+#password_reset_is_pass_check {
+  appearance: none;
+  position: relative;
+  width: auto;
+  border: 0;
+  margin: 0;
+  padding: 8px;
+}
+
+#password_reset_is_pass_check::after {
+  content: "";
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 0 1.2px var(--primary-color);
+  border-radius: 0.2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+}
+
+#password_reset_is_pass_check:checked::after {
+  content: "\2713";
+}
+
 .tax_exempt_input::-webkit-file-upload-button {
   opacity: 0;
   visibility: hidden;
