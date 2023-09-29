@@ -52,6 +52,10 @@ const SingleCardView = ({ baseUrl }) => {
   const user_code_copy_btn = useRef();
 
   //
+  //
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  //
   const handleCopyUserCode = () => {
     navigator.clipboard.writeText(user_code.current.textContent);
     user_code_copy_btn.current.textContent = "Copied!";
@@ -143,11 +147,11 @@ const SingleCardView = ({ baseUrl }) => {
           </SwiperSlide>
           <SwiperSlide className="single_card_col col_2">
             <img src={imagePreview_4} alt="" />
-            <p>Signed By:</p>
+            <p>Signed By: {user && user.user.email.split("@")[0]}</p>
           </SwiperSlide>
           <SwiperSlide className="single_card_col col_2">
             <img src={imagePreview_4} alt="" />
-            <p>Signed By:</p>
+            <p>Signed By: {user && user.user.email.split("@")[0]}</p>
           </SwiperSlide>
           {/* ============= */}
           {/* ==================== */}
