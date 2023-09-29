@@ -73,7 +73,7 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${user.accessToken}`,
+          // Authorization: `Bearer ${user.accessToken}`,
         },
         body: JSON.stringify({
           comment: comment,
@@ -175,7 +175,7 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
                 placeholder="your message here..."
               /> */}
               <textarea
-                rows="1"
+                rows="5"
                 placeholder="your message here..."
                 onChange={(e) => setComment(e.target.value)}
               ></textarea>
