@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 // , setFromEmailVerify, fromEmailVerify
-const SuccessAlert = ({ success, setSuccess }) => {
+const SuccessAlert = ({ success, setSuccess, children, noCloseIcon }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const closeIcon = useRef();
   return (
     <div>
       <div className="successModalBg">
@@ -23,8 +24,10 @@ const SuccessAlert = ({ success, setSuccess }) => {
                 top: "15px",
                 right: "15px",
                 fontSize: "22px",
+                display: noCloseIcon && "none",
               }}
               onClick={() => setSuccess(false)}
+              ref={closeIcon}
             ></i>
           )}
           <svg
@@ -39,6 +42,7 @@ const SuccessAlert = ({ success, setSuccess }) => {
             />
           </svg>
           <p style={{ color: "black" }}>{success}</p>
+          {children}
           {location.pathname === "/upload-card" ? (
             <button
               className="upload_card_modal_btn"
