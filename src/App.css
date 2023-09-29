@@ -2092,6 +2092,12 @@ nav input {
   color: var(--primary-color);
 }
 
+.quill {
+  background: var(--generic-white);
+  color: var(--body-texts);
+  height: 100%;
+}
+
 /*  */
 /* delivery_details_section styles */
 /*  */

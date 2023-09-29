@@ -13,6 +13,7 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
+import SingleCardViewTextArea from "./SingleCardViewTextArea";
 
 const SingleCardView = ({ baseUrl }) => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
@@ -140,8 +141,11 @@ const SingleCardView = ({ baseUrl }) => {
           <SwiperSlide className="single_card_col col_2">
             <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" />
           </SwiperSlide>
-          <SwiperSlide className="single_card_col col_2">
+          {/* <SwiperSlide className="single_card_col col_2">
             <img src={imagePreview_4} alt="" />
+          </SwiperSlide> */}
+          <SwiperSlide className="single_card_col col_2">
+            <SingleCardViewTextArea />
           </SwiperSlide>
           <SwiperSlide className="single_card_col col_2">
             <img src={imagePreview_4} alt="" />
@@ -253,10 +257,12 @@ const SingleCardView = ({ baseUrl }) => {
         ref={card_view_modal_overlay}
         onClick={close_card_view_modal}
       ></div> */}
-      <SingleCardViewModal
+
+      {/* ==================== */}
+      {/* <SingleCardViewModal
         card_view_modal={card_view_modal}
         baseUrl={baseUrl}
-      />
+      /> */}
     </article>
   );
 };
