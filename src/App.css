@@ -1955,6 +1955,16 @@ nav input {
   border-radius: 8px;
 }
 
+.single_card_col.col_2 p {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 0.4rem;
+  color: var(--body-texts);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1rem;
+}
+
 .single_card_col.col_2 img {
   object-fit: cover;
 }

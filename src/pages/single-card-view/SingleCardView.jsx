@@ -147,6 +147,7 @@ const SingleCardView = ({ baseUrl }) => {
           </SwiperSlide>
           <SwiperSlide className="single_card_col col_2">
             <img src={imagePreview_4} alt="" />
+            <p>Signed By:</p>
           </SwiperSlide>
           {/* ============= */}
           {/* ==================== */}
