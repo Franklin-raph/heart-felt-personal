@@ -51,8 +51,6 @@ const PasswordReset = ({ baseUrl }) => {
     if (password === "" || confirmPassword === "") {
       setError("Plesae fill in the fields");
       return;
-    } else if (!password_regex.test(password)) {
-      setError("Please enter a strong password");
     } else if (password !== confirmPassword) {
       setError("Password fields do not match");
       return;

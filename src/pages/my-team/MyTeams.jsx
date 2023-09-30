@@ -9,7 +9,7 @@ const MyTeams = () => {
   const user = JSON.parse(localStorage.getItem("user_info"));
   useEffect(() => {
     if (!user) {
-      navigate("/");
+      // navigate("/");
     }
   }, []);
   //

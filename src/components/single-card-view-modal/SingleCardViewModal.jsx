@@ -4,6 +4,7 @@ import TextEditColorModal, {
   TextEditFamilyModal,
   TextEditSizeModal,
 } from "../single-card-text-edit-modals/SingleCardTextEditModal";
+import SuccessAlert from "../alert/SuccessAlert";
 // import TextareaAutosize from "react-autosize-textarea";
 const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
   const [colorToolTip, setColorToolTip] = useState(false);
@@ -18,6 +19,8 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
   const [textEditFonts, setTextEditFonts] = useState(false);
   const [showEditSizeModal, setShowEditSizeModal] = useState(false);
   const [showTextAlignModal, setShowTextAlignModal] = useState(false);
+  const [success, setSuccess] = useState(false)
+  const [loader, setLoader] = useState(false)
 
   //
   const handleShowColorPalette = () => {
@@ -60,20 +63,14 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
   const [comment, setComment] = useState();
   // ======================
   const handleSignCard = async (e) => {
-    console.log(
-      JSON.stringify({
-        comment: comment,
-        commentBy: user.user.email,
-        cardID: cardID,
-      })
-    );
+    setLoader(true)
     e.preventDefault();
     try {
       const res = await fetch(`${baseUrl}/sign-card`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${user.accessToken}`,
+          // Authorization: `Bearer ${user.accessToken}`,
         },
         body: JSON.stringify({
           comment: comment,
@@ -81,7 +78,11 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
           cardID: cardID,
         }),
       });
+      if(res) setLoader(false)
       const data = await res.json();
+      if(res.ok){
+        setSuccess(data.message)
+      }
       console.log(data);
     } catch (err) {
       console.log(err);
@@ -168,7 +169,7 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
             {showTextAlignModal && <TextEditAlignModal />}
           </div>
           <div className="view_modal_input_form">
-            <form onSubmit={handleSignCard}>
+            <form>
               {/* <TextareaAutosize
                 maxRows={8}
                 rows={1}
@@ -179,9 +180,14 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
                 placeholder="your message here..."
                 onChange={(e) => setComment(e.target.value)}
               ></textarea>
-              <button className="view_modal_input_btn">Sign Card</button>
+              {!loader ? 
+                <button className="view_modal_input_btn" onClick={handleSignCard}>Sign Card</button> 
+                : 
+                <button className="view_modal_input_btn"><i className="fa-solid fa-spinner fa-spin"></i></button> 
+              }
             </form>
           </div>
+          {success && <SuccessAlert success={success} setSuccess={setSuccess} />}
         </div>
       </div>
     </div>
