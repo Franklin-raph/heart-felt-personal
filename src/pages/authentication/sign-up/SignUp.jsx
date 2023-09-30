@@ -1,49 +1,55 @@
-import {useState} from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import ErrorAlert from "../../../components/alert/ErrorAlert";
 import SuccessAlert from "../../../components/alert/SuccessAlert";
 
-const SignUp = ({baseUrl}) => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [country, setCountry] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [loader, setLoader] = useState(false)
+const SignUp = ({ baseUrl }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
+  const [password, setPassword] = useState("");
+  const [notPassword, setNotPassword] = useState(false);
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [loader, setLoader] = useState(false);
 
-  console.log(baseUrl)
+  console.log(baseUrl);
 
-  async function handleAccountSignUp(e){
-    e.preventDefault()
-    if(!name || !password || !email || !country){
-      setError("Please fill in all fields")
-    }else{
-      setLoader(true)
+  async function handleAccountSignUp(e) {
+    e.preventDefault();
+    if (!name || !password || !email || !country) {
+      setError("Please fill in all fields");
+    } else {
+      setLoader(true);
       const response = await fetch(`${baseUrl}/register`, {
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json"
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({name:name, email:email, password:password, country:country})
-      })
-      localStorage.setItem("userEmail", email)
-      const data = await response.json()
-      if(response) setLoader(false)
-      if(response.ok){
-        setSuccess(data.message)
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          password: password,
+          country: country,
+        }),
+      });
+      localStorage.setItem("userEmail", email);
+      const data = await response.json();
+      if (response) setLoader(false);
+      if (response.ok) {
+        setSuccess(data.message);
       }
-      if(!response.ok){
-        setError(data.error)
+      if (!response.ok) {
+        setError(data.error);
       }
-      console.log(response, data)
+      console.log(response, data);
     }
   }
 
   return (
     <div>
-      {error && <ErrorAlert error={error} setError={setError}/>}
-      {success && <SuccessAlert success={success} setSuccess={setSuccess}/>}
+      {error && <ErrorAlert error={error} setError={setError} />}
+      {success && <SuccessAlert success={success} setSuccess={setSuccess} />}
       <form className="sign-in-form flex-center" onSubmit={handleAccountSignUp}>
         <div className="header">
           <h1>Get started for free</h1>
@@ -65,32 +71,74 @@ const SignUp = ({baseUrl}) => {
         <div className="inputs">
           <div>
             <label>Full Name</label>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="full name" />
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="full name"
+            />
           </div>
           <div>
             <label>Email</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="email"
+            />
           </div>
           <div>
             <label>Password</label>
-            <input type="Password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
+            <input
+              type={notPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="password"
+            />
+            <div
+              style={{
+                display: "flex",
+                gap: "7.5px",
+                alignItems: "center",
+              }}
+            >
+              <input
+                type="checkbox"
+                onChange={() => setNotPassword(!notPassword)}
+                id="password_reset_is_pass_check"
+              />
+              <label
+                htmlFor="password_reset_is_pass_check"
+                style={{ fontSize: "11.5px" }}
+              >
+                Show password
+              </label>
+            </div>
+            <small className="password_hint">
+              Password must be 8 characters long, must have a number, must have
+              a special character, must have one uppercase and one lowercase.
+            </small>
           </div>
           <div>
             <label>Country</label>
-            <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="country" />
+            <input
+              type="text"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              placeholder="country"
+            />
           </div>
         </div>
-        {loader ?
+        {loader ? (
           <button className="submit-btn primary-button">
             <i className="fa-solid fa-spinner fa-spin"></i>
           </button>
-          :
+        ) : (
           <button type="submit" className="submit-btn primary-button">
             Create Account
           </button>
-         }
-        
-        
+        )}
+
         {/* <input
           type="submit"
           value="Create Account"

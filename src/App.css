@@ -1945,6 +1945,7 @@ nav input {
 }
 
 .single_card_col.col_2 {
+  position: relative;
   width: auto;
   overflow: hidden;
   display: flex;
@@ -1952,6 +1953,16 @@ nav input {
   align-items: center;
   box-shadow: 0 0 0 1.5px var(--stroke-white);
   border-radius: 8px;
+}
+
+.single_card_col.col_2 p {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 0.4rem;
+  color: var(--body-texts);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1rem;
 }
 
 .single_card_col.col_2 img {
@@ -2022,8 +2033,8 @@ nav input {
 }
 
 .single_card_view_row .swiper {
-  width: 280px;
-  height: 100%;
+  width: 360px;
+  height: 70%;
 }
 
 .single_card_view_row .swiper-slide {
@@ -2090,6 +2101,12 @@ nav input {
 .single_card_view_row .swiper-button-next:after {
   font-size: 18px;
   color: var(--primary-color);
+}
+
+.quill {
+  background: var(--generic-white);
+  color: var(--body-texts);
+  height: 100%;
 }
 
 /*  */
@@ -2740,20 +2757,20 @@ nav input {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 376px;
-  height: 45%;
+  height: 100%;
   margin: 0 auto;
   z-index: 325;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: 0.35s ease-in-out;
-  background: var(--stroke-white);
+  background: var(--generic-white);
   padding: 12px 5px 12px 5px;
 }
 
 .single_card_view_modal_holder {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -3010,7 +3027,7 @@ nav input {
   width: 100%;
   border: 0;
   outline: 0;
-  box-shadow: 0 0 0 1.5px var(--primary-color);
+  box-shadow: 0 0 0 1px var(--primary-color);
   padding: 15px 15px;
   resize: none;
   form-sizing: normal;
@@ -3358,6 +3375,50 @@ nav input {
   background: var(--minor-color-3);
   color: var(--generic-white);
   align-self: flex-end;
+}
+
+.password_hint {
+  color: var(--body-texts);
+  font-size: 10.5px;
+}
+
+.password_reset_success_modal_login_btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--generic-white);
+  padding: 0.6rem 1.8rem;
+  border-radius: 0.8rem;
+  margin-top: 1rem;
+}
+
+#password_reset_is_pass_check {
+  appearance: none;
+  position: relative;
+  width: auto;
+  border: 0;
+  margin: 0;
+  padding: 8px;
+}
+
+#password_reset_is_pass_check::after {
+  content: "";
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 0 1.2px var(--primary-color);
+  border-radius: 0.2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+}
+
+#password_reset_is_pass_check:checked::after {
+  content: "\2713";
 }
 
 .tax_exempt_input::-webkit-file-upload-button {
@@ -4453,7 +4514,7 @@ nav input {
   }
 
   .single_card_view_row .swiper {
-    width: 200px;
+    width: 248px;
   }
 }
 
@@ -4593,8 +4654,8 @@ nav input {
   }
 
   .single_card_view_row .swiper {
-    width: 180px;
-    height: 80%;
+    width: 210px;
+    height: 65%;
   }
   /*  */
   .add_gift_card_header,
@@ -4677,7 +4738,7 @@ nav input {
   }
 
   .single_card_view_row .swiper {
-    width: 150px;
+    width: 168px;
   }
 }
 
@@ -4732,8 +4793,7 @@ nav input {
   color: #fff;
 }
 
-
-.pageLoader-bg{
+.pageLoader-bg {
   width: 100%;
   height: 100vh;
   background: #000000e2;
@@ -4746,7 +4806,7 @@ nav input {
   z-index: 10;
 }
 
-.pageLoader{
+.pageLoader {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -4755,8 +4815,9 @@ nav input {
   background-color: #fff;
   padding: 30px 20px;
   border-radius: 10px;
+  text-align: center;
 }
 
-.pageLoader i{
+.pageLoader i {
   font-size: 1.5rem;
 }
