@@ -179,7 +179,7 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.891);
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -2779,24 +2779,6 @@ nav input {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
-  animation: animate_card_view_modal 0.6s ease-in-out;
-}
-@keyframes animate_card_view_modal {
-  0% {
-    transform: translate(-50%, -50%) scale(0.5);
-  }
-  25% {
-    transform: translate(-50%, -50%) scale(1.25);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(0.8);
-  }
-  75% {
-    transform: translate(-50%, -50%) scale(1.15);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
 }
 
 .view_modal_input {
