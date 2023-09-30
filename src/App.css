@@ -2104,11 +2104,34 @@ nav input {
 }
 
 .quill {
+  position: absolute;
+  z-index: 99;
   width: 100%;
-  background: var(--generic-white);
+  background: var(--link-colors);
   color: var(--body-texts);
   height: 100%;
   top: 0 !important;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ql-toolbar.ql-snow {
+  border: 0;
+}
+
+.ql-container.ql-snow {
+  border: 0;
+}
+
+.ql-container {
+  box-shadow: 0 5px 8px rgba(223, 16, 16, 0.919);
+  background: var(--generic-white);
+}
+
+.quill button {
+  fill: var(--generic-white) !important;
+  color: var(--light-primary-color);
 }
 
 /*  */

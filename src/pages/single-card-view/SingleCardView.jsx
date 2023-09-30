@@ -13,12 +13,10 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
-import SingleCardViewTextArea from "./SingleCardViewTextArea";
 
 const SingleCardView = ({ baseUrl }) => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
   const [isHowGiftCardWorksOpen, setIsHowGiftCardWorksOpen] = useState(false);
-  const [showEditModal, setShowEditModal] = useState(false);
 
   //
   const [showTextEditModalBtn, setShowTextEditModalBtn] = useState(false);
@@ -32,15 +30,13 @@ const SingleCardView = ({ baseUrl }) => {
   const card_view_modal = useRef();
 
   const show_card_view_modal = () => {
-    // card_view_modal.current.classList.add("show_single_card_modal");
-    // setShowTextEditModalBtn(true);
-    setShowEditModal(true);
+    card_view_modal.current.classList.add("show_single_card_modal");
+    setShowTextEditModalBtn(true);
   };
-  
+
   const close_card_view_modal = () => {
-    // card_view_modal.current.classList.remove("show_single_card_modal");
-    // setShowTextEditModalBtn(false);
-    setShowEditModal(false);
+    card_view_modal.current.classList.remove("show_single_card_modal");
+    setShowTextEditModalBtn(false);
   };
 
   //
@@ -110,30 +106,27 @@ const SingleCardView = ({ baseUrl }) => {
         </div>
       </div>
 
-      
       <div className="single_card_view_row">
         <div className="single_card_col col_1">
-          
           <div onClick={openGiftCardSettings}>
             <i className="bx bx-cog"></i>
             <p>Card Settings</p>
           </div>
-          
+
           <div>
             <i className="bx bxl-telegram"></i>
             <p>Contribute to Gift Card</p>
           </div>
-          
+
           <div>
             <i className="bx bx-credit-card"></i>
             <p>Preview Card</p>
           </div>
-          
+
           <div>
             <i className="bx bx-link-alt"></i>
             <p>Hide Invite Links</p>
           </div>
-          
         </div>
 
         {/* col 2 */}
@@ -159,38 +152,36 @@ const SingleCardView = ({ baseUrl }) => {
           </SwiperSlide>
           {/* ============= */}
           {/* ==================== */}
-          {/* <SingleCardViewModal
+          <SingleCardViewModal
             card_view_modal={card_view_modal}
             baseUrl={baseUrl}
-          /> */}
-          {showEditModal ? <SingleCardViewTextArea /> : <></>}
+          />
         </Swiper>
 
         {/* col 3 */}
         <div className="single_card_col col_1">
-          
           {!showTextEditModalBtn ? (
             <>
               <div onClick={show_card_view_modal}>
                 <i className="bx bx-pencil"></i>
                 <p>Sign Card</p>
               </div>
-              
+
               <div>
                 <i className="bx bxs-videos"></i>
                 <p>Add Video</p>
               </div>
-              
+
               <div>
                 <i className="bx bxs-image"></i>
                 <p>Add Photo</p>
               </div>
-              
+
               <div>
                 <i className="bx bx-smile"></i>
                 <p>Add GIF/Sticker</p>
               </div>
-              
+
               <div>
                 <i className="bx bx-text"></i>
                 <p>Add Text</p>
@@ -211,10 +202,9 @@ const SingleCardView = ({ baseUrl }) => {
               </div>
             </>
           )}
-          
         </div>
       </div>
-      
+
       <div className="single_card_view_footer">
         <div className="single_card_copy_box">
           <p ref={user_code}>Chisom-HUEY78</p>
@@ -251,7 +241,7 @@ const SingleCardView = ({ baseUrl }) => {
           <i className="bx bxs-message-rounded-dots"></i>
         </div>
       </div>
-      
+
       {isGiftCardSettingsOpen && (
         <GiftCardSettingsModal
           isGiftCardSettingsOpen={isGiftCardSettingsOpen}
@@ -265,7 +255,7 @@ const SingleCardView = ({ baseUrl }) => {
           setIsHowGiftCardWorksOpen={setIsHowGiftCardWorksOpen}
         />
       )}
-      
+
       {/* <div
         className="single_card_modal_overlay"
         ref={card_view_modal_overlay}
