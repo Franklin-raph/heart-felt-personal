@@ -18,6 +18,7 @@ import SingleCardViewTextArea from "./SingleCardViewTextArea";
 const SingleCardView = ({ baseUrl }) => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
   const [isHowGiftCardWorksOpen, setIsHowGiftCardWorksOpen] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   //
   const [showTextEditModalBtn, setShowTextEditModalBtn] = useState(false);
@@ -31,12 +32,14 @@ const SingleCardView = ({ baseUrl }) => {
   const card_view_modal = useRef();
 
   const show_card_view_modal = () => {
-    card_view_modal.current.classList.add("show_single_card_modal");
-    setShowTextEditModalBtn(true);
+    // card_view_modal.current.classList.add("show_single_card_modal");
+    // setShowTextEditModalBtn(true);
+    setShowEditModal(true);
   };
   const close_card_view_modal = () => {
-    card_view_modal.current.classList.remove("show_single_card_modal");
-    setShowTextEditModalBtn(false);
+    // card_view_modal.current.classList.remove("show_single_card_modal");
+    // setShowTextEditModalBtn(false);
+    setShowEditModal(false);
   };
 
   //
@@ -155,10 +158,11 @@ const SingleCardView = ({ baseUrl }) => {
           </SwiperSlide>
           {/* ============= */}
           {/* ==================== */}
-          <SingleCardViewModal
+          {/* <SingleCardViewModal
             card_view_modal={card_view_modal}
             baseUrl={baseUrl}
-          />
+          /> */}
+          {showEditModal ? <SingleCardViewTextArea /> : <></>}
         </Swiper>
 
         {/* col 3 */}

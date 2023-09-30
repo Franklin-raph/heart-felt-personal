@@ -2033,6 +2033,7 @@ nav input {
 }
 
 .single_card_view_row .swiper {
+  position: relative;
   width: 360px;
   height: 70%;
 }
@@ -2048,7 +2049,7 @@ nav input {
 }
 
 .single_card_view_row .swiper-pagination {
-  margin-top: 120px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2093,8 +2094,7 @@ nav input {
 
 .single_card_view_row .swiper-button-prev,
 .single_card_view_row .swiper-button-next {
-  top: 111%;
-  top: 120%;
+  top: 109%;
 }
 
 .single_card_view_row .swiper-button-prev:after,
@@ -2104,9 +2104,11 @@ nav input {
 }
 
 .quill {
+  width: 100%;
   background: var(--generic-white);
   color: var(--body-texts);
   height: 100%;
+  top: 0 !important;
 }
 
 /*  */
