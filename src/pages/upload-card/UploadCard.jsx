@@ -49,17 +49,34 @@ const UploadCard = ({ baseUrl }) => {
       if(!response.ok){
         setError("Something went wrong please try uploading the card again")
       }
-      console.log(data);
-    // } else {
-      // localStorage.setItem("uploaded-card", JSON.stringify(URL.createObjectURL(imgFile)));
-    // }
   }
 
-  //
-
-  {
-    imgFile && console.log(`${URL.createObjectURL(imgFile)}`);
+  async function uploadImageToServerAndSave(){
+    setLoader(true);
+    const fd = new FormData();
+    fd.append("image", imgFile);
+    console.log(imgFile);
+    const response = await fetch(`${baseUrl}/upload-custom-card-cover`, {
+      method: "POST",
+      body: fd,
+      headers: {
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    });
+    const data = await response.json();
+    console.log(response, data)
+    if (response) setLoader(false);
+    if (response.ok) {
+      setSuccess(true);
+      setSuccessMsg(data.message);
+      localStorage.setItem("uploaded-card", JSON.stringify(data.url));
+      navigate("/card-delivery-details");
+    }
+    if(!response.ok){
+      setError("Something went wrong please try uploading the card again")
+    }
   }
+
 
   //
   return (
@@ -138,22 +155,46 @@ const UploadCard = ({ baseUrl }) => {
                 Save my card cover
               </p>
             </div>
-            {!loader ? (
-              <div className="edit_and_continue">
-                <button
-                  className="primary-button"
-                  onClick={uploadImageToServer}
-                >
-                  Continue
-                </button>
-              </div>
-            ) : (
-              <div className="edit_and_continue">
-                <button className="primary-button">
-                  <i className="fa-solid fa-spinner fa-spin"></i>
-                </button>
-              </div>
-            )}
+            {isChecked ? 
+              <>
+                {!loader ? (
+                  <div className="edit_and_continue">
+                    <button
+                      className="primary-button"
+                      onClick={uploadImageToServerAndSave}
+                    >
+                      Continue....
+                    </button>
+                  </div>
+                ) : (
+                  <div className="edit_and_continue">
+                    <button className="primary-button">
+                      <i className="fa-solid fa-spinner fa-spin"></i>
+                    </button>
+                  </div>
+                )}
+              </>
+             : 
+             <>
+              {!loader ? (
+                <div className="edit_and_continue">
+                  <button
+                    className="primary-button"
+                    onClick={uploadImageToServer}
+                  >
+                    Continue
+                  </button>
+                </div>
+              ) : (
+                <div className="edit_and_continue">
+                  <button className="primary-button">
+                    <i className="fa-solid fa-spinner fa-spin"></i>
+                  </button>
+                </div>
+              )}
+             </>
+             }
+            
           </div>
         </div>
       )}
