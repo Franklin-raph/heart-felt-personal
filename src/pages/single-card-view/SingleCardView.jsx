@@ -237,7 +237,6 @@ const SingleCardView = ({ baseUrl }) => {
           </div>
           <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
             <img src={imagePreview_4} alt="" />
-            <p>Back Cover</p>
           </div>
           <div className="card_flip_book_icons">
             <i
