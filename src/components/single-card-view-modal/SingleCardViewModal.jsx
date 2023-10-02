@@ -19,8 +19,8 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
   const [textEditFonts, setTextEditFonts] = useState(false);
   const [showEditSizeModal, setShowEditSizeModal] = useState(false);
   const [showTextAlignModal, setShowTextAlignModal] = useState(false);
-  const [success, setSuccess] = useState(false)
-  const [loader, setLoader] = useState(false)
+  const [success, setSuccess] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   //
   const handleShowColorPalette = () => {
@@ -63,7 +63,7 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
   const [comment, setComment] = useState();
   // ======================
   const handleSignCard = async (e) => {
-    setLoader(true)
+    setLoader(true);
     e.preventDefault();
     try {
       const res = await fetch(`${baseUrl}/sign-card`, {
@@ -78,10 +78,10 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
           cardID: cardID,
         }),
       });
-      if(res) setLoader(false)
+      if (res) setLoader(false);
       const data = await res.json();
-      if(res.ok){
-        setSuccess(data.message)
+      if (res.ok) {
+        setSuccess(data.message);
       }
       console.log(data);
     } catch (err) {
@@ -96,98 +96,52 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
     <div className="single_card_view_modal" ref={card_view_modal}>
       <div className="single_card_view_modal_holder">
         <div className="view_modal_input">
-          <div className="view_modal_input_controls">
-            <div
-              className="card_view_control font_weight_control"
-              onMouseOver={() => setColorToolTip(true)}
-              onMouseOut={() => setColorToolTip(false)}
-              onClick={handleShowColorPalette}
-            >
-              <div>
-                <p>O</p>
-                <i className="bx bx-chevron-down"></i>
-              </div>
-            </div>
-            <div
-              className="card_view_control font_family_control"
-              onMouseOver={() => setTypefaceToolTip(true)}
-              onMouseOut={() => setTypefaceToolTip(false)}
-              onClick={handleShowTextEditFonts}
-            >
-              <div>
-                <p>Aa</p>
-                <i className="bx bx-chevron-down"></i>
-              </div>
-            </div>
-            <div
-              className="card_view_control font_size_control"
-              onMouseOver={() => setTextSizeToolTip(true)}
-              onMouseOut={() => setTextSizeToolTip(false)}
-              onClick={handleShowTextSizeModal}
-            >
-              <div>
-                <p>Small</p>
-                <i className="bx bx-chevron-down"></i>
-              </div>
-            </div>
-            <div
-              className="card_view_control font_style_control"
-              onMouseOver={() => setTextStyleToolTip(true)}
-              onMouseOut={() => setTextStyleToolTip(false)}
-            >
-              <div>
-                <p>I</p>
-              </div>
-            </div>
-            <div
-              className="card_view_control font_align_control"
-              onMouseOver={() => setTextAlignToolTip(true)}
-              onMouseOut={() => setTextAlignToolTip(false)}
-              onClick={handleShowTextAlignModal}
-            >
-              <div>
-                <i className="ri-bar-chart-horizontal-line"></i>
-                <i className="bx bx-chevron-down"></i>
-              </div>
-            </div>
-            <div
-              className="font_show_control"
-              onMouseOver={() => setSenderNameToolTip(true)}
-              onMouseOut={() => setSenderNameToolTip(false)}
-            >
-              <i className="ri-eye-off-line"></i>
-            </div>
-            {colorToolTip && <EditTextColorToolTip />}
-            {typefaceToolTip && <EditTextTypeToolTip />}
-            {textSizeToolTip && <EditTextSizeToolTip />}
-            {textStyleToolTip && <EditTextStyleToolTip />}
-            {textAlignToolTip && <EditTextAlignToolTip />}
-            {senderNameToolTip && <SenderNameToolTip />}
-            {showColorPalette && <TextEditColorModal />}
-            {textEditFonts && <TextEditFamilyModal />}
-            {showEditSizeModal && <TextEditSizeModal />}
-            {showTextAlignModal && <TextEditAlignModal />}
-          </div>
+          <ViewModalInputControls
+            colorToolTip={colorToolTip}
+            typefaceToolTip={typefaceToolTip}
+            textSizeToolTip={textSizeToolTip}
+            textStyleToolTip={textStyleToolTip}
+            textAlignToolTip={textAlignToolTip}
+            senderNameToolTip={senderNameToolTip}
+            showColorPalette={showColorPalette}
+            textEditFonts={textEditFonts}
+            showEditSizeModal={showEditSizeModal}
+            showTextAlignModal={showTextAlignModal}
+            setColorToolTip={setColorToolTip}
+            handleShowColorPalette={handleShowColorPalette}
+            setTypefaceToolTip={setTypefaceToolTip}
+            handleShowTextEditFonts={handleShowTextEditFonts}
+            setTextSizeToolTip={setTextSizeToolTip}
+            handleShowTextSizeModal={handleShowTextSizeModal}
+            setTextStyleToolTip={setTextStyleToolTip}
+            setTextAlignToolTip={setTextAlignToolTip}
+            handleShowTextAlignModal={handleShowTextAlignModal}
+            setSenderNameToolTip={setSenderNameToolTip}
+          />
           <div className="view_modal_input_form">
             <form>
-              {/* <TextareaAutosize
-                maxRows={8}
-                rows={1}
-                placeholder="your message here..."
-              /> */}
               <textarea
                 rows="16"
                 placeholder="your message here..."
                 onChange={(e) => setComment(e.target.value)}
               ></textarea>
-              {!loader ? 
-                <button className="view_modal_input_btn" onClick={handleSignCard}>Sign Card</button> 
-                : 
-                <button className="view_modal_input_btn"><i className="fa-solid fa-spinner fa-spin"></i></button> 
-              }
+              {!loader ? (
+                <button
+                  className="view_modal_input_btn"
+                  onClick={handleSignCard}
+                >
+                  Sign Card
+                </button>
+              ) : (
+                <button className="view_modal_input_btn">
+                  <i className="fa-solid fa-spinner fa-spin"></i>
+                </button>
+              )}
             </form>
           </div>
-          {success && <SuccessAlert success={success} setSuccess={setSuccess} />}
+          {success && (
+            <SuccessAlert success={success} setSuccess={setSuccess} />
+          )}
         </div>
       </div>
     </div>
@@ -195,6 +149,108 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
 };
 
 export default SingleCardViewModal;
+
+// ======================================
+// ======================================
+export const ViewModalInputControls = ({
+  colorToolTip,
+  typefaceToolTip,
+  textSizeToolTip,
+  textStyleToolTip,
+  textAlignToolTip,
+  senderNameToolTip,
+  showColorPalette,
+  textEditFonts,
+  showEditSizeModal,
+  showTextAlignModal,
+  setColorToolTip,
+  handleShowColorPalette,
+  setTypefaceToolTip,
+  handleShowTextEditFonts,
+  setTextSizeToolTip,
+  handleShowTextSizeModal,
+  setTextStyleToolTip,
+  setTextAlignToolTip,
+  handleShowTextAlignModal,
+  setSenderNameToolTip,
+}) => {
+  return (
+    <div className="view_modal_input_controls">
+      <div
+        className="card_view_control font_weight_control"
+        onMouseOver={() => setColorToolTip(true)}
+        onMouseOut={() => setColorToolTip(false)}
+        onClick={handleShowColorPalette}
+      >
+        <div>
+          <p>O</p>
+          <i className="bx bx-chevron-down"></i>
+        </div>
+      </div>
+      <div
+        className="card_view_control font_family_control"
+        onMouseOver={() => setTypefaceToolTip(true)}
+        onMouseOut={() => setTypefaceToolTip(false)}
+        onClick={handleShowTextEditFonts}
+      >
+        <div>
+          <p>Aa</p>
+          <i className="bx bx-chevron-down"></i>
+        </div>
+      </div>
+      <div
+        className="card_view_control font_size_control"
+        onMouseOver={() => setTextSizeToolTip(true)}
+        onMouseOut={() => setTextSizeToolTip(false)}
+        onClick={handleShowTextSizeModal}
+      >
+        <div>
+          <p>Small</p>
+          <i className="bx bx-chevron-down"></i>
+        </div>
+      </div>
+      <div
+        className="card_view_control font_style_control"
+        onMouseOver={() => setTextStyleToolTip(true)}
+        onMouseOut={() => setTextStyleToolTip(false)}
+      >
+        <div>
+          <p>I</p>
+        </div>
+      </div>
+      <div
+        className="card_view_control font_align_control"
+        onMouseOver={() => setTextAlignToolTip(true)}
+        onMouseOut={() => setTextAlignToolTip(false)}
+        onClick={handleShowTextAlignModal}
+      >
+        <div>
+          <i className="ri-bar-chart-horizontal-line"></i>
+          <i className="bx bx-chevron-down"></i>
+        </div>
+      </div>
+      <div
+        className="font_show_control"
+        onMouseOver={() => setSenderNameToolTip(true)}
+        onMouseOut={() => setSenderNameToolTip(false)}
+      >
+        <i className="ri-eye-off-line"></i>
+      </div>
+      {colorToolTip && <EditTextColorToolTip />}
+      {typefaceToolTip && <EditTextTypeToolTip />}
+      {textSizeToolTip && <EditTextSizeToolTip />}
+      {textStyleToolTip && <EditTextStyleToolTip />}
+      {textAlignToolTip && <EditTextAlignToolTip />}
+      {senderNameToolTip && <SenderNameToolTip />}
+      {showColorPalette && <TextEditColorModal />}
+      {textEditFonts && <TextEditFamilyModal />}
+      {showEditSizeModal && <TextEditSizeModal />}
+      {showTextAlignModal && <TextEditAlignModal />}
+    </div>
+  );
+};
+// ======================================
+// ======================================
 
 //
 // SINGLE CARD VIEW MODAL TOOL-TIPS

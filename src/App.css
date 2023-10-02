@@ -1947,7 +1947,6 @@ nav input {
 .single_card_col.col_2 {
   position: relative;
   width: auto;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1956,9 +1955,9 @@ nav input {
 }
 
 .single_card_col.col_2 p {
-  position: absolute;
-  bottom: 0.8rem;
-  left: 0.4rem;
+  /* position: absolute; */
+  /* bottom: 0.8rem; */
+  /* left: 0.4rem; */
   color: var(--body-texts);
   font-weight: 300;
   font-style: italic;
@@ -2093,9 +2092,16 @@ nav input {
   cursor: pointer;
 }
 
-.single_card_view_row .swiper {
+/*  */
+
+.single_card_view_row .swiper_col {
+  width: 100%;
   position: relative !important;
-  width: 360px;
+}
+
+.single_card_view_row .swiper {
+  width: 100%;
+  width: 560px;
   overflow-y: visible;
 }
 
@@ -2160,6 +2166,14 @@ nav input {
   justify-content: center;
   align-items: center;
   padding: 14px;
+}
+
+.single_card_view_row .swiper-button-prev {
+  left: -0.5px;
+}
+
+.single_card_view_row .swiper-button-next {
+  right: -0.5px;
 }
 
 .single_card_view_row .swiper-button-prev:after,
@@ -2811,13 +2825,13 @@ nav input {
 /*  */
 .single_card_view_modal {
   position: absolute;
-  top: 50%;
+  top: 0%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 376px;
-  height: 100%;
+  transform: translate(-50%, 0%);
+  width: 100%;
+  height: 93%;
   margin: 0 auto;
-  z-index: 325;
+  z-index: 999;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -2843,6 +2857,8 @@ nav input {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  height: 100%;
+  width: 100%;
 }
 
 .view_modal_input_btn {
@@ -2860,6 +2876,7 @@ nav input {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  width: 400px;
 }
 
 .tool_tip_card {
@@ -3065,6 +3082,7 @@ nav input {
 }
 .view_modal_input form textarea {
   width: 100%;
+  height: 500px !important;
   border: 0;
   outline: 0;
   box-shadow: 0 0 0 1px var(--primary-color);

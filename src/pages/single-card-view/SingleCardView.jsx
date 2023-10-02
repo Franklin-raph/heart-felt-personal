@@ -133,42 +133,42 @@ const SingleCardView = ({ baseUrl }) => {
         </div>
 
         {/* col 2 */}
-        <Swiper
-          className="mySwiper"
-          grabCursor={true}
-          loop={true}
-          slidesPerView={1}
-          // effect={"cards"}
-          modules={[EffectCards, Pagination, Navigation]}
-          pagination={pagination}
-          navigation={true}
-        >
-          <SwiperSlide>
-            <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" />
-          </SwiperSlide>
-          {/*  */}
-          {isTextEditModalOpen ? (
-            // <SingleCardViewModal
-            //   card_view_modal={card_view_modal}
-            //   baseUrl={baseUrl}
-            // />
-            <></>
-          ) : (
-            <SwiperSlide className="single_card_col col_2">
+        <div className="sinfgle_card_col swiper_col">
+          <Swiper
+            className="mySwiper"
+            grabCursor={true}
+            loop={true}
+            slidesPerView={1}
+            // effect={"cards"}
+            modules={[EffectCards, Pagination, Navigation]}
+            pagination={pagination}
+            navigation={true}
+          >
+            <SwiperSlide>
+              <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" />
+            </SwiperSlide>
+            {/*  */}
+
+            {/* <SwiperSlide className="single_card_col col_2">
               <img src={imagePreview_4} alt="" />
               <p>Signed By: {user && user.user.email.split("@")[0]}</p>
+            </SwiperSlide> */}
+            {/*  */}
+
+            <SwiperSlide className="single_card_col col_2">
+              <SingleCardViewModal
+                card_view_modal={card_view_modal}
+                baseUrl={baseUrl}
+              />
+              <p>Signed By: {user && user.user.email.split("@")[0]}</p>
             </SwiperSlide>
-          )}
-          <SwiperSlide>
-            <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" />
-          </SwiperSlide>
-          {/*  */}
-          <SingleCardViewModal
-            card_view_modal={card_view_modal}
-            baseUrl={baseUrl}
-          />
-          {/*  */}
-        </Swiper>
+
+            <SwiperSlide>
+              <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" />
+            </SwiperSlide>
+            {/*  */}
+          </Swiper>
+        </div>
 
         {/* col 3 */}
         <div className="single_card_col col_1">
