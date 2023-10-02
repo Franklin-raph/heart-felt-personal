@@ -3,7 +3,7 @@ import imagePreview_2 from "../../assets/images/delivery-details-card-sample.png
 import imagePreview_3 from "../../assets/images/birthday-card-template-image.jpg";
 import imagePreview_4 from "../../assets/images/sign-card-initial-view.webp";
 import deliveryDetailsImage from "../../assets/images/delivery-details-img.png";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SingleCardViewModal from "../../components/single-card-view-modal/SingleCardViewModal";
 
 // swiper slides imports
@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 const SingleCardView = ({ baseUrl }) => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
   const [isHowGiftCardWorksOpen, setIsHowGiftCardWorksOpen] = useState(false);
+  const [isTextEditModalOpen, setIsTextEditModalOpen] = useState(false);
 
   //
   const [showTextEditModalBtn, setShowTextEditModalBtn] = useState(false);
@@ -31,11 +32,13 @@ const SingleCardView = ({ baseUrl }) => {
 
   const show_card_view_modal = () => {
     card_view_modal.current.classList.add("show_single_card_modal");
+    setIsTextEditModalOpen(true);
     setShowTextEditModalBtn(true);
   };
 
   const close_card_view_modal = () => {
     card_view_modal.current.classList.remove("show_single_card_modal");
+    setIsTextEditModalOpen(false);
     setShowTextEditModalBtn(false);
   };
 
@@ -131,31 +134,40 @@ const SingleCardView = ({ baseUrl }) => {
 
         {/* col 2 */}
         <Swiper
-          effect={"cards"}
+          className="mySwiper"
           grabCursor={true}
+          loop={true}
+          slidesPerView={1}
+          // effect={"cards"}
           modules={[EffectCards, Pagination, Navigation]}
           pagination={pagination}
-          loop={true}
           navigation={true}
-          className="mySwiper"
         >
-          <SwiperSlide className="single_card_col col_2">
+          <SwiperSlide>
             <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" />
           </SwiperSlide>
-          <SwiperSlide className="single_card_col col_2">
-            <img src={imagePreview_4} alt="" />
-            <p>Signed By: {user && user.user.email.split("@")[0]}</p>
+          {/*  */}
+          {isTextEditModalOpen ? (
+            // <SingleCardViewModal
+            //   card_view_modal={card_view_modal}
+            //   baseUrl={baseUrl}
+            // />
+            <></>
+          ) : (
+            <SwiperSlide className="single_card_col col_2">
+              <img src={imagePreview_4} alt="" />
+              <p>Signed By: {user && user.user.email.split("@")[0]}</p>
+            </SwiperSlide>
+          )}
+          <SwiperSlide>
+            <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" />
           </SwiperSlide>
-          <SwiperSlide className="single_card_col col_2">
-            <img src={imagePreview_4} alt="" />
-            <p>Signed By: {user && user.user.email.split("@")[0]}</p>
-          </SwiperSlide>
-          {/* ============= */}
-          {/* ==================== */}
+          {/*  */}
           <SingleCardViewModal
             card_view_modal={card_view_modal}
             baseUrl={baseUrl}
           />
+          {/*  */}
         </Swiper>
 
         {/* col 3 */}
