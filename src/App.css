@@ -2429,7 +2429,7 @@ nav input {
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 66;
 }
 
 .gift-card-settings-modal {
@@ -4472,6 +4472,14 @@ nav input {
 
 /* =========================================== */
 /* =========================================== */
+@media screen and (max-width: 647px) {
+  .card_flip_book,
+  .view_modal_input_controls {
+    width: 370px;
+  }
+}
+/* =========================================== */
+/* =========================================== */
 /* =========================================== */
 @media screen and (max-width: 576px) {
   .successModal,
@@ -4570,12 +4578,14 @@ nav input {
     width: 90%;
   }
 
-  .single_card_view_modal {
-    width: 290px;
+  .card_flip_book,
+  .view_modal_input_controls {
+    margin: 0 auto;
+    width: 98%;
   }
 
-  .single_card_view_row .swiper {
-    width: 248px;
+  .card_flip_book {
+    height: 400px;
   }
 }
 

@@ -2,6 +2,7 @@ import imagePreview_1 from "../../assets/images/card_preview_template.jpg";
 import imagePreview_2 from "../../assets/images/delivery-details-card-sample.png";
 import imagePreview_3 from "../../assets/images/birthday-card-template-image.jpg";
 import imagePreview_4 from "../../assets/images/sign-card-initial-view.webp";
+import ourLogo from "../../assets/images/heartfelt-logo.png";
 import deliveryDetailsImage from "../../assets/images/delivery-details-img.png";
 import { useEffect, useRef, useState } from "react";
 import SingleCardViewModal, {
@@ -172,6 +173,32 @@ const SingleCardView = ({ baseUrl }) => {
     }
   };
   // ========
+  const card_page_num_1 = useRef();
+  const card_page_num_2 = useRef();
+  const card_page_num_3 = useRef();
+  //
+  useEffect(() => {
+    switch (paperPage) {
+      case 1:
+        card_page_num_1.current.classList.add("toggle_card_page_num");
+        card_page_num_2.current.classList.remove("toggle_card_page_num");
+        card_page_num_3.current.classList.remove("toggle_card_page_num");
+        break;
+      case 2:
+        card_page_num_2.current.classList.add("toggle_card_page_num");
+        card_page_num_1.current.classList.remove("toggle_card_page_num");
+        card_page_num_3.current.classList.remove("toggle_card_page_num");
+        break;
+      case 3:
+        card_page_num_3.current.classList.add("toggle_card_page_num");
+        card_page_num_2.current.classList.remove("toggle_card_page_num");
+        card_page_num_1.current.classList.remove("toggle_card_page_num");
+        break;
+      default:
+        throw new Error("State not found");
+    }
+  }, [paperPage]);
+  // ========
 
   return (
     <article className="single_card_view_section">
@@ -261,10 +288,10 @@ const SingleCardView = ({ baseUrl }) => {
                 handleShowTextAlignModal={handleShowTextAlignModal}
                 setSenderNameToolTip={setSenderNameToolTip}
               />
-              <small className="card_flip_sign_commentor_name">
-                <i>Signed by: {user && user.user.email.split("@")[0]}</i>
-              </small>
             </div>
+            <small className="card_flip_sign_commentor_name">
+              <i>Signed by: {user && user.user.email.split("@")[0]}</i>
+            </small>
             {/*  */}
             {showTextEditModalBtn ? (
               <textarea
@@ -284,12 +311,33 @@ const SingleCardView = ({ baseUrl }) => {
           </div>
           <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
             <img src={imagePreview_4} alt="" />
+            <div className="our_logo">
+              <img src={ourLogo} alt="" />
+            </div>
           </div>
           <div className="card_flip_book_icons">
             <i
               className="fa-solid fa-chevron-left card_flip_icon_left"
               onClick={handleTogglePrevPage}
             ></i>
+            <div
+              className="card_flip_books_page_nums num_1"
+              ref={card_page_num_1}
+            >
+              1
+            </div>
+            <div
+              className="card_flip_books_page_nums num_2"
+              ref={card_page_num_2}
+            >
+              2
+            </div>
+            <div
+              className="card_flip_books_page_nums num_2"
+              ref={card_page_num_3}
+            >
+              3
+            </div>
             <i
               className="fa-solid fa-chevron-right card_flip_icon_right"
               onClick={handleToggleNextPage}

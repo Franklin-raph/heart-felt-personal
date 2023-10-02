@@ -2,7 +2,6 @@
   position: relative;
   width: 450px;
   height: 500px;
-  background: red;
 }
 
 .card_flip_paper {
@@ -69,8 +68,34 @@
   font-size: 12px;
   color: var(--body-texts);
   position: absolute;
-  bottom: -445px;
-  left: -10px;
+  bottom: 10px;
+  left: 10px;
+}
+
+.our_logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+.card_flip_books_page_nums {
+  color: var(--primary-color);
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toggle_card_page_num.card_flip_books_page_nums.num_1,
+.toggle_card_page_num.card_flip_books_page_nums.num_2,
+.toggle_card_page_num.card_flip_books_page_nums.num_3 {
+  background: rgba(41, 158, 158, 0.8);
+  color: var(--generic-white);
 }
 
 .card_flip_sign_commentor_name_2 {
@@ -89,7 +114,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .card_flip_book_icons i {
