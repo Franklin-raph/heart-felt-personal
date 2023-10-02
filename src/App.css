@@ -1954,14 +1954,16 @@ nav input {
   border-radius: 8px;
 }
 
-.single_card_col.col_2 p {
-  /* position: absolute; */
-  /* bottom: 0.8rem; */
-  /* left: 0.4rem; */
+.text_type_commentor_hint {
+  position: absolute;
+  /* position: relative; */
+  bottom: 4rem;
+  left: 0.4rem;
   color: var(--body-texts);
   font-weight: 300;
   font-style: italic;
   font-size: 1rem;
+  z-index: 9999;
 }
 
 .single_card_col.col_2 img {
@@ -1988,7 +1990,7 @@ nav input {
 
 /* ====================== */
 /* ====================== */
-.card_flip_row {
+/* .card_flip_row {
   display: grid;
   grid-template-columns: auto 1fr auto;
   justify-items: center;
@@ -2042,7 +2044,7 @@ nav input {
   left: 0;
   width: 100%;
   height: 100%;
-}
+} */
 
 /* ====================== */
 /* ====================== */
@@ -2102,6 +2104,7 @@ nav input {
 .single_card_view_row .swiper {
   width: 100%;
   width: 560px;
+  width: 400px;
   overflow-y: visible;
 }
 
@@ -3082,7 +3085,7 @@ nav input {
 }
 .view_modal_input form textarea {
   width: 100%;
-  height: 500px !important;
+  height: 430px !important;
   border: 0;
   outline: 0;
   box-shadow: 0 0 0 1px var(--primary-color);
@@ -4759,6 +4762,10 @@ nav input {
 
   .view_modal_input_form {
     width: 344px;
+  }
+
+  .text_type_holder {
+    position: relative;
   }
 
   .card_view_control div {

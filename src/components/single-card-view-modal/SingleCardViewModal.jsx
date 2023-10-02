@@ -7,52 +7,8 @@ import TextEditColorModal, {
 import SuccessAlert from "../alert/SuccessAlert";
 // import TextareaAutosize from "react-autosize-textarea";
 const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
-  const [colorToolTip, setColorToolTip] = useState(false);
-  const [typefaceToolTip, setTypefaceToolTip] = useState(false);
-  const [textSizeToolTip, setTextSizeToolTip] = useState(false);
-  const [textStyleToolTip, setTextStyleToolTip] = useState(false);
-  const [textAlignToolTip, setTextAlignToolTip] = useState(false);
-  const [senderNameToolTip, setSenderNameToolTip] = useState(false);
-
-  // Wants Text Edit States
-  const [showColorPalette, setShowColorPalette] = useState(false);
-  const [textEditFonts, setTextEditFonts] = useState(false);
-  const [showEditSizeModal, setShowEditSizeModal] = useState(false);
-  const [showTextAlignModal, setShowTextAlignModal] = useState(false);
   const [success, setSuccess] = useState(false);
   const [loader, setLoader] = useState(false);
-
-  //
-  const handleShowColorPalette = () => {
-    setShowColorPalette(!showColorPalette);
-    setTextEditFonts(false);
-    setShowEditSizeModal(false);
-    setShowTextAlignModal(false);
-  };
-
-  //
-  const handleShowTextEditFonts = () => {
-    setTextEditFonts(!textEditFonts);
-    setShowColorPalette(false);
-    setShowEditSizeModal(false);
-    setShowTextAlignModal(false);
-  };
-
-  //
-  const handleShowTextSizeModal = () => {
-    setShowEditSizeModal(!showEditSizeModal);
-    setTextEditFonts(false);
-    setShowColorPalette(false);
-    setShowTextAlignModal(false);
-  };
-
-  //
-  const handleShowTextAlignModal = () => {
-    setShowTextAlignModal(!showTextAlignModal);
-    setTextEditFonts(false);
-    setShowEditSizeModal(false);
-    setShowColorPalette(false);
-  };
 
   // ======================
 
@@ -96,35 +52,15 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
     <div className="single_card_view_modal" ref={card_view_modal}>
       <div className="single_card_view_modal_holder">
         <div className="view_modal_input">
-          <ViewModalInputControls
-            colorToolTip={colorToolTip}
-            typefaceToolTip={typefaceToolTip}
-            textSizeToolTip={textSizeToolTip}
-            textStyleToolTip={textStyleToolTip}
-            textAlignToolTip={textAlignToolTip}
-            senderNameToolTip={senderNameToolTip}
-            showColorPalette={showColorPalette}
-            textEditFonts={textEditFonts}
-            showEditSizeModal={showEditSizeModal}
-            showTextAlignModal={showTextAlignModal}
-            setColorToolTip={setColorToolTip}
-            handleShowColorPalette={handleShowColorPalette}
-            setTypefaceToolTip={setTypefaceToolTip}
-            handleShowTextEditFonts={handleShowTextEditFonts}
-            setTextSizeToolTip={setTextSizeToolTip}
-            handleShowTextSizeModal={handleShowTextSizeModal}
-            setTextStyleToolTip={setTextStyleToolTip}
-            setTextAlignToolTip={setTextAlignToolTip}
-            handleShowTextAlignModal={handleShowTextAlignModal}
-            setSenderNameToolTip={setSenderNameToolTip}
-          />
           <div className="view_modal_input_form">
             <form>
-              <textarea
-                rows="16"
-                placeholder="your message here..."
-                onChange={(e) => setComment(e.target.value)}
-              ></textarea>
+              <div className="text_type_holder">
+                <textarea
+                  rows="16"
+                  placeholder="your message here..."
+                  onChange={(e) => setComment(e.target.value)}
+                ></textarea>
+              </div>
               {!loader ? (
                 <button
                   className="view_modal_input_btn"
