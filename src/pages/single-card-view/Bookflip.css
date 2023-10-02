@@ -64,14 +64,6 @@
   box-shadow: 0 0 0 1px var(--primary-color);
 }
 
-.card_flip_sign_commentor_name {
-  font-size: 12px;
-  color: var(--body-texts);
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-
 .our_logo {
   position: absolute;
   top: 50%;
@@ -96,14 +88,6 @@
 .toggle_card_page_num.card_flip_books_page_nums.num_3 {
   background: rgba(41, 158, 158, 0.8);
   color: var(--generic-white);
-}
-
-.card_flip_sign_commentor_name_2 {
-  font-size: 12px;
-  color: var(--body-texts);
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
 }
 
 .card_flip_book_icons {

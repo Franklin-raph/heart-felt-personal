@@ -289,9 +289,7 @@ const SingleCardView = ({ baseUrl }) => {
                 setSenderNameToolTip={setSenderNameToolTip}
               />
             </div>
-            <small className="card_flip_sign_commentor_name">
-              <i>Signed by: {user && user.user.email.split("@")[0]}</i>
-            </small>
+
             {/*  */}
             {showTextEditModalBtn ? (
               <textarea
@@ -302,9 +300,6 @@ const SingleCardView = ({ baseUrl }) => {
             ) : (
               <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
                 <img src={imagePreview_4} alt="" />
-                <small className="card_flip_sign_commentor_name_2">
-                  <i>Signed by: {user && user.user.email.split("@")[0]}</i>
-                </small>
               </div>
             )}
             {/*  */}
