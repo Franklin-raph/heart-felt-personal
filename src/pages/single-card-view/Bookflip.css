@@ -73,6 +73,14 @@
   left: -10px;
 }
 
+.card_flip_sign_commentor_name_2 {
+  font-size: 12px;
+  color: var(--body-texts);
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
 .card_flip_book_icons {
   position: absolute;
   bottom: -50px;

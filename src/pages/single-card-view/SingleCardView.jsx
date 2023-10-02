@@ -31,6 +31,14 @@ const SingleCardView = ({ baseUrl }) => {
   const [showTextAlignModal, setShowTextAlignModal] = useState(false);
   // =======================
   // =======================
+  // ======================
+  const [success, setSuccess] = useState(false);
+  const [loader, setLoader] = useState(false);
+  const [comment, setComment] = useState();
+  const cardID = JSON.parse(localStorage.getItem("cardID"));
+  const user = JSON.parse(localStorage.getItem("user"));
+  // =======================
+  // =======================
   //
   const handleShowColorPalette = () => {
     setShowColorPalette(!showColorPalette);
@@ -64,6 +72,37 @@ const SingleCardView = ({ baseUrl }) => {
   };
   // =======================
 
+  // =======================
+  // ======================
+  const handleSignCard = async (e) => {
+    setLoader(true);
+    e.preventDefault();
+    try {
+      const res = await fetch(`${baseUrl}/sign-card`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${user.accessToken}`,
+        },
+        body: JSON.stringify({
+          comment: comment,
+          commentBy: user.user.email,
+          cardID: cardID,
+        }),
+      });
+      if (res) setLoader(false);
+      const data = await res.json();
+      if (res.ok) {
+        setSuccess(data.message);
+      }
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  // ======================
+  // =======================
+
   //
   const [showTextEditModalBtn, setShowTextEditModalBtn] = useState(false);
   const uploadedCard = JSON.parse(localStorage.getItem("uploaded-card"));
@@ -73,25 +112,18 @@ const SingleCardView = ({ baseUrl }) => {
   }
 
   // const card_view_modal_overlay = useRef();
-  const card_view_modal = useRef();
 
   const show_card_view_modal = () => {
-    card_view_modal.current.classList.add("show_single_card_modal");
     setShowTextEditModalBtn(true);
   };
 
   const close_card_view_modal = () => {
-    card_view_modal.current.classList.remove("show_single_card_modal");
     setShowTextEditModalBtn(false);
   };
 
   //
   const user_code = useRef();
   const user_code_copy_btn = useRef();
-
-  //
-  //
-  const user = JSON.parse(localStorage.getItem("user"));
 
   //
   const handleCopyUserCode = () => {
@@ -233,7 +265,22 @@ const SingleCardView = ({ baseUrl }) => {
                 <i>Signed by: {user && user.user.email.split("@")[0]}</i>
               </small>
             </div>
-            <textarea rows="8" placeholder="Sign card here..."></textarea>
+            {/*  */}
+            {showTextEditModalBtn ? (
+              <textarea
+                rows="8"
+                placeholder="Sign card here..."
+                onChange={(e) => setComment(e.target.value)}
+              ></textarea>
+            ) : (
+              <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
+                <img src={imagePreview_4} alt="" />
+                <small className="card_flip_sign_commentor_name_2">
+                  <i>Signed by: {user && user.user.email.split("@")[0]}</i>
+                </small>
+              </div>
+            )}
+            {/*  */}
           </div>
           <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
             <img src={imagePreview_4} alt="" />
@@ -281,7 +328,7 @@ const SingleCardView = ({ baseUrl }) => {
             </>
           ) : (
             <>
-              <div className="modal_save_changes">
+              <div className="modal_save_changes" onClick={handleSignCard}>
                 <i className="bx bxs-file-blank"></i>
                 <p>Save Changes</p>
               </div>

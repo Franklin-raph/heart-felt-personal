@@ -7,15 +7,11 @@ import TextEditColorModal, {
 import SuccessAlert from "../alert/SuccessAlert";
 // import TextareaAutosize from "react-autosize-textarea";
 const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
+  // ======================
   const [success, setSuccess] = useState(false);
   const [loader, setLoader] = useState(false);
-
-  // ======================
-
   const user = JSON.parse(localStorage.getItem("user"));
   const cardID = JSON.parse(localStorage.getItem("cardID"));
-
-  // ========================
   const [comment, setComment] = useState();
   // ======================
   const handleSignCard = async (e) => {
@@ -49,7 +45,7 @@ const SingleCardViewModal = ({ card_view_modal, baseUrl }) => {
 
   //
   return (
-    <div className="single_card_view_modal" ref={card_view_modal}>
+    <div className="single_card_view_modal">
       <div className="single_card_view_modal_holder">
         <div className="view_modal_input">
           <div className="view_modal_input_form">
