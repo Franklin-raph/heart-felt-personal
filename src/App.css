@@ -1947,7 +1947,6 @@ nav input {
 .single_card_col.col_2 {
   position: relative;
   width: auto;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1955,14 +1954,16 @@ nav input {
   border-radius: 8px;
 }
 
-.single_card_col.col_2 p {
+.text_type_commentor_hint {
   position: absolute;
-  bottom: 0.8rem;
+  /* position: relative; */
+  bottom: 4rem;
   left: 0.4rem;
   color: var(--body-texts);
   font-weight: 300;
   font-style: italic;
   font-size: 1rem;
+  z-index: 9999;
 }
 
 .single_card_col.col_2 img {
@@ -1986,6 +1987,67 @@ nav input {
   box-shadow: 0 0 0 1.5px var(--primary-color);
   color: var(--primary-color);
 }
+
+/* ====================== */
+/* ====================== */
+/* .card_flip_row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  justify-items: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.card_flip_icon {
+  background-color: var(--primary-color);
+  color: var(--generic-white);
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.card_flip_book {
+  position: relative;
+  width: 400px;
+  height: 500px;
+}
+
+.card_flip_front_content,
+.card_flip_back_content {
+  height: 100%;
+  width: 100%;
+}
+
+.card_flip_paper_back textarea {
+  resize: none;
+  padding: 5px 0 0 5px;
+}
+
+.card_flip_paper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card_flip_paper_front,
+.card_flip_paper_back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} */
+
+/* ====================== */
+/* ====================== */
 
 .single_card_view_footer {
   margin-top: 250px;
@@ -2032,10 +2094,22 @@ nav input {
   cursor: pointer;
 }
 
+/*  */
+
+.single_card_view_row .swiper_col {
+  width: 100%;
+  position: relative !important;
+}
+
 .single_card_view_row .swiper {
-  position: relative;
-  width: 360px;
-  height: 70%;
+  width: 100%;
+  width: 560px;
+  width: 400px;
+  overflow-y: visible;
+}
+
+.swiper-slide {
+  height: auto !important;
 }
 
 .single_card_view_row .swiper-slide {
@@ -2077,61 +2151,37 @@ nav input {
   color: var(--generic-white);
   background: var(--primary-color);
 }
+
 .single_card_view_row .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.single_card_view_row .swiper-button-prev {
-  left: -10%;
-}
-
-.single_card_view_row .swiper-button-next {
-  right: -10%;
 }
 
 .single_card_view_row .swiper-button-prev,
 .single_card_view_row .swiper-button-next {
-  top: 109%;
+  top: 98%;
+  background: var(--primary-color);
+  color: var(--generic-white);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+}
+
+.single_card_view_row .swiper-button-prev {
+  left: -0.5px;
+}
+
+.single_card_view_row .swiper-button-next {
+  right: -0.5px;
 }
 
 .single_card_view_row .swiper-button-prev:after,
 .single_card_view_row .swiper-button-next:after {
-  font-size: 18px;
-  color: var(--primary-color);
-}
-
-.quill {
-  position: absolute;
-  z-index: 99;
-  width: 100%;
-  background: var(--link-colors);
-  color: var(--body-texts);
-  height: 100%;
-  top: 0 !important;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.ql-toolbar.ql-snow {
-  border: 0;
-}
-
-.ql-container.ql-snow {
-  border: 0;
-}
-
-.ql-container {
-  box-shadow: 0 5px 8px rgba(223, 16, 16, 0.919);
-  background: var(--generic-white);
-}
-
-.quill button {
-  fill: var(--generic-white) !important;
-  color: var(--light-primary-color);
+  font-size: 1.4rem;
 }
 
 /*  */
@@ -2379,7 +2429,7 @@ nav input {
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 66;
 }
 
 .gift-card-settings-modal {
@@ -2777,14 +2827,14 @@ nav input {
 /* single card view modal */
 /*  */
 .single_card_view_modal {
-  position: fixed;
-  top: 50%;
+  position: absolute;
+  top: 0%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 376px;
-  height: 100%;
+  transform: translate(-50%, 0%);
+  width: 100%;
+  height: 93%;
   margin: 0 auto;
-  z-index: 325;
+  z-index: 999;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -2810,6 +2860,8 @@ nav input {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  height: 100%;
+  width: 100%;
 }
 
 .view_modal_input_btn {
@@ -2827,6 +2879,7 @@ nav input {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  width: 400px;
 }
 
 .tool_tip_card {
@@ -3032,6 +3085,7 @@ nav input {
 }
 .view_modal_input form textarea {
   width: 100%;
+  height: 430px !important;
   border: 0;
   outline: 0;
   box-shadow: 0 0 0 1px var(--primary-color);
@@ -4418,6 +4472,14 @@ nav input {
 
 /* =========================================== */
 /* =========================================== */
+@media screen and (max-width: 647px) {
+  .card_flip_book,
+  .view_modal_input_controls {
+    width: 370px;
+  }
+}
+/* =========================================== */
+/* =========================================== */
 /* =========================================== */
 @media screen and (max-width: 576px) {
   .successModal,
@@ -4516,12 +4578,14 @@ nav input {
     width: 90%;
   }
 
-  .single_card_view_modal {
-    width: 290px;
+  .card_flip_book,
+  .view_modal_input_controls {
+    margin: 0 auto;
+    width: 98%;
   }
 
-  .single_card_view_row .swiper {
-    width: 248px;
+  .card_flip_book {
+    height: 400px;
   }
 }
 
@@ -4662,7 +4726,6 @@ nav input {
 
   .single_card_view_row .swiper {
     width: 210px;
-    height: 65%;
   }
   /*  */
   .add_gift_card_header,
@@ -4709,6 +4772,10 @@ nav input {
 
   .view_modal_input_form {
     width: 344px;
+  }
+
+  .text_type_holder {
+    position: relative;
   }
 
   .card_view_control div {

@@ -2,21 +2,107 @@ import imagePreview_1 from "../../assets/images/card_preview_template.jpg";
 import imagePreview_2 from "../../assets/images/delivery-details-card-sample.png";
 import imagePreview_3 from "../../assets/images/birthday-card-template-image.jpg";
 import imagePreview_4 from "../../assets/images/sign-card-initial-view.webp";
+import ourLogo from "../../assets/images/heartfelt-logo.png";
 import deliveryDetailsImage from "../../assets/images/delivery-details-img.png";
-import { useRef, useState } from "react";
-import SingleCardViewModal from "../../components/single-card-view-modal/SingleCardViewModal";
+import { useEffect, useRef, useState } from "react";
+import SingleCardViewModal, {
+  ViewModalInputControls,
+} from "../../components/single-card-view-modal/SingleCardViewModal";
+import "./Bookflip.css";
 
-// swiper slides imports
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards, Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-cards";
-import "swiper/css/navigation";
 import { Link } from "react-router-dom";
 
 const SingleCardView = ({ baseUrl }) => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
   const [isHowGiftCardWorksOpen, setIsHowGiftCardWorksOpen] = useState(false);
+
+  // =======================
+  // =======================
+  const [colorToolTip, setColorToolTip] = useState(false);
+  const [typefaceToolTip, setTypefaceToolTip] = useState(false);
+  const [textSizeToolTip, setTextSizeToolTip] = useState(false);
+  const [textStyleToolTip, setTextStyleToolTip] = useState(false);
+  const [textAlignToolTip, setTextAlignToolTip] = useState(false);
+  const [senderNameToolTip, setSenderNameToolTip] = useState(false);
+
+  // Wants Text Edit States
+  const [showColorPalette, setShowColorPalette] = useState(false);
+  const [textEditFonts, setTextEditFonts] = useState(false);
+  const [showEditSizeModal, setShowEditSizeModal] = useState(false);
+  const [showTextAlignModal, setShowTextAlignModal] = useState(false);
+  // =======================
+  // =======================
+  // ======================
+  const [success, setSuccess] = useState(false);
+  const [loader, setLoader] = useState(false);
+  const [comment, setComment] = useState();
+  const cardID = JSON.parse(localStorage.getItem("cardID"));
+  const user = JSON.parse(localStorage.getItem("user"));
+  // =======================
+  // =======================
+  //
+  const handleShowColorPalette = () => {
+    setShowColorPalette(!showColorPalette);
+    setTextEditFonts(false);
+    setShowEditSizeModal(false);
+    setShowTextAlignModal(false);
+  };
+
+  //
+  const handleShowTextEditFonts = () => {
+    setTextEditFonts(!textEditFonts);
+    setShowColorPalette(false);
+    setShowEditSizeModal(false);
+    setShowTextAlignModal(false);
+  };
+
+  //
+  const handleShowTextSizeModal = () => {
+    setShowEditSizeModal(!showEditSizeModal);
+    setTextEditFonts(false);
+    setShowColorPalette(false);
+    setShowTextAlignModal(false);
+  };
+
+  //
+  const handleShowTextAlignModal = () => {
+    setShowTextAlignModal(!showTextAlignModal);
+    setTextEditFonts(false);
+    setShowEditSizeModal(false);
+    setShowColorPalette(false);
+  };
+  // =======================
+
+  // =======================
+  // ======================
+  const handleSignCard = async (e) => {
+    setLoader(true);
+    e.preventDefault();
+    try {
+      const res = await fetch(`${baseUrl}/sign-card`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${user.accessToken}`,
+        },
+        body: JSON.stringify({
+          comment: comment,
+          commentBy: user.user.email,
+          cardID: cardID,
+        }),
+      });
+      if (res) setLoader(false);
+      const data = await res.json();
+      if (res.ok) {
+        setSuccess(data.message);
+      }
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  // ======================
+  // =======================
 
   //
   const [showTextEditModalBtn, setShowTextEditModalBtn] = useState(false);
@@ -27,33 +113,18 @@ const SingleCardView = ({ baseUrl }) => {
   }
 
   // const card_view_modal_overlay = useRef();
-  const card_view_modal = useRef();
 
   const show_card_view_modal = () => {
-    card_view_modal.current.classList.add("show_single_card_modal");
     setShowTextEditModalBtn(true);
   };
 
   const close_card_view_modal = () => {
-    card_view_modal.current.classList.remove("show_single_card_modal");
     setShowTextEditModalBtn(false);
-  };
-
-  //
-  const pagination = {
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '">' + (index + 1) + "</span>";
-    },
   };
 
   //
   const user_code = useRef();
   const user_code_copy_btn = useRef();
-
-  //
-  //
-  const user = JSON.parse(localStorage.getItem("user"));
 
   //
   const handleCopyUserCode = () => {
@@ -69,6 +140,65 @@ const SingleCardView = ({ baseUrl }) => {
       user_code_copy_btn.current.style.color = "#ffffff";
     }, 4000);
   };
+
+  // ========
+  const paper_1 = useRef();
+  const paper_2 = useRef();
+  const paper_3 = useRef();
+  // ========
+  const [paperPage, setPaperPage] = useState(1);
+  // ========
+  const handleToggleNextPage = () => {
+    if (paperPage === 3) {
+      return;
+    }
+    setPaperPage((prev) => prev + 1);
+    if (paperPage === 1) {
+      paper_1.current.classList.add("toggle_paper");
+    } else if (paperPage === 2) {
+      paper_2.current.classList.add("toggle_paper");
+    }
+  };
+  // ========
+  // ========
+  const handleTogglePrevPage = () => {
+    if (paperPage === 1) {
+      return;
+    }
+    setPaperPage((prev) => prev - 1);
+    if (paperPage === 3) {
+      paper_2.current.classList.remove("toggle_paper");
+    } else if (paperPage === 2) {
+      paper_1.current.classList.remove("toggle_paper");
+    }
+  };
+  // ========
+  const card_page_num_1 = useRef();
+  const card_page_num_2 = useRef();
+  const card_page_num_3 = useRef();
+  //
+  useEffect(() => {
+    switch (paperPage) {
+      case 1:
+        card_page_num_1.current.classList.add("toggle_card_page_num");
+        card_page_num_2.current.classList.remove("toggle_card_page_num");
+        card_page_num_3.current.classList.remove("toggle_card_page_num");
+        break;
+      case 2:
+        card_page_num_2.current.classList.add("toggle_card_page_num");
+        card_page_num_1.current.classList.remove("toggle_card_page_num");
+        card_page_num_3.current.classList.remove("toggle_card_page_num");
+        break;
+      case 3:
+        card_page_num_3.current.classList.add("toggle_card_page_num");
+        card_page_num_2.current.classList.remove("toggle_card_page_num");
+        card_page_num_1.current.classList.remove("toggle_card_page_num");
+        break;
+      default:
+        throw new Error("State not found");
+    }
+  }, [paperPage]);
+  // ========
 
   return (
     <article className="single_card_view_section">
@@ -130,33 +260,85 @@ const SingleCardView = ({ baseUrl }) => {
         </div>
 
         {/* col 2 */}
-        <Swiper
-          effect={"cards"}
-          grabCursor={true}
-          modules={[EffectCards, Pagination, Navigation]}
-          pagination={pagination}
-          loop={true}
-          navigation={true}
-          className="mySwiper"
-        >
-          <SwiperSlide className="single_card_col col_2">
+        <div className="card_flip_book">
+          <div className="card_flip_paper card_flip_paper_1" ref={paper_1}>
             <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" />
-          </SwiperSlide>
-          <SwiperSlide className="single_card_col col_2">
+          </div>
+          <div className="card_flip_paper card_flip_paper_2 " ref={paper_2}>
+            <div className="card_flip_input_controls_holder">
+              <ViewModalInputControls
+                colorToolTip={colorToolTip}
+                typefaceToolTip={typefaceToolTip}
+                textSizeToolTip={textSizeToolTip}
+                textStyleToolTip={textStyleToolTip}
+                textAlignToolTip={textAlignToolTip}
+                senderNameToolTip={senderNameToolTip}
+                showColorPalette={showColorPalette}
+                textEditFonts={textEditFonts}
+                showEditSizeModal={showEditSizeModal}
+                showTextAlignModal={showTextAlignModal}
+                setColorToolTip={setColorToolTip}
+                handleShowColorPalette={handleShowColorPalette}
+                setTypefaceToolTip={setTypefaceToolTip}
+                handleShowTextEditFonts={handleShowTextEditFonts}
+                setTextSizeToolTip={setTextSizeToolTip}
+                handleShowTextSizeModal={handleShowTextSizeModal}
+                setTextStyleToolTip={setTextStyleToolTip}
+                setTextAlignToolTip={setTextAlignToolTip}
+                handleShowTextAlignModal={handleShowTextAlignModal}
+                setSenderNameToolTip={setSenderNameToolTip}
+              />
+            </div>
+
+            {/*  */}
+            {showTextEditModalBtn ? (
+              <textarea
+                rows="8"
+                placeholder="Sign card here..."
+                onChange={(e) => setComment(e.target.value)}
+              ></textarea>
+            ) : (
+              <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
+                <img src={imagePreview_4} alt="" />
+              </div>
+            )}
+            {/*  */}
+          </div>
+          <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
             <img src={imagePreview_4} alt="" />
-            <p>Signed By: {user && user.user.email.split("@")[0]}</p>
-          </SwiperSlide>
-          <SwiperSlide className="single_card_col col_2">
-            <img src={imagePreview_4} alt="" />
-            <p>Signed By: {user && user.user.email.split("@")[0]}</p>
-          </SwiperSlide>
-          {/* ============= */}
-          {/* ==================== */}
-          <SingleCardViewModal
-            card_view_modal={card_view_modal}
-            baseUrl={baseUrl}
-          />
-        </Swiper>
+            <div className="our_logo">
+              <img src={ourLogo} alt="" />
+            </div>
+          </div>
+          <div className="card_flip_book_icons">
+            <i
+              className="fa-solid fa-chevron-left card_flip_icon_left"
+              onClick={handleTogglePrevPage}
+            ></i>
+            <div
+              className="card_flip_books_page_nums num_1"
+              ref={card_page_num_1}
+            >
+              1
+            </div>
+            <div
+              className="card_flip_books_page_nums num_2"
+              ref={card_page_num_2}
+            >
+              2
+            </div>
+            <div
+              className="card_flip_books_page_nums num_2"
+              ref={card_page_num_3}
+            >
+              3
+            </div>
+            <i
+              className="fa-solid fa-chevron-right card_flip_icon_right"
+              onClick={handleToggleNextPage}
+            ></i>
+          </div>
+        </div>
 
         {/* col 3 */}
         <div className="single_card_col col_1">
@@ -189,7 +371,7 @@ const SingleCardView = ({ baseUrl }) => {
             </>
           ) : (
             <>
-              <div className="modal_save_changes">
+              <div className="modal_save_changes" onClick={handleSignCard}>
                 <i className="bx bxs-file-blank"></i>
                 <p>Save Changes</p>
               </div>
