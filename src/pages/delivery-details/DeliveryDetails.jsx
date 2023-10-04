@@ -302,7 +302,10 @@ const DeliveryDetails = ({ baseUrl }) => {
                     {timeZones.map((timeZone, i) => (
                       <p
                         key={i}
-                        onClick={() => setDeliveryTimeZone(timeZone.name)}
+                        onClick={() => {
+                          setListOfTimeZones(!listOfTimeZones)
+                          setDeliveryTimeZone(timeZone.name)}
+                        }
                       >
                         {timeZone.name}
                       </p>
