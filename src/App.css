@@ -4919,3 +4919,7 @@ nav input {
   padding: 20px;
   border: 1px solid #9d9d9dad;
 }
+
+.card_flip_books_page_nums{
+  cursor: pointer;
+}

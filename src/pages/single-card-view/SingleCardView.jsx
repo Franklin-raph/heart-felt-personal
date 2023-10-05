@@ -401,30 +401,77 @@ const SingleCardView = ({ baseUrl }) => {
         <div className="single_card_col col_1">
           {!showTextEditModalBtn ? (
             <>
+            {paperPage > 1 ? 
               <div onClick={show_card_view_modal}>
                 <i className="bx bx-pencil"></i>
                 <p>Sign Card</p>
               </div>
+            : 
+              <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
+                <i className="bx bx-pencil"></i>
+                <p>Sign Card</p>
+              </div>
+            }
 
+            {paperPage > 1 ?
               <div>
                 <i className="bx bxs-videos"></i>
                 <p>Add Video</p>
               </div>
+             :
+             <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
+                <i className="bx bxs-videos"></i>
+                <p>Add Video</p>
+              </div>
+             }
 
+            {paperPage > 1 ?
               <div>
                 <i className="bx bxs-image"></i>
                 <p>Add Photo</p>
               </div>
+             :
+             <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
+                <i className="bx bxs-image"></i>
+                <p>Add Photo</p>
+              </div>
+             }
 
+            {paperPage > 1 ?
+              <div>
+                <i className="bx bxs-microphone"></i>
+                <p>Add Audio</p>
+              </div>
+             :
+             <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
+                <i className="bx bxs-microphone"></i>
+                <p>Add Audio</p>
+              </div>
+             }
+
+            {paperPage > 1 ?
               <div>
                 <i className="bx bx-smile"></i>
                 <p>Add GIF/Sticker</p>
               </div>
+             :
+              <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
+                <i className="bx bx-smile"></i>
+                <p>Add GIF/Sticker</p>
+              </div>
+             }
 
+            {paperPage > 1 ?
               <div>
                 <i className="bx bx-text"></i>
                 <p>Add Text</p>
               </div>
+             :
+              <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
+                <i className="bx bx-text"></i>
+                <p>Add Text</p>
+              </div>
+             }
             </>
           ) : (
             <>
@@ -438,8 +485,6 @@ const SingleCardView = ({ baseUrl }) => {
                 <p>Save Changes</p>
               </div>
               }
-              
-              
               <div
                 className="modal_cancel_changes"
                 onClick={close_card_view_modal}
@@ -502,21 +547,12 @@ const SingleCardView = ({ baseUrl }) => {
           setIsHowGiftCardWorksOpen={setIsHowGiftCardWorksOpen}
         />
       )}
-
-      {/* <div
-        className="single_card_modal_overlay"
-        ref={card_view_modal_overlay}
-        onClick={close_card_view_modal}
-      ></div> */}
     </article>
   );
 };
 
 export default SingleCardView;
 
-// Const Modals
-
-// Gift Card Settings Modal
 
 export const GiftCardSettingsModal = ({
   isGiftCardSettingsOpen,
@@ -537,7 +573,7 @@ export const GiftCardSettingsModal = ({
         </div>
         <div className="body">
           <h4>eGird Card</h4>
-          <img src={deliveryDetailsImage} alt="" />
+          <img src={localStorage.getItem('uploaded-card')} alt="" />
           <div className="amount">
             <h4>Select Amount</h4>
             <div className="gift_card_settings_modal_prices g-1">
