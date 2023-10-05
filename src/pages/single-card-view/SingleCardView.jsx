@@ -39,6 +39,8 @@ const SingleCardView = ({ baseUrl }) => {
   const [error, setError] = useState(false)
   const [loader, setLoader] = useState(false);
   const [comment, setComment] = useState();
+  const [signedCardDetails, setSignedCardDetails] = useState()
+  const [signedCardSignatures, setSignedCardSignatures] = useState([])
   const cardID = JSON.parse(localStorage.getItem("cardID"));
   const user = JSON.parse(localStorage.getItem("user"));
   const {cardId} = useParams()
@@ -102,6 +104,7 @@ const SingleCardView = ({ baseUrl }) => {
         const data = await res.json();
         if (res.ok) {
           setSuccess(data.message);
+          getCardInfo()
         }
         console.log(data);
       } catch (err) {
@@ -186,11 +189,36 @@ const SingleCardView = ({ baseUrl }) => {
   const card_page_num_3 = useRef();
 
 
+
+
+
+
+
+
+
+
+
+
   async function getCardInfo(){
     const response = await fetch(`${baseUrl}/get-card-sign-details/${cardId}`)
     const data = await response.json()
-    console.log(data)
+    setSignedCardSignatures(data.signatures)
   }
+  console.log(signedCardSignatures)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   //
@@ -311,17 +339,21 @@ const SingleCardView = ({ baseUrl }) => {
             </div>
 
             {/*  */}
-            {showTextEditModalBtn ? (
-              <textarea
-                rows="8"
-                placeholder="Sign card here..."
-                onChange={(e) => setComment(e.target.value)}
-              ></textarea>
-            ) : (
-              <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
-                <img src={imagePreview_4} alt="" />
+            {showTextEditModalBtn &&
+            <div className="signCardModalBg">
+                <textarea
+                  rows="8"
+                  placeholder="Sign card here..."
+                  onChange={(e) => setComment(e.target.value)}
+                ></textarea>
               </div>
-            )}
+            }
+
+              <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
+                {signedCardSignatures && signedCardSignatures.map(signature => (
+                  <p>{signature.comment}</p>
+                ))}
+              </div>
             {/*  */}
           </div>
           <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
