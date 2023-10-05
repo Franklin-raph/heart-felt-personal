@@ -198,6 +198,43 @@ const SingleCardView = ({ baseUrl }) => {
         throw new Error("State not found");
     }
   }, [paperPage]);
+  // ===========
+  useEffect(() => {
+    const cardFlipPageNums = document.querySelectorAll(
+      ".card_flip_books_page_nums"
+    );
+    cardFlipPageNums.forEach((pageNum) => {
+      pageNum.addEventListener("click", (e) => {
+        switch (Number(e.target.innerText)) {
+          case 1:
+            card_page_num_1.current.classList.add("toggle_card_page_num");
+            card_page_num_2.current.classList.remove("toggle_card_page_num");
+            card_page_num_3.current.classList.remove("toggle_card_page_num");
+            paper_1.current.classList.remove("toggle_paper");
+            paper_2.current.classList.remove("toggle_paper");
+            paper_3.current.classList.remove("toggle_paper");
+            break;
+          case 2:
+            card_page_num_1.current.classList.remove("toggle_card_page_num");
+            card_page_num_2.current.classList.add("toggle_card_page_num");
+            card_page_num_3.current.classList.remove("toggle_card_page_num");
+            paper_1.current.classList.add("toggle_paper");
+            paper_3.current.classList.add("toggle_paper");
+            paper_2.current.classList.remove("toggle_paper");
+            break;
+          case 3:
+            card_page_num_1.current.classList.remove("toggle_card_page_num");
+            card_page_num_2.current.classList.remove("toggle_card_page_num");
+            card_page_num_3.current.classList.add("toggle_card_page_num");
+            paper_1.current.classList.add("toggle_paper");
+            paper_2.current.classList.add("toggle_paper");
+            break;
+          default:
+            throw new Error("state not found");
+        }
+      });
+    });
+  }, []);
   // ========
 
   return (
