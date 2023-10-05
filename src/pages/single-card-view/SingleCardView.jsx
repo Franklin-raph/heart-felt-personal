@@ -10,7 +10,9 @@ import SingleCardViewModal, {
 } from "../../components/single-card-view-modal/SingleCardViewModal";
 import "./Bookflip.css";
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import SuccessAlert from "../../components/alert/SuccessAlert";
+import ErrorAlert from "../../components/alert/ErrorAlert";
 
 const SingleCardView = ({ baseUrl }) => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
@@ -34,10 +36,12 @@ const SingleCardView = ({ baseUrl }) => {
   // =======================
   // ======================
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false)
   const [loader, setLoader] = useState(false);
   const [comment, setComment] = useState();
   const cardID = JSON.parse(localStorage.getItem("cardID"));
   const user = JSON.parse(localStorage.getItem("user"));
+  const {cardId} = useParams()
   // =======================
   // =======================
   //
@@ -76,29 +80,33 @@ const SingleCardView = ({ baseUrl }) => {
   // =======================
   // ======================
   const handleSignCard = async (e) => {
-    setLoader(true);
-    e.preventDefault();
-    try {
-      const res = await fetch(`${baseUrl}/sign-card`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Authorization: `Bearer ${user.accessToken}`,
-        },
-        body: JSON.stringify({
-          comment: comment,
-          commentBy: user.user.email,
-          cardID: cardID,
-        }),
-      });
-      if (res) setLoader(false);
-      const data = await res.json();
-      if (res.ok) {
-        setSuccess(data.message);
+    if(!comment){
+      setError("Cannot save empty content")
+    }else{
+      setLoader(true);
+      e.preventDefault();
+      try {
+        const res = await fetch(`${baseUrl}/sign-card`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `Bearer ${user.accessToken}`,
+          },
+          body: JSON.stringify({
+            comment: comment,
+            commentBy: user.user.email,
+            cardID: cardId,
+          }),
+        });
+        if (res) setLoader(false);
+        const data = await res.json();
+        if (res.ok) {
+          setSuccess(data.message);
+        }
+        console.log(data);
+      } catch (err) {
+        console.log(err);
       }
-      console.log(data);
-    } catch (err) {
-      console.log(err);
     }
   };
   // ======================
@@ -176,6 +184,15 @@ const SingleCardView = ({ baseUrl }) => {
   const card_page_num_1 = useRef();
   const card_page_num_2 = useRef();
   const card_page_num_3 = useRef();
+
+
+  async function getCardInfo(){
+    const response = await fetch(`${baseUrl}/get-card-sign-details/${cardId}`)
+    const data = await response.json()
+    console.log(data)
+  }
+
+
   //
   useEffect(() => {
     switch (paperPage) {
@@ -197,6 +214,7 @@ const SingleCardView = ({ baseUrl }) => {
       default:
         throw new Error("State not found");
     }
+    getCardInfo()
   }, [paperPage]);
   // ===========
   useEffect(() => {
@@ -239,6 +257,8 @@ const SingleCardView = ({ baseUrl }) => {
 
   return (
     <article className="single_card_view_section">
+      {success && <SuccessAlert success={success} setSuccess={setSuccess}/>}
+      {error && <ErrorAlert error={error} setError={setError}/>}
       <div className="single_card_page_header">
         <h2 className="single_card_header_h3">Group Greeting Card</h2>
         <div className="single_card_countdown_row">
@@ -426,7 +446,7 @@ const SingleCardView = ({ baseUrl }) => {
 
       <div className="single_card_view_footer">
         <div className="single_card_copy_box">
-          <p ref={user_code}>Chisom-HUEY78</p>
+          <p ref={user_code} style={{ fontSize:"12px" }}>{`https://heartfeltgreetingcard.netlify.app/${cardId}`}</p>
           <button onClick={handleCopyUserCode} ref={user_code_copy_btn}>
             Copy
           </button>
@@ -495,6 +515,7 @@ export const GiftCardSettingsModal = ({
   setIsGiftCardSettingsOpen,
   setIsHowGiftCardWorksOpen,
 }) => {
+
   return (
     <div className="gift-card-settings-modal-bg flex-center">
       <div className="gift-card-settings-modal">

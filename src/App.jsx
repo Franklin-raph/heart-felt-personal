@@ -126,7 +126,7 @@ function App() {
         />
         <Route path="/payment-successful" element={<PaymentSuccessful />} />
         <Route
-          path="/single-card-view"
+          path="/single-card-view/:cardId"
           element={<SingleCardView baseUrl={baseUrl} />}
         />
 
