@@ -82,6 +82,7 @@ const SingleCardView = ({ baseUrl }) => {
   // =======================
   // ======================
   const handleSignCard = async (e) => {
+    console.log("sign")
     if(!comment){
       setError("Cannot save empty content")
     }else{
@@ -96,7 +97,7 @@ const SingleCardView = ({ baseUrl }) => {
           },
           body: JSON.stringify({
             comment: comment,
-            commentBy: user.user.email,
+            // commentBy: user.user.email,
             cardID: cardId,
           }),
         });
@@ -104,6 +105,7 @@ const SingleCardView = ({ baseUrl }) => {
         const data = await res.json();
         if (res.ok) {
           setSuccess(data.message);
+          setShowTextEditModalBtn(false)
           getCardInfo()
         }
         console.log(data);
@@ -203,8 +205,10 @@ const SingleCardView = ({ baseUrl }) => {
     const response = await fetch(`${baseUrl}/get-card-sign-details/${cardId}`)
     const data = await response.json()
     setSignedCardSignatures(data.signatures)
+    setSignedCardDetails(data.details)
+    console.log(data)
   }
-  console.log(signedCardSignatures)
+  // console.log(signedCardDetails)
 
 
 
@@ -310,7 +314,8 @@ const SingleCardView = ({ baseUrl }) => {
         {/* col 2 */}
         <div className="card_flip_book">
           <div className="card_flip_paper card_flip_paper_1" ref={paper_1}>
-            <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" />
+            {/* <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" /> */}
+            {signedCardDetails && <img src={signedCardDetails.cardCoverUrl} alt="card cover"/> }
           </div>
           <div className="card_flip_paper card_flip_paper_2 " ref={paper_2}>
             <div className="card_flip_input_controls_holder">
@@ -423,10 +428,18 @@ const SingleCardView = ({ baseUrl }) => {
             </>
           ) : (
             <>
+            {loader ?
+              <div className="modal_save_changes">
+                <i class='bx bx-loader'></i>
+              </div>
+             :
               <div className="modal_save_changes" onClick={handleSignCard}>
                 <i className="bx bxs-file-blank"></i>
                 <p>Save Changes</p>
               </div>
+              }
+              
+              
               <div
                 className="modal_cancel_changes"
                 onClick={close_card_view_modal}
