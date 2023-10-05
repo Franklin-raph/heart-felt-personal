@@ -39,6 +39,7 @@ const UploadCard = ({ baseUrl }) => {
         },
       });
       const data = await response.json();
+      console.log(data)
       if (response) setLoader(false);
       if (response.ok) {
         setSuccess(true);

@@ -4,6 +4,7 @@ import deliver_details_icon from "../../assets/images/delivery-details-card-samp
 import { useRef, useState } from "react";
 import { FillInAllFormDetails } from "../../components/form-error-modal/DeliveryDetailsErrorModal";
 import PaystackPop from "@paystack/inline-js";
+import PaymentSuuccessfullModal from "../../components/payment-successfull-modal/PaymentSuuccessfullModal";
 
 const DeliveryDetails = ({ baseUrl }) => {
   // References
@@ -23,6 +24,8 @@ const DeliveryDetails = ({ baseUrl }) => {
   const [deliveryDate, setDeliveryDate] = useState("");
   const [deliveryTime, setDeliveryTime] = useState("");
   const [deliveryTimeZone, setDeliveryTimeZone] = useState("");
+  const [sendToEmail, setSendToEmail] = useState(false)
+  const [nextYearReminder, setNextYearReminder] = useState(false)
   const [deliveryVoucherName, setDeliveryVoucherName] = useState(""); //only when checked
   const [deliveryVoucherCode, setDeliveryVoucherCode] = useState(""); //only when checked
   const [deliveryVoucherAmount, setDeliveryVoucherAmount] = useState(""); //only when checked
@@ -35,6 +38,8 @@ const DeliveryDetails = ({ baseUrl }) => {
   const [addGiftCardCheck, setAddGiftCardCheck] = useState(false);
   const [addVideoCheck, setAddVideoCheck] = useState(false);
   const [addAudioCheck, setAddAudioCheck] = useState(false);
+  const [paymentSuccessfullModal, setPaymentSuccessfullModal] = useState(false)
+  const [cardId, setCardId] = useState("")
 
   const timeZones = [
     { name: "UTC-12:00", offset: "-12:00" },
@@ -91,7 +96,23 @@ const DeliveryDetails = ({ baseUrl }) => {
   async function submitCardDeliveryDetails(e) {
     e.preventDefault();
 
-    //
+    console.log(JSON.stringify({
+      recipientEmail: recipientEmail,
+      recipientFullName: recipientFullName,
+      // addConfetti: "false",
+      addAudioCheck:addAudioCheck,
+      addVideoCheck:addVideoCheck,
+      sendToEmail: sendToEmail,
+      cardCoverUrl: uploadedCard,
+      date: deliveryDate,
+      time: deliveryTime,
+      timeZone: deliveryTimeZone,
+      addGiftCard: addGiftCardCheck,
+      setNextYearReminder: nextYearReminder,
+      couponCode: "1234",
+    }))
+
+    
     if (
       !recipientFullName ||
       !recipientEmail ||
@@ -114,13 +135,15 @@ const DeliveryDetails = ({ baseUrl }) => {
           recipientEmail: recipientEmail,
           recipientFullName: recipientFullName,
           addConfetti: "false",
-          sendToEmail: "false",
+          // addAudioCheck:addAudioCheck,
+          // addVideoCheck:addVideoCheck,
+          sendToEmail: sendToEmail,
           cardCoverUrl: uploadedCard,
           date: deliveryDate,
           time: deliveryTime,
-          timeZone: "UTC +1",
-          addGiftCard: "false",
-          setNextYearReminder: "false",
+          timeZone: deliveryTimeZone,
+          addGiftCard: addGiftCardCheck,
+          setNextYearReminder: nextYearReminder,
           couponCode: "1234",
         }),
       });
@@ -129,11 +152,15 @@ const DeliveryDetails = ({ baseUrl }) => {
       if (response) setLoader(false);
       if (response.ok) {
         getPayStackToken(data.cardID);
+        setCardId(data.cardID)
         // payWithPayStack()
         // window.location.href = `${data.data.paymentLink}`
       }
     }
   }
+
+  console.log(cardId)
+
   // close error modal 1
   const close_error_modal_1 = () => {
     error_modal_1.current.classList.toggle("show_delivery_error_modal");
@@ -172,7 +199,8 @@ const DeliveryDetails = ({ baseUrl }) => {
     const data = await response.json();
     if (response) setConfirmPaymentLoader(false);
     if (response.ok) {
-      navigate("/payment-successful");
+      // navigate("/payment-successful");
+      setPaymentSuccessfullModal(true)
     }
     if (!response.ok) console.log("An error occured");
   }
@@ -394,14 +422,14 @@ const DeliveryDetails = ({ baseUrl }) => {
             </div> */}
             {/*  */}
             <div>
-              <input type="checkbox" id="send_mails_check" />
+              <input type="checkbox" id="send_mails_check" onChange={() => setSendToEmail(!sendToEmail) } />
               <label htmlFor="send_mails_check">
                 Send list of signed signatures to my email
               </label>
             </div>
             {/*  */}
             <div>
-              <input type="checkbox" id="set_reminder_check" />
+              <input type="checkbox" id="set_reminder_check" onChange={() => setNextYearReminder(!nextYearReminder)} />
               <label htmlFor="set_reminder_check">
                 Set a reminder for next year
               </label>
@@ -488,6 +516,9 @@ const DeliveryDetails = ({ baseUrl }) => {
         error_modal_1={error_modal_1}
         close_modal_1={close_error_modal_1}
       />
+      {paymentSuccessfullModal && 
+        <PaymentSuuccessfullModal cardId={cardId}/>
+      }
     </section>
   );
 };

@@ -53,10 +53,34 @@ const LoggedInNav = () => {
     openUserInfo();
   };
 
+  useEffect(() => {
+    checkTokenStatus()
+        
+    const interval = setInterval(() => {
+        checkTokenStatus()
+      }, 300000);
+    
+      return () => clearInterval(interval);
+  },[])
+
   const logoutUser = () => {
     localStorage.clear();
     location.href = "/";
   };
+
+async function checkTokenStatus(){
+    const response = await fetch(`https://heartfelt-new.vercel.app/verify-token/`,{
+      method:"POST",
+      headers:{
+        Authorization: `Bearer ${user.accessToken}`
+      }
+    })
+    const data = await response.json()
+    console.log(response, data)
+    if(response.status === 401){
+        logoutUser()
+    }
+}
 
   return (
     <div className="nav">
