@@ -13,6 +13,9 @@ import "./Bookflip.css";
 import { Link, useParams } from "react-router-dom";
 import SuccessAlert from "../../components/alert/SuccessAlert";
 import ErrorAlert from "../../components/alert/ErrorAlert";
+//
+import { useDrag } from "@use-gesture/react";
+//
 
 const SingleCardView = ({ baseUrl }) => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
@@ -36,14 +39,14 @@ const SingleCardView = ({ baseUrl }) => {
   // =======================
   // ======================
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
   const [loader, setLoader] = useState(false);
   const [comment, setComment] = useState();
-  const [signedCardDetails, setSignedCardDetails] = useState()
-  const [signedCardSignatures, setSignedCardSignatures] = useState([])
+  const [signedCardDetails, setSignedCardDetails] = useState();
+  const [signedCardSignatures, setSignedCardSignatures] = useState([]);
   const cardID = JSON.parse(localStorage.getItem("cardID"));
   const user = JSON.parse(localStorage.getItem("user"));
-  const {cardId} = useParams()
+  const { cardId } = useParams();
   // =======================
   // =======================
   //
@@ -82,10 +85,10 @@ const SingleCardView = ({ baseUrl }) => {
   // =======================
   // ======================
   const handleSignCard = async (e) => {
-    console.log("sign")
-    if(!comment){
-      setError("Cannot save empty content")
-    }else{
+    console.log("sign");
+    if (!comment) {
+      setError("Cannot save empty content");
+    } else {
       setLoader(true);
       e.preventDefault();
       try {
@@ -105,8 +108,8 @@ const SingleCardView = ({ baseUrl }) => {
         const data = await res.json();
         if (res.ok) {
           setSuccess(data.message);
-          setShowTextEditModalBtn(false)
-          getCardInfo()
+          setShowTextEditModalBtn(false);
+          getCardInfo();
         }
         console.log(data);
       } catch (err) {
@@ -190,40 +193,13 @@ const SingleCardView = ({ baseUrl }) => {
   const card_page_num_2 = useRef();
   const card_page_num_3 = useRef();
 
-
-
-
-
-
-
-
-
-
-
-
-  async function getCardInfo(){
-    const response = await fetch(`${baseUrl}/get-card-sign-details/${cardId}`)
-    const data = await response.json()
-    setSignedCardSignatures(data.signatures)
-    setSignedCardDetails(data.details)
-    console.log(data)
+  async function getCardInfo() {
+    const response = await fetch(`${baseUrl}/get-card-sign-details/${cardId}`);
+    const data = await response.json();
+    setSignedCardSignatures(data.signatures);
+    setSignedCardDetails(data.details);
+    console.log(data);
   }
-  console.log(signedCardDetails)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   //
   useEffect(() => {
@@ -246,7 +222,7 @@ const SingleCardView = ({ baseUrl }) => {
       default:
         throw new Error("State not found");
     }
-    getCardInfo()
+    getCardInfo();
   }, [paperPage]);
   // ===========
   useEffect(() => {
@@ -286,11 +262,20 @@ const SingleCardView = ({ baseUrl }) => {
     });
   }, []);
   // ========
+  // ========
+  const [textPos, setTextPos] = useState({ x: 0, y: 0 });
+  const bindTextPos = useDrag((params) => {
+    setTextPos({
+      x: params.offset[0],
+      y: params.offset[1],
+    });
+  });
+  // ========
 
   return (
     <article className="single_card_view_section">
-      {success && <SuccessAlert success={success} setSuccess={setSuccess}/>}
-      {error && <ErrorAlert error={error} setError={setError}/>}
+      {success && <SuccessAlert success={success} setSuccess={setSuccess} />}
+      {error && <ErrorAlert error={error} setError={setError} />}
       <div className="single_card_page_header">
         <h2 className="single_card_header_h3">Group Greeting Card</h2>
         <div className="single_card_countdown_row">
@@ -352,7 +337,9 @@ const SingleCardView = ({ baseUrl }) => {
         <div className="card_flip_book">
           <div className="card_flip_paper card_flip_paper_1" ref={paper_1}>
             {/* <img src={uploadedCard ? uploadedCard : imagePreview_2} alt="" /> */}
-            {signedCardDetails && <img src={signedCardDetails.cardCoverUrl} alt="card cover"/> }
+            {signedCardDetails && (
+              <img src={signedCardDetails.cardCoverUrl} alt="card cover" />
+            )}
           </div>
           <div className="card_flip_paper card_flip_paper_2 " ref={paper_2}>
             <div className="card_flip_input_controls_holder">
@@ -381,21 +368,34 @@ const SingleCardView = ({ baseUrl }) => {
             </div>
 
             {/*  */}
-            {showTextEditModalBtn &&
-            <div className="signCardModalBg">
+            {showTextEditModalBtn && (
+              <div className="signCardModalBg">
                 <textarea
                   rows="8"
                   placeholder="Sign card here..."
                   onChange={(e) => setComment(e.target.value)}
                 ></textarea>
               </div>
-            }
+            )}
 
-              <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
-                {signedCardSignatures && signedCardSignatures.map(signature => (
-                  <p>{signature.comment}</p>
+            <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
+              {signedCardSignatures &&
+                signedCardSignatures.map((signature, index) => (
+                  <h2
+                    {...bindTextPos()}
+                    style={{
+                      position: "relative",
+                      top: textPos.y,
+                      left: textPos.x,
+                      fontSize: "12px",
+                      fontWeight: "300",
+                    }}
+                    key={index}
+                  >
+                    <p>{signature.comment}</p>
+                  </h2>
                 ))}
-              </div>
+            </div>
             {/*  */}
           </div>
           <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
@@ -438,98 +438,100 @@ const SingleCardView = ({ baseUrl }) => {
         <div className="single_card_col col_1">
           {!showTextEditModalBtn ? (
             <>
-            {paperPage > 1 ? 
-              <div onClick={show_card_view_modal}>
-                <i className="bx bx-pencil"></i>
-                <p>Sign Card</p>
-              </div>
-            : 
-              <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
-                <i className="bx bx-pencil"></i>
-                <p>Sign Card</p>
-              </div>
-            }
+              {paperPage > 1 ? (
+                <div onClick={show_card_view_modal}>
+                  <i className="bx bx-pencil"></i>
+                  <p>Sign Card</p>
+                </div>
+              ) : (
+                <div style={{ cursor: "not-allowed", opacity: "0.5" }}>
+                  <i className="bx bx-pencil"></i>
+                  <p>Sign Card</p>
+                </div>
+              )}
 
-            {signedCardDetails && signedCardDetails.addVideoCheck === true &&
-              <>
-                {paperPage > 1 ?
-                  <div>
-                    <i className="bx bxs-videos"></i>
-                    <p>Add Video</p>
-                  </div>
-                :
-                <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
-                    <i className="bx bxs-videos"></i>
-                    <p>Add Video</p>
-                  </div>
-                }
-                </>
-             }
+              {signedCardDetails &&
+                signedCardDetails.addVideoCheck === true && (
+                  <>
+                    {paperPage > 1 ? (
+                      <div>
+                        <i className="bx bxs-videos"></i>
+                        <p>Add Video</p>
+                      </div>
+                    ) : (
+                      <div style={{ cursor: "not-allowed", opacity: "0.5" }}>
+                        <i className="bx bxs-videos"></i>
+                        <p>Add Video</p>
+                      </div>
+                    )}
+                  </>
+                )}
 
-            {paperPage > 1 ?
-              <div>
-                <i className="bx bxs-image"></i>
-                <p>Add Photo</p>
-              </div>
-             :
-             <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
-                <i className="bx bxs-image"></i>
-                <p>Add Photo</p>
-              </div>
-             }
+              {paperPage > 1 ? (
+                <div>
+                  <i className="bx bxs-image"></i>
+                  <p>Add Photo</p>
+                </div>
+              ) : (
+                <div style={{ cursor: "not-allowed", opacity: "0.5" }}>
+                  <i className="bx bxs-image"></i>
+                  <p>Add Photo</p>
+                </div>
+              )}
 
-            {signedCardDetails && signedCardDetails.addAudioCheck === true &&
-              <>
-                {paperPage > 1 ?
-                  <div>
-                    <i className="bx bxs-microphone"></i>
-                    <p>Add Audio</p>
-                  </div>
-                :
-                <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
-                    <i className="bx bxs-microphone"></i>
-                    <p>Add Audio</p>
-                  </div>
-                }
-              </>
-             }
+              {signedCardDetails &&
+                signedCardDetails.addAudioCheck === true && (
+                  <>
+                    {paperPage > 1 ? (
+                      <div>
+                        <i className="bx bxs-microphone"></i>
+                        <p>Add Audio</p>
+                      </div>
+                    ) : (
+                      <div style={{ cursor: "not-allowed", opacity: "0.5" }}>
+                        <i className="bx bxs-microphone"></i>
+                        <p>Add Audio</p>
+                      </div>
+                    )}
+                  </>
+                )}
 
-            {paperPage > 1 ?
-              <div>
-                <i className="bx bx-smile"></i>
-                <p>Add GIF/Sticker</p>
-              </div>
-             :
-              <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
-                <i className="bx bx-smile"></i>
-                <p>Add GIF/Sticker</p>
-              </div>
-             }
+              {paperPage > 1 ? (
+                <div>
+                  <i className="bx bx-smile"></i>
+                  <p>Add GIF/Sticker</p>
+                </div>
+              ) : (
+                <div style={{ cursor: "not-allowed", opacity: "0.5" }}>
+                  <i className="bx bx-smile"></i>
+                  <p>Add GIF/Sticker</p>
+                </div>
+              )}
 
-            {paperPage > 1 ?
-              <div>
-                <i className="bx bx-text"></i>
-                <p>Add Text</p>
-              </div>
-             :
-              <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
-                <i className="bx bx-text"></i>
-                <p>Add Text</p>
-              </div>
-             }
+              {paperPage > 1 ? (
+                <div>
+                  <i className="bx bx-text"></i>
+                  <p>Add Text</p>
+                </div>
+              ) : (
+                <div style={{ cursor: "not-allowed", opacity: "0.5" }}>
+                  <i className="bx bx-text"></i>
+                  <p>Add Text</p>
+                </div>
+              )}
             </>
           ) : (
             <>
-            {loader ?
-              <div className="modal_save_changes">
-                <i class='bx bx-loader'></i>
-              </div>
-             :
-              <div className="modal_save_changes" onClick={handleSignCard}>
-                <i className="bx bxs-file-blank"></i>
-                <p>Save Changes</p>
-              </div>
-              }
+              {loader ? (
+                <div className="modal_save_changes">
+                  <i className="bx bx-loader"></i>
+                </div>
+              ) : (
+                <div className="modal_save_changes" onClick={handleSignCard}>
+                  <i className="bx bxs-file-blank"></i>
+                  <p>Save Changes</p>
+                </div>
+              )}
               <div
                 className="modal_cancel_changes"
                 onClick={close_card_view_modal}
@@ -544,7 +546,10 @@ const SingleCardView = ({ baseUrl }) => {
 
       <div className="single_card_view_footer">
         <div className="single_card_copy_box">
-          <p ref={user_code} style={{ fontSize:"12px" }}>{`https://heartfeltgreetingcard.netlify.app/single-card-view/${cardId}`}</p>
+          <p
+            ref={user_code}
+            style={{ fontSize: "12px" }}
+          >{`https://heartfeltgreetingcard.netlify.app/single-card-view/${cardId}`}</p>
           <button onClick={handleCopyUserCode} ref={user_code_copy_btn}>
             Copy
           </button>
@@ -598,13 +603,11 @@ const SingleCardView = ({ baseUrl }) => {
 
 export default SingleCardView;
 
-
 export const GiftCardSettingsModal = ({
   isGiftCardSettingsOpen,
   setIsGiftCardSettingsOpen,
   setIsHowGiftCardWorksOpen,
 }) => {
-
   return (
     <div className="gift-card-settings-modal-bg flex-center">
       <div className="gift-card-settings-modal">
@@ -618,7 +621,7 @@ export const GiftCardSettingsModal = ({
         </div>
         <div className="body">
           <h4>eGird Card</h4>
-          <img src={localStorage.getItem('uploaded-card')} alt="" />
+          <img src={localStorage.getItem("uploaded-card")} alt="" />
           <div className="amount">
             <h4>Select Amount</h4>
             <div className="gift_card_settings_modal_prices g-1">
