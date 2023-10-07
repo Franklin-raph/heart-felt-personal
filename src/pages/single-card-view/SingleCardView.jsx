@@ -208,7 +208,7 @@ const SingleCardView = ({ baseUrl }) => {
     setSignedCardDetails(data.details)
     console.log(data)
   }
-  // console.log(signedCardDetails)
+  console.log(signedCardDetails)
 
 
 
@@ -413,16 +413,20 @@ const SingleCardView = ({ baseUrl }) => {
               </div>
             }
 
-            {paperPage > 1 ?
-              <div>
-                <i className="bx bxs-videos"></i>
-                <p>Add Video</p>
-              </div>
-             :
-             <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
-                <i className="bx bxs-videos"></i>
-                <p>Add Video</p>
-              </div>
+            {signedCardDetails && signedCardDetails.addVideoCheck === true &&
+              <>
+                {paperPage > 1 ?
+                  <div>
+                    <i className="bx bxs-videos"></i>
+                    <p>Add Video</p>
+                  </div>
+                :
+                <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
+                    <i className="bx bxs-videos"></i>
+                    <p>Add Video</p>
+                  </div>
+                }
+                </>
              }
 
             {paperPage > 1 ?
@@ -437,16 +441,20 @@ const SingleCardView = ({ baseUrl }) => {
               </div>
              }
 
-            {paperPage > 1 ?
-              <div>
-                <i className="bx bxs-microphone"></i>
-                <p>Add Audio</p>
-              </div>
-             :
-             <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
-                <i className="bx bxs-microphone"></i>
-                <p>Add Audio</p>
-              </div>
+            {signedCardDetails && signedCardDetails.addAudioCheck === true &&
+              <>
+                {paperPage > 1 ?
+                  <div>
+                    <i className="bx bxs-microphone"></i>
+                    <p>Add Audio</p>
+                  </div>
+                :
+                <div style={{ cursor:"not-allowed", opacity:"0.5" }}>
+                    <i className="bx bxs-microphone"></i>
+                    <p>Add Audio</p>
+                  </div>
+                }
+              </>
              }
 
             {paperPage > 1 ?
