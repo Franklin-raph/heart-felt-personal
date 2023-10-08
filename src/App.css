@@ -2871,7 +2871,8 @@ nav input {
 }
 
 .view_modal_input_controls {
-  position: relative;
+  position: absolute;
+  top: 10px;
   background: var(--header-texts);
   color: var(--generic-white);
   border-radius: 8px;
@@ -4896,30 +4897,32 @@ nav input {
   font-size: 1.5rem;
 }
 
-.signCardModalBg{
+.signCardModalBg {
   background-color: rgba(0, 0, 0, 0.613);
   position: fixed;
   z-index: 111;
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.signCardModalBg textarea{
+.signCardModalBg textarea {
   width: 90%;
   margin: auto;
   height: 70%;
   padding: 20px 0 0 20px;
 }
 
-.card_flip_paper_3{
+.card_flip_paper_3 {
   background-color: #fff;
   padding: 20px;
   border: 1px solid #9d9d9dad;
+  overflow: hidden;
 }
 
-.card_flip_books_page_nums{
+.card_flip_books_page_nums {
   cursor: pointer;
 }

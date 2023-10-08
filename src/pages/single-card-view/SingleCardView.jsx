@@ -342,7 +342,7 @@ const SingleCardView = ({ baseUrl }) => {
             )}
           </div>
           <div className="card_flip_paper card_flip_paper_2 " ref={paper_2}>
-            <div className="card_flip_input_controls_holder">
+            {/* <div className="card_flip_input_controls_holder">
               <ViewModalInputControls
                 colorToolTip={colorToolTip}
                 typefaceToolTip={typefaceToolTip}
@@ -365,11 +365,34 @@ const SingleCardView = ({ baseUrl }) => {
                 handleShowTextAlignModal={handleShowTextAlignModal}
                 setSenderNameToolTip={setSenderNameToolTip}
               />
-            </div>
+            </div> */}
 
+            {/*  */}
             {/*  */}
             {showTextEditModalBtn && (
               <div className="signCardModalBg">
+                <ViewModalInputControls
+                  colorToolTip={colorToolTip}
+                  typefaceToolTip={typefaceToolTip}
+                  textSizeToolTip={textSizeToolTip}
+                  textStyleToolTip={textStyleToolTip}
+                  textAlignToolTip={textAlignToolTip}
+                  senderNameToolTip={senderNameToolTip}
+                  showColorPalette={showColorPalette}
+                  textEditFonts={textEditFonts}
+                  showEditSizeModal={showEditSizeModal}
+                  showTextAlignModal={showTextAlignModal}
+                  setColorToolTip={setColorToolTip}
+                  handleShowColorPalette={handleShowColorPalette}
+                  setTypefaceToolTip={setTypefaceToolTip}
+                  handleShowTextEditFonts={handleShowTextEditFonts}
+                  setTextSizeToolTip={setTextSizeToolTip}
+                  handleShowTextSizeModal={handleShowTextSizeModal}
+                  setTextStyleToolTip={setTextStyleToolTip}
+                  setTextAlignToolTip={setTextAlignToolTip}
+                  handleShowTextAlignModal={handleShowTextAlignModal}
+                  setSenderNameToolTip={setSenderNameToolTip}
+                />
                 <textarea
                   rows="8"
                   placeholder="Sign card here..."
@@ -387,8 +410,10 @@ const SingleCardView = ({ baseUrl }) => {
                       position: "relative",
                       top: textPos.y,
                       left: textPos.x,
+                      touchAction: "none",
                       fontSize: "12px",
                       fontWeight: "300",
+                      userSelect: "none",
                     }}
                     key={index}
                   >
