@@ -381,19 +381,21 @@ const SingleCardView = ({ baseUrl }) => {
             <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
               {signedCardSignatures &&
                 signedCardSignatures.map((signature, index) => (
-                  <h2
-                    {...bindTextPos()}
-                    style={{
-                      position: "relative",
-                      top: textPos.y,
-                      left: textPos.x,
-                      fontSize: "12px",
-                      fontWeight: "300",
-                    }}
-                    key={index}
-                  >
-                    <p>{signature.comment}</p>
-                  </h2>
+                  // <h2
+                    
+                  // >
+                    <p
+{...bindTextPos()}
+style={{
+  position: "relative",
+  top: textPos.y,
+  left: textPos.x,
+  fontSize: "12px",
+  fontWeight: "300",
+}}
+key={index}
+                    >{signature.comment}</p>
+                  // </h2>
                 ))}
             </div>
             {/*  */}
