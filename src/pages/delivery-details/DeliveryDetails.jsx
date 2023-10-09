@@ -24,8 +24,8 @@ const DeliveryDetails = ({ baseUrl }) => {
   const [deliveryDate, setDeliveryDate] = useState("");
   const [deliveryTime, setDeliveryTime] = useState("");
   const [deliveryTimeZone, setDeliveryTimeZone] = useState("");
-  const [sendToEmail, setSendToEmail] = useState(false)
-  const [nextYearReminder, setNextYearReminder] = useState(false)
+  const [sendToEmail, setSendToEmail] = useState(false);
+  const [nextYearReminder, setNextYearReminder] = useState(false);
   const [deliveryVoucherName, setDeliveryVoucherName] = useState(""); //only when checked
   const [deliveryVoucherCode, setDeliveryVoucherCode] = useState(""); //only when checked
   const [deliveryVoucherAmount, setDeliveryVoucherAmount] = useState(""); //only when checked
@@ -38,8 +38,8 @@ const DeliveryDetails = ({ baseUrl }) => {
   const [addGiftCardCheck, setAddGiftCardCheck] = useState(false);
   const [addVideoCheck, setAddVideoCheck] = useState(false);
   const [addAudioCheck, setAddAudioCheck] = useState(false);
-  const [paymentSuccessfullModal, setPaymentSuccessfullModal] = useState(false)
-  const [cardId, setCardId] = useState("")
+  const [paymentSuccessfullModal, setPaymentSuccessfullModal] = useState(false);
+  const [cardId, setCardId] = useState("");
 
   const timeZones = [
     { name: "UTC-12:00", offset: "-12:00" },
@@ -96,23 +96,24 @@ const DeliveryDetails = ({ baseUrl }) => {
   async function submitCardDeliveryDetails(e) {
     e.preventDefault();
 
-    console.log(JSON.stringify({
-      recipientEmail: recipientEmail,
-      recipientFullName: recipientFullName,
-      // addConfetti: "false",
-      addAudioCheck:addAudioCheck,
-      addVideoCheck:addVideoCheck,
-      sendToEmail: sendToEmail,
-      cardCoverUrl: uploadedCard,
-      date: deliveryDate,
-      time: deliveryTime,
-      timeZone: deliveryTimeZone,
-      addGiftCard: addGiftCardCheck,
-      setNextYearReminder: nextYearReminder,
-      couponCode: "1234",
-    }))
+    console.log(
+      JSON.stringify({
+        recipientEmail: recipientEmail,
+        recipientFullName: recipientFullName,
+        // addConfetti: "false",
+        addAudioCheck: addAudioCheck,
+        addVideoCheck: addVideoCheck,
+        sendToEmail: sendToEmail,
+        cardCoverUrl: uploadedCard,
+        date: deliveryDate,
+        time: deliveryTime,
+        timeZone: deliveryTimeZone,
+        addGiftCard: addGiftCardCheck,
+        setNextYearReminder: nextYearReminder,
+        couponCode: "1234",
+      })
+    );
 
-    
     if (
       !recipientFullName ||
       !recipientEmail ||
@@ -135,8 +136,8 @@ const DeliveryDetails = ({ baseUrl }) => {
           recipientEmail: recipientEmail,
           recipientFullName: recipientFullName,
           addConfetti: "false",
-          addAudioCheck:addAudioCheck,
-          addVideoCheck:addVideoCheck,
+          addAudioCheck: addAudioCheck,
+          addVideoCheck: addVideoCheck,
           sendToEmail: sendToEmail,
           cardCoverUrl: uploadedCard,
           date: deliveryDate,
@@ -152,14 +153,14 @@ const DeliveryDetails = ({ baseUrl }) => {
       if (response) setLoader(false);
       if (response.ok) {
         getPayStackToken(data.cardID);
-        setCardId(data.cardID)
+        setCardId(data.cardID);
         // payWithPayStack()
         // window.location.href = `${data.data.paymentLink}`
       }
     }
   }
 
-  console.log(cardId)
+  console.log(cardId);
 
   // close error modal 1
   const close_error_modal_1 = () => {
@@ -200,7 +201,7 @@ const DeliveryDetails = ({ baseUrl }) => {
     if (response) setConfirmPaymentLoader(false);
     if (response.ok) {
       // navigate("/payment-successful");
-      setPaymentSuccessfullModal(true)
+      setPaymentSuccessfullModal(true);
     }
     if (!response.ok) console.log("An error occured");
   }
@@ -331,9 +332,9 @@ const DeliveryDetails = ({ baseUrl }) => {
                       <p
                         key={i}
                         onClick={() => {
-                          setListOfTimeZones(!listOfTimeZones)
-                          setDeliveryTimeZone(timeZone.name)}
-                        }
+                          setListOfTimeZones(!listOfTimeZones);
+                          setDeliveryTimeZone(timeZone.name);
+                        }}
                       >
                         {timeZone.name}
                       </p>
@@ -403,10 +404,11 @@ const DeliveryDetails = ({ baseUrl }) => {
                 checked={addVideoCheck}
                 onChange={() => setAddVideoCheck(!addVideoCheck)}
               />
-              <label htmlFor="add_video">Add video</label>
+              <label htmlFor="add_video">Add video and Audio</label>
             </div>
             {/*  */}
-            <div>
+            {/*  */}
+            {/* <div>
               <input
                 type="checkbox"
                 id="add_audio"
@@ -414,7 +416,8 @@ const DeliveryDetails = ({ baseUrl }) => {
                 onChange={() => setAddAudioCheck(!addAudioCheck)}
               />
               <label htmlFor="add_audio">Add Audio</label>
-            </div>
+            </div> */}
+            {/*  */}
             {/*  */}
             {/* <div>
               <input type="checkbox" id="add_confetti" />
@@ -422,14 +425,22 @@ const DeliveryDetails = ({ baseUrl }) => {
             </div> */}
             {/*  */}
             <div>
-              <input type="checkbox" id="send_mails_check" onChange={() => setSendToEmail(!sendToEmail) } />
+              <input
+                type="checkbox"
+                id="send_mails_check"
+                onChange={() => setSendToEmail(!sendToEmail)}
+              />
               <label htmlFor="send_mails_check">
                 Send list of signed signatures to my email
               </label>
             </div>
             {/*  */}
             <div>
-              <input type="checkbox" id="set_reminder_check" onChange={() => setNextYearReminder(!nextYearReminder)} />
+              <input
+                type="checkbox"
+                id="set_reminder_check"
+                onChange={() => setNextYearReminder(!nextYearReminder)}
+              />
               <label htmlFor="set_reminder_check">
                 Set a reminder for next year
               </label>
@@ -478,16 +489,16 @@ const DeliveryDetails = ({ baseUrl }) => {
           </div>
           {addVideoCheck && (
             <div>
-              <p>Video ...</p>
+              <p>Video and Audio</p>
               <h6>₦3,500</h6>
             </div>
           )}
-          {addAudioCheck && (
+          {/* {addAudioCheck && (
             <div>
               <p>Audio ...</p>
               <h6>₦3,500</h6>
             </div>
-          )}
+          )} */}
           <div>
             <p>VAT (7.5%)</p>
             <h6>₦375</h6>
@@ -516,9 +527,7 @@ const DeliveryDetails = ({ baseUrl }) => {
         error_modal_1={error_modal_1}
         close_modal_1={close_error_modal_1}
       />
-      {paymentSuccessfullModal && 
-        <PaymentSuuccessfullModal cardId={cardId}/>
-      }
+      {paymentSuccessfullModal && <PaymentSuuccessfullModal cardId={cardId} />}
     </section>
   );
 };
