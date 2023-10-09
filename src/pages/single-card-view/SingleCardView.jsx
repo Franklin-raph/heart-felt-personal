@@ -394,6 +394,13 @@ const SingleCardView = ({ baseUrl }) => {
                   rows="8"
                   placeholder="Sign card here..."
                   onChange={(e) => setComment(e.target.value)}
+                  style={{
+                    color: commentStyles.color,
+                    fontFamily: commentStyles.font,
+                    fontSize: commentStyles.size,
+                    fontStyle: commentStyles.style,
+                    textAlign: commentStyles.align,
+                  }}
                 ></textarea>
               </div>
             )}
