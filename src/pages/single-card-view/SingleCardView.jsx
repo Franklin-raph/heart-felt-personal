@@ -337,10 +337,10 @@ const SingleCardView = ({ baseUrl }) => {
             <p>Card Settings</p>
           </div>
 
-          <div>
+          {/* <div>
             <i className="bx bxl-telegram"></i>
             <p>Contribute to Gift Card</p>
-          </div>
+          </div> */}
 
           <div>
             <i className="bx bx-credit-card"></i>
