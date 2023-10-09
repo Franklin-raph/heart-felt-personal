@@ -105,6 +105,9 @@ export const ViewModalInputControls = ({
   setTextAlignToolTip,
   handleShowTextAlignModal,
   setSenderNameToolTip,
+  commentStyles,
+  setCommentStyles,
+  changeCommentStyle,
 }) => {
   return (
     <div className="view_modal_input_controls">
@@ -145,6 +148,7 @@ export const ViewModalInputControls = ({
         className="card_view_control font_style_control"
         onMouseOver={() => setTextStyleToolTip(true)}
         onMouseOut={() => setTextStyleToolTip(false)}
+        onClick={changeCommentStyle}
       >
         <div>
           <p>I</p>
@@ -174,10 +178,30 @@ export const ViewModalInputControls = ({
       {textStyleToolTip && <EditTextStyleToolTip />}
       {textAlignToolTip && <EditTextAlignToolTip />}
       {senderNameToolTip && <SenderNameToolTip />}
-      {showColorPalette && <TextEditColorModal />}
-      {textEditFonts && <TextEditFamilyModal />}
-      {showEditSizeModal && <TextEditSizeModal />}
-      {showTextAlignModal && <TextEditAlignModal />}
+      {showColorPalette && (
+        <TextEditColorModal
+          commentStyles={commentStyles}
+          setCommentStyles={setCommentStyles}
+        />
+      )}
+      {textEditFonts && (
+        <TextEditFamilyModal
+          commentStyles={commentStyles}
+          setCommentStyles={setCommentStyles}
+        />
+      )}
+      {showEditSizeModal && (
+        <TextEditSizeModal
+          commentStyles={commentStyles}
+          setCommentStyles={setCommentStyles}
+        />
+      )}
+      {showTextAlignModal && (
+        <TextEditAlignModal
+          commentStyles={commentStyles}
+          setCommentStyles={setCommentStyles}
+        />
+      )}
     </div>
   );
 };
@@ -192,7 +216,7 @@ export const ViewModalInputControls = ({
 export const EditTextColorToolTip = () => {
   return (
     <div className="colour_tip tool_tip_card">
-      <p>Black</p>
+      <p>Color</p>
       <div className="tool_tip_card_arrow"></div>
     </div>
   );

@@ -20,6 +20,26 @@ import { useDrag } from "@use-gesture/react";
 const SingleCardView = ({ baseUrl }) => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
   const [isHowGiftCardWorksOpen, setIsHowGiftCardWorksOpen] = useState(false);
+  const [isItalic, setIsItalic] = useState(false);
+
+  //
+  const [commentStyles, setCommentStyles] = useState({
+    color: "#212529",
+    font: "Poppins",
+    size: "12px",
+    style: "normal",
+    align: "left",
+  });
+  //
+  const changeCommentStyle = () => {
+    if (commentStyles.style === "normal") {
+      setCommentStyles({ ...commentStyles, style: "italic" });
+    } else if (commentStyles.style === "italic") {
+      setCommentStyles({ ...commentStyles, style: "normal" });
+    } else {
+      return;
+    }
+  };
 
   // =======================
   // =======================
@@ -342,32 +362,6 @@ const SingleCardView = ({ baseUrl }) => {
             )}
           </div>
           <div className="card_flip_paper card_flip_paper_2 " ref={paper_2}>
-            {/* <div className="card_flip_input_controls_holder">
-              <ViewModalInputControls
-                colorToolTip={colorToolTip}
-                typefaceToolTip={typefaceToolTip}
-                textSizeToolTip={textSizeToolTip}
-                textStyleToolTip={textStyleToolTip}
-                textAlignToolTip={textAlignToolTip}
-                senderNameToolTip={senderNameToolTip}
-                showColorPalette={showColorPalette}
-                textEditFonts={textEditFonts}
-                showEditSizeModal={showEditSizeModal}
-                showTextAlignModal={showTextAlignModal}
-                setColorToolTip={setColorToolTip}
-                handleShowColorPalette={handleShowColorPalette}
-                setTypefaceToolTip={setTypefaceToolTip}
-                handleShowTextEditFonts={handleShowTextEditFonts}
-                setTextSizeToolTip={setTextSizeToolTip}
-                handleShowTextSizeModal={handleShowTextSizeModal}
-                setTextStyleToolTip={setTextStyleToolTip}
-                setTextAlignToolTip={setTextAlignToolTip}
-                handleShowTextAlignModal={handleShowTextAlignModal}
-                setSenderNameToolTip={setSenderNameToolTip}
-              />
-            </div> */}
-
-            {/*  */}
             {/*  */}
             {showTextEditModalBtn && (
               <div className="signCardModalBg">
@@ -392,6 +386,9 @@ const SingleCardView = ({ baseUrl }) => {
                   setTextAlignToolTip={setTextAlignToolTip}
                   handleShowTextAlignModal={handleShowTextAlignModal}
                   setSenderNameToolTip={setSenderNameToolTip}
+                  commentStyles={commentStyles}
+                  setCommentStyles={setCommentStyles}
+                  changeCommentStyle={changeCommentStyle}
                 />
                 <textarea
                   rows="8"
@@ -417,7 +414,17 @@ const SingleCardView = ({ baseUrl }) => {
                     }}
                     key={index}
                   >
-                    <p>{signature.comment}</p>
+                    <p
+                      style={{
+                        color: commentStyles.color,
+                        fontFamily: commentStyles.font,
+                        fontSize: commentStyles.size,
+                        fontStyle: commentStyles.style,
+                        textAlign: commentStyles.align,
+                      }}
+                    >
+                      {signature.comment}
+                    </p>
                   </h2>
                 ))}
             </div>

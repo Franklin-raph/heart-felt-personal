@@ -2504,7 +2504,7 @@ nav input {
 
 .how-gift-card-works-modal {
   position: fixed;
-  z-index: 2;
+  z-index: 67;
   background-color: var(--generic-white);
   top: 20%;
   left: 50.5%;
@@ -2945,17 +2945,22 @@ nav input {
   height: 24px;
   width: 24px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .font_family_edit_modal {
   position: absolute;
-  top: -120px;
+  top: -170px;
   left: 45px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   background: var(--header-texts);
   padding: 10px 18px;
+}
+
+.font_family_edit_modal div {
+  cursor: pointer;
 }
 
 .text_edit_size_modal {

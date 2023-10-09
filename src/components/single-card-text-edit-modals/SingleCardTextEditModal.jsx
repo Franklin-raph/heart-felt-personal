@@ -2,26 +2,32 @@ import React, { useState } from "react";
 
 //Text Color Modal
 
-export default function TextEditColorModal() {
+export default function TextEditColorModal({
+  commentStyles,
+  setCommentStyles,
+}) {
   // input color states
-  const [inputColorOne, setInputColorOne] = useState("#000000");
-  const [inputColorTwo, setInputColorTwo] = useState("#868e96");
-  const [inputColorThree, setInputColorThree] = useState("#e8590c");
-  const [inputColorFour, setInputColorFour] = useState("#fab005");
-  const [inputColorFive, setInputColorFive] = useState("#099268");
-  const [inputColorSix, setInputColorSix] = useState("#3b5bdb");
-  const [inputColorSeven, setInputColorSeven] = useState("#7950f2");
-  const [inputColorEight, setInputColorEight] = useState("#868e96");
-  const [inputColorNine, setInputColorNine] = useState("#fff5f5");
-  const [inputColorTen, setInputColorTen] = useState("#495057");
-  const [inputColorEleven, setInputColorEleven] = useState("#fff5f5");
-  const [inputColorTwelve, setInputColorTwelve] = useState("#ffa8a8");
-  const [inputColorThirteen, setInputColorThirteen] = useState("#ffe066");
-  const [inputColorFourteen, setInputColorFourteen] = useState("#ffec99");
-  const [inputColorFifteen, setInputColorFifteen] = useState("#b2f2bb");
-  const [inputColorSixteen, setInputColorSixteen] = useState("#748ffc");
-  const [inputColorSeventeen, setInputColorSeventeen] = useState("#b197fc");
-  const [inputColorEighteen, setInputColorEighteen] = useState("#868e96");
+  const [inputColorOne, setInputColorOne] = useState("#212529");
+  //
+  const colors = [
+    "#868e96",
+    "#e8590c",
+    "#fab005",
+    "#099268",
+    "#3b5bdb",
+    "#7950f2",
+    "#868e96",
+    "#fff5f5",
+    "#495057",
+    "#fff5f5",
+    "#ffa8a8",
+    "#ffe066",
+    "#ffec99",
+    "#b2f2bb",
+    "#748ffc",
+    "#b197fc",
+    "#868e96",
+  ];
 
   //
   return (
@@ -35,214 +41,119 @@ export default function TextEditColorModal() {
         type="color"
         id="black_one"
         defaultValue={inputColorOne}
-        onChange={(e) => setInputColorOne(e.target.value)}
+        onChange={(e) =>
+          setCommentStyles({ ...commentStyles, color: e.target.value })
+        }
       />
       {/*  */}
-      <label
-        htmlFor="grey_one"
-        className="grey_one"
-        style={{ background: inputColorTwo }}
-      ></label>
-      <input type="color" id="grey_one" defaultValue={inputColorTwo} />
-      {/*  */}
-      <label
-        htmlFor="orange_one"
-        className="orange_one"
-        style={{ background: inputColorThree }}
-      ></label>
-      <input type="color" id="orange_one" defaultValue={inputColorThree} />
-      {/*  */}
-      <label
-        htmlFor="yellow_one"
-        className="yellow_one"
-        style={{ background: inputColorFour }}
-      ></label>
-      <input type="color" id="yellow_one" defaultValue={inputColorFour} />
-      {/*  */}
-      <label
-        htmlFor="green_one"
-        className="green_one"
-        style={{ background: inputColorFive }}
-      ></label>
-      <input type="color" id="green_one" defaultValue={inputColorFive} />
-      {/*  */}
-      <label
-        htmlFor="blue_one"
-        className="blue_one"
-        style={{ background: inputColorSix }}
-      ></label>
-      <input type="color" id="blue_one" defaultValue={inputColorSix} />
-      {/*  */}
-      <label
-        htmlFor="violet_one"
-        className="violet_one"
-        style={{ background: inputColorSeven }}
-      ></label>
-      <input type="color" id="violet_one" defaultValue={inputColorSeven} />
-      {/*  */}
-      <label
-        htmlFor="grey_one"
-        className="grey_one"
-        style={{ background: inputColorEight }}
-      ></label>
-      <input type="color" id="grey_one" defaultValue={inputColorEight} />
-      {/*  */}
-      <label
-        htmlFor="light_one"
-        className="light_one"
-        style={{ background: inputColorNine }}
-      ></label>
-      <input type="color" id="light_one" defaultValue={inputColorNine} />
-      {/*  */}
-      <label
-        htmlFor="grey_one_two"
-        className="grey_one_two"
-        style={{ background: inputColorTen }}
-      ></label>
-      <input type="color" id="grey_one_two" defaultValue={inputColorTen} />
-      {/*  */}
-      <label
-        htmlFor="light_one_two"
-        className="light_one_two"
-        style={{ background: inputColorEleven }}
-      ></label>
-      <input type="color" id="light_one_two" defaultValue={inputColorEleven} />
-      {/*  */}
-      <label
-        htmlFor="red_one"
-        className="red_one"
-        style={{ background: inputColorTwelve }}
-      ></label>
-      <input type="color" id="red_one" defaultValue={inputColorTwelve} />
-      {/*  */}
-      <label
-        htmlFor="orange_one_two"
-        className="orange_one_two"
-        style={{ background: inputColorThirteen }}
-      ></label>
-      <input
-        type="color"
-        id="orange_one_two"
-        defaultValue={inputColorThirteen}
-      />
-      {/*  */}
-      <label
-        htmlFor="orange_one_three"
-        className="orange_one_three"
-        style={{ background: inputColorFourteen }}
-      ></label>
-      <input
-        type="color"
-        id="orange_one_three"
-        defaultValue={inputColorFourteen}
-      />
-      {/*  */}
-      <label
-        htmlFor="green_one_two"
-        className="green_one_two"
-        style={{ background: inputColorFifteen }}
-      ></label>
-      <input type="color" id="green_one_two" defaultValue={inputColorFifteen} />
-      {/*  */}
-      <label
-        htmlFor="blue_one_two"
-        className="blue_one_two"
-        style={{ background: inputColorSixteen }}
-      ></label>
-      <input type="color" id="blue_one_two" defaultValue={inputColorSixteen} />
-      {/*  */}
-      <label
-        htmlFor="purple_one"
-        className="purple_one"
-        style={{ background: inputColorSeventeen }}
-      ></label>
-      <input type="color" id="purple_one" defaultValue={inputColorSeventeen} />
-      {/*  */}
-      <label
-        htmlFor="grey_one_three"
-        className="grey_one_three"
-        style={{ background: inputColorEighteen }}
-      ></label>
-      <input
-        type="color"
-        id="grey_one_three"
-        defaultValue={inputColorEighteen}
-      />
+      {colors.map((color, i) => (
+        <label
+          key={i}
+          style={{ background: color }}
+          onClick={() => setCommentStyles({ ...commentStyles, color: color })}
+        ></label>
+      ))}
     </div>
   );
 }
 
 // Font Family Modal
 
-export const TextEditFamilyModal = () => {
-  const [textEditFont, setTextEditFont] = useState("");
-
+export const TextEditFamilyModal = ({ commentStyles, setCommentStyles }) => {
+  const textFonts = [
+    "Poppins",
+    "Inter",
+    "Nunito Sans",
+    "Cedarville Cursive",
+    "Recursive",
+  ];
   //
   return (
     <div className="font_family_edit_modal">
-      <div
-        className="text_family_fonts"
-        onClick={(e) => setTextEditFont("Arial")}
-      >
-        Arial
-      </div>
-      <div
-        className="text_family_fonts"
-        onClick={(e) => setTextEditFont("Inter")}
-      >
-        Inter
-      </div>
-      <div
-        className="text_family_fonts"
-        onClick={(e) => setTextEditFont("Atholas")}
-      >
-        Atholas
-      </div>
+      {textFonts.map((fonts, i) => (
+        <div
+          key={i}
+          className="text_family_fonts"
+          onClick={() => setCommentStyles({ ...commentStyles, font: fonts })}
+        >
+          {fonts}
+        </div>
+      ))}
     </div>
   );
 };
 
 // Text Sizes Modal
 
-export const TextEditSizeModal = () => {
+export const TextEditSizeModal = ({ commentStyles, setCommentStyles }) => {
   return (
     <div className="text_edit_size_modal">
-      <div className="text_size_holder">
+      <div
+        className="text_size_holder"
+        onClick={() => setCommentStyles({ ...commentStyles, size: "12px" })}
+      >
         <p>Small</p>
       </div>
-      <div className="text_size_holder">
+      <div
+        className="text_size_holder"
+        onClick={() => setCommentStyles({ ...commentStyles, size: "16px" })}
+      >
         <p>Medium</p>
       </div>
-      <div className="text_size_holder">
+      <div
+        className="text_size_holder"
+        onClick={() => setCommentStyles({ ...commentStyles, size: "18px" })}
+      >
         <p>Large</p>
       </div>
-      <div className="text_size_holder">
+      <div
+        className="text_size_holder"
+        onClick={() => setCommentStyles({ ...commentStyles, size: "20px" })}
+      >
         <p>Extra large</p>
       </div>
-      <div className="text_size_holder">
+      <div
+        className="text_size_holder"
+        onClick={() => setCommentStyles({ ...commentStyles, size: "24px" })}
+      >
         <p>Huge</p>
       </div>
-      <input type="text" placeholder="custom font size" />
+      <input
+        type="number"
+        placeholder="custom font size"
+        onChange={(e) =>
+          setCommentStyles({ ...commentStyles, size: `${e.target.value}px` })
+        }
+      />
     </div>
   );
 };
 
 // Text Align Modal
 
-export const TextEditAlignModal = () => {
+export const TextEditAlignModal = ({ commentStyles, setCommentStyles }) => {
   return (
     <div className="text_align_modal">
-      <div className="text_align_bars bar_one">
+      <div
+        className="text_align_bars bar_one"
+        onClick={() => setCommentStyles({ ...commentStyles, align: "left" })}
+      >
         <div></div>
         <div></div>
         <div></div>
       </div>
-      <div className="text_align_bars bar_two">
+      <div
+        className="text_align_bars bar_two"
+        onClick={() => setCommentStyles({ ...commentStyles, align: "center" })}
+      >
         <div></div>
         <div></div>
         <div></div>
       </div>
-      <div className="text_align_bars bar_three">
+      <div
+        className="text_align_bars bar_three"
+        onClick={() => setCommentStyles({ ...commentStyles, align: "right" })}
+      >
         <div></div>
         <div></div>
         <div></div>
