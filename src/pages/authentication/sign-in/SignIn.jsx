@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ErrorAlert from "../../../components/alert/ErrorAlert";
+import { GoogleLogin } from '@react-oauth/google';
 
 const SignIn = ({ baseUrl }) => {
   const [email, setEmail] = useState("");
@@ -55,6 +56,16 @@ const SignIn = ({ baseUrl }) => {
     }
   }
 
+  function googleResponseMessage(response){
+    let jwt = `${response.credential}`
+    var tokens = jwt.split(".");
+    const userDetails = JSON.parse(atob(tokens[1]))
+    if(userDetails){
+      console.log(userDetails)
+        // handleLoginFromGoogleResponse(userDetails)
+    }
+  }
+
   //
   return (
     <div>
@@ -68,16 +79,22 @@ const SignIn = ({ baseUrl }) => {
         />
       )}
       <form className="sign-in-form flex-center" onSubmit={handleSubmit}>
-        <div className="header">
+        <div className="header" style={{ marginBottom:"10px" }}>
           <h1>Welcome Back</h1>
           <p>
             Don't have an account? <Link to="/sign-up">Start for free</Link>{" "}
           </p>
         </div>
-        <div className="continue-with-google flex-center">
+        <GoogleLogin
+                onSuccess={googleResponseMessage}
+                onError={() => {
+                    console.log('Login Failed');
+                }}
+                />
+        {/* <div className="continue-with-google flex-center">
           <i className="ri-google-fill"></i>
           <p>Continue with Google</p>
-        </div>
+        </div> */}
         <div className="center-line flex-center">
           <div className="line1 flex-center g-1">
             <p className="or_line"></p>

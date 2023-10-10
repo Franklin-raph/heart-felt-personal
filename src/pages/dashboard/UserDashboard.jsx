@@ -67,11 +67,13 @@ const UserDashboard = ({baseUrl}) => {
           {/*  */}
           <div className="dashboard_item_row_header">
             <h4>Preview</h4>
-            <h4>Created</h4>
-            <h4>Created By</h4>
-            <h4>Recipients</h4>
-            <h4>Entries</h4>
             <h4>Status</h4>
+            <h4>Created</h4>
+            <h4>Recipient</h4>
+            <h4>Entries</h4>
+            <h4>Delivery</h4>
+            <h4>Settings</h4>
+            <h4>More</h4>
           </div>
 
           {allMyCardTemplates && allMyCardTemplates.length === 0 && <p style={{ fontSize:"1.4rem", textAlign:"center", marginTop:"5rem" }}>You have no saved cards yet</p>}

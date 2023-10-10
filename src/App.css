@@ -451,7 +451,7 @@ nav input {
 }
 
 .occasion-tab ul li {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--body-texts);
   cursor: pointer;
 }
@@ -1563,9 +1563,12 @@ nav input {
 
 .dashboard_item_row_header {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 20px;
   margin-top: 20px;
+  background-color: #e8e8e8;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 10px;
 }
 
 .dashboard_item_row_header h4 {
@@ -1577,7 +1580,7 @@ nav input {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   padding: 8px 0;
   border-top: 1.3px solid var(--stroke-white);
   border-bottom: 1.3px solid var(--stroke-white);
@@ -1596,7 +1599,7 @@ nav input {
 
 .user_dashboard_card_item {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 30px;
   align-items: center;
   transition: 0.35s ease-in-out;
@@ -2744,7 +2747,7 @@ nav input {
 .allOcassionsDropDown li {
   cursor: pointer;
   color: var(--body-texts);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .saved-card .body {

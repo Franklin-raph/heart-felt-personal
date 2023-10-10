@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UploadCardNav from "../../components/upload-card-nav/UploadCardNav";
 import { useNavigate } from "react-router-dom";
 import amazonImage from "../../assets/images/delivery-details-img.png";
 
-const SavedCards = () => {
+const SavedCards = ({baseUrl}) => {
   const navigate = useNavigate();
   const [isEditCardOpen, setIsEditCardOpen] = useState(false);
+  const [allMyCardTemplates, setAllMyCardTemplates] = useState([])
+  const user = JSON.parse(localStorage.getItem("user"));
+  useEffect(() => {
+    getMySavedCards()
+  },[])
 
   const gift_card = [
     {
@@ -42,6 +47,22 @@ const SavedCards = () => {
     },
   ];
 
+  async function getMySavedCards(){
+    const response = await fetch(`${baseUrl}/fetch-user-templates`,{
+      headers: {
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+    const data = await response.json()
+    if(response.ok){
+      setAllMyCardTemplates(data.data)
+    }
+    if(!response.ok){
+      // alert("Something went wrong")
+    }
+    console.log(response, data)
+  }
+
   return (
     <div className="saved-card">
       <UploadCardNav />
@@ -72,11 +93,13 @@ const SavedCards = () => {
           </div>
         </div>
         <div className="body">
-          {gift_card.map((card, i) => (
+          {allMyCardTemplates.map((card, i) => (
             <div key={i} onClick={() => navigate("/card-delivery-details")}>
-              <div className="gift_card_segment_card_img image"></div>
-              <h4>{card.card_title}</h4>
-              <p>{card.card_text}</p>
+              {/* <div className="gift_card_segment_card_img image">
+              </div> */}
+                <img src={card.coverUrl} alt="" style={{ width:"120px" }}/>
+              {/* <h4>{card.coverUrl}</h4> */}
+              {/* <p>{card.card_text}</p> */}
             </div>
           ))}
         </div>

@@ -297,9 +297,9 @@ const SingleCardView = ({ baseUrl }) => {
       {success && <SuccessAlert success={success} setSuccess={setSuccess} />}
       {error && <ErrorAlert error={error} setError={setError} />}
       <div className="single_card_page_header">
-        <h2 className="single_card_header_h3">Group Greeting Card</h2>
+        <h2 className="single_card_header_h3">A card for {signedCardDetails && signedCardDetails.recipientFullName}</h2>
         <div className="single_card_countdown_row">
-          <p>12 Dec. 2023</p>
+          <p>{signedCardDetails && signedCardDetails.date}  {signedCardDetails && signedCardDetails.time}</p>
           {/* <div className="single_card_countdown_col">
             <h4>DAYS</h4>
             <div>
@@ -547,7 +547,7 @@ const SingleCardView = ({ baseUrl }) => {
                 </div>
               )}
 
-              {paperPage > 1 ? (
+              {/* {paperPage > 1 ? (
                 <div>
                   <i className="bx bx-text"></i>
                   <p>Add Text</p>
@@ -557,7 +557,7 @@ const SingleCardView = ({ baseUrl }) => {
                   <i className="bx bx-text"></i>
                   <p>Add Text</p>
                 </div>
-              )}
+              )} */}
             </>
           ) : (
             <>
