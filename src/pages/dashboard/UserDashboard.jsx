@@ -83,16 +83,17 @@ const UserDashboard = ({baseUrl}) => {
               <div className="user_dashboard_item_row">
                 <div className="user_dashboard_card_item">
                   <img src={cardTemplate.cardCoverUrl} alt="" className="dashboard_item_img" />
-                  <p className="card_preview_create_date">10 April 2023</p>
-                  <p className="card_preview_created_by">Chisom</p>
-                  <p className="card_preview_recipient">Chisom</p>
-                  <p className="card_preview_Entries">2</p>
-                  <p className="card_preview_status unpaid">Unpaid</p>
-                  <div className="update_card_preview_icons">
-                    <i className="ri-eye-line"></i>
+                  <p className="card_preview_create_date">{cardTemplate.status}</p>
+                  <p className="card_preview_created_by">{cardTemplate.created}</p>
+                  <p className="card_preview_recipient">{cardTemplate.recipientFullName}</p>
+                  <p className="card_preview_Entries">{cardTemplate.entries}</p>
+                  <p className="card_preview_status">{cardTemplate.delivery}</p>
+                  <p className="card_preview_status" onClick={navigate(`/`)} ><i class="ri-settings-3-line"></i></p>
+                  <p className="card_preview_status"><i class="ri-delete-bin-fill"  style={{ fontSize:"18px", color:"red", padding:"5px" }}></i></p>
+                  {/* <div className="update_card_preview_icons">
                     <i className="bx bx-link"></i>
                     <i className="bx bx-dots-horizontal-rounded"></i>
-                  </div>
+                  </div> */}
                 </div>
               </div>
           ))
