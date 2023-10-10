@@ -16,12 +16,16 @@ import ErrorAlert from "../../components/alert/ErrorAlert";
 //
 import { useDrag } from "@use-gesture/react";
 import Draggable from "react-draggable";
+import { AudioRecorder } from "react-audio-voice-recorder";
 //
 
 const SingleCardView = ({ baseUrl }) => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
   const [isHowGiftCardWorksOpen, setIsHowGiftCardWorksOpen] = useState(false);
   const [isItalic, setIsItalic] = useState(false);
+
+  //
+  const [addAudio, setAddAudio] = useState(false);
 
   //
   const [commentStyles, setCommentStyles] = useState({
@@ -292,43 +296,13 @@ const SingleCardView = ({ baseUrl }) => {
     });
   });
   // ========
-
-  // const [isDragging, setIsDragging] = useState(false);
-  // const [offset, setOffset] = useState({ x: 0, y: 0 });
-  // const [text, setText] = useState('Your Text Here');
-
-  // const handleMouseDown = (e) => {
-  //   e.preventDefault();
-  //   const initialX = e.clientX - offset.x;
-  //   const initialY = e.clientY - offset.y;
-  //   setIsDragging(true);
-  //   setOffset({ x: initialX, y: initialY });
-  //   document.addEventListener('mousemove', handleMouseMove);
-  //   document.addEventListener('mouseup', handleMouseUp);
-  // };
-
-  // const handleMouseMove = (e) => {
-  //   console.log(isDragging)
-  //   if (isDragging) {
-  //     const offsetX = e.clientX - offset.x;
-  //     const offsetY = e.clientY - offset.y;
-  //     setOffset({ x: offsetX, y: offsetY });
-  //   }
-  // };
-
-  // const handleMouseUp = () => {
-  //   setIsDragging(false);
-  //   document.removeEventListener('mousemove', handleMouseMove);
-  //   document.removeEventListener('mouseup', handleMouseUp);
-  // };
-
-  // const style = {
-  //   position: 'absolute',
-  //   left: `${offset.x}px`,
-  //   top: `${offset.y}px`,
-  //   cursor: isDragging ? 'grabbing' : 'grab',
-  //   cursor: 'pointer'
-  // };
+  const addAudioElement = (blob) => {
+    const url = URL.createObjectURL(blob);
+    const audio = document.createElement("audio");
+    audio.src = url;
+    audio.controls = true;
+    document.body.appendChild(audio);
+  };
 
   return (
     <article className="single_card_view_section">
@@ -405,6 +379,17 @@ const SingleCardView = ({ baseUrl }) => {
             )}
           </div>
           <div className="card_flip_paper card_flip_paper_2 " ref={paper_2}>
+            {addAudio && (
+              <AudioRecorder
+                onRecordingComplete={addAudioElement}
+                audioTrackConstraints={{
+                  noiseSuppression: true,
+                  echoCancellation: true,
+                }}
+                downloadOnSavePress={true}
+                downloadFileExtension="webm"
+              />
+            )}
             {/*  */}
             {/* {showTextEditModalBtn && (
               <div className="signCardModalBg">
@@ -450,10 +435,10 @@ const SingleCardView = ({ baseUrl }) => {
             {showTextEditModalBtn && (
               <Draggable>
                 <div
+                  className="react_draggable_cont"
                   style={{
                     cursor: "move",
                     border: "2px dashed #299e9e",
-                    width: "370px",
                     padding: "25px 0",
                     display: "flex",
                     alignItems: "center",
@@ -636,7 +621,7 @@ const SingleCardView = ({ baseUrl }) => {
                 signedCardDetails.addAudioCheck === true && (
                   <>
                     {paperPage > 1 ? (
-                      <div>
+                      <div onClick={() => setAddAudio(!addAudio)}>
                         <i className="bx bxs-microphone"></i>
                         <p>Add Audio</p>
                       </div>
@@ -648,6 +633,22 @@ const SingleCardView = ({ baseUrl }) => {
                     )}
                   </>
                 )}
+              {/* {signedCardDetails &&
+                signedCardDetails.addAudioCheck === true && (
+                  <>
+                    {paperPage > 1 ? (
+                      <div>
+                        <i className="bx bxs-microphone"></i>
+                        <p>Add Audio</p>
+                      </div>
+                    ) : (
+                      <div style={{ cursor: "not-allowed", opacity: "0.5" }}>
+                        <i className="bx bxs-microphone"></i>
+                        <p>Add Audio</p>
+                      </div>
+                    )}
+                  </>
+                )} */}
 
               {paperPage > 1 ? (
                 <div>
