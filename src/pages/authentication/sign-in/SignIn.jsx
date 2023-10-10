@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ErrorAlert from "../../../components/alert/ErrorAlert";
-import { GoogleLogin } from '@react-oauth/google';
+// import { GoogleLogin } from '@react-oauth/google';
 
 const SignIn = ({ baseUrl }) => {
   const [email, setEmail] = useState("");
@@ -85,16 +85,16 @@ const SignIn = ({ baseUrl }) => {
             Don't have an account? <Link to="/sign-up">Start for free</Link>{" "}
           </p>
         </div>
-        <GoogleLogin
+        {/* <GoogleLogin
                 onSuccess={googleResponseMessage}
                 onError={() => {
                     console.log('Login Failed');
                 }}
-                />
-        {/* <div className="continue-with-google flex-center">
+                /> */}
+        <div className="continue-with-google flex-center">
           <i className="ri-google-fill"></i>
           <p>Continue with Google</p>
-        </div> */}
+        </div>
         <div className="center-line flex-center">
           <div className="line1 flex-center g-1">
             <p className="or_line"></p>
