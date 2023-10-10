@@ -2883,7 +2883,7 @@ nav input {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  width: 400px;
+  /* width: 400px; */
 }
 
 .tool_tip_card {
@@ -3068,7 +3068,7 @@ nav input {
   display: flex;
   align-items: center;
   gap: 3px;
-  padding: 5px 10px;
+  padding: 5px;
   border-right: solid 1.5px var(--icons-color);
   cursor: pointer;
 }

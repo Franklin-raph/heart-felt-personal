@@ -15,6 +15,7 @@ import SuccessAlert from "../../components/alert/SuccessAlert";
 import ErrorAlert from "../../components/alert/ErrorAlert";
 //
 import { useDrag } from "@use-gesture/react";
+import Draggable from "react-draggable";
 //
 
 const SingleCardView = ({ baseUrl }) => {
@@ -292,8 +293,118 @@ const SingleCardView = ({ baseUrl }) => {
   });
   // ========
 
+  // const [isDragging, setIsDragging] = useState(false);
+  // const [offset, setOffset] = useState({ x: 0, y: 0 });
+  // const [text, setText] = useState('Your Text Here');
+
+  // const handleMouseDown = (e) => {
+  //   e.preventDefault();
+  //   const initialX = e.clientX - offset.x;
+  //   const initialY = e.clientY - offset.y;
+  //   setIsDragging(true);
+  //   setOffset({ x: initialX, y: initialY });
+  //   document.addEventListener('mousemove', handleMouseMove);
+  //   document.addEventListener('mouseup', handleMouseUp);
+  // };
+
+  // const handleMouseMove = (e) => {
+  //   console.log(isDragging)
+  //   if (isDragging) {
+  //     const offsetX = e.clientX - offset.x;
+  //     const offsetY = e.clientY - offset.y;
+  //     setOffset({ x: offsetX, y: offsetY });
+  //   }
+  // };
+
+  // const handleMouseUp = () => {
+  //   setIsDragging(false);
+  //   document.removeEventListener('mousemove', handleMouseMove);
+  //   document.removeEventListener('mouseup', handleMouseUp);
+  // };
+
+  // const style = {
+  //   position: 'absolute',
+  //   left: `${offset.x}px`,
+  //   top: `${offset.y}px`,
+  //   cursor: isDragging ? 'grabbing' : 'grab',
+  //   cursor: 'pointer'
+  // };
+
+
   return (
     <article className="single_card_view_section">
+
+
+
+<Draggable>
+  
+<div 
+  style={{ 
+        cursor:"move",
+        border: "2px dashed #299e9e",
+        width:"31%",
+        padding:"25px 0",
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+        position:"relative",
+        zIndex:"9000"
+      }}>
+
+<i class="ri-delete-bin-2-fill" 
+            style={{ 
+              position:"absolute",
+              top:"-10px",
+              left:"-10px",
+              backgroundColor:"#299e9e",
+              padding:"5px",
+              color:"#fff",
+              borderRadius:"50px"
+              }}></i>
+
+<ViewModalInputControls
+                  colorToolTip={colorToolTip}
+                  typefaceToolTip={typefaceToolTip}
+                  textSizeToolTip={textSizeToolTip}
+                  textStyleToolTip={textStyleToolTip}
+                  textAlignToolTip={textAlignToolTip}
+                  senderNameToolTip={senderNameToolTip}
+                  showColorPalette={showColorPalette}
+                  textEditFonts={textEditFonts}
+                  showEditSizeModal={showEditSizeModal}
+                  showTextAlignModal={showTextAlignModal}
+                  setColorToolTip={setColorToolTip}
+                  handleShowColorPalette={handleShowColorPalette}
+                  setTypefaceToolTip={setTypefaceToolTip}
+                  handleShowTextEditFonts={handleShowTextEditFonts}
+                  setTextSizeToolTip={setTextSizeToolTip}
+                  handleShowTextSizeModal={handleShowTextSizeModal}
+                  setTextStyleToolTip={setTextStyleToolTip}
+                  setTextAlignToolTip={setTextAlignToolTip}
+                  handleShowTextAlignModal={handleShowTextAlignModal}
+                  setSenderNameToolTip={setSenderNameToolTip}
+                  commentStyles={commentStyles}
+                  setCommentStyles={setCommentStyles}
+                  changeCommentStyle={changeCommentStyle}
+                />
+
+    <textarea
+      rows="4"
+      placeholder="Sign card here..."
+      onChange={(e) => setComment(e.target.value)}
+      style={{ 
+        outline:"none",
+        border:"none",
+        marginTop:"40px",
+        resize:"none",
+        background:"transparent",
+        width:"82%"
+       }}
+      // }}
+    ></textarea>
+  </div>
+</Draggable>
+
       {success && <SuccessAlert success={success} setSuccess={setSuccess} />}
       {error && <ErrorAlert error={error} setError={setError} />}
       <div className="single_card_page_header">
@@ -403,6 +514,7 @@ const SingleCardView = ({ baseUrl }) => {
                   }}
                 ></textarea>
               </div>
+
             )}
 
             <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>

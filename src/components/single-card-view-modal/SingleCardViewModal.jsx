@@ -119,7 +119,7 @@ export const ViewModalInputControls = ({
       >
         <div>
           <p>O</p>
-          <i className="bx bx-chevron-down"></i>
+          {/* <i className="bx bx-chevron-down"></i> */}
         </div>
       </div>
       <div
@@ -130,7 +130,7 @@ export const ViewModalInputControls = ({
       >
         <div>
           <p>Aa</p>
-          <i className="bx bx-chevron-down"></i>
+          {/* <i className="bx bx-chevron-down"></i> */}
         </div>
       </div>
       <div
@@ -140,8 +140,8 @@ export const ViewModalInputControls = ({
         onClick={handleShowTextSizeModal}
       >
         <div>
-          <p>Small</p>
-          <i className="bx bx-chevron-down"></i>
+          <i className="bx bx-text"></i>
+          {/* <i className="bx bx-chevron-down"></i> */}
         </div>
       </div>
       <div
@@ -162,7 +162,7 @@ export const ViewModalInputControls = ({
       >
         <div>
           <i className="ri-bar-chart-horizontal-line"></i>
-          <i className="bx bx-chevron-down"></i>
+          {/* <i className="bx bx-chevron-down"></i> */}
         </div>
       </div>
       <div
