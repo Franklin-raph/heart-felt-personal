@@ -21,12 +21,13 @@ const UserDashboard = ({baseUrl}) => {
   };
 
   async function getMySavedCards(){
-    const response = await fetch(`${baseUrl}/fetch-user-templates`,{
+    const response = await fetch(`${baseUrl}/get-user-cards`,{
       headers: {
         Authorization: `Bearer ${user.accessToken}`,
       },
     })
     const data = await response.json()
+    console.log(data)
     if(response.ok){
       setAllMyCardTemplates(data.data)
     }
@@ -81,7 +82,7 @@ const UserDashboard = ({baseUrl}) => {
             allMyCardTemplates.map(cardTemplate => (
               <div className="user_dashboard_item_row">
                 <div className="user_dashboard_card_item">
-                  <img src={cardTemplate.coverUrl} alt="" className="dashboard_item_img" />
+                  <img src={cardTemplate.cardCoverUrl} alt="" className="dashboard_item_img" />
                   <p className="card_preview_create_date">10 April 2023</p>
                   <p className="card_preview_created_by">Chisom</p>
                   <p className="card_preview_recipient">Chisom</p>
