@@ -16,13 +16,16 @@ import ErrorAlert from "../../components/alert/ErrorAlert";
 //
 import { useDrag } from "@use-gesture/react";
 import Draggable from "react-draggable";
-import { AudioRecorder } from 'react-audio-voice-recorder';
+import { AudioRecorder } from "react-audio-voice-recorder";
 //
 
 const SingleCardView = ({ baseUrl }) => {
   const [isGiftCardSettingsOpen, setIsGiftCardSettingsOpen] = useState(false);
   const [isHowGiftCardWorksOpen, setIsHowGiftCardWorksOpen] = useState(false);
   const [isItalic, setIsItalic] = useState(false);
+
+  //
+  const [addAudio, setAddAudio] = useState(false);
 
   //
   const [commentStyles, setCommentStyles] = useState({
@@ -303,92 +306,17 @@ const SingleCardView = ({ baseUrl }) => {
 
   return (
     <article className="single_card_view_section">
-
-<AudioRecorder 
-      onRecordingComplete={addAudioElement}
-      audioTrackConstraints={{
-        noiseSuppression: true,
-        echoCancellation: true,
-      }} 
-      downloadOnSavePress={true}
-      downloadFileExtension="webm"
-    />
-
-<Draggable>
-  
-<div 
-  style={{ 
-        cursor:"move",
-        border: "2px dashed #299e9e",
-        width:"31%",
-        padding:"25px 0",
-        display:"flex",
-        alignItems:"center",
-        justifyContent:"center",
-        position:"relative",
-        zIndex:"9000"
-      }}>
-
-<i class="ri-delete-bin-2-fill" 
-            style={{ 
-              position:"absolute",
-              top:"-10px",
-              left:"-10px",
-              backgroundColor:"#299e9e",
-              padding:"5px",
-              color:"#fff",
-              borderRadius:"50px"
-              }}></i>
-
-<ViewModalInputControls
-                  colorToolTip={colorToolTip}
-                  typefaceToolTip={typefaceToolTip}
-                  textSizeToolTip={textSizeToolTip}
-                  textStyleToolTip={textStyleToolTip}
-                  textAlignToolTip={textAlignToolTip}
-                  senderNameToolTip={senderNameToolTip}
-                  showColorPalette={showColorPalette}
-                  textEditFonts={textEditFonts}
-                  showEditSizeModal={showEditSizeModal}
-                  showTextAlignModal={showTextAlignModal}
-                  setColorToolTip={setColorToolTip}
-                  handleShowColorPalette={handleShowColorPalette}
-                  setTypefaceToolTip={setTypefaceToolTip}
-                  handleShowTextEditFonts={handleShowTextEditFonts}
-                  setTextSizeToolTip={setTextSizeToolTip}
-                  handleShowTextSizeModal={handleShowTextSizeModal}
-                  setTextStyleToolTip={setTextStyleToolTip}
-                  setTextAlignToolTip={setTextAlignToolTip}
-                  handleShowTextAlignModal={handleShowTextAlignModal}
-                  setSenderNameToolTip={setSenderNameToolTip}
-                  commentStyles={commentStyles}
-                  setCommentStyles={setCommentStyles}
-                  changeCommentStyle={changeCommentStyle}
-                />
-
-    <textarea
-      rows="4"
-      placeholder="Sign card here..."
-      onChange={(e) => setComment(e.target.value)}
-      style={{ 
-        outline:"none",
-        border:"none",
-        marginTop:"40px",
-        resize:"none",
-        background:"transparent",
-        width:"82%"
-       }}
-      // }}
-    ></textarea>
-  </div>
-</Draggable>
-
       {success && <SuccessAlert success={success} setSuccess={setSuccess} />}
       {error && <ErrorAlert error={error} setError={setError} />}
       <div className="single_card_page_header">
-        <h2 className="single_card_header_h3">A card for {signedCardDetails && signedCardDetails.recipientFullName}</h2>
+        <h2 className="single_card_header_h3">
+          A card for {signedCardDetails && signedCardDetails.recipientFullName}
+        </h2>
         <div className="single_card_countdown_row">
-          <p>{signedCardDetails && signedCardDetails.date}  {signedCardDetails && signedCardDetails.time}</p>
+          <p>
+            {signedCardDetails && signedCardDetails.date}{" "}
+            {signedCardDetails && signedCardDetails.time}
+          </p>
           {/* <div className="single_card_countdown_col">
             <h4>DAYS</h4>
             <div>
@@ -451,8 +379,19 @@ const SingleCardView = ({ baseUrl }) => {
             )}
           </div>
           <div className="card_flip_paper card_flip_paper_2 " ref={paper_2}>
+            {addAudio && (
+              <AudioRecorder
+                onRecordingComplete={addAudioElement}
+                audioTrackConstraints={{
+                  noiseSuppression: true,
+                  echoCancellation: true,
+                }}
+                downloadOnSavePress={true}
+                downloadFileExtension="webm"
+              />
+            )}
             {/*  */}
-            {showTextEditModalBtn && (
+            {/* {showTextEditModalBtn && (
               <div className="signCardModalBg">
                 <ViewModalInputControls
                   colorToolTip={colorToolTip}
@@ -492,7 +431,77 @@ const SingleCardView = ({ baseUrl }) => {
                   }}
                 ></textarea>
               </div>
+            )} */}
+            {showTextEditModalBtn && (
+              <Draggable>
+                <div
+                  className="react_draggable_cont"
+                  style={{
+                    cursor: "move",
+                    border: "2px dashed #299e9e",
+                    padding: "25px 0",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    position: "relative",
+                    zIndex: "9000",
+                  }}
+                >
+                  <i
+                    className="ri-delete-bin-2-fill"
+                    style={{
+                      position: "absolute",
+                      top: "-10px",
+                      left: "-10px",
+                      backgroundColor: "#299e9e",
+                      padding: "5px",
+                      color: "#fff",
+                      borderRadius: "50px",
+                    }}
+                  ></i>
 
+                  <ViewModalInputControls
+                    colorToolTip={colorToolTip}
+                    typefaceToolTip={typefaceToolTip}
+                    textSizeToolTip={textSizeToolTip}
+                    textStyleToolTip={textStyleToolTip}
+                    textAlignToolTip={textAlignToolTip}
+                    senderNameToolTip={senderNameToolTip}
+                    showColorPalette={showColorPalette}
+                    textEditFonts={textEditFonts}
+                    showEditSizeModal={showEditSizeModal}
+                    showTextAlignModal={showTextAlignModal}
+                    setColorToolTip={setColorToolTip}
+                    handleShowColorPalette={handleShowColorPalette}
+                    setTypefaceToolTip={setTypefaceToolTip}
+                    handleShowTextEditFonts={handleShowTextEditFonts}
+                    setTextSizeToolTip={setTextSizeToolTip}
+                    handleShowTextSizeModal={handleShowTextSizeModal}
+                    setTextStyleToolTip={setTextStyleToolTip}
+                    setTextAlignToolTip={setTextAlignToolTip}
+                    handleShowTextAlignModal={handleShowTextAlignModal}
+                    setSenderNameToolTip={setSenderNameToolTip}
+                    commentStyles={commentStyles}
+                    setCommentStyles={setCommentStyles}
+                    changeCommentStyle={changeCommentStyle}
+                  />
+
+                  <textarea
+                    rows="4"
+                    placeholder="Sign card here..."
+                    onChange={(e) => setComment(e.target.value)}
+                    style={{
+                      outline: "none",
+                      border: "none",
+                      marginTop: "40px",
+                      resize: "none",
+                      background: "transparent",
+                      width: "82%",
+                    }}
+                    // }}
+                  ></textarea>
+                </div>
+              </Draggable>
             )}
 
             <div className="card_flip_paper card_flip_paper_3" ref={paper_3}>
@@ -612,7 +621,7 @@ const SingleCardView = ({ baseUrl }) => {
                 signedCardDetails.addAudioCheck === true && (
                   <>
                     {paperPage > 1 ? (
-                      <div>
+                      <div onClick={() => setAddAudio(!addAudio)}>
                         <i className="bx bxs-microphone"></i>
                         <p>Add Audio</p>
                       </div>
