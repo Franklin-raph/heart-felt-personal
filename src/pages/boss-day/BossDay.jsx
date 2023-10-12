@@ -69,7 +69,15 @@ const BossDay = ({ baseUrl }) => {
               </div>
             </div>
             {gift_card.length < 1 ? (
-              <p>No cards here</p>
+              <div
+                style={{
+                  gridColumn: "2/-1",
+                  fontSize: "18px",
+                  alignSelf: "center",
+                }}
+              >
+                No cards uploaded here yet
+              </div>
             ) : (
               gift_card.map((card, i) => (
                 <div className="gift_card_segment_card" key={i}>
