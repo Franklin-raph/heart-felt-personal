@@ -93,7 +93,10 @@ function App() {
           path="/forgotPassword"
           element={<ForgotPassword baseUrl={baseUrl} />}
         />
-        <Route path="/password-reset/:token" element={<PasswordReset baseUrl={baseUrl}/>} />
+        <Route
+          path="/password-reset/:token"
+          element={<PasswordReset baseUrl={baseUrl} />}
+        />
         <Route
           path="/verify/:token"
           element={<AccountVerification baseUrl={baseUrl} />}
@@ -143,13 +146,19 @@ function App() {
         />
         <Route path="/upload-card-cover-festival" element={<Festival />} />
         <Route path="/upload-card-cover-love" element={<Love />} />
-        <Route path="/upload-card-cover-goodwill" element={<Goodwill />} />
+        <Route
+          path="/upload-card-cover-goodwill"
+          element={<Goodwill baseUrl={baseUrl} />}
+        />
         <Route
           path="/upload-card-cover-relationship"
           element={<Relationship />}
         />
         <Route path="/upload-card-cover-sympathy" element={<Sympathy />} />
-        <Route path="/upload-card-cover-annivasary" element={<Annivasary />} />
+        <Route
+          path="/upload-card-cover-annivasary"
+          element={<Annivasary baseUrl={baseUrl} />}
+        />
         <Route path="/upload-card-cover-farewell" element={<Farewell />} />
         <Route path="/upload-card-cover-thank-you" element={<ThankYou />} />
         <Route path="/upload-card-cover-congrats" element={<Congrats />} />
