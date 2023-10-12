@@ -9,13 +9,13 @@ const ThankYou = ({ baseUrl }) => {
   const [openPreviewCardModal, setOpenPreviewCardModal] = useState(false);
   const [gift_card, setGift_card] = useState([]);
   const [imgSrc, setImgSrc] = useState("");
+
   //
   const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     if (!user) {
       navigate("/sign-in");
     }
-
     fetchCards();
   }, []);
   //
@@ -66,32 +66,20 @@ const ThankYou = ({ baseUrl }) => {
                 <h4>Upload card cover</h4>
                 <p>max 30mb</p>
               </div>
-              <div className="gift_card_segment_card_context">
-                <h5> Happy Birthday </h5>
-                <p>Birthday</p>
-              </div>
             </div>
             {gift_card.map((card, i) => (
               <div className="gift_card_segment_card" key={i}>
-                <div className="gift_card_segment_card_img">
-                  <div className="card_overlay">
-                    <button onClick={() => showCard(card.coverUrl)}>
-                      Preview
-                    </button>
-                    <button onClick={() => navigate("/card-delivery-details")}>
-                      Use Card
-                    </button>
-                  </div>
-                  <img src={card.coverUrl} alt="" width="100%" />
+                <div className="card_overlay">
+                  <button onClick={() => showCard(card.coverUrl)}>
+                    Preview
+                  </button>
+                  <button
+                    onClick={() => navigateToCardDeliveryDetails(card.coverUrl)}
+                  >
+                    Use Card
+                  </button>
                 </div>
-                <div className="gift_card_segment_card_context">
-                  <h5> {card.card_title} </h5>
-                  <p>
-                    <span>{card.card_price}</span>
-                    <span>-</span>
-                    <span>{card.card_maxPrice}</span>
-                  </p>
-                </div>
+                <img src={card.coverUrl} alt="" />
               </div>
             ))}
           </div>
